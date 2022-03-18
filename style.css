@@ -73,6 +73,7 @@ body{
 label{
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 input{
@@ -176,4 +177,18 @@ span{
 
 .more-jobs button:hover{
     opacity: 0.8;
+}
+
+/* Modal */
+
+.modal-header img{
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.226);
+    margin-right: 10px;
+}
+
+.modal-header h5{
+    font-weight: bold;
 }
