@@ -97,3 +97,83 @@ button{
 .checkbox input{
     margin-right: 5px;
 }
+
+/* Main (box) */ 
+.box-jobs{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.box-header{
+    max-width: 60px;
+    padding: 20px;
+}
+.box-header img{
+    max-width: 45px;
+    border-radius: 15px;
+}
+
+.box-body{
+    background-color: rgb(255, 255, 255);
+    min-width: 300px;
+    padding: 30px 20px 30px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.301);
+    margin-top: -40px;
+}
+
+.post{
+    display: flex;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgb(143, 141, 138);
+}
+
+span{
+    margin: 0px 20px 10px 20px;
+}
+
+.title-job{
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.language{
+    margin-bottom: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(143, 141, 138);
+}
+
+.box-footer{
+    font-weight: bold;
+    color: #5964e0;;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.box-footer:hover{
+    opacity: 0.8;
+}
+
+.more-jobs{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.more-jobs button{
+    margin: 20px;
+}
+
+.more-jobs button:hover{
+    opacity: 0.8;
+}
