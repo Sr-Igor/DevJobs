@@ -15,20 +15,37 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="top-header">
-                <h1>DevJobs</h1>
-                <div class="box-clean-dark">
-                    <div class="clean-mode"><i class="bi bi-brightness-high"></i></div>
-                    <div class="light-switch">
-                        <div class="pointer"></div>
+        <div class="header">
+            <div class="container">
+                <div class="top-header">
+                    <h1>DevJobs</h1>
+                    <div class="box-clean-dark">
+                        <div class="clean-mode"><i class="bi bi-brightness-high"></i></div>
+                        <div class="light-switch">
+                            <div class="pointer"></div>
+                        </div>
+                        <div class="dark-mode"><i class="bi bi-moon"></i></div>
                     </div>
-                    <div class="dark-mode"><i class="bi bi-moon"></i></div>
                 </div>
             </div>
-            <div class="down-header"></div>
         </div>
-
+        <div class=" container down-header">
+                    <form action="#" class="form-search">
+                        <label>
+                            <i class="bi bi-search"></i>
+                            <input type="text" name="find"  placeholder="Find your better job">
+                        </label>
+                        <label>
+                            <i class="bi bi-geo-alt"></i>
+                            <input type="text" name="location"  placeholder="Location">
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="full-time">
+                            Full time only
+                        </label>
+                        <button>Search</button>
+                    </form>
+        </div>
     </header>
 
 

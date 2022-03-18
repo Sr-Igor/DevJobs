@@ -4,24 +4,26 @@
 
 body{
     font-family: 'Fredoka', sans-serif;
+    background-color: #f5f6f8;
     margin: 0;
 }
 
-header{
+.header{
     color: white;
     background-color: #5964e0;
     width: 100%;
     height: 120px;
-    border-bottom-left-radius: 120px;
+    border-bottom-left-radius: 30px;
 }
 .container{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 .top-header{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 20px;
 }
 
@@ -35,21 +37,63 @@ header{
     align-items: center;
     justify-content: flex-start;
     width: 40px;
-    height: 20px;
+    height: 18px;
     border-radius: 10px;
-    background-color: rgb(153, 143, 143);
+    background-color: white;
     margin: 0px 10px 0 10px;
     padding: 2px;
 }
 
 .pointer{
-    width: 15px;
-    height: 15px;
-    background-color: white;
+    width: 14px;
+    height: 14px;
+    background-color: #5964e0;
     border-radius: 50%;
 }
 
 .light-switch.dark{
     justify-content: flex-end;
-    background-color: rgb(37, 216, 37);
+}
+
+.down-header{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    margin-top: -30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
+    border-radius: 5px;
+}
+
+.form-search{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+label{
+    display: flex;
+    align-items: center;
+}
+
+input{
+    outline: none;
+    border: none;
+    margin-left: 5px;
+}
+
+button{
+    background-color: #5964e0;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.checkbox{
+    font-weight: 600;
+}
+
+.checkbox input{
+    margin-right: 5px;
 }
