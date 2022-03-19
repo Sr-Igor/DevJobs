@@ -154,7 +154,7 @@
 
     <section class="Apply-Modal">
         <div class="modal" tabindex="-1" id="ApplyModal">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
                     <img src="src/images/bancoInter.png" alt="logo-job">
@@ -162,9 +162,98 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form action="#">
-                      <input type="text" name="name" placeholder="Frist Name">
-                      <input type="text" name="name" placeholder="Last Name">
+                  <form action="#" class="form-apply">
+                      <div class="row">
+                        <div class="fs-4 title-subsection">Profile Info</div>
+                          <div class="col-6">
+                            <input type="text" name="firstName" placeholder="Frist Name">
+                          </div>
+                          <div class="col-6">
+                            <input type="text" name="lastName" placeholder="Last Name">
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-6">
+                            <input type="email" name="email" placeholder="Email">
+                          </div>
+                          <div class="col-6">
+                            <input type="email" name="confirmEmail" placeholder="Confirm your email">
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-6">
+                            <input type="number" placeholder="Phone">
+                          </div>
+                         
+                      </div>
+
+                        <div class="row">
+                          <div class="fs-4  title-subsection">Adress</div>
+                            <div class="col-6">
+                                <label for="#">
+                                    CEP
+                                    <input type="Number" name="Cep" placeholder="00000-000">
+                                    
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <label for="#">
+                                    Rua
+                                    <input type="text" name="Street">
+                                    
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="#">
+                                    Bairro
+                                    <input type="text" name="Bairro">
+                                </label>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="#">
+                                    Cidade
+                                    <input type="text" name="City">
+                                </label>
+                            </div>
+                        </div>
+                            
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="#">
+                                    UF
+                                    <input type="text" name="Uf">
+                                </label>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="#">
+                                    Número
+                                    <input type="Number" name="number">
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="#">
+                                    Complemento
+                                    <input type="text" name="Complemento" class="complement">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="fs-4  title-subsection">Send your CV</div>                             
+                            <input type="file">
+                        </div>
+                     
                   </form>
                 </div>
                 <div class="modal-footer">

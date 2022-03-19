@@ -179,7 +179,7 @@ span{
     opacity: 0.8;
 }
 
-/* Modal */
+/* Modal JOBS*/
 
 .modal-header img{
     max-width: 50px;
@@ -192,3 +192,32 @@ span{
 .modal-header h5{
     font-weight: bold;
 }
+
+
+/* Modal-Form-Apply */
+.form-apply{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.form-apply input{
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin: 0 5px 5px 5px;
+    
+}
+
+.form-apply label{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.title-subsection{
+    margin: 10px 0px 10px 0px;
+}
+
