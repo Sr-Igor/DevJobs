@@ -7,7 +7,7 @@ body{
     background-color: #f5f6f8;
     margin: 0;
 }
-
+/* Header */
 .header{
     color: white;
     background-color: #5964e0;
@@ -98,6 +98,81 @@ button{
 .checkbox input{
     margin-right: 5px;
 }
+
+
+/* Login Button */ 
+
+.cssbuttons-io-button {
+    background: #5964e0;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 0.9em;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #00000033;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+   }
+   
+   .cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em v;
+    right: 0.3em;
+    transition: all 0.3s;
+   }
+   
+   .cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+   }
+   
+   .cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #5964e0;
+   }
+   
+   .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+   }
+   
+   .cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+   }
+
+/* Logout box */ 
+
+.circle{
+    font: 12px;
+    font-weight: 600;
+    color: black;
+    padding: 0px 10px 0px 5px ;
+    display: flex;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.circle div{
+    cursor: pointer;
+    margin: 10px;
+}
+
 
 /* Main (box) */ 
 .box-jobs{
@@ -207,7 +282,6 @@ span{
     border-radius: 5px;
     padding: 3px 10px;
     margin: 0 5px 5px 5px;
-    
 }
 
 .form-apply label{
@@ -221,3 +295,37 @@ span{
     margin: 10px 0px 10px 0px;
 }
 
+/* Login Modal */ 
+
+.Login-Modal .title-subsection{
+    text-align: center;
+}
+
+.Login-Modal .row .col-12{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Register Modal */ 
+
+.Register-Modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.Register-Modal input{
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin: 0 5px 5px 5px;
+}
+
+.Register-Modal label{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+    font-weight: 600;
+}
