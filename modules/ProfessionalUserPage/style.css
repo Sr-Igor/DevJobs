@@ -1,0 +1,149 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Fredoka', sans-serif;
+    background-color: #f5f6f8;
+    margin: 0;
+}
+/* Header */
+
+
+.header{
+    color: white;
+    background-color: #5964e0;
+    width: 100%;
+    height: 120px;
+    border-bottom-left-radius: 30px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.top-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.box-clean-dark{
+    align-items: center;
+    display: flex;
+}
+
+.light-switch{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40px;
+    height: 18px;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0px 10px 0 10px;
+    padding: 2px;
+}
+
+.pointer{
+    width: 14px;
+    height: 14px;
+    background-color: #5964e0;
+    border-radius: 50%;
+}
+
+.light-switch.dark{
+    justify-content: flex-end;
+}
+
+/* Logout Box */ 
+
+.circle{
+    font-size: 17px;
+    font-weight: 00;
+    color: white;
+    padding: 0px 10px 0px 5px ;
+    display: flex;
+    border-radius: 50px;
+}
+
+.circle div{
+    cursor: pointer;
+    margin: 10px;
+}
+
+.circle div:hover{
+    opacity: 0.5;
+}
+
+/* Info Comapany */ 
+main{
+    padding-top: 50px;
+}
+
+.box-info-company{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.box-info-company img{
+    border-radius: 500px;
+    max-width: 100%;
+}
+
+.company-title{
+    font-size: 40px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.603);
+}
+
+
+/* Create a vacancy */ 
+.title-create-job{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.box-vacancy{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    outline: none;
+    resize: none;
+    width: 100%;
+    max-height: 70px;
+}
+
+label{
+    font-weight: 700;
+}
+
+/* Edit Profile */ 
+
+.box-edit-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.box-edit-profile .row input{
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin: 0 5px 5px 5px;
+}
+
+.box-edit-profile .row label{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+    font-weight: 600;
+}

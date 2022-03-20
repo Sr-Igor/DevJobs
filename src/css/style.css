@@ -8,6 +8,11 @@ body{
     margin: 0;
 }
 /* Header */
+header{
+    position: fixed;
+    width: 100%;
+}
+
 .header{
     color: white;
     background-color: #5964e0;
@@ -24,6 +29,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
 }
 
@@ -62,6 +68,7 @@ body{
     margin-top: -30px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
     border-radius: 5px;
+    transition: all 0.5s 0s ease;
 }
 
 .form-search{
@@ -101,6 +108,9 @@ button{
 
 
 /* Login Button */ 
+.user{
+    transition: all 0.3s 0s ease;
+}
 
 .cssbuttons-io-button {
     background: #5964e0;
@@ -159,12 +169,11 @@ button{
 /* Logout box */ 
 
 .circle{
-    font: 12px;
-    font-weight: 600;
-    color: black;
+    font-size: 17px;
+    font-weight: 00;
+    color: white;
     padding: 0px 10px 0px 5px ;
     display: flex;
-    background-color: white;
     border-radius: 50px;
 }
 
@@ -173,8 +182,16 @@ button{
     margin: 10px;
 }
 
+.circle div:hover{
+    opacity: 0.5;
+}
+
 
 /* Main (box) */ 
+main{
+    padding-top: 150px;
+}
+
 .box-jobs{
     margin-top: 50px;
     display: flex;
@@ -306,6 +323,11 @@ span{
     justify-content: center;
 }
 
+.professional-login{
+    margin-top: 20px;
+    font-weight: 700;
+}
+
 
 /* Register Modal */ 
 
@@ -328,4 +350,26 @@ span{
     justify-content: flex-end;
     font-size: 13px;
     font-weight: 600;
+}
+
+/* Button New Job */ 
+
+.button-new-job{
+    cursor: pointer;
+    font-size: 50px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding-bottom: 8px;
+    position: fixed;
+    color: white;
+    background-color: #5964e0;
+    border-radius: 50%;
+
 }

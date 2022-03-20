@@ -10,7 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="src/css/style.css">  
+    <link rel="stylesheet" href="src/css/transitionHeader.css">
     <title>Jobs</title>
 </head>
 <body>
@@ -19,22 +20,24 @@
             <div class="container">
                 <div class="top-header">
                     <h1>DevJobs</h1>
-                    <div class="box-login">
-                        <button class="cssbuttons-io-button"  data-bs-toggle="modal" data-bs-target="#LoginModal"> Login or Register
-                            <div class="icon">
-                              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                    <div class="user">
+                        <div class="box-login">
+                            <button class="cssbuttons-io-button"  data-bs-toggle="modal" data-bs-target="#LoginModal"> Login or Register
+                                <div class="icon">
+                                  <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                                </div>
+                              </button>
+                        </div>
+    
+                        <div class="box-logout d-none">
+                            <div class="circle">
+                                <div class="hello-profile"><i class="bi bi-person-circle"></i> Peril</div>
+                                <div class="my-applys"><i class="bi bi-window-plus"></i> Incrições</div>
+                                <div class="log-out"><i class="bi bi-box-arrow-right"></i> Exit</div>
                             </div>
-                          </button>
-                    </div>
-
-                    <div class="box-logout d-none">
-                        <div class="circle">
-                            <div class="hello-profile">Peril</div>
-                            <div class="my-applys">Minhas Incrições</div>
-                            <div class="log-out">Exit</div>
                         </div>
                     </div>
-
+                    
                     <div class="box-clean-dark">
                         <div class="clean-mode"><i class="bi bi-brightness-high"></i></div>
                         <div class="light-switch">
@@ -62,11 +65,301 @@
                 <button>Search</button>
             </form>
         </div>
+        <div class="button-new-job">+</i></div>
     </header>
 
     <main>
         <div class="container">
             <div class="box-jobs">
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
+                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div class="box-header">
+                        <img src="src/images/bancoInter.png" alt="bancoInter">
+                    </div>
+                    <div class="box-body">
+                        <div class="post">
+                            <div class="days">14 days</div>
+                            <span>*</span>
+                            <div class="time-course">Full Time</div>
+                        </div>
+                        <div class="title-job">Senior Software Engineer</div>
+                        <div class="language">English</div>
+                        <div class="box-footer">See more details</div>
+                    </div>
+                </div>
+
                 <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
                     <div class="box-header">
                         <img src="src/images/bancoInter.png" alt="bancoInter">
@@ -317,6 +610,12 @@
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RegisterModal">Register</button>
                           </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="professional-login">Se você é CNPJ <a href="modules/ProfessionalLoginPage/Professional.html">Clique Aqui</a></div>
+                        </div>
+                        
+                    </div>
               </div>
             </div>
           </div>
@@ -439,6 +738,9 @@
 
 
 
-    <script src="script.js"></script>
+    <script src="src/js/script.js"></script>
+    <script src="src/js/lightSwitvh.js"></script>
+    <script src="src/js/scrolledScreenMenu.js"></script>
+    <script src="src/js/addNewJob.js"></script>
 </body>
 </html>
