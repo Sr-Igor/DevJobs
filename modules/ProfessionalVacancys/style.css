@@ -8,10 +8,7 @@ body{
     margin: 0;
 }
 /* Header */
-header{
-    position: fixed;
-    width: 100%;
-}
+
 
 .header{
     color: white;
@@ -61,142 +58,42 @@ header{
     justify-content: flex-end;
 }
 
-.down-header{
-    width: 100%;
-    height: 60px;
-    background-color: white;
-    margin-top: -30px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
-    border-radius: 5px;
-    transition: all 0.5s 0s ease;
-}
+/* Logout Box */ 
 
-.form-search{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-label{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-input{
-    outline: none;
-    border: none;
-    margin-left: 5px;
-}
-
-button{
-    background-color: #5964e0;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 5px;
-    font-weight: 500;
-}
-
-.checkbox{
-    font-weight: 600;
-}
-
-.checkbox input{
-    margin-right: 5px;
-}
-
-
-/* Login Button */ 
-.user{
-    transition: all 0.3s 0s ease;
-}
-
-.cssbuttons-io-button {
-    background: #5964e0;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.205);
-    color: white;
-    font-family: inherit;
-    padding: 0.35em;
-    padding-left: 1.2em;
-    font-size: 17px;
-    font-weight: 700;
-    border-radius: 0.9em;
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    box-shadow: inset 0 0 1.6em -0.6em #00000033;
-    overflow: hidden;
-    position: relative;
-    height: 2.8em;
-    padding-right: 3.3em;
-   }
-   
-   .cssbuttons-io-button .icon {
-    background: white;
-    margin-left: 1em;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.2em;
-    width: 2.2em;
-    border-radius: 0.7em;
-    box-shadow: 0.1em 0.1em 0.6em 0.2em v;
-    right: 0.3em;
-    transition: all 0.3s;
-   }
-   
-   .cssbuttons-io-button:hover .icon {
-    width: calc(100% - 0.6em);
-   }
-   
-   .cssbuttons-io-button .icon svg {
-    width: 1.1em;
-    transition: transform 0.3s;
-    color: #5964e0;
-   }
-   
-   .cssbuttons-io-button:hover .icon svg {
-    transform: translateX(0.1em);
-   }
-   
-   .cssbuttons-io-button:active .icon {
-    transform: scale(0.95);
-   }
-
-/* Logout box */ 
-.box-logout{
-    display: none;
-    opacity: 0;
-    transition: all 0.8s 0s ease;
-}
 .circle{
     font-size: 17px;
     font-weight: 00;
     color: white;
     padding: 0px 10px 0px 5px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50px;
+    margin-right: 40px; 
 }
 
-.circle a{
+.circle a {
     text-decoration: none;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     margin: 10px;
 }
 
-.circle a:hover{
+.circle a:hover, .active{
     opacity: 0.5;
 }
 
 
-/* Main (box) */ 
-main{
-    padding-top: 150px;
-}
+/* main */ 
 
+.h3{
+    padding-top: 20px;
+    font-size: 40px;
+}
 .box-jobs{
     margin-top: 50px;
     display: flex;
@@ -317,58 +214,9 @@ span{
     margin: 10px 0px 10px 0px;
 }
 
-/* Login Modal */ 
-
-.Login-Modal .title-subsection{
-    text-align: center;
-}
-
-.Login-Modal .row .col-12{
-    display: flex;
-    justify-content: center;
-}
-
-.professional-login{
-    margin-top: 20px;
-    font-weight: 700;
-}
-
-.login-error{
-    color: rgba(255, 0, 0, 0.712);
-    background-color: rgba(255, 0, 0, 0.24);
-    padding: 5px;
-    border-radius: 2px;
-    opacity: 0;
-    transition: all 0.8s 0s ease;
-}
-
-
-/* Register Modal */ 
-
-.Register-Modal{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-
-.Register-Modal input{
-    border: 1px solid rgba(0, 0, 0, 0.219);
-    border-radius: 5px;
-    padding: 3px 10px;
-    margin: 0 5px 5px 5px;
-}
-
-.Register-Modal label{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-/* Button New Job */ 
-
-.inicial-page{
+ /* Button Inicial Page */ 
+ .inicial-page{
+    text-decoration: none;
     cursor: pointer;
     font-size: 50px;
     width: 60px;
@@ -380,10 +228,14 @@ span{
     right: 0;
     margin-bottom: 20px;
     margin-right: 20px;
-    padding-bottom: 8px;
     position: fixed;
     color: white;
     background-color: #5964e0;
-    border-radius: 50%;
+    border-radius: 30px;
+    transition: width 0.5s ease;
+}
 
+.inicial-page:hover{
+    color: white;
+    width: 120px;
 }

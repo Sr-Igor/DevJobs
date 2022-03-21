@@ -9,7 +9,6 @@ body{
 }
 /* Header */
 
-
 .header{
     color: white;
     background-color: #5964e0;
@@ -58,7 +57,52 @@ body{
     justify-content: flex-end;
 }
 
-/* Logout Box */ 
+.down-header{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    margin-top: -30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
+    border-radius: 5px;
+    transition: all 0.5s 0s ease;
+}
+
+.form-search{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+input{
+    outline: none;
+    border: none;
+    margin-left: 5px;
+}
+
+button{
+    background-color: #5964e0;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.checkbox{
+    font-weight: 600;
+}
+
+.checkbox input{
+    margin-right: 5px;
+}
+
+/* Logout box */ 
 
 .circle{
     font-size: 17px;
@@ -66,98 +110,63 @@ body{
     color: white;
     padding: 0px 10px 0px 5px ;
     display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 50px;
-    margin-right: 40px; 
 }
 
-.circle a {
-    text-decoration: none;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.circle a{
     cursor: pointer;
     margin: 10px;
+    text-decoration: none;
+    color: white;
 }
 
-.circle a:hover, .active{
+.circle a:hover{
     opacity: 0.5;
 }
 
-/* Info Comapany */ 
-main{
-    padding-top: 50px;
-}
+/* main / box subscriptions */ 
 
-.box-info-company{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.box-info-company img{
-    border-radius: 500px;
-    max-width: 100%;
-}
-
-.company-title{
-    font-size: 40px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.603);
-}
-
-
-/* Create a vacancy */ 
-.title-create-job{
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 40px;
-}
-
-.box-vacancy{
-    display: flex;
-    flex-direction: column;
-}
-
-textarea{
-    outline: none;
-    resize: none;
+.h1{
     width: 100%;
-    max-height: 70px;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 20px;
 }
 
-label{
-    font-weight: 700;
-}
-
-/* Edit Profile */ 
-
-.box-edit-profile{
+.box-vagancys{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.box-edit-profile .row input{
-    border: 1px solid rgba(0, 0, 0, 0.219);
+.vacancy{
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.342);
+    padding: 20px;
     border-radius: 5px;
-    padding: 3px 10px;
-    margin: 0 5px 5px 5px;
+    margin: 20px;
 }
 
-.box-edit-profile .row label{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 13px;
-    font-weight: 600;
+.status{
+    margin-bottom: 20px;
 }
+
+/* Modal JOBS*/
+
+.modal-header img{
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.226);
+    margin-right: 10px;
+}
+
+.modal-header h5{
+    font-weight: bold;
+}
+
  /* Button Inicial Page */ 
-.inicial-page{
+ .inicial-page{
     text-decoration: none;
     cursor: pointer;
     font-size: 50px;

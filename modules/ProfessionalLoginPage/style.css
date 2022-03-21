@@ -101,6 +101,19 @@ button{
     padding: 5px 15px;
 }
 
+.login-company-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.login-company-form input{
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+
 /* main */ 
 
 main{

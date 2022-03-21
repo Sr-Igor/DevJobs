@@ -22,10 +22,14 @@
                     <h1>DevJobs Companys</h1>
                     <div class="user">
                         <div class="box-login">
-                           <form action="">
-                               <input type="text" placeholder="Email address">
-                               <input type="password" placeholder="Password">
-                               <button class="login-companys">Login</button>
+                           <form action="" class="login-company-form">
+                                <div class="inputs">
+                                    <input type="text" placeholder="Email address">
+                                    <input type="password" placeholder="Password">
+                                </div>
+                                <div class="buttons">
+                                    <a  href="../ProfessionalUserPage/ProfessionalUser.html" class="btn login-companys">Login</a>
+                                </div>
                            </form>
                         </div>
                     </div>
@@ -43,9 +47,18 @@
     </header>
 
     <main>
-        <div class="fs-2">Don't have an account? Register</div>
+        <div class="fs-2 pb-5">Don't have an account? Register</div>
 
         <form>
+
+            <div class="row">
+                <div class="mb-3 col-12">
+                    <label for="exampleInputEmail1" class="form-label">Company Name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Fantasy Name</div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="mb-3 col-6">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
