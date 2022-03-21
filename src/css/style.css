@@ -290,6 +290,20 @@ span{
     font-weight: bold;
 }
 
+.text-not-loged{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.text-not-loged strong{
+    cursor: pointer;
+    color: rgb(71, 71, 243);
+}
+
+.button-loged{
+    display: none;
+}
 
 /* Modal-Form-Apply */
 .form-apply{
@@ -304,6 +318,8 @@ span{
     border-radius: 5px;
     padding: 3px 10px;
     margin: 0 5px 5px 5px;
+    width: 100%;
+
 }
 
 .form-apply label{
@@ -315,6 +331,30 @@ span{
 
 .title-subsection{
     margin: 10px 0px 10px 0px;
+}
+
+.empty{
+    background-color: rgba(255, 0, 0, 0.267);
+}
+
+.error-send-menssage{
+    text-align: center;
+    color: rgba(255, 0, 0, 0.712);
+    background-color: rgba(255, 0, 0, 0.24);
+    padding: 5px;
+    width: 100%;
+    border-radius: 2px;
+    opacity: 0;
+    transition: all 0.8s 0s ease;
+}
+
+.modal-success{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: rgb(28, 177, 28);
 }
 
 /* Login Modal */ 
@@ -341,7 +381,6 @@ span{
     opacity: 0;
     transition: all 0.8s 0s ease;
 }
-
 
 /* Register Modal */ 
 
