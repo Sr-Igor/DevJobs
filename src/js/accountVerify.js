@@ -6,6 +6,7 @@ let boxLogin = document.querySelector(".box-login")
 let boxLogout = document.querySelector(".box-logout")
 let errorMessage = document.querySelector(".login-error")
 let loginValid = false
+let userVacancyApply = ""
 
 // Variables for Apply Vacancy
 let buttonLoged = document.querySelector(".button-loged")
@@ -51,7 +52,6 @@ function verifyAccount(){
     for(let i in users){
         usersArray.push([users[i].email, users[i].password])
     }
-    console.log(users)
 
     for (let i = 0; i < usersArray.length; i++){
         if(usersArray[i][0] == userInput.value && usersArray[i][1] == passwordInput.value){
@@ -67,6 +67,7 @@ function verifyAccount(){
         for(let i=0; i<users.length; i++){
             if(users[i].email == userInput.value){
                 currentUser = users[i]
+                userVacancyApply = currentUser
                 updateHeader()
                 updateBodyFunctions()
                 updateApplyVacancy(currentUser)
@@ -145,5 +146,32 @@ function sendApplication(){
             applyModalFooter.style.display = "flex"
             modalSuccess.style.display = "none"
         },3000)
+
+        getVacancy()
     }
+}
+
+function getVacancy(){
+    let applyedVacancy = document.querySelector(".title-modal")
+    let currentVacancy = applyedVacancy.getAttribute("data-key")
+    let applyedUser = []
+
+    vacancyId.forEach(item =>{
+        applyedUser.push(item.idUser)
+    })
+    if(applyedUser.includes(userVacancyApply.id)){
+        for( let i in vacancyId){
+            if(vacancyId[i].idUser == userVacancyApply.id){
+                vacancyId[i].vacancysCode.push(currentVacancy)
+                console.log("Ja existente")
+            }else{
+                console.log("error")
+            }
+        }
+    }else{
+        vacancyId.push({
+            idUser: userVacancyApply.id,
+            vacancysCode: [currentVacancy]
+        })
+    }    
 }

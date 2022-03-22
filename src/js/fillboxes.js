@@ -1,4 +1,3 @@
-
 function fillboxes(){
     let boxContainer = document.querySelector(".box-jobs")
     let vacancy = ""
@@ -20,8 +19,11 @@ function fillboxes(){
             </div>
         </div>
         `
+        
     }
     boxContainer.innerHTML = vacancy
+    
+    
     identifyApply()
 }
 
@@ -45,7 +47,7 @@ function fillApply(item){
     let jobModalHeader = document.querySelector(".modal-job-modal .modal-header")
     jobModalHeader.innerHTML = `
         <img src="src/images/bancoInter.png" alt="logo-job">
-        <h5 class="title-modal">${currentVacancy.vacancyName}</h5>
+        <h5 class="title-modal" data-key="${currentVacancy.id}">${currentVacancy.vacancyName}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         `
 
@@ -121,3 +123,5 @@ function fillApply(item){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 }
+
+

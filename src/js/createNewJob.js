@@ -55,3 +55,5 @@ public.addEventListener('click', (e)=>{
         fillboxes()
     }
 })
+
+//Html inicial nao é alterado pois esta sendo chamado de outro arquivo, verificar forma de fazer isso
