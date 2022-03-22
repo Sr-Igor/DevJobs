@@ -1,4 +1,5 @@
-window.onload = function fillboxes(){
+
+function fillboxes(){
     let boxContainer = document.querySelector(".box-jobs")
     let vacancy = ""
     for(let i = 0; i < vacancys.length; i++){
@@ -41,41 +42,41 @@ function fillApply(item){
         }
     }
     
-    let jobModal = document.querySelector(".modal-job-modal")
-    jobModal.innerHTML = `
-    <div class="modal-header">
+    let jobModalHeader = document.querySelector(".modal-job-modal .modal-header")
+    jobModalHeader.innerHTML = `
         <img src="src/images/bancoInter.png" alt="logo-job">
         <h5 class="title-modal">${currentVacancy.vacancyName}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
+        `
+
+    let jobModalBody = document.querySelector(".modal-job-modal .modal-body")
+    jobModalBody.innerHTML =`
         <div class="row">
-            <div class="col-4">
-                <p class="title-info requirements">Requisitos:</p>
-                <ul class="list-requirements">
+        <div class="col-4">
+            <p class="title-info requirements">Requisitos:</p>
+            <ul class="list-requirements">
 
-                </ul>
-            </div>
-            <div class="col-4">
-                <p class="title-info desirable">Desejavel:</p>
-                <ul class="list-desirable">
+            </ul>
+        </div>
+        <div class="col-4">
+            <p class="title-info desirable">Desejavel:</p>
+            <ul class="list-desirable">
 
-                </ul>
+            </ul>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <p class="title-info">Tipo: <strong>${currentVacancy.type}</strong></p>
             </div>
-            <div class="col-4">
-                <div class="row">
-                    <p class="title-info">Tipo: <strong>${currentVacancy.type}</strong></p>
-                </div>
-                <div class="row">
-                    <p class="title-info">Periodo: <strong>${currentVacancy.time}</strong></p>
-                </div>
-                <div class="row">
-                    <p class="title-info">Salario:</p>
-                    <strong class="fs-4">R$ ${currentVacancy.payment}</strong>
-                </div>
+            <div class="row">
+                <p class="title-info">Periodo: <strong>${currentVacancy.time}</strong></p>
+            </div>
+            <div class="row">
+                <p class="title-info">Salario:</p>
+                <strong class="fs-4">R$ ${currentVacancy.payment}</strong>
             </div>
         </div>
-
+    
         <div class="row">
             <div class="col-6">
                 <p class="title-info benefits">Beneficios:</p>
@@ -91,16 +92,6 @@ function fillApply(item){
             </div>
         </div>
 
-        </div>
-        <div class="modal-footer">
-        <div class="row">
-            <div class="col-12 button-loged">
-                <button type="button" class="btn-open-modal btn btn-primary" data-bs-toggle="modal" disabled="true">Apply</button>
-            </div>
-            <div class="col-12 text-not-loged">
-                <span><strong  data-bs-toggle="modal" data-bs-target="#LoginModal">Login</strong> or <strong  data-bs-toggle="modal" data-bs-target="#LoginModal">Register</strong> to apply for vacancy</span>
-            </div>
-        </div>
     </div>
     `
 
@@ -109,7 +100,6 @@ function fillApply(item){
     let requirements = document.querySelector(".list-requirements")
     let desirable = document.querySelector(".list-desirable")
     let benefits = document.querySelector(".list-benefits")
-    console.log(requirements)
 
     let requirementsHTML = ""
     let desirableHTML = ""

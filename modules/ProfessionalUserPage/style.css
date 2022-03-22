@@ -134,6 +134,25 @@ label{
     font-weight: 700;
 }
 
+.empty{
+    background-color: rgba(255, 0, 0, 0.288);
+}
+
+.error-create-job{
+    display: none;
+    opacity: 0;
+    color: rgba(255, 0, 0, 0.644);
+    background-color: rgba(255, 0, 0, 0.39);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);
+    transition: all 0.5s ease;
+}
+
 /* Edit Profile */ 
 
 .box-edit-profile{

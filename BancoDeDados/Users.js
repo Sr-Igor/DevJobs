@@ -22,7 +22,7 @@ let users = [
         email:"vitordisousas@gmail.com",
         firstName:"Vitor",
         lastName: "Sousa",
-        password: "12345abc",
+        password: "2",
         phone: "37999862366",
         adress: {
             cep:"35502646",

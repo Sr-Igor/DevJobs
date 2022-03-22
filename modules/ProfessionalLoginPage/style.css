@@ -75,6 +75,7 @@ button{
 
 .user{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -90,6 +91,13 @@ button{
     font-weight: 600;
 }
 
+.error-message-login{
+    color: rgba(255, 255, 255, 0.842);
+    background-color: rgba(255, 0, 0, 0.541);
+    font-size: 12px;
+    padding: 0px 5px;
+    display: none;
+}
 /* button login */ 
 
 .login-companys{

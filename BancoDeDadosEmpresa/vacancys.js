@@ -35,6 +35,5 @@ let vacancys = [
             "Cargo Escalavel"
         ],
         additional: "Temos reuniões todas as sextas feiras as 19hrs, é desejavel que todos os intengrantes da equipe participem"
-
     }
 ]

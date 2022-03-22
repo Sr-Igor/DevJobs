@@ -70,21 +70,6 @@
     <main>
         <div class="container">
             <div class="box-jobs">
-                <div class="box" data-bs-toggle="modal" data-bs-target="#myModal">
-                    <div class="box-header">
-                        <img src="src/images/bancoInter.png" alt="bancoInter">
-                    </div>
-                    <div class="box-body">
-                        <div class="post">
-                            <div class="days">14 days</div>
-                            <span>*</span>
-                            <div class="time-course">Full Time</div>
-                        </div>
-                        <div class="title-job">Senior Software Engineer</div>
-                        <div class="language">English</div>
-                        <div class="box-footer">See more details</div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="more-jobs">
@@ -96,6 +81,18 @@
         <div class="modal fade" tabindex="-1" id="myModal">
             <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content modal-job-modal">
+                <div class="modal-header"></div> 
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-12 button-loged">
+                            <button type="button" class="btn-open-modal btn btn-primary" data-bs-toggle="modal" disabled="true">Apply</button>
+                        </div>
+                        <div class="col-12 text-not-loged">
+                            <span><strong  data-bs-toggle="modal" data-bs-target="#LoginModal">Login</strong> or <strong  data-bs-toggle="modal" data-bs-target="#LoginModal">Register</strong> to apply for vacancy</span>
+                        </div>
+                    </div>
+                </div>
               </div>
             </div>
           </div>
@@ -392,13 +389,12 @@
 
 
 
-    <script src="src/js/script.js"></script>
     <script src="src/js/lightSwitvh.js"></script>
     <script src="src/js/scrolledScreenMenu.js"></script>
-    <script src="src/js/addNewJob.js"></script>
     <script src="BancoDeDados/Users.js"></script>
-    <script src="src/js/accountVerify.js"></script>
     <script src="BancoDeDadosEmpresa/vacancys.js"></script>
+    <script src="src/js/accountVerify.js"></script>
     <script src="src/js/fillboxes.js"></script>
+    <script src="src/js/script.js"></script>
 </body>
 </html>

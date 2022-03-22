@@ -58,17 +58,17 @@
 
                 <div class="col-9 box-vacancy">
                     <span class="title-create-job">Create a new vacancy</span>
-
+                    <span class="error-create-job"><i class="bi bi-x"></i> Please. Complete all fields correctly!</span>
                     <form>
                         <div class="row">
                             <div class="mb-3 col-5">
                                 <label for="exampleInputEmail1" class="form-label">Vacancy Name</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="text" class="form-control vacancy-name" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
             
                             <div class="mb-3 col-5">
                                 <label for="exampleInputEmail1" class="form-label">Type</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="text" class="form-control type" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text">Estagiary Junior  Senior  Pleno Other</div>
                             </div>
                         </div>
@@ -76,8 +76,8 @@
                         <div class="row">
                             <div class="mb-3 col-5">
                                 <label for="exampleInputPassword1" class="form-label">Periody</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                <select class="form-select periody" aria-label="Default select example">
+                                    <option value="0" selected>Open this select menu</option>
                                     <option value="1">Full Time</option>
                                     <option value="2">1/2 Periody</option>
                                     <option value="3">Night Time</option>
@@ -86,7 +86,7 @@
             
                             <div class="mb-3 col-5">
                                 <label for="exampleInputPassword1" class="form-label">Wage</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
+                                <input type="text" class="form-control payment" id="exampleInputPassword1">
                                 <div id="emailHelp" class="form-text">Only Numbers</div>
                             </div>
                         </div>
@@ -94,13 +94,13 @@
                         <div class="row">
                             <div class="mb-3 col-5">
                                 <label for="exampleInputEmail1" class="form-label">Requirements:</label>
-                                <textarea></textarea>
+                                <textarea class="requirements-area"></textarea>
                                 <div id="emailHelp" class="form-text">separate items by comma ","</div>
                             </div>
             
                             <div class="mb-3 col-5">
                                 <label for="exampleInputEmail1" class="form-label">Benefits:</label>
-                                <textarea></textarea>
+                                <textarea class="benefits-area"></textarea>
                                 <div id="emailHelp" class="form-text">separate items by comma ","</div>
                             </div>
                         </div>
@@ -108,20 +108,20 @@
                         <div class="row">
                             <div class="mb-3 col-5">
                                 <label for="exampleInputEmail1" class="form-label">Desirable Knowledge:</label>
-                                <textarea></textarea>
+                                <textarea class="desirable-area"></textarea>
                                 <div id="emailHelp" class="form-text">separate items by comma ","</div>
                             </div>
             
                             <div class="mb-3 col-5">
                                 <label for="exampleInputEmail1" class="form-label">Additional Information:</label>
-                                <textarea></textarea>
+                                <textarea class="aditional-area"></textarea>
                                 <div id="emailHelp" class="form-text">separate items by comma ","</div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
-                                <button class="btn btn-primary">Public a vacancy</button>
+                                <button class="btn btn-primary public-vacancy">Public a vacancy</button>
                             </div>
                         </div>
                     </form>
@@ -236,6 +236,8 @@
 
     </main>
 
-
+    <script src="/src/js/createNewJob.js"></script>
+    <script src="/BancoDeDadosEmpresa/vacancys.js"></script>
+    <script src="/src/js/fillboxes.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ let passwordInput = document.getElementById("passwordInput")
 let boxLogin = document.querySelector(".box-login")
 let boxLogout = document.querySelector(".box-logout")
 let errorMessage = document.querySelector(".login-error")
+let loginValid = false
 
 // Variables for Apply Vacancy
 let buttonLoged = document.querySelector(".button-loged")
@@ -43,17 +44,26 @@ sendApplyButton.addEventListener("click", sendApplication)
 // Function
 function verifyAccount(){
     
-    let usersName = []
-    let passwords = []
+    let usersArray = []
+    
     let currentUser = ""
 
-    for(let i=0; i<users.length; i++){
-        usersName.push(Object.values(users[i].email).join(""))
-        passwords.push(Object.values(users[i].password).join(""))
+    for(let i in users){
+        usersArray.push([users[i].email, users[i].password])
+    }
+    console.log(users)
+
+    for (let i = 0; i < usersArray.length; i++){
+        if(usersArray[i][0] == userInput.value && usersArray[i][1] == passwordInput.value){
+             loginValid = true
+             break
+        }else{
+            loginValid = false
+        }
     }
 
 
-    if(usersName.includes(userInput.value) && passwords.includes(passwordInput.value)){
+    if(loginValid == true){
         for(let i=0; i<users.length; i++){
             if(users[i].email == userInput.value){
                 currentUser = users[i]
@@ -83,10 +93,11 @@ function updateHeader(){
 }
 
 function updateBodyFunctions(){
+    TextNotLoged.style.display = "none"
     buttonLoged.style.display = "flex"
     btnOpenModal.setAttribute("data-bs-target", "#ApplyModal")
     btnOpenModal.removeAttribute("disabled", "true")
-    TextNotLoged.style.display = "none"
+    
 }
 
 function updateApplyVacancy(currentUser){
