@@ -52,13 +52,13 @@ function fillApply(item){
         <div class="row">
             <div class="col-4">
                 <p class="title-info requirements">Requisitos:</p>
-                <ul>
+                <ul class="list-requirements">
 
                 </ul>
             </div>
             <div class="col-4">
                 <p class="title-info desirable">Desejavel:</p>
-                <ul>
+                <ul class="list-desirable">
 
                 </ul>
             </div>
@@ -79,7 +79,7 @@ function fillApply(item){
         <div class="row">
             <div class="col-6">
                 <p class="title-info benefits">Beneficios:</p>
-                <ul>
+                <ul class="list-benefits">
 
                 </ul>
             </div>
@@ -106,23 +106,24 @@ function fillApply(item){
 
     //Fill lists modal
 
-    let requirements = document.querySelector(".requirements ul")
-    let desirable = document.querySelector(".desirable ul")
-    let benefits = document.querySelector(".benefits ul")
+    let requirements = document.querySelector(".list-requirements")
+    let desirable = document.querySelector(".list-desirable")
+    let benefits = document.querySelector(".list-benefits")
+    console.log(requirements)
 
     let requirementsHTML = ""
     let desirableHTML = ""
     let benefitsHTML = ""
 
-    for(let i = 0; i < currentVacancy.requirements.length, i++){
+    for(let i = 0; i < currentVacancy.requirements.length; i++){
         requirementsHTML += `<li>${currentVacancy.requirements[i]}</li>`
     }
 
-    for(let i = 0; i < currentVacancy.desirable.length, i++){
+    for(let i = 0; i < currentVacancy.desirable.length; i++){
         desirableHTML += `<li>${currentVacancy.desirable[i]}</li>`
     }
 
-    for(let i = 0; i < currentVacancy.benefits.length, i++){
+    for(let i = 0; i < currentVacancy.benefits.length; i++){
         benefitsHTML += `<li>${currentVacancy.benefits[i]}</li>`
     }
 
