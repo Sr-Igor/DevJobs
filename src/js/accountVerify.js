@@ -38,7 +38,7 @@ var applyModal = new bootstrap.Modal(document.getElementById('ApplyModal'))
 
 // Events 
 loginButton.addEventListener('click', verifyAccount)
-sendApplyButton.addEventListener("click", sendApplication )
+sendApplyButton.addEventListener("click", sendApplication)
 
 // Function
 function verifyAccount(){
@@ -62,7 +62,6 @@ function verifyAccount(){
                 updateApplyVacancy(currentUser)
             }
         }
-
     }else{
         errorMessage.style.opacity= "1"
 
@@ -71,7 +70,6 @@ function verifyAccount(){
         },2000)
     }
 }
-
 
 function updateHeader(){
     myModal.hide()
@@ -83,7 +81,6 @@ function updateHeader(){
         boxLogout.style.display = "flex"
     },100)
 }
-
 
 function updateBodyFunctions(){
     buttonLoged.style.display = "flex"
