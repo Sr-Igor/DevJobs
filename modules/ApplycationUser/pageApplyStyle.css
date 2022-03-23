@@ -104,6 +104,10 @@ button{
 
 /* Logout box */ 
 
+.box-logout-subs{
+    display: flex;
+}
+
 .circle{
     font-size: 17px;
     font-weight: 00;

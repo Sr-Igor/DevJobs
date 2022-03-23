@@ -28,11 +28,12 @@ function fillboxes(){
 }
 
 function identifyApply(){
-    let currentBox = document.querySelector(".box")
-    currentBox.addEventListener("click", (e)=>{
-        let currentItem = e.currentTarget
-        let item = currentItem.getAttribute("data-key")
-        fillApply(item)
+    let currentBox = document.querySelectorAll(".box").forEach(item =>{
+        item.addEventListener("click", (e)=>{
+            let currentItem = e.currentTarget
+            let item = currentItem.getAttribute("data-key")
+            fillApply(item)
+        })
     })
 }
 
