@@ -3,10 +3,9 @@ function clickEventReloadHome(){
     subsButton.addEventListener("click", changeSubsPage)
 }
 
-
 function changeSubsPage(){
     document.querySelector(".change-section").innerHTML = `
-    <header>
+    <header class="home-header">
         <div class="header">
             <div class="container">
                 <div class="top-header">
@@ -53,6 +52,7 @@ function changeSubsPage(){
 
     fillSubscriptions(userVacancyApply.id)
     startProcessHomePage()
+    profilePage()
 }
 clickEventReloadHome()
 

@@ -10,14 +10,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/modules/ProfileUser/profileStyle.css">
     <link rel="stylesheet" href="src/css/style.css">  
     <link rel="stylesheet" href="/modules/ApplycationUser/pageApplyStyle.css">
     <link rel="stylesheet" href="src/css/transitionHeader.css">
+    
     <title>Jobs</title>
 </head>
 <body>
     <div class="change-section">
-        <header>
+        <header class="home-header">
             <div class="header">
                 <div class="container">
                     <div class="top-header">
@@ -33,7 +35,7 @@
         
                             <div class="box-logout">
                                 <div class="circle">
-                                    <a  href="./modules/ProfileUser/profileUser.html" class="hello-profile"><i class="bi bi-person-circle"></i> Peril</a>
+                                    <a  href="#" class="hello-profile"><i class="bi bi-person-circle"></i> Peril</a>
                                     <a  href="#" class="my-applys"><i class="bi bi-window-plus"></i> Incrições</a>
                                     <a  href ="/index.html" class="log-out"><i class="bi bi-box-arrow-right"></i> Exit</a>
                                 </div>
@@ -69,7 +71,7 @@
             </div>
         </header>
 
-        <main>
+        <main class="homeMain">
             <div class="container">
                 <div class="box-jobs">
                 </div>
@@ -397,6 +399,7 @@
     <script src="./BancoDeDados/applayedVacancy.js"></script>
 
     <!--Mudança de Pagina-->
+    <script src="src/ChangePages/ProfilePage.js"></script>
     <script src="src/ChangePages/HomePage.js"></script>
     <script src="src/ChangePages/SubscriptionPage.js"></script>
     
@@ -406,6 +409,7 @@
     <script src="src/js/scrolledScreenMenu.js"></script>
     <script src="src/js/fillApplyedUser.js"></script>
     <script src="src/js/accountVerify.js"></script>
+    <script src="src/js/fillProfileInputs.js"></script>
     <script src="src/js/fillboxes.js"></script>
 
     <script src="src/js/script.js"></script>

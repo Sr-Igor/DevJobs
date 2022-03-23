@@ -3,10 +3,15 @@ function startProcessHomePage(){
     inicialPage.addEventListener('click', changeHomePage)
 }
 
+function profileCallHome(){
+    let homebutton = document.querySelector(".hello-profile")
+    homebutton.addEventListener("click", changeHomePage)
+}
+
 function changeHomePage(){
 
     document.querySelector(".change-section").innerHTML = `
-    <header>
+    <header class="home-header">
         <div class="header">
             <div class="container">
                 <div class="top-header">
@@ -23,7 +28,7 @@ function changeHomePage(){
 
                         <div class="box-logout" style="display: flex; opacity: 1;">
                             <div class="circle">
-                                <a  href="./modules/ProfileUser/profileUser.html" class="hello-profile"><i class="bi bi-person-circle"></i> Peril</a>
+                                <a  href="#" class="hello-profile"><i class="bi bi-person-circle"></i> Peril</a>
                                 <a  href="#" class="my-applys"><i class="bi bi-window-plus"></i> Incrições</a>
                                 <a  href ="/index.html" class="log-out"><i class="bi bi-box-arrow-right"></i> Exit</a>
                             </div>
@@ -380,4 +385,5 @@ function changeHomePage(){
     enterAccount()
     clickEventReloadHome()
     fillboxes()
+    profilePage()
 }

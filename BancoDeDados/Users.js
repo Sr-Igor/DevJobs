@@ -6,6 +6,7 @@ let users = [
         lastName: "Sousa",
         password: "1",
         phone: "37999862366",
+        cpf: "12042907685",
         adress: {
             cep:"35502646",
             uf: "MG",
@@ -19,36 +20,38 @@ let users = [
 
     {
         id:2,
-        email:"vitordisousas@gmail.com",
+        email:"vitormilagre@gmail.com",
         firstName:"Vitor",
         lastName: "Sousa",
         password: "2",
-        phone: "37999862366",
+        phone: "31999845623",
+        cpf: "45215687458",
         adress: {
-            cep:"35502646",
-            uf: "MG",
-            city: "Divinopolis",
-            district: "Liberdade",
-            street: "Doutor Fernando Rachid Gontijo",
-            number: "140",
-            complement: ""
+            cep:"45201001",
+            uf: "SP",
+            city: "São Paulo",
+            district: "Niteroi",
+            street: "Magalhães Freitas",
+            number: "235",
+            complement: "Ap 201"
         }
     },
 
     {
         id:3,
-        email:"joaodisousas@gmail.com",
+        email:"joaocouto@gmail.com",
         firstName:"Joao",
         lastName: "Sousa",
-        password: "12345abc",
-        phone: "37999862366",
+        password: "3",
+        phone: "78999852145",
+        cpf: "85674232185",
         adress: {
-            cep:"35502646",
-            uf: "MG",
-            city: "Divinopolis",
-            district: "Liberdade",
-            street: "Doutor Fernando Rachid Gontijo",
-            number: "140",
+            cep:"78555100",
+            uf: "RJ",
+            city: "Uberada",
+            district: "Vila Madalena",
+            street: "Paulo Coelho Soares",
+            number: "785",
             complement: ""
         }
     },

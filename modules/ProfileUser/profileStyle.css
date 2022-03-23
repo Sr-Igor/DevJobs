@@ -8,6 +8,9 @@ body{
     margin: 0;
 }
 /* Header */
+.mainProfile{
+    padding-top: 30px;
+}
 
 .header{
     color: white;
@@ -125,9 +128,7 @@ button{
 }
 
 /* Profile Info */ 
-main{
-    padding-top: 50px;
-}
+
 
 .box-info-company{
     display: flex;
