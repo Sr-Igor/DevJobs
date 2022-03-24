@@ -56,17 +56,46 @@
                 <form action="#" class="form-search">
                     <label>
                         <i class="bi bi-search"></i>
-                        <input type="text" name="find"  placeholder="Find your better job">
+                        <input type="text" name="find"  placeholder="Find your job"  class="find-job">
                     </label>
                     <label>
                         <i class="bi bi-geo-alt"></i>
-                        <input type="text" name="location"  placeholder="Location">
+                        <select class="states">
+                            <option value="0" selected>All Locations</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goias</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Parana</option>
+                            <option value="PE">Peranambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
                     </label>
                     <label class="checkbox">
-                        <input type="checkbox" name="full-time">
+                        <input type="checkbox" name="full-time" class="checkbox-full-time">
                         Full time only
                     </label>
-                    <button>Search</button>
+                    <button class="search">Search</button>
                 </form>
             </div>
         </header>
@@ -411,6 +440,7 @@
     <script src="src/js/accountVerify.js"></script>
     <script src="src/js/fillProfileInputs.js"></script>
     <script src="src/js/fillboxes.js"></script>
+    <script src="src/js/searchedResults.js"></script>
 
     <script src="src/js/script.js"></script>
 </body>

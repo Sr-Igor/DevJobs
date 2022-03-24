@@ -7,6 +7,7 @@ let vacancys = [
         type: "Senior",
         time: "Full Time",
         payment: "1.700,00",
+        uf: "MG",
         requirements: [
             "JavaScript",
             "Html",
@@ -45,6 +46,7 @@ let vacancys = [
         type: "Junior",
         time: "Full Time",
         payment: "2.450,00",
+        uf: "SP",
         requirements: [
             "2JavaScript",
             "Html",
@@ -83,6 +85,7 @@ let vacancys = [
         type: "Pleno",
         time: "1/2 time",
         payment: "5.450,00",
+        uf: "RJ",
         requirements: [
             "Porte de arma",
             "Força bruta",
