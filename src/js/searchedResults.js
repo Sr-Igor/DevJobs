@@ -13,7 +13,7 @@ function searchJobs(e){
     let state = states.options[states.selectedIndex].value;
     let checkboxFullTime = document.querySelector(".checkbox-full-time").checked
 
-    let wordsWritten = findJobInput.value.split(" ")
+    let wordsWritten = findJobInput.value.toLowerCase().split(" ")
     let filtersArray = []
 
     if(findJobInput.value == "" && state == 0 && checkboxFullTime == false){
@@ -22,10 +22,9 @@ function searchJobs(e){
     }else if(findJobInput.value == "" && state !== 0 || findJobInput.value == "" && checkboxFullTime == true){
         verifyFields(vacancys, state, checkboxFullTime)     
          
-    }else if(findJobInput.value !== "" || state !== 0 || checkboxFullTime == true){
-        console.log(findJobInput, state, checkboxFullTime)
+    }else if(findJobInput.value !== "" || state !== 0 || checkboxFullTime == true){ 
         for (let i in vacancys){
-            let vacancyWords =  vacancys[i].vacancyName.split(" ")
+            let vacancyWords =  vacancys[i].vacancyName.toLowerCase().split(" ")
             vacancyWords.some(function(item){
                 if(wordsWritten.includes(item)){
                     filtersArray.push(vacancys[i])

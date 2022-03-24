@@ -22,30 +22,5 @@ function fillInputsProfile(){
     cityProfile.value = userVacancyApply.adress.city
     ufProfile.value = userVacancyApply.adress.uf
     numberProfile.value = userVacancyApply.adress.number
-    complementProfile.value = userVacancyApply.adress.complement
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+    complementProfile.value = userVacancyApply.adress.complement  
 }

@@ -28,7 +28,7 @@ function fillboxes(){
 }
 
 function identifyApply(){
-    let currentBox = document.querySelectorAll(".box").forEach(item =>{
+    document.querySelectorAll(".box").forEach(item =>{
         item.addEventListener("click", (e)=>{
             let currentItem = e.currentTarget
             let item = currentItem.getAttribute("data-key")
@@ -38,7 +38,7 @@ function identifyApply(){
 }
 
 function fillApply(item){
-    let currentVacancy
+    let currentVacancy = ""
     for(let i in vacancys){
         if(vacancys[i].id == item){
             currentVacancy = vacancys[i]

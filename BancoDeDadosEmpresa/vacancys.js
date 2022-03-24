@@ -2,7 +2,7 @@ let vacancys = [
     {    
         id:1,
         companyName: "Banco Inter",
-        vacancyName: "Senior Software Enginner",
+        vacancyName: "Senior Software Enginner ",
         status: "In process",
         type: "Senior",
         time: "Full Time",
