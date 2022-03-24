@@ -78,18 +78,15 @@ function verifyAccount(loged, verifyPass){
 }
 
 function enterAccount(){
-
-        for(let i=0; i<users.length; i++){
-            if(users[i].email == userInput.value){
-                currentUser = users[i]
-                userVacancyApply = currentUser
-                updateHeader()
-                updateBodyFunctions()
-                updateApplyVacancy(currentUser)
-            }
+    for(let i=0; i<users.length; i++){
+        if(users[i].email == userInput.value){
+            currentUser = users[i]
+            userVacancyApply = currentUser
+            updateHeader()
+            updateBodyFunctions()
+            updateApplyVacancy(currentUser)
         }
-    
-
+    }
 }
 
 

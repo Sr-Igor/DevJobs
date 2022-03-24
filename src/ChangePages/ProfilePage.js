@@ -38,7 +38,7 @@ function fillProfilePage(){
                 <div class="col-3">
                     <div class="box-info-company">
                         <img src="/src/images/bancoInter.png" alt="">
-                        <div class="company-title">Complet Name</div>
+                        <div class="company-title">${userVacancyApply.firstName} ${userVacancyApply.lastName}</div>
                     </div>
                 </div>
 
