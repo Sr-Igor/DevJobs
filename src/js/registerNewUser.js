@@ -5,7 +5,6 @@ function availableUsersRegister(){
     var registerModal = new bootstrap.Modal(document.getElementById('RegisterModal'))
 }
 
-
 function registerUser(e){
     e.preventDefault()
     //box error

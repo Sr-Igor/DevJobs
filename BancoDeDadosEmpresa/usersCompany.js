@@ -2,14 +2,14 @@ let companys = [
     {
         id:100,
         companyName: "Banco Inter",
-        email: "3bancointer@gmail.com",
-        password: "123",
+        email: "1",
+        password: "1",
         phone: "4002-8922",
         cnpj: "16526000101",
         adress: {
             cep: "35500155",
             city: "sao paulo",
-            uf: "sp",
+            uf: "SP",
             district: "bom pastor",
             number: "12",
             complement: "none"
@@ -26,7 +26,7 @@ let companys = [
         adress: {
             cep: "35500155",
             city: "sao paulo",
-            uf: "sp",
+            uf: "SP",
             district: "bom pastor",
             number: "12",
             complement: "none"
@@ -43,7 +43,7 @@ let companys = [
         adress: {
             cep: "35500155",
             city: "sao paulo",
-            uf: "sp",
+            uf: "SP",
             district: "bom pastor",
             number: "12",
             complement: "none"

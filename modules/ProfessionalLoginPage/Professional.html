@@ -11,165 +11,184 @@
      <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/modules/ProfessionalUserPage/userPageStyle.css">
+    <link rel="stylesheet" href="/modules/ProfessionalVacancys/vacancysCompanyStyle.css">
     <title>Sing Up Company</title>
     
 </head>
 <body>
-    <header>
-        <div class="header">
-            <div class="container">
-                <div class="top-header">
-                    <h1>DevJobs Companys</h1>
-                    <div class="user">
-                        <div class="box-login">
-                           <form action="" class="login-company-form">
-                                <div class="inputs">
-                                    <input type="email" placeholder="Email address" class="email-login">
-                                    <input type="password" placeholder="Password" class="password-login">
-                                </div>
-                                <div class="buttons">
-                                    <a class="btn login-companys">Login</a>
-                                </div>
-                           </form>
+    <div class="changePage">
+        <header>
+            <div class="header">
+                <div class="container">
+                    <div class="top-header">
+                        <h1>DevJobs Companys</h1>
+                        <div class="user">
+                            <div class="box-login">
+                               <form action="" class="login-company-form">
+                                    <div class="inputs">
+                                        <input type="email" placeholder="Email address" class="email-login">
+                                        <input type="password" placeholder="Password" class="password-login">
+                                    </div>
+                                    <div class="buttons">
+                                        <a class="btn login-companys">Login</a>
+                                    </div>
+                               </form>
+                            </div>
+                            <div class="error-message-login">Email or Password are incorrect</div>
                         </div>
-                        <div class="error-message-login">Email or Password are incorrect</div>
-                    </div>
-                    
-                    <div class="box-clean-dark">
-                        <div class="clean-mode"><i class="bi bi-brightness-high"></i></div>
-                        <div class="light-switch">
-                            <div class="pointer"></div>
+                        
+                        <div class="box-clean-dark">
+                            <div class="clean-mode"><i class="bi bi-brightness-high"></i></div>
+                            <div class="light-switch">
+                                <div class="pointer"></div>
+                            </div>
+                            <div class="dark-mode"><i class="bi bi-moon"></i></div>
                         </div>
-                        <div class="dark-mode"><i class="bi bi-moon"></i></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-
-    <main>
-        <div class="fs-2 pb-5">Don't have an account? Register</div>
-
-        <form>
-
-            <div class="row">
-                <div class="mb-3 col-12">
-                    <label for="exampleInputEmail1" class="form-label">Company Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">Fantasy Name</div>
+        </header>
+    
+        <main>
+            <div class="fs-2 pb-5">Don't have an account? Register</div>
+    
+            <form>
+    
+                <div class="row">
+                    <div class="mb-3 col-12">
+                        <label for="exampleInputEmail1" class="form-label">Company Name</label>
+                        <input type="email" class="form-control"  aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Fantasy Name</div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="mb-3 col-6">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">Email to receive subscriptions</div>
+    
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control"  aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Email to receive subscriptions</div>
+                    </div>
+    
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputEmail1" class="form-label">Confirm email address</label>
+                        <input type="email" class="form-control"  aria-describedby="emailHelp">
+                    </div>
                 </div>
-
-                <div class="mb-3 col-6">
-                    <label for="exampleInputEmail1" class="form-label">Confirm email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control">
+                        <div id="emailHelp" class="form-text">Only letters and numbers</div>
+                    </div>
+    
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control">
+                    </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="mb-3 col-6">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                    <div id="emailHelp" class="form-text">Only letters and numbers</div>
+    
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputEmail1" class="form-label">Phone</label>
+                        <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="xx x xxx-xxxx">
+                        <div id="emailHelp" class="form-text">Only Numbers</div>
+                    </div>
+    
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputEmail1" class="form-label">CNPJ</label>
+                        <input type="email" class="form-control" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Only Numbers</div>
+                    </div>
                 </div>
-
-                <div class="mb-3 col-6">
-                    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+    
+                <div class="row">
+                    <div class="fs-4  title-subsection">Adress</div>
+                      <div class="col-6">
+                          <label for="#">
+                              CEP
+                              <input type="Number" name="Cep" placeholder="00000-000">
+                              
+                          </label>
+                      </div>
+                      <div class="col-6">
+                          <label for="#">
+                              Rua
+                              <input type="text" name="Street">
+                              
+                          </label>
+                      </div>
+                  </div>
+    
+                  <div class="row">
+                      <div class="col-6">
+                          <label for="#">
+                              Bairro
+                              <input type="text" name="Bairro">
+                          </label>
+                      </div>
+    
+                      <div class="col-6">
+                          <label for="#">
+                              Cidade
+                              <input type="text" name="City">
+                          </label>
+                      </div>
+                  </div>
+                      
+                  <div class="row">
+                      <div class="col-6">
+                          <label for="#">
+                              UF
+                              <input type="text" name="Uf">
+                          </label>
+                      </div>
+    
+                      <div class="col-6">
+                          <label for="#">
+                              Número
+                              <input type="Number" name="number">
+                          </label>
+                      </div>
+    
+                  </div>
+    
+                  <div class="row">
+                      <div class="col-12">
+                          <label for="#">
+                              Complemento
+                              <input type="text" name="Complemento" class="complement">
+                          </label>
+                      </div>
+                  </div>
+    
+                <div class="mb-3 form-check">
+    
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Concordo com os <a href="#">Termos e Privacidade</a></label>
                 </div>
-            </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+              </form>
+    
+        </main>
+    </div>
 
-            <div class="row">
-                <div class="mb-3 col-6">
-                    <label for="exampleInputEmail1" class="form-label">Phone</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="(xx) x xxx-xxxx">
-                    <div id="emailHelp" class="form-text">Only Numbers</div>
-                </div>
-
-                <div class="mb-3 col-6">
-                    <label for="exampleInputEmail1" class="form-label">CNPJ</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">Only Numbers</div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="fs-4  title-subsection">Adress</div>
-                  <div class="col-6">
-                      <label for="#">
-                          CEP
-                          <input type="Number" name="Cep" placeholder="00000-000">
-                          
-                      </label>
-                  </div>
-                  <div class="col-6">
-                      <label for="#">
-                          Rua
-                          <input type="text" name="Street">
-                          
-                      </label>
-                  </div>
-              </div>
-
-              <div class="row">
-                  <div class="col-6">
-                      <label for="#">
-                          Bairro
-                          <input type="text" name="Bairro">
-                      </label>
-                  </div>
-
-                  <div class="col-6">
-                      <label for="#">
-                          Cidade
-                          <input type="text" name="City">
-                      </label>
-                  </div>
-              </div>
-                  
-              <div class="row">
-                  <div class="col-6">
-                      <label for="#">
-                          UF
-                          <input type="text" name="Uf">
-                      </label>
-                  </div>
-
-                  <div class="col-6">
-                      <label for="#">
-                          Número
-                          <input type="Number" name="number">
-                      </label>
-                  </div>
-
-              </div>
-
-              <div class="row">
-                  <div class="col-12">
-                      <label for="#">
-                          Complemento
-                          <input type="text" name="Complemento" class="complement">
-                      </label>
-                  </div>
-              </div>
-
-            <div class="mb-3 form-check">
-
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Concordo com os <a href="#">Termos e Privacidade</a></label>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-          </form>
-
-    </main>
+    <!--Banco de Dados-->
     <script src="/BancoDeDadosEmpresa/usersCompany.js"></script>
+    <script src="/BancoDeDadosEmpresa/vacancys.js"></script>
+
+    <!--Mudança de pagina-->
+    <script src="/src/ChangePagesCompany/userPage.js"></script>
+    <script src="/src/ChangePagesCompany/userPageEditProfile.js"></script>
+    <script src="/src/ChangePagesCompany/vacancysCompany.js"></script>
+
+    <!--Funções-->
+    <script src="/src/jsCompany/createNewJob.js"></script>
     <script src="/src/jsCompany/accountVerifyCompany.js"></script>
+    
+
+
+    
 </body>
 </html>

@@ -7,6 +7,9 @@ let loginCompanys = document.querySelector('.login-companys')
 
 let users = []
 
+let = currentUserCompany = ""
+
+
 let errorMessage = document.querySelector(".error-message-login")
 //Events 
 loginCompanys.addEventListener("click", verifyAccount)
@@ -24,10 +27,16 @@ function verifyAccount(e){
     
     for (let i = 0; i < users.length; i++){
         if(users[i][0] == emailLogin.value && users[i][1] == passwordLogin.value){
-             loginValid = true
-             break
+            loginValid = true
+            break
         }else{
             loginValid = false
+        }
+    }
+
+    for (let i in companys){
+        if(companys[i].email == emailLogin.value){
+            currentUserCompany = companys[i]
         }
     }
 
@@ -36,7 +45,7 @@ function verifyAccount(e){
         setTimeout(()=> errorMessage.style.display = "none", 3000)
     }else{
 
-        window.location.href = "../ProfessionalUserPage/ProfessionalUser.html"
+        fillUserPageCompany() 
         
     }
 }
