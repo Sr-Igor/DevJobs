@@ -108,5 +108,67 @@ let vacancys = [
             "Cargo Escalavel"
         ],
         additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:4,
+        companyName: "Banco caixa",
+        vacancyName: "Segurança",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:5,
+        companyName: "Banco santander",
+        vacancyName: "Segurança",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
     }
 ]

@@ -37,8 +37,13 @@ function fillApplysCompany(){
 
 <main>
     <div class="container">
-        <div class="h3">Your Vacancys</div>
+        <div class="h3">Your Vacancys Openned</div>
         <div class="box-jobs">
+        you don't have open vacancys
+        </div>
+        <div class="h3">Your Vacancys Closed</div>
+        <div class="box-jobs-finished">
+        you don't have closed vacancys
         </div>
     </div>
 </main>

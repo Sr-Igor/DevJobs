@@ -1,16 +1,17 @@
-function fillBoxesVacancyCreator(){
-    let vacancysCreatedCompany =[]
-    for(let i in vacancys){
-        if(vacancys[i].idCreator == currentUserCompany.id){
-            vacancysCreatedCompany.push(vacancys[i])
+function fillBoxesVacancyFinised(){
+
+    let vacancysFinisedCompany =[]
+    for(let i in vacancysFinished){
+        if(vacancysFinished[i].idCreator == currentUserCompany.id){
+            vacancysFinisedCompany.push(vacancysFinished[i])
         }
     }
-    writeBoxes(vacancysCreatedCompany)
+    writeBoxesFinised(vacancysFinisedCompany)
 }
 
-function writeBoxes(vacancysCompany){
+function writeBoxesFinised(vacancysCompany){
 
-    let squareBoxes = document.querySelector(".box-jobs")
+    let squareBoxes = document.querySelector(".box-jobs-finished")
     squareBoxes.innerHTML = ""
     let boxesHTML = ""
     for (let i in vacancysCompany){
@@ -34,30 +35,28 @@ function writeBoxes(vacancysCompany){
     }
     squareBoxes.innerHTML = boxesHTML
 
-    clickCard()
+    clickCardFinished()
 }
 
-function clickCard(){
+function clickCardFinished(){
     let allBoxes = document.querySelectorAll(".box")
     allBoxes.forEach(item =>{
-        item.addEventListener("click", searchCorrectBox)
+        item.addEventListener("click", searchCorrectBoxFinished)
     })
-    
 }
 
-function searchCorrectBox(e){
+function searchCorrectBoxFinished(e){
     let clickedItem = e.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
-    for (let i in vacancys){
-        if(vacancys[i].id == idCard){
-            fillBox(vacancys[i])
+    for (let i in vacancysFinished){
+        if(vacancysFinished[i].id == idCard){
+            fillBoxFinised(vacancysFinished[i])
         }
     }
-
 }
 
-function fillBox(clickedVacancy){
+function fillBoxFinised(clickedVacancy){
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
@@ -115,7 +114,7 @@ function fillBox(clickedVacancy){
 
     </div>
     <div class="modal-footer">
-    <button type="button" class="btn btn-danger btn-finish-vacancy">Finish Vacancy</button>
+    <button type="button" class="btn btn-success btn-open-vacancy">Open Vacancy</button>
     <button type="button" class="btn btn-primary see-applyeds" data-bs-toggle="modal" data-bs-target="#ApplyedsModal">See Apllayeds</button>
     </div>
     `
@@ -144,11 +143,11 @@ function fillBox(clickedVacancy){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 
-    usersApplayeds(clickedVacancy)
-    finishVacancy(clickedVacancy)
+    usersApplayedsFinished(clickedVacancy)
+    OpenVacancy(clickedVacancy)
 }
 
-function usersApplayeds(clickedVacancy){
+function usersApplayedsFinished(clickedVacancy){
     document.querySelector(".see-applyeds").addEventListener("click", ()=>{
         let idUsers = []
         for (let i in vacancyId){
