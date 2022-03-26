@@ -214,6 +214,15 @@ span{
     margin: 10px 0px 10px 0px;
 }
 
+.box-finised-vacancy{
+    display: none;
+    background-color: rgba(66, 207, 66, 0.87);
+    color: rgba(8, 104, 8, 0.616);
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+
  /* Button Inicial Page */ 
  .inicial-page{
     text-decoration: none;

@@ -4,11 +4,12 @@ let companys = [
         companyName: "Banco Inter",
         email: "1",
         password: "1",
-        phone: "4002-8922",
+        phone: "40028922",
         cnpj: "16526000101",
         adress: {
             cep: "35500155",
             city: "sao paulo",
+            street: "Av Paulista",
             uf: "SP",
             district: "bom pastor",
             number: "12",
@@ -26,6 +27,7 @@ let companys = [
         adress: {
             cep: "35500155",
             city: "sao paulo",
+            street: "Av Paulista",
             uf: "SP",
             district: "bom pastor",
             number: "12",
@@ -43,6 +45,7 @@ let companys = [
         adress: {
             cep: "35500155",
             city: "sao paulo",
+            street: "Av Paulista",
             uf: "SP",
             district: "bom pastor",
             number: "12",

@@ -67,6 +67,11 @@ function fillBox(clickedVacancy){
     </div>
     <div class="modal-body">
     <div class="row">
+    <div class="col-12 box-finised-vacancy">
+        This vacancy has been successfully completed
+    </div>
+    </div>
+    <div class="row">
         <div class="col-4">
             <p class="title-info">Requisitos:</p>
             <ul class="company-requirements">
@@ -110,7 +115,7 @@ function fillBox(clickedVacancy){
 
     </div>
     <div class="modal-footer">
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ApplyModal">Finish Vacancy</button>
+    <button type="button" class="btn btn-danger btn-finish-vacancy">Finish Vacancy</button>
     <button type="button" class="btn btn-primary see-applyeds" data-bs-toggle="modal" data-bs-target="#ApplyedsModal">See Apllayeds</button>
     </div>
     `
@@ -140,6 +145,7 @@ function fillBox(clickedVacancy){
     benefits.innerHTML = benefitsHTML
 
     usersApplayeds(clickedVacancy)
+    fishVacancy(clickedVacancy)
 }
 
 function usersApplayeds(clickedVacancy){
