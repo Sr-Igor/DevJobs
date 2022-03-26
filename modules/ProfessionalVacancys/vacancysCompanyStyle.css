@@ -239,3 +239,12 @@ span{
     color: white;
     width: 120px;
 }
+
+/* Users Applyed modal */ 
+
+.title-applyeds-vacancys{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+}

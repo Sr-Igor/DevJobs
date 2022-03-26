@@ -5,7 +5,7 @@ let emailLogin  = document.querySelector(".email-login")
 let passwordLogin = document.querySelector(".password-login")
 let loginCompanys = document.querySelector('.login-companys')
 
-let users = []
+let usersLogin = []
 
 let = currentUserCompany = ""
 
@@ -22,11 +22,11 @@ function verifyAccount(e){
 
 
     for (let i in companys){
-        users.push([companys[i].email, companys[i].password])
+        usersLogin.push([companys[i].email, companys[i].password])
     }
     
-    for (let i = 0; i < users.length; i++){
-        if(users[i][0] == emailLogin.value && users[i][1] == passwordLogin.value){
+    for (let i = 0; i < usersLogin.length; i++){
+        if(usersLogin[i][0] == emailLogin.value && usersLogin[i][1] == passwordLogin.value){
             loginValid = true
             break
         }else{

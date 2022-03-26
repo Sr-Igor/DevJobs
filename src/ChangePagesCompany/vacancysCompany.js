@@ -46,11 +46,20 @@ function fillApplysCompany(){
 <section class="Job-Modal">
     <div class="modal fade" tabindex="-1" id="myModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-          <div class="modal-content">
+          <div class="modal-content job-modal-content">
           </div>
         </div>
       </div>
-    </section>`
+</section>
+
+<section class="Applayes-Modal">
+    <div class="modal fade" tabindex="-1" id="ApplyedsModal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content applayeds-modal-content">
+          </div>
+        </div>
+      </div>
+</section>`
 
     fillBoxesVacancyCreator()
     backProfileUser()

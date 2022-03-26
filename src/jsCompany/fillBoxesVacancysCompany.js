@@ -59,7 +59,7 @@ function searchCorrectBox(e){
 
 function fillBox(clickedVacancy){
     
-    document.querySelector(".modal-content").innerHTML = `
+    document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
     <img src="/src/images/bancoInter.png" alt="logo-job">
     <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
@@ -111,7 +111,7 @@ function fillBox(clickedVacancy){
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ApplyModal">Finish Vacancy</button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ApplyModal">See Apllayeds</button>
+    <button type="button" class="btn btn-primary see-applyeds" data-bs-toggle="modal" data-bs-target="#ApplyedsModal">See Apllayeds</button>
     </div>
     `
     //Fill Boxes
@@ -139,4 +139,43 @@ function fillBox(clickedVacancy){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 
+    usersApplayeds(clickedVacancy)
+}
+
+function usersApplayeds(clickedVacancy){
+    document.querySelector(".see-applyeds").addEventListener("click", ()=>{
+        let idUsers = []
+        for (let i in vacancyId){
+           if(vacancyId[i].vacancysCode.includes(clickedVacancy.id)){
+               idUsers.push(vacancyId[i].idUser)
+           }
+        }
+        
+        let usersApplayedVacancy = []
+        for (let i in users){
+            if(idUsers.includes(users[i].id)){
+                usersApplayedVacancy.push(`${users[i].firstName} ${users[i].lastName}`)
+            }
+        }
+
+        let usersApplyedHtml = ""
+    
+        for(let i in usersApplayedVacancy){
+            usersApplyedHtml += `<li>${usersApplayedVacancy[i]}</li>`
+        }
+    
+        document.querySelector(".applayeds-modal-content").innerHTML = `
+        <div class="modal-header">
+        <img src="/src/images/bancoInter.png" alt="logo-job">
+        <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <span class="title-applyeds-vacancys">Enrolled in the vacancies</span>
+        <ul class="usersApllayed">
+        ${usersApplyedHtml}
+        </ul>
+        </div>
+        `
+    })
 }
