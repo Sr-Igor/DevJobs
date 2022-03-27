@@ -24,6 +24,10 @@ function changeMainPage(){
                                 <i class="bi bi-x-lg"></i>
                                 <span class="error-edit-message"></span>
                             </div>
+                        <div class="mb-3 col-12 box-success-edit-profile">
+                            <i class="bi bi-bookmark-check"></i>
+                            <span class="success-edit-message"></span>
+                        </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-12">
@@ -36,7 +40,7 @@ function changeMainPage(){
                         <div class="row">
                             <div class="mb-3 col-6">
                                 <label for="exampleInputPassword1" class="form-label"> Current Password</label>
-                                <input type="password" class="form-control current-password"  value="${currentUserCompany.password}">
+                                <input type="password" class="form-control current-password">
                                 <div class="form-text">Only letters and numbers</div>
                             </div>
 

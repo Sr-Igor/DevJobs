@@ -1,7 +1,6 @@
 function fillInputsProfile(){
 
     let completNameProfile = document.querySelector(".completName-profile")
-    let passwordProfile = document.querySelector(".password-profile")
     let phoneProfile = document.querySelector(".phone-profile")
     let cpfProfile = document.querySelector(".cpf-profile")
     let cepProfile = document.querySelector(".cep-profile")
@@ -13,11 +12,10 @@ function fillInputsProfile(){
     let complementProfile = document.querySelector(".complement-profile")
 
     completNameProfile.value = `${userVacancyApply.firstName} ${userVacancyApply.lastName}`
-    passwordProfile.value = userVacancyApply.password
     phoneProfile.value = userVacancyApply.phone
     cpfProfile.value = userVacancyApply.cpf
     cepProfile.value = userVacancyApply.adress.cep
-    streetProfile.value = userVacancyApply.adress.steet
+    streetProfile.value = userVacancyApply.adress.street
     districtProfile.value = userVacancyApply.adress.district
     cityProfile.value = userVacancyApply.adress.city
     ufProfile.value = userVacancyApply.adress.uf

@@ -47,9 +47,21 @@ function fillProfilePage(){
                     <span class="title-create-job">Edit Profile</span>
                     <form>
                         <div class="row">
+                            <div class="mb-3 col-12 error-box-edit">
+                                <i class="bi bi-x-lg"></i>
+                                <span class="error-message-edit"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-12 success-box-edit">
+                                <i class="bi bi-bookmark-check"></i>
+                                <span class="success-message-edit">Profile edited successfully</span>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="mb-3 col-12">
                                 <label for="exampleInputEmail1" class="form-label">Complet Name</label>
-                                <input type="text" class="form-control completName-profile" aria-describedby="emailHelp">
+                                <input type="text" class="form-control completName-profile" aria-describedby="emailHelp" readonly>
                             </div>
                         </div>
 
@@ -62,7 +74,7 @@ function fillProfilePage(){
             
                             <div class="mb-3 col-6">
                                 <label for="exampleInputPassword1" class="form-label">New Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <input type="password" class="form-control new-password" id="exampleInputPassword1">
                             </div>
                         </div>
             
@@ -75,7 +87,7 @@ function fillProfilePage(){
             
                             <div class="mb-3 col-6">
                                 <label for="exampleInputEmail1" class="form-label">CPF</label>
-                                <input type="text" class="form-control cpf-profile" aria-describedby="emailHelp">
+                                <input type="text" class="form-control cpf-profile" aria-describedby="emailHelp" readonly>
                                 <div class="form-text">Only Numbers</div>
                             </div>
                         </div>
@@ -140,7 +152,8 @@ function fillProfilePage(){
                             </div>
                         </div>
             
-                        <button type="submit" class="btn btn-primary">Save as Edit</button>
+                        <button type="submit" class="btn btn-primary save-edit-profile">Save as Edit</button>
+                        <button type="submit" class="btn btn-danger cancel-edit-profile">Cancel</button>
                     </form>
             
                 </div>
@@ -151,7 +164,7 @@ function fillProfilePage(){
     fillInputsProfile()
     profileCallHome()
     clickEventReloadHome()
-    
+    loadEditProfile()
 }
 
 profilePage()

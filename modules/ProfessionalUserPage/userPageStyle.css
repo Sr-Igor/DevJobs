@@ -182,6 +182,14 @@ label{
     color: rgba(255, 0, 0, 0.705);
     padding: 5px;
 }
+
+.box-success-edit-profile{
+    display: none;
+    background-color: rgba(186, 216, 186, 0.589);
+    color: rgb(11, 168, 11);
+    padding: 5px;
+
+}
  /* Button Inicial Page */ 
 .inicial-page{
     text-decoration: none;

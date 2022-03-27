@@ -194,3 +194,18 @@ label{
     font-size: 13px;
     font-weight: 600;
 }
+
+.error-box-edit{
+    display: none;
+    background-color: rgba(255, 0, 0, 0.336);
+    color: rgba(255, 0, 0, 0.856);
+    padding: 5px;
+}
+
+.success-box-edit{
+    display: none;
+    background-color: rgba(186, 216, 186, 0.589);
+    color: rgb(11, 168, 11);
+    padding: 5px;
+
+}
