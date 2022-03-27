@@ -4,6 +4,7 @@ function fillSubscriptions(user){
             VerifyApplyedVacancys(vacancyId[i].vacancysCode)
         }
     }
+    
 }
 
 function VerifyApplyedVacancys(vacancysCode){
@@ -16,18 +17,19 @@ function VerifyApplyedVacancys(vacancysCode){
 
 function fillScreen(currentVacancy){
     let boxVacancy = document.querySelector(".box-vagancys")
-
+    
     boxVacancy.innerHTML += `
     <div class="vacancy" data-key="${currentVacancy.id}">
         <div class="company-name"><strong>Company: </strong> ${currentVacancy.companyName}</div>
         <div class="vacancy-title"><strong>Vacancy: </strong> ${currentVacancy.vacancyName}</div>
         <div class="status"><strong>Stauts: </strong> In process</div>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">See Details</button>
-        <button class="btn btn-danger">Cancel Subscription</button>
+        <button class="btn btn-danger btn-cancel-sub">Cancel Subscription</button>
     </div>
     `
 
     clickVacancy()
+    clickBtnCancel()
 }
 
 function clickVacancy(){
@@ -49,7 +51,6 @@ function searchInfoModal (clickedItem){
 }
 
 function fillInfoModal(currentVacancy){
-    console.log(currentVacancy)
     document.querySelector(".modal-info").innerHTML = `
     <div class="modal-header">
     <img src="/src/images/bancoInter.png" alt="logo-job">
@@ -97,9 +98,6 @@ function fillInfoModal(currentVacancy){
             </div>
         </div>
     </div>
-    </div>
-    <div class="modal-footer">
-    <button type="button" class="btn btn-danger">Cancel Subscrition</button>
     </div>`
 
 
@@ -128,6 +126,7 @@ function fillInfoModal(currentVacancy){
         requirements.innerHTML = requirementsHTMLinfo
         desirable.innerHTML = desirableHTMLinfo
         benefits.innerHTML = benefitsHTMLinfo
+
 }
 
 
