@@ -1,9 +1,8 @@
-function fillBoxesVacancyFinised(){
-
+function fillBoxesVacancyFinised(vacanciesFinishedArray){
     let vacancysFinisedCompany =[]
-    for(let i in vacancysFinished){
-        if(vacancysFinished[i].idCreator == currentUserCompany.id){
-            vacancysFinisedCompany.push(vacancysFinished[i])
+    for(let i in vacanciesFinishedArray){
+        if(vacanciesFinishedArray[i].idCreator == currentUserCompany.id){
+            vacancysFinisedCompany.push(vacanciesFinishedArray[i])
         }
     }
     writeBoxesFinised(vacancysFinisedCompany)
@@ -18,7 +17,7 @@ function writeBoxesFinised(vacancysCompany){
         boxesHTML += `
             <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key="${vacancysCompany[i].id}">
                 <div class="box-header">
-                    <img src="/src/icons/company-icon.png" alt="bancoInter">
+                    <img src="/src/icons/01-11_86379.png" alt="bancoInter">
                 </div>
                 <div class="box-body">
                     <div class="post">
@@ -53,9 +52,9 @@ function searchCorrectBoxFinished(e){
     let clickedItem = e.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
-    for (let i in vacancysFinished){
-        if(vacancysFinished[i].id == idCard){
-            fillBoxFinised(vacancysFinished[i])
+    for (let i in vacanciesFinishedArray){
+        if(vacanciesFinishedArray[i].id == idCard){
+            fillBoxFinised(vacanciesFinishedArray[i])
         }
     }
 }
@@ -64,7 +63,7 @@ function fillBoxFinised(clickedVacancy){
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
-    <img src="/src/images/bancoInter.png" alt="logo-job">
+    <img src="/src/icons/01-11_86379.png" alt="logo-job">
     <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>

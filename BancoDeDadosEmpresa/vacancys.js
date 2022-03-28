@@ -110,7 +110,7 @@ let vacancys = [
         type: "Pleno",
         time: "1/2 time",
         payment: "5.450,00",
-        uf: "RJ",
+        uf: "SP",
         requirements: [
             "Porte de arma",
             "Força bruta",

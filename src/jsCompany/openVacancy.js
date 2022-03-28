@@ -13,8 +13,10 @@ function OpenVacancy(clickedVacancy){
         let indexEl = vacancys.indexOf(clickedVacancy)
         vacancysFinished.splice(indexEl, 1)
         vacancys.push(clickedVacancy)
-
-        fillBoxesVacancyCreator()
-        fillBoxesVacancyFinised()
+        
+        updateLocalStorage()
+        callLocalStorageVacanciesCompany()
+        console.log(vacanciesArray)
+        console.log(vacanciesFinishedArray)
     })
 }

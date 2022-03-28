@@ -71,6 +71,6 @@ function createJob(){
                 additional: adicionais.value
             }
         )
-        console.log(vacancys)
+        updateLocalStorage()
     }
 }

@@ -66,7 +66,6 @@ function fillApplysCompany(){
       </div>
 </section>`
 
-    fillBoxesVacancyCreator()
-    fillBoxesVacancyFinised()
+    callLocalStorageVacanciesCompany()
     backProfileUser()
 }

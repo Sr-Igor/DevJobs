@@ -111,4 +111,5 @@ function updateprofileNoPassword(boxSuccess, messageSuccess, companyNameEdit, co
         messageSuccess.innerHTML = ""
         changeMainPage()
     }, 3000)
+    updateLocalStorage()
 }

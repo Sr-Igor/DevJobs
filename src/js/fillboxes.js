@@ -1,20 +1,21 @@
-function fillboxes(){
+function fillboxes(vacanciesArray){
+
     let boxContainer = document.querySelector(".box-jobs")
     let vacancy = ""
-    for(let i = 0; i < vacancys.length; i++){
+    for(let i = 0; i < vacanciesArray.length; i++){
         vacancy += `
-        <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${vacancys[i].id}>
+        <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${vacanciesArray[i].id}>
             <div class="box-header">
-                <img src="src/icons/company-icon.png" alt="bancoInter">
+                <img src="src/icons/01-11_86379.png" alt="bancoInter">
             </div>
             <div class="box-body">
                 <div class="post">
                     <div class="days">14 days</div>
                     <span>*</span>
-                    <div class="time-course">${vacancys[i].time}</div>
+                    <div class="time-course">${vacanciesArray[i].time}</div>
                 </div>
-                <div class="title-job">${vacancys[i].vacancyName}</div>
-                <div class="language">${vacancys[i].companyName}</div>
+                <div class="title-job">${vacanciesArray[i].vacancyName}</div>
+                <div class="language">${vacanciesArray[i].companyName}</div>
                 <div class="box-footer">See more details</div>
             </div>
         </div>
@@ -39,15 +40,15 @@ function identifyApply(){
 
 function fillApply(item){
     let currentVacancy = ""
-    for(let i in vacancys){
-        if(vacancys[i].id == item){
-            currentVacancy = vacancys[i]
+    for(let i in vacanciesArray){
+        if(vacanciesArray[i].id == item){
+            currentVacancy = vacanciesArray[i]
         }
     }
     
     let jobModalHeader = document.querySelector(".modal-job-modal .modal-header")
     jobModalHeader.innerHTML = `
-        <img src="src/icons/company-icon.png" alt="logo-job">
+        <img src="src/icons/01-11_86379.png" alt="logo-job">
         <h5 class="title-modal" data-key="${currentVacancy.id}">${currentVacancy.vacancyName}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         `
@@ -124,5 +125,8 @@ function fillApply(item){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 }
+
+callLocalStorage()
+
 
 

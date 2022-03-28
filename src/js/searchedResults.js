@@ -87,7 +87,7 @@ function fillboxesSearch(resultsArray){
         vacancy += `
         <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${resultsArray[i].id}>
             <div class="box-header">
-                <img src="src/images/bancoInter.png" alt="bancoInter">
+                <img src="src/icons/01-11_86379.png" alt="bancoInter">
             </div>
             <div class="box-body">
                 <div class="post">

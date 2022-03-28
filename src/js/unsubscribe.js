@@ -16,4 +16,5 @@ function deleteSubs(e){
         fillSubscriptions(userVacancyApply.id)
        }
    }
+   updateLocalStorage()
 }

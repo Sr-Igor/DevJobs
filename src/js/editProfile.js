@@ -70,15 +70,15 @@ function verifyFieldsEdit(e){
 
 function updateprofile(boxSuccess, messageSuccess, newPassword, newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber, newComplement){
 
-    userVacancyApply.password = newPassword
-    userVacancyApply.phone = newPhone
-    userVacancyApply.adress.cep = newCep
-    userVacancyApply.adress.uf = newUf
-    userVacancyApply.adress.city = newCity
-    userVacancyApply.adress.district = newDistrict
-    userVacancyApply.adress.street = newStreet
-    userVacancyApply.adress.number = newNumber
-    userVacancyApply.adress.complement = newComplement
+    users[i].password = newPassword
+    users[i].phone = newPhone
+    users[i].adress.cep = newCep
+    users[i].adress.uf = newUf
+    users[i].adress.city = newCity
+    users[i].adress.district = newDistrict
+    users[i].adress.street = newStreet
+    users[i].adress.number = newNumber
+    users[i].adress.complement = newComplement
 
     boxSuccess.style.display = "flex"
     messageSuccess.innerHTML = "Profile edited successfully"
@@ -88,19 +88,23 @@ function updateprofile(boxSuccess, messageSuccess, newPassword, newPhone, newCep
         messageSuccess.innerHTML = ""
         fillProfilePage()
     }, 3000)
+    updateLocalStorage()
 }
 
 function updateProfileNoPassword(boxSuccess, messageSuccess, newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber, newComplement){
 
-    console.log("ee")
-    userVacancyApply.phone = newPhone
-    userVacancyApply.adress.cep = newCep
-    userVacancyApply.adress.uf = newUf
-    userVacancyApply.adress.city = newCity
-    userVacancyApply.adress.district = newDistrict
-    userVacancyApply.adress.street = newStreet
-    userVacancyApply.adress.number = newNumber
-    userVacancyApply.adress.complement = newComplement
+    for (let i in users){
+        if(users[i].id == userVacancyApply.id){
+            users[i].phone = newPhone
+            users[i].adress.cep = newCep
+            users[i].adress.uf = newUf
+            users[i].adress.city = newCity
+            users[i].adress.district = newDistrict
+            users[i].adress.street = newStreet
+            users[i].adress.number = newNumber
+            users[i].adress.complement = newComplement
+        }
+    }
 
     boxSuccess.style.display = "flex"
     messageSuccess.innerHTML = "Profile edited successfully"
@@ -110,4 +114,6 @@ function updateProfileNoPassword(boxSuccess, messageSuccess, newPhone, newCep, n
         messageSuccess.innerHTML = ""
         fillProfilePage()
     }, 3000)
+    console.log(users)
+    updateLocalStorage()
 }

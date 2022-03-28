@@ -1,3 +1,4 @@
+updateLocalStorage()
 //Variables 
 let loginValid = false
 
@@ -12,17 +13,17 @@ let = currentUserCompany = ""
 
 let errorMessage = document.querySelector(".error-message-login")
 //Events 
-loginCompanys.addEventListener("click", verifyAccount)
+loginCompanys.addEventListener("click", callLocalStorageCompany)
 
 
 //Functions
 
-function verifyAccount(e){
-    e.preventDefault()
+function verifyAccount(usersCompanyArray){
+    event.preventDefault()
 
 
-    for (let i in companys){
-        usersLogin.push([companys[i].email, companys[i].password])
+    for (let i in usersCompanyArray){
+        usersLogin.push([usersCompanyArray[i].email, usersCompanyArray[i].password])
     }
     
     for (let i = 0; i < usersLogin.length; i++){
@@ -34,9 +35,9 @@ function verifyAccount(e){
         }
     }
 
-    for (let i in companys){
-        if(companys[i].email == emailLogin.value){
-            currentUserCompany = companys[i]
+    for (let i in usersCompanyArray){
+        if(usersCompanyArray[i].email == emailLogin.value){
+            currentUserCompany = usersCompanyArray[i]
         }
     }
 

@@ -14,7 +14,9 @@ function finishVacancy(clickedVacancy){
         vacancys.splice(indexEl, 1)
         vacancysFinished.push(clickedVacancy)
 
-        fillBoxesVacancyCreator()
-        fillBoxesVacancyFinised()
+        updateLocalStorage()
+        callLocalStorageVacanciesCompany()
+        console.log(vacanciesArray)
+        console.log(vacanciesFinishedArray)
     })
 }

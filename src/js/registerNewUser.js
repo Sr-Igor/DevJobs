@@ -166,6 +166,8 @@ function idUserGenerator(firstName, lastName, email, emailConfirm, password, pas
         messageSuccess.innerHTML = ""
         boxSuccess.style.display = "none"
     },1000)
+    
+    updateLocalStorage()
 }
 
 availableUsersRegister()
