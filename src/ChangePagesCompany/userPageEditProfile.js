@@ -9,7 +9,7 @@ function changeMainPage(){
             <div class="row">
                 <div class="col-3">
                     <div class="box-info-company">
-                        <img src="/src/images/bancoInter.png" alt="">
+                        <img src="/src/images/DefaultProfileCompany.png" alt="">
                         <div class="company-title" data-key-company="${currentUserCompany.id}">${currentUserCompany.companyName}</div>
                         <button class="btn btn-primary btn-create-vacancy">Create Vacancy</button>
                     </div>

@@ -46,7 +46,7 @@ function fillUserPageCompany() {
         <div class="row">
             <div class="col-3">
                 <div class="box-info-company">
-                    <img src="/src/images/bancoInter.png" alt="">
+                    <img src="/src/images/DefaultProfileCompany.png" alt="">
                     <div class="company-title">${currentUserCompany.companyName}</div>
                     <button class="btn btn-primary btn-edit-profile">Edit Profile</button>
                 </div>

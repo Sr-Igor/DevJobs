@@ -18,7 +18,7 @@ function writeBoxesFinised(vacancysCompany){
         boxesHTML += `
             <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key="${vacancysCompany[i].id}">
                 <div class="box-header">
-                    <img src="/src/images/bancoInter.png" alt="bancoInter">
+                    <img src="/src/icons/company-icon.png" alt="bancoInter">
                 </div>
                 <div class="box-body">
                     <div class="post">

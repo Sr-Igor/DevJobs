@@ -17,7 +17,7 @@ function writeBoxes(vacancysCompany){
         boxesHTML += `
             <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key="${vacancysCompany[i].id}">
                 <div class="box-header">
-                    <img src="/src/images/bancoInter.png" alt="bancoInter">
+                    <img src="/src/icons/company-icon.png" alt="bancoInter">
                 </div>
                 <div class="box-body">
                     <div class="post">
@@ -61,7 +61,7 @@ function fillBox(clickedVacancy){
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
-    <img src="/src/images/bancoInter.png" alt="logo-job">
+    <img src="/src/icons/company-icon.png" alt="logo-job">
     <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
@@ -172,7 +172,7 @@ function usersApplayeds(clickedVacancy){
     
         document.querySelector(".applayeds-modal-content").innerHTML = `
         <div class="modal-header">
-        <img src="/src/images/bancoInter.png" alt="logo-job">
+        <img src="/src/icons/company-icon.png" alt="logo-job">
         <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>

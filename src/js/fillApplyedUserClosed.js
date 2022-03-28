@@ -1,56 +1,56 @@
-function fillSubscriptions(user){
+function fillSubscriptionsClosed(user){
+    console.log("entrou1")
     for(let i in vacancyId){
         if(vacancyId[i].idUser == user){
-            VerifyApplyedVacancys(vacancyId[i].vacancysCode)
+            VerifyApplyedVacancysClosed(vacancyId[i].vacancysCode)
         }
     }
     
 }
 
-function VerifyApplyedVacancys(vacancysCode){
-    for(let i in vacancys){
-        if(vacancysCode.includes(vacancys[i].id)){
-            fillScreen(vacancys[i]) 
+function VerifyApplyedVacancysClosed(vacancysCode){
+    console.log("entrou2")
+    for(let i in vacancysFinished){
+        if(vacancysCode.includes(vacancysFinished[i].id)){
+            fillScreenClosed(vacancysFinished[i]) 
         }
     }
 }
 
-function fillScreen(currentVacancy){
-    let boxVacancy = document.querySelector(".box-vagancys")
-    
+function fillScreenClosed(currentVacancy){
+    let boxVacancy = document.querySelector(".box-vagancys-closed")
+    console.log("entrou3")
     boxVacancy.innerHTML += `
     <div class="vacancy" data-key="${currentVacancy.id}">
         <div class="company-name"><strong>Company: </strong> ${currentVacancy.companyName}</div>
         <div class="vacancy-title"><strong>Vacancy: </strong> ${currentVacancy.vacancyName}</div>
-        <div class="status"><strong>Stauts: </strong> ${currentVacancy.status}</div>
+        <div class="status"><strong>Stauts: </strong>${currentVacancy.status}</div>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">See Details</button>
-        <button class="btn btn-danger btn-cancel-sub">Cancel Subscription</button>
+
     </div>
     `
-
-    clickVacancy()
-    clickBtnCancel()
+    clickVacancyClosed()
 }
 
-function clickVacancy(){
+function clickVacancyClosed(){
 
     document.querySelectorAll(".vacancy").forEach(item => {
         item.addEventListener("click", (e)=>{
            let clickedItem =  e.currentTarget.getAttribute("data-key")
-           searchInfoModal(clickedItem)
+           searchInfoModalClosed(clickedItem)
         })
     })
 }
 
-function searchInfoModal (clickedItem){
-    for(let i in vacancys){
-        if(vacancys[i].id == clickedItem){
-            fillInfoModal(vacancys[i])
+function searchInfoModalClosed(clickedItem){
+    for(let i in vacancysFinished){
+        if(vacancysFinished[i].id == clickedItem){
+            fillInfoModalClosed(vacancysFinished[i])
         }
     }
 }
 
-function fillInfoModal(currentVacancy){
+function fillInfoModalClosed(currentVacancy){
     document.querySelector(".modal-info").innerHTML = `
     <div class="modal-header">
     <img src="/src/icons/company-icon.png" alt="logo-job">
@@ -128,8 +128,3 @@ function fillInfoModal(currentVacancy){
         benefits.innerHTML = benefitsHTMLinfo
 
 }
-
-
-
-
-

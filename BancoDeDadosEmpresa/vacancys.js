@@ -39,50 +39,10 @@ let vacancys = [
         additional: "Temos reuniões todas as sextas feiras as 19hrs, é desejavel que todos os intengrantes da equipe participem"
     },
 
-    {   
-        idCreator: 101, 
-        id:2,
-        companyName: "Banco Itau",
-        vacancyName: "Bombeiro",
-        status: "In process",
-        type: "Junior",
-        time: "Full Time",
-        payment: "2.450,00",
-        uf: "SP",
-        requirements: [
-            "2JavaScript",
-            "Html",
-            "Css",
-            "Bootstrap",
-            "ReactJs",
-            "Vue",
-            "Angular",
-            "MySQL"
-        ],
-        desirable: [
-            "PowerPoint",
-            "PacoteOfficie",
-            "MovieMaker",
-            "Ilustrator",
-            "Photoshop",
-            "CorelDraw",
-            "Lumia Fusion",
-            "Word",
-        ],
-        benefits: [
-            "Vale Transoporte",
-            "Vale Refeição",
-            "100% Home Offcie",
-            "Comissao por vendas",
-            "Cargo Escalavel"
-        ],
-        additional: "Sem adicionais"
-    },
-
     {    
         idCreator: 102,
         id:3,
-        companyName: "Banco Bradesco",
+        companyName: "Banco Caixa",
         vacancyName: "Segurança",
         status: "In process",
         type: "Pleno",
@@ -113,8 +73,8 @@ let vacancys = [
     {    
         idCreator: 100,
         id:4,
-        companyName: "Banco caixa",
-        vacancyName: "Segurança",
+        companyName: "Banco Inter",
+        vacancyName: "Eletricista",
         status: "In process",
         type: "Pleno",
         time: "1/2 time",
@@ -144,8 +104,8 @@ let vacancys = [
     {    
         idCreator: 100,
         id:5,
-        companyName: "Banco santander",
-        vacancyName: "Segurança",
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
         status: "In process",
         type: "Pleno",
         time: "1/2 time",

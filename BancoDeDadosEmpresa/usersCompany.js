@@ -18,10 +18,10 @@ let companys = [
     },
 
     {
-        id:100,
+        id:101,
         companyName: "Banco itau",
-        email: "2bancointer@gmail.com",
-        password: "1234",
+        email: "2",
+        password: "2",
         phone: "4002-8922",
         cnpj: "16526000101",
         adress: {
@@ -36,10 +36,10 @@ let companys = [
     },
 
     {
-        id:101,
+        id:102,
         companyName: "Banco caixa",
-        email: "1bancointer@gmail.com",
-        password: "1235",
+        email: "3",
+        password: "3",
         phone: "4002-8922",
         cnpj: "16526000101",
         adress: {

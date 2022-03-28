@@ -38,6 +38,11 @@ function changeSubsPage(){
             <div class="box-vagancys">
             </div>
         </div>
+        <div class="container">
+        <div class="h1">Your registration closed</div>
+        <div class="box-vagancys-closed">
+        </div>
+    </div>
         <section class="Job-Modal">
             <div class="modal fade" tabindex="-1" id="infoModal">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -51,6 +56,7 @@ function changeSubsPage(){
     `
 
     fillSubscriptions(userVacancyApply.id)
+    fillSubscriptionsClosed(userVacancyApply.id)
     startProcessHomePage()
     profilePage()
 }

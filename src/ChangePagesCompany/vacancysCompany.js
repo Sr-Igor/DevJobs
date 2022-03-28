@@ -67,5 +67,6 @@ function fillApplysCompany(){
 </section>`
 
     fillBoxesVacancyCreator()
+    fillBoxesVacancyFinised()
     backProfileUser()
 }
