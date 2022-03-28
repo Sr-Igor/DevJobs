@@ -27,12 +27,16 @@ function writeBoxes(vacancysCompany){
                     </div>
                     <div class="title-job">${vacancysCompany[i].vacancyName}</div>
                     <div class="language">${vacancysCompany[i].companyName}</div>
-                    <div class="box-footer">Status: ${vacancysCompany[i].status}</div>
+                    <div class="box-footer" style="color: #006600;">Status: ${vacancysCompany[i].status}</div>
                 </div>
             </div>
         `
     }
     squareBoxes.innerHTML = boxesHTML
+
+    if(vacancysCompany.length == 0){
+        squareBoxes.innerHTML = "You don't have open vacancies"
+    }
 
     clickCard()
 }

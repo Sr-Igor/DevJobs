@@ -28,12 +28,16 @@ function writeBoxesFinised(vacancysCompany){
                     </div>
                     <div class="title-job">${vacancysCompany[i].vacancyName}</div>
                     <div class="language">${vacancysCompany[i].companyName}</div>
-                    <div class="box-footer">Status: ${vacancysCompany[i].status}</div>
+                    <div class="box-footer" style="color: #d60000;">Status: ${vacancysCompany[i].status}</div>
                 </div>
             </div>
         `
     }
     squareBoxes.innerHTML = boxesHTML
+
+    if(vacancysCompany.length == 0){
+        squareBoxes.innerHTML = "You have no vacancies completed"
+    }
 
     clickCardFinished()
 }

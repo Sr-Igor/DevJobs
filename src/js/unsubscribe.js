@@ -6,12 +6,12 @@ function clickBtnCancel(){
 }
 
 function deleteSubs(e){
-   let currentVacancy = e.currentTarget
+   let currentVacancyClicked = Number(e.currentTarget.parentNode.getAttribute("data-key"))
+
    for (let i in vacancyId){
        if(vacancyId[i].idUser == userVacancyApply.id){
-        let currentItem = vacancyId[i].vacancysCode.indexOf(currentVacancy)
+        let currentItem = vacancyId[i].vacancysCode.indexOf(currentVacancyClicked)
         vacancyId[i].vacancysCode.splice(currentItem, 1)
-        console.log(vacancyId[i])
         document.querySelector(".box-vagancys").innerHTML = ""
         fillSubscriptions(userVacancyApply.id)
        }

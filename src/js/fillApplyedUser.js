@@ -8,10 +8,15 @@ function fillSubscriptions(user){
 }
 
 function VerifyApplyedVacancys(vacancysCode){
+    let empty = true
     for(let i in vacancys){
         if(vacancysCode.includes(vacancys[i].id)){
-            fillScreen(vacancys[i]) 
+            empty = false
+            fillScreen(vacancys[i])  
         }
+    }
+    if(empty === true){
+        document.querySelector(".box-vagancys").innerHTML = "You are not applying for any open vacancy"
     }
 }
 
@@ -22,14 +27,14 @@ function fillScreen(currentVacancy){
     <div class="vacancy" data-key="${currentVacancy.id}">
         <div class="company-name"><strong>Company: </strong> ${currentVacancy.companyName}</div>
         <div class="vacancy-title"><strong>Vacancy: </strong> ${currentVacancy.vacancyName}</div>
-        <div class="status"><strong>Stauts: </strong> ${currentVacancy.status}</div>
+        <div class="status" style="color: #006600;"><strong>Stauts: </strong> ${currentVacancy.status}</div>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">See Details</button>
         <button class="btn btn-danger btn-cancel-sub">Cancel Subscription</button>
     </div>
     `
 
-    clickVacancy()
     clickBtnCancel()
+    clickVacancy()
 }
 
 function clickVacancy(){

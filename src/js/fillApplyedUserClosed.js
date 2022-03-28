@@ -1,5 +1,4 @@
 function fillSubscriptionsClosed(user){
-    console.log("entrou1")
     for(let i in vacancyId){
         if(vacancyId[i].idUser == user){
             VerifyApplyedVacancysClosed(vacancyId[i].vacancysCode)
@@ -9,22 +8,25 @@ function fillSubscriptionsClosed(user){
 }
 
 function VerifyApplyedVacancysClosed(vacancysCode){
-    console.log("entrou2")
+    let empty = true
     for(let i in vacancysFinished){
         if(vacancysCode.includes(vacancysFinished[i].id)){
+            empty = false
             fillScreenClosed(vacancysFinished[i]) 
         }
+    }
+    if(empty === true){
+        document.querySelector(".box-vagancys-closed").innerHTML = "You are not applying for any closed vacancy"
     }
 }
 
 function fillScreenClosed(currentVacancy){
     let boxVacancy = document.querySelector(".box-vagancys-closed")
-    console.log("entrou3")
     boxVacancy.innerHTML += `
     <div class="vacancy" data-key="${currentVacancy.id}">
         <div class="company-name"><strong>Company: </strong> ${currentVacancy.companyName}</div>
         <div class="vacancy-title"><strong>Vacancy: </strong> ${currentVacancy.vacancyName}</div>
-        <div class="status"><strong>Stauts: </strong>${currentVacancy.status}</div>
+        <div class="status" style="color: #d60000;"><strong>Stauts: </strong>${currentVacancy.status}</div>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">See Details</button>
 
     </div>
