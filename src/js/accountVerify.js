@@ -42,32 +42,26 @@ var myModal = new bootstrap.Modal(document.getElementById('LoginModal'))
 var applyModal = new bootstrap.Modal(document.getElementById('ApplyModal'))
 
 // Events 
-loginButton.addEventListener('click', verifyAccount)
+loginButton.addEventListener('click', callUsers)
 sendApplyButton.addEventListener("click", sendApplication)
 
 // Function
-function verifyAccount(loged, verifyPass){
+function verifyAccount(usersRegisterArray){
 
 
     let usersArray = []
     
-    let currentUser = ""
-
-    for(let i in users){
-        usersArray.push([users[i].email, users[i].password])
+    for(let i in usersRegisterArray){
+        usersArray.push([usersRegisterArray[i].email, usersRegisterArray[i].password])
     }
 
     for (let i = 0; i < usersArray.length; i++){
         if(usersArray[i][0] == userInput.value && usersArray[i][1] == passwordInput.value){
              loginValid = true
-             enterAccount()
+             enterAccount(usersRegisterArray)
              login = userInput.value
              password = passwordInput.value
              break
-        }else if(usersArray[i][0] == loged && usersArray[i][1] == verifyPass){
-            enterAccount()
-            loginValid = true
-            break
         }else{
             errorMessage.style.opacity= "1"
             setTimeout(()=>{
@@ -77,10 +71,10 @@ function verifyAccount(loged, verifyPass){
     }
 }
 
-function enterAccount(){
-    for(let i=0; i<users.length; i++){
-        if(users[i].email == userInput.value){
-            currentUser = users[i]
+function enterAccount(usersRegisterArray){
+    for(let i=0; i<usersRegisterArray.length; i++){
+        if(usersRegisterArray[i].email == userInput.value){
+            let currentUser = usersRegisterArray[i]
             userVacancyApply = currentUser
             updateHeader()
             updateBodyFunctions()

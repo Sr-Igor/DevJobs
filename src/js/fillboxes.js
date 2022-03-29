@@ -124,5 +124,4 @@ function fillApply(item){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 }
-
-
+fillboxes()
