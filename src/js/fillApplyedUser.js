@@ -1,18 +1,18 @@
-function fillSubscriptions(user, applayedsArray){
+function fillSubscriptions(user, applayedsArray, vacanciesArray){
     for(let i in applayedsArray){
         if(applayedsArray[i].idUser == user){
-            VerifyApplyedVacancys(applayedsArray[i].vacancysCode)
+            VerifyApplyedVacancys(applayedsArray[i].vacancysCode, vacanciesArray)
         }
     }
     
 }
 
-function VerifyApplyedVacancys(vacancysCode){
+function VerifyApplyedVacancys(vacancysCode, vacanciesArray){
     let empty = true
-    for(let i in vacancys /*alterar*/){
-        if(vacancysCode.includes(vacancys[i].id)){
+    for(let i in vacanciesArray /*alterar*/){
+        if(vacancysCode.includes(vacanciesArray[i].id)){
             empty = false
-            fillScreen(vacancys[i])  
+            fillScreen(vacanciesArray[i])  
         }
     }
     if(empty === true){

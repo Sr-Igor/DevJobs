@@ -1,4 +1,4 @@
-function createJob(){
+function createJob(vacanciesArray){
     let public = document.querySelector(".public-vacancy")
     public.addEventListener('click', (e)=>{
         e.preventDefault()
@@ -37,25 +37,25 @@ function createJob(){
             let benefitsArray = benefits.value.split(",")
             let desirableArray = desirable.value.split(",")
     
-            createVacancyId(vacancyName, type, payment, time, adicionais, requirementsArray, benefitsArray, desirableArray,)
+            createVacancyId(vacanciesArray, vacancyName, type, payment, time, adicionais, requirementsArray, benefitsArray, desirableArray,)
             
         }
     })
     
-    function createVacancyId(vacancyName, type, payment, time, adicionais, requirementsArray, benefitsArray, desirableArray,){
+    function createVacancyId(vacanciesArray, vacancyName, type, payment, time, adicionais, requirementsArray, benefitsArray, desirableArray,){
         
         let randomIdVacancy = Math.floor(Math.random() * 1000)
-        let vacancysId = []
+        let vacanciesId = []
     
-        for (let i in vacancys){
-            vacancysId.push(vacancys[i].id)
+        for (let i in vacanciesArray){
+            vacanciesId.push(vacanciesArray[i].id)
         }
     
-        if(vacancysId.includes(randomIdVacancy)){
+        if(vacanciesId.includes(randomIdVacancy)){
             createVacancyId()
         }
     
-        vacancys.push(
+        vacanciesArray.push(
             {   
                 idCreator: currentUserCompany.id,
                 id: randomIdVacancy,
@@ -71,6 +71,6 @@ function createJob(){
                 additional: adicionais.value
             }
         )
-        console.log(vacancys)
+        updateVacancies(vacanciesArray)
     }
 }

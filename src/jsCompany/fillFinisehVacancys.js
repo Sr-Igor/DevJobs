@@ -1,9 +1,9 @@
-function fillBoxesVacancyFinised(){
+function fillBoxesVacancyFinised(vacanciesArrayFinished){
 
     let vacancysFinisedCompany =[]
-    for(let i in vacancysFinished){
-        if(vacancysFinished[i].idCreator == currentUserCompany.id){
-            vacancysFinisedCompany.push(vacancysFinished[i])
+    for(let i in vacanciesArrayFinished){
+        if(vacanciesArrayFinished[i].idCreator == currentUserCompany.id){
+            vacancysFinisedCompany.push(vacanciesArrayFinished[i])
         }
     }
     writeBoxesFinised(vacancysFinisedCompany)

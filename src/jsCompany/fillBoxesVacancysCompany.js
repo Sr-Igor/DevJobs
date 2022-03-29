@@ -1,8 +1,8 @@
-function fillBoxesVacancyCreator(){
+function fillBoxesVacancyCreator(vacanciesArray){
     let vacancysCreatedCompany =[]
-    for(let i in vacancys){
-        if(vacancys[i].idCreator == currentUserCompany.id){
-            vacancysCreatedCompany.push(vacancys[i])
+    for(let i in vacanciesArray){
+        if(vacanciesArray[i].idCreator == currentUserCompany.id){
+            vacancysCreatedCompany.push(vacanciesArray[i])
         }
     }
     writeBoxes(vacancysCreatedCompany)
@@ -44,24 +44,24 @@ function writeBoxes(vacancysCompany){
 function clickCard(){
     let allBoxes = document.querySelectorAll(".box")
     allBoxes.forEach(item =>{
-        item.addEventListener("click", searchCorrectBox)
+        item.addEventListener("click", callClickCardOpenVacancy)
     })
     
 }
 
-function searchCorrectBox(e){
-    let clickedItem = e.currentTarget
+function searchCorrectBox(vacanciesArray, applayedsArray, usersRegisterArray){
+    let clickedItem = event.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
-    for (let i in vacancys){
-        if(vacancys[i].id == idCard){
-            fillBox(vacancys[i])
+    for (let i in vacanciesArray){
+        if(vacanciesArray[i].id == idCard){
+            fillBox(vacanciesArray[i], applayedsArray, usersRegisterArray)
         }
     }
 
 }
 
-function fillBox(clickedVacancy){
+function fillBox(clickedVacancy, applayedsArray, usersRegisterArray){
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
@@ -148,23 +148,25 @@ function fillBox(clickedVacancy){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 
-    usersApplayeds(clickedVacancy)
+    usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray)
     finishVacancy(clickedVacancy)
 }
 
-function usersApplayeds(clickedVacancy){
+function usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray){
+    console.log(applayedsArray)
+    console.log(usersRegisterArray)
     document.querySelector(".see-applyeds").addEventListener("click", ()=>{
         let idUsers = []
-        for (let i in vacancyId){
-           if(vacancyId[i].vacancysCode.includes(clickedVacancy.id)){
-               idUsers.push(vacancyId[i].idUser)
+        for (let i in applayedsArray){
+           if(applayedsArray[i].vacancysCode.includes(clickedVacancy.id)){
+               idUsers.push(applayedsArray[i].idUser)
            }
         }
         
         let usersApplayedVacancy = []
-        for (let i in users){
-            if(idUsers.includes(users[i].id)){
-                usersApplayedVacancy.push(`${users[i].firstName} ${users[i].lastName}`)
+        for (let i in usersRegisterArray){
+            if(idUsers.includes(usersRegisterArray[i].id)){
+                usersApplayedVacancy.push(`${usersRegisterArray[i].firstName} ${usersRegisterArray[i].lastName}`)
             }
         }
 

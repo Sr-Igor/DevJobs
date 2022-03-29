@@ -127,7 +127,7 @@ function fillUserPageCompany() {
 </main>
 `
 
-        createJob()
+        callCreateJob()
         availableEditProfile()
         OpenVacancysCompany()
 }

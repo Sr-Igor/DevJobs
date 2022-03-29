@@ -9,7 +9,6 @@ function additionalUsers(){
 }
 function updateUsers(usersRegisterArray){
     localStorage.setItem("usersArray", JSON.stringify(usersRegisterArray))
-    console.log(usersRegisterArray)
 }
 function callUsers(){
     let usersRegisterArray = JSON.parse(localStorage.getItem("usersArray"))
@@ -28,9 +27,14 @@ function updateApplyeds(applayedsArray, unsubscrive = false){
 
 //Fill your Subscriptions
 function callApplyeds(){
+    let vacanciesArray =  localStorage.getItem("vacanciesArray") == null ? [] : JSON.parse(localStorage.getItem("vacanciesArray"))
+    if(vacanciesArray[0] == undefined){
+        vacanciesArray.push(...vacancys)
+    }
+
     let applayedsArray = localStorage.getItem("usersApplayedsArray") == null ? [] : JSON.parse(localStorage.getItem("usersApplayedsArray"))
-    fillSubscriptions(userVacancyApply.id, applayedsArray)
-    fillSubscriptionsClosed(userVacancyApply.id, applayedsArray)
+    fillSubscriptions(userVacancyApply.id, applayedsArray, vacanciesArray)
+    fillSubscriptionsClosed(userVacancyApply.id, applayedsArray, )
 }
 
 //Subscrive in vacancies
@@ -49,8 +53,9 @@ function callUnsubiscrive(){
 
 //Fill inicial page 
 
-function updateVacancies(){
+function updateVacancies(vacanciesArray){
     localStorage.setItem("vacanciesArray", JSON.stringify(vacanciesArray)) 
+    console.log(vacanciesArray)
 }
 
 function callVacancies(){
@@ -60,6 +65,7 @@ function callVacancies(){
         vacanciesArray.push(...vacancys)
     }
     fillboxes(vacanciesArray)
+
 
 }
 
@@ -98,3 +104,46 @@ function callNewUsers(){
 
     registerUser(usersRegisterArray)
 }
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//Create New Job 
+function callCreateJob(){
+    let vacanciesArray =  localStorage.getItem("vacanciesArray") == null ? [] : JSON.parse(localStorage.getItem("vacanciesArray"))
+    if(vacanciesArray[0] == undefined){
+        vacanciesArray.push(...vacancys)
+    }
+    createJob(vacanciesArray)
+}
+
+//Finished Vacancies 
+function updateFinishedVacancies(){
+    localStorage.setItem("vacanciesFinishedArray", JSON.stringify(vacanciesFinishedArray))
+}
+ // Fill company vacancies closed
+function callFinishedVacancies(){
+    let vacanciesArrayFinished =  localStorage.getItem("vacanciesFinishedArray") == null ? [] : JSON.parse(localStorage.getItem("vacanciesFinishedArray"))
+    fillBoxesVacancyFinised(vacanciesArrayFinished)
+}
+ // Fill company vacancies open
+function callOpenVacancies(){
+    let vacanciesArray =  localStorage.getItem("vacanciesArray") == null ? [] : JSON.parse(localStorage.getItem("vacanciesArray"))
+    if(vacanciesArray[0] == undefined){
+        vacanciesArray.push(...vacancys)
+    }
+    fillBoxesVacancyCreator(vacanciesArray)
+}
+
+function callClickCardOpenVacancy(){
+    let applayedsArray = localStorage.getItem("usersApplayedsArray") == null ? [] : JSON.parse(localStorage.getItem("usersApplayedsArray"))
+    let vacanciesArray =  localStorage.getItem("vacanciesArray") == null ? [] : JSON.parse(localStorage.getItem("vacanciesArray"))
+    if(vacanciesArray[0] == undefined){
+        vacanciesArray.push(...vacancys)
+    }
+    let usersRegisterArray = localStorage.getItem("usersArray") == null ? [] : JSON.parse(localStorage.getItem("usersArray"))
+    if(usersRegisterArray[0] == undefined){
+        usersRegisterArray.push(...users)
+    }
+    searchCorrectBox(vacanciesArray, applayedsArray, usersRegisterArray)
+}
+
