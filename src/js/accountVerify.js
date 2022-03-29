@@ -14,40 +14,23 @@ let password = ""
 let buttonLoged = document.querySelector(".button-loged")
 let TextNotLoged = document.querySelector(".text-not-loged")
 let btnOpenModal = document.querySelector(".btn-open-modal")
-let sendApplyButton = document.querySelector(".sendApplyButton")
 
-// Variables for fill Application
-let firstName = document.querySelector(".first-name")
-let lastName = document.querySelector(".last-name")
-let email = document.querySelector(".email")
-let confirmEmail = document.querySelector(".confirm-email")
-let phone = document.querySelector(".phone")
-let cep = document.querySelector(".cep")
-let street = document.querySelector(".street")
-let district = document.querySelector(".district")
-let city = document.querySelector(".city")
-let uf = document.querySelector(".uf")
-let number = document.querySelector(".number")
-let complement = document.querySelector(".complement")
-
-//Variables Send Application 
-let errorSendMenssage = document.querySelector(".error-send-menssage")
-let applyModalBody = document.querySelector(".Apply-Modal .modal-body")
-let applyModalFooter = document.querySelector(".Apply-Modal .modal-footer")
-let modalSuccess = document.querySelector(".modal-success")
 
 
 //Varibles for close login modal
 var myModal = new bootstrap.Modal(document.getElementById('LoginModal'))
-var applyModal = new bootstrap.Modal(document.getElementById('ApplyModal'))
+
 
 // Events 
 loginButton.addEventListener('click', callUsers)
-sendApplyButton.addEventListener("click", callSendApplyeds)
+
 
 // Function
 function verifyAccount(usersRegisterArray){
-
+    
+    
+    let sendApplyButton = document.querySelector(".sendApplyButton")
+    sendApplyButton.addEventListener("click", callSendApplyeds)
 
     let usersArray = []
     
@@ -72,6 +55,7 @@ function verifyAccount(usersRegisterArray){
 }
 
 function enterAccount(usersRegisterArray){
+    console.log(usersRegisterArray)
     for(let i=0; i<usersRegisterArray.length; i++){
         if(usersRegisterArray[i].email == userInput.value){
             let currentUser = usersRegisterArray[i]
@@ -103,6 +87,20 @@ function updateBodyFunctions(){
 
 function updateApplyVacancy(currentUser){
 
+    // Variables for fill Application
+    let firstName = document.querySelector(".first-name")
+    let lastName = document.querySelector(".last-name")
+    let email = document.querySelector(".email")
+    let confirmEmail = document.querySelector(".confirm-email")
+    let phone = document.querySelector(".phone")
+    let cep = document.querySelector(".cep")
+    let street = document.querySelector(".street")
+    let district = document.querySelector(".district")
+    let city = document.querySelector(".city")
+    let uf = document.querySelector(".uf")
+    let number = document.querySelector(".number")
+    let complement = document.querySelector(".complement")
+
     firstName.setAttribute("value", currentUser.firstName)
     lastName.setAttribute("value", currentUser.lastName)
     email.setAttribute("value", currentUser.email)
@@ -118,6 +116,26 @@ function updateApplyVacancy(currentUser){
 }
 
 function sendApplication(applayedsArray){
+
+    // Variables for fill Application
+    let firstName = document.querySelector(".first-name")
+    let lastName = document.querySelector(".last-name")
+    let email = document.querySelector(".email")
+    let confirmEmail = document.querySelector(".confirm-email")
+    let phone = document.querySelector(".phone")
+    let cep = document.querySelector(".cep")
+    let street = document.querySelector(".street")
+    let district = document.querySelector(".district")
+    let city = document.querySelector(".city")
+    let uf = document.querySelector(".uf")
+    let number = document.querySelector(".number")
+
+    //Variables Send Application 
+    let errorSendMenssage = document.querySelector(".error-send-menssage")
+    let applyModalBody = document.querySelector(".Apply-Modal .modal-body")
+    let applyModalFooter = document.querySelector(".Apply-Modal .modal-footer")
+    let modalSuccess = document.querySelector(".modal-success")
+
     let inputs = [firstName, lastName, email, confirmEmail, phone, cep, street, district, city, uf, number,]
     let inputsValue = [firstName.value, lastName.value, email.value, confirmEmail.value, phone.value, cep.value, street.value, district.value, city.value, uf.value, number.value,]
 
@@ -139,12 +157,12 @@ function sendApplication(applayedsArray){
         applyModalFooter.style.display = "none"
         modalSuccess.style.display = "flex"
 
-        setTimeout(()=>{
-            applyModal.hide()
+        let btnClose = document.querySelector(".after-apply")
+        btnClose.addEventListener("click", ()=>{
             applyModalBody.style.display = "flex"
             applyModalFooter.style.display = "flex"
             modalSuccess.style.display = "none"
-        },3000)
+        })
 
         getVacancy(applayedsArray)
     }

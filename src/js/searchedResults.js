@@ -1,12 +1,12 @@
 function AvailableSearchItens(){
     let searchButton = document.querySelector(".search")
-    searchButton.addEventListener("click", searchJobs)
+    searchButton.addEventListener("click", callSearchBoxes)
 }
 
 
 
-function searchJobs(e){
-    e.preventDefault()
+function searchJobs(vacanciesArray){
+    event.preventDefault()
 
     let findJobInput = document.querySelector(".find-job")
     let states = document.querySelector(".states");
@@ -17,17 +17,17 @@ function searchJobs(e){
     let filtersArray = []
 
     if(findJobInput.value == "" && state == 0 && checkboxFullTime == false){
-        fillboxes()
+        fillboxes(vacanciesArray)
         
     }else if(findJobInput.value == "" && state !== 0 || findJobInput.value == "" && checkboxFullTime == true){
-        verifyFields(vacancys, state, checkboxFullTime)     
+        verifyFields(vacanciesArray, state, checkboxFullTime)     
          
     }else if(findJobInput.value !== "" || state !== 0 || checkboxFullTime == true){ 
-        for (let i in vacancys){
-            let vacancyWords =  vacancys[i].vacancyName.toLowerCase().split(" ")
+        for (let i in vacanciesArray){
+            let vacancyWords =  vacanciesArray[i].vacancyName.toLowerCase().split(" ")
             vacancyWords.some(function(item){
                 if(wordsWritten.includes(item)){
-                    filtersArray.push(vacancys[i])
+                    filtersArray.push(vacanciesArray[i])
                 }
              })
              verifyFields(filtersArray, state, checkboxFullTime)
@@ -87,7 +87,7 @@ function fillboxesSearch(resultsArray){
         vacancy += `
         <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${resultsArray[i].id}>
             <div class="box-header">
-                <img src="src/images/bancoInter.png" alt="bancoInter">
+                <img src="src/icons/company-icon.png" alt="bancoInter">
             </div>
             <div class="box-body">
                 <div class="post">
@@ -121,9 +121,9 @@ function identifyApplySearch(){
 
 function fillApplySearch(item){
     let currentVacancy
-    for(let i in vacancys){
-        if(vacancys[i].id == item){
-            currentVacancy = vacancys[i]
+    for(let i in vacanciesArray){
+        if(vacanciesArray[i].id == item){
+            currentVacancy = vacanciesArray[i]
         }
     }
     

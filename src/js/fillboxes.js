@@ -1,9 +1,9 @@
-function fillboxes(){
+function fillboxes(vacanciesArray){
     let boxContainer = document.querySelector(".box-jobs")
     let vacancy = ""
-    for(let i = 0; i < vacancys.length; i++){
+    for(let i = 0; i < vacanciesArray.length; i++){
         vacancy += `
-        <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${vacancys[i].id}>
+        <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${vacanciesArray[i].id}>
             <div class="box-header">
                 <img src="src/icons/company-icon.png" alt="bancoInter">
             </div>
@@ -11,10 +11,10 @@ function fillboxes(){
                 <div class="post">
                     <div class="days">14 days</div>
                     <span>*</span>
-                    <div class="time-course">${vacancys[i].time}</div>
+                    <div class="time-course">${vacanciesArray[i].time}</div>
                 </div>
-                <div class="title-job">${vacancys[i].vacancyName}</div>
-                <div class="language">${vacancys[i].companyName}</div>
+                <div class="title-job">${vacanciesArray[i].vacancyName}</div>
+                <div class="language">${vacanciesArray[i].companyName}</div>
                 <div class="box-footer">See more details</div>
             </div>
         </div>
@@ -24,24 +24,24 @@ function fillboxes(){
     boxContainer.innerHTML = vacancy
     
     
-    identifyApply()
+    identifyApply(vacanciesArray)
 }
 
-function identifyApply(){
+function identifyApply(vacanciesArray){
     document.querySelectorAll(".box").forEach(item =>{
         item.addEventListener("click", (e)=>{
             let currentItem = e.currentTarget
             let item = currentItem.getAttribute("data-key")
-            fillApply(item)
+            fillApply(item, vacanciesArray)
         })
     })
 }
 
-function fillApply(item){
+function fillApply(item, vacanciesArray){
     let currentVacancy = ""
-    for(let i in vacancys){
-        if(vacancys[i].id == item){
-            currentVacancy = vacancys[i]
+    for(let i in vacanciesArray){
+        if(vacanciesArray[i].id == item){
+            currentVacancy = vacanciesArray[i]
         }
     }
     
@@ -124,4 +124,4 @@ function fillApply(item){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 }
-fillboxes()
+callVacancies()

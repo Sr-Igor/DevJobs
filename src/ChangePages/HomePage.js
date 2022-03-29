@@ -1,11 +1,11 @@
 function startProcessHomePage(){
     let inicialPage = document.querySelector(".inicial-page")
-    inicialPage.addEventListener('click', changeHomePage)
+    inicialPage.addEventListener('click', callHome)
 }
 
 function profileCallHome(){
     let homebutton = document.querySelector(".hello-profile")
-    homebutton.addEventListener("click", changeHomePage)
+    homebutton.addEventListener("click", callHome)
 }
 
 function changeHomePage(){
@@ -112,7 +112,7 @@ function changeHomePage(){
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col-12 button-loged" style="display: flex;">
-                            <button type="button" class="btn-open-modal btn btn-primary" data-bs-toggle="modal">Apply</button>
+                            <button type="button" class="btn-open-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#ApplyModal">Apply</button>
                         </div>
                     </div>
                 </div>
@@ -122,13 +122,13 @@ function changeHomePage(){
     </section>
 
     <section class="Apply-Modal">
-        <div class="modal" tabindex="-1" id="ApplyModal">
+        <div class="modal fade" tabindex="-1" id="ApplyModal">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <img src="src/images/bancoInter.png" alt="logo-job">
                     <h5 class="title-modal">Senior Software Enginner</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close after-apply" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form action="#" class="form-apply">
@@ -410,10 +410,8 @@ function changeHomePage(){
         </div>
     </section>
     `
-
-    enterAccount()
+    
     clickEventReloadHome()
-    fillboxes()
     AvailableSearchItens()
     profilePage()
 }
