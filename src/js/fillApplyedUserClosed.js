@@ -1,18 +1,18 @@
-function fillSubscriptionsClosed(user, applayedsArray){
+function fillSubscriptionsClosed(user, applayedsArray, vacanciesArrayFinished){
     for(let i in applayedsArray){
         if(applayedsArray[i].idUser == user){
-            VerifyApplyedVacancysClosed(applayedsArray[i].vacancysCode)
+            VerifyApplyedVacancysClosed(applayedsArray[i].vacancysCode, vacanciesArrayFinished)
         }
     }
     
 }
 
-function VerifyApplyedVacancysClosed(vacancysCode){
+function VerifyApplyedVacancysClosed(vacancysCode, vacanciesArrayFinished){
     let empty = true
-    for(let i in vacancysFinished/*alterar*/){
-        if(vacancysCode.includes(vacancysFinished[i].id)){
+    for(let i in vacanciesArrayFinished/*alterar*/){
+        if(vacancysCode.includes(vacanciesArrayFinished[i].id)){
             empty = false
-            fillScreenClosed(vacancysFinished[i]) 
+            fillScreenClosed(vacanciesArrayFinished[i], vacanciesArrayFinished) 
         }
     }
     if(empty === true){
@@ -20,7 +20,7 @@ function VerifyApplyedVacancysClosed(vacancysCode){
     }
 }
 
-function fillScreenClosed(currentVacancy){
+function fillScreenClosed(currentVacancy, vacanciesArrayFinished){
     let boxVacancy = document.querySelector(".box-vagancys-closed")
     boxVacancy.innerHTML += `
     <div class="vacancy" data-key="${currentVacancy.id}">
@@ -31,23 +31,23 @@ function fillScreenClosed(currentVacancy){
 
     </div>
     `
-    clickVacancyClosed()
+    clickVacancyClosed(vacanciesArrayFinished)
 }
 
-function clickVacancyClosed(){
+function clickVacancyClosed(vacanciesArrayFinished){
 
     document.querySelectorAll(".vacancy").forEach(item => {
         item.addEventListener("click", (e)=>{
            let clickedItem =  e.currentTarget.getAttribute("data-key")
-           searchInfoModalClosed(clickedItem)
+           searchInfoModalClosed(clickedItem, vacanciesArrayFinished)
         })
     })
 }
 
-function searchInfoModalClosed(clickedItem){
-    for(let i in vacancysFinished){
-        if(vacancysFinished[i].id == clickedItem){
-            fillInfoModalClosed(vacancysFinished[i])
+function searchInfoModalClosed(clickedItem, vacanciesArrayFinished){
+    for(let i in vacanciesArrayFinished){
+        if(vacanciesArrayFinished[i].id == clickedItem){
+            fillInfoModalClosed(vacanciesArrayFinished[i])
         }
     }
 }

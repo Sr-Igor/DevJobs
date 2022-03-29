@@ -45,22 +45,22 @@ function writeBoxesFinised(vacancysCompany){
 function clickCardFinished(){
     let allBoxes = document.querySelectorAll(".box")
     allBoxes.forEach(item =>{
-        item.addEventListener("click", searchCorrectBoxFinished)
+        item.addEventListener("click", callClickCardCloseVacancy)
     })
 }
 
-function searchCorrectBoxFinished(e){
-    let clickedItem = e.currentTarget
+function searchCorrectBoxFinished(vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished){
+    let clickedItem = event.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
-    for (let i in vacancysFinished){
-        if(vacancysFinished[i].id == idCard){
-            fillBoxFinised(vacancysFinished[i])
+    for (let i in vacanciesArrayFinished){
+        if(vacanciesArrayFinished[i].id == idCard){
+            fillBoxFinised(vacanciesArrayFinished[i], vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished)
         }
     }
 }
 
-function fillBoxFinised(clickedVacancy){
+function fillBoxFinised(clickedVacancy, vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished){
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
@@ -147,23 +147,23 @@ function fillBoxFinised(clickedVacancy){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 
-    usersApplayedsFinished(clickedVacancy)
-    OpenVacancy(clickedVacancy)
+    usersApplayedsFinished(clickedVacancy, applayedsArray, usersRegisterArray)
+    OpenVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished)
 }
 
-function usersApplayedsFinished(clickedVacancy){
+function usersApplayedsFinished(clickedVacancy, applayedsArray, usersRegisterArray){
     document.querySelector(".see-applyeds").addEventListener("click", ()=>{
         let idUsers = []
-        for (let i in vacancyId){
-           if(vacancyId[i].vacancysCode.includes(clickedVacancy.id)){
-               idUsers.push(vacancyId[i].idUser)
+        for (let i in applayedsArray){
+           if(applayedsArray[i].vacancysCode.includes(clickedVacancy.id)){
+               idUsers.push(applayedsArray[i].idUser)
            }
         }
         
         let usersApplayedVacancy = []
-        for (let i in users){
-            if(idUsers.includes(users[i].id)){
-                usersApplayedVacancy.push(`${users[i].firstName} ${users[i].lastName}`)
+        for (let i in usersRegisterArray){
+            if(idUsers.includes(usersRegisterArray[i].id)){
+                usersApplayedVacancy.push(`${usersRegisterArray[i].firstName} ${usersRegisterArray[i].lastName}`)
             }
         }
 

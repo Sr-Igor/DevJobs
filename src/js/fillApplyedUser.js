@@ -12,7 +12,7 @@ function VerifyApplyedVacancys(vacancysCode, vacanciesArray){
     for(let i in vacanciesArray /*alterar*/){
         if(vacancysCode.includes(vacanciesArray[i].id)){
             empty = false
-            fillScreen(vacanciesArray[i])  
+            fillScreen(vacanciesArray[i], vacanciesArray)  
         }
     }
     if(empty === true){
@@ -20,7 +20,7 @@ function VerifyApplyedVacancys(vacancysCode, vacanciesArray){
     }
 }
 
-function fillScreen(currentVacancy){
+function fillScreen(currentVacancy, vacanciesArray){
     let boxVacancy = document.querySelector(".box-vagancys")
     
     boxVacancy.innerHTML += `
@@ -34,23 +34,23 @@ function fillScreen(currentVacancy){
     `
 
     clickBtnCancel()
-    clickVacancy()
+    clickVacancy(vacanciesArray)
 }
 
-function clickVacancy(){
+function clickVacancy(vacanciesArray){
 
     document.querySelectorAll(".vacancy").forEach(item => {
         item.addEventListener("click", (e)=>{
            let clickedItem =  e.currentTarget.getAttribute("data-key")
-           searchInfoModal(clickedItem)
+           searchInfoModal(clickedItem, vacanciesArray)
         })
     })
 }
 
-function searchInfoModal (clickedItem){
-    for(let i in vacancys){
-        if(vacancys[i].id == clickedItem){
-            fillInfoModal(vacancys[i])
+function searchInfoModal (clickedItem, vacanciesArray){
+    for(let i in vacanciesArray){
+        if(vacanciesArray[i].id == clickedItem){
+            fillInfoModal(vacanciesArray[i])
         }
     }
 }

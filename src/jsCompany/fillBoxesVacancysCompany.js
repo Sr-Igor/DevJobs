@@ -49,19 +49,19 @@ function clickCard(){
     
 }
 
-function searchCorrectBox(vacanciesArray, applayedsArray, usersRegisterArray){
+function searchCorrectBox(vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished){
     let clickedItem = event.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
     for (let i in vacanciesArray){
         if(vacanciesArray[i].id == idCard){
-            fillBox(vacanciesArray[i], applayedsArray, usersRegisterArray)
+            fillBox(vacanciesArray[i], applayedsArray, usersRegisterArray, vacanciesArrayFinished, vacanciesArray)
         }
     }
 
 }
 
-function fillBox(clickedVacancy, applayedsArray, usersRegisterArray){
+function fillBox(clickedVacancy, applayedsArray, usersRegisterArray,vacanciesArrayFinished, vacanciesArray){
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
@@ -149,12 +149,10 @@ function fillBox(clickedVacancy, applayedsArray, usersRegisterArray){
     benefits.innerHTML = benefitsHTML
 
     usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray)
-    finishVacancy(clickedVacancy)
+    finishVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished)
 }
 
 function usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray){
-    console.log(applayedsArray)
-    console.log(usersRegisterArray)
     document.querySelector(".see-applyeds").addEventListener("click", ()=>{
         let idUsers = []
         for (let i in applayedsArray){

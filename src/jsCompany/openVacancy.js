@@ -1,4 +1,4 @@
-function OpenVacancy(clickedVacancy){
+function OpenVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished){
     document.querySelector(".btn-open-vacancy").addEventListener("click", (e)=>{
         e.preventDefault()
         clickedVacancy.status = "In Process"
@@ -10,11 +10,14 @@ function OpenVacancy(clickedVacancy){
             document.querySelector(".box-finised-vacancy").innerHTML = ""
         },3000)
 
-        let indexEl = vacancys.indexOf(clickedVacancy)
-        vacancysFinished.splice(indexEl, 1)
-        vacancys.push(clickedVacancy)
+        let indexEl = vacanciesArray.indexOf(clickedVacancy)
+        vacanciesArrayFinished.splice(indexEl, 1)
+        vacanciesArray.push(clickedVacancy)
 
-        fillBoxesVacancyCreator()
-        fillBoxesVacancyFinised()
+        updateFinishedVacancies(vacanciesArrayFinished)
+        updateVacancies(vacanciesArray)
+
+        callOpenVacancies()
+        callFinishedVacancies()
     })
 }
