@@ -9,6 +9,7 @@ function additionalUsers(){
 }
 function updateUsers(usersRegisterArray){
     localStorage.setItem("usersArray", JSON.stringify(usersRegisterArray))
+    console.log(usersRegisterArray)
 }
 function callUsers(){
     let usersRegisterArray = JSON.parse(localStorage.getItem("usersArray"))
@@ -71,6 +72,8 @@ function callSearchBoxes(){
     }
     searchJobs(vacanciesArray)
 }
+
+//--------------------------------------------------------------------------------------------------------------------------------------
 // fill back home
 function callHome(){
     changeHomePage()
@@ -83,4 +86,15 @@ function callEditProfile(){
     let usersRegisterArray = JSON.parse(localStorage.getItem("usersArray"))
     verifyFieldsEdit(usersRegisterArray)
 }
+//----------------------------------------------------------------------------------------
 
+//Register New Users
+
+function callNewUsers(){
+    let usersRegisterArray = localStorage.getItem("usersArray") == null ? [] : JSON.parse(localStorage.getItem("usersArray"))
+    if(usersRegisterArray[0] == undefined){
+        usersRegisterArray.push(...users)
+    }
+
+    registerUser(usersRegisterArray)
+}

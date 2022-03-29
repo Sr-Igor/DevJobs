@@ -1,12 +1,11 @@
 
 function availableUsersRegister(){
     let registerButton = document.querySelector(".register-button")
-    registerButton.addEventListener('click', registerUser)
-    var registerModal = new bootstrap.Modal(document.getElementById('RegisterModal'))
+    registerButton.addEventListener('click', callNewUsers)
 }
 
-function registerUser(e){
-    e.preventDefault()
+function registerUser(usersRegisterArray){
+    event.preventDefault()
     //box error
     let messageError = document.querySelector(".error-register-message")
     let boxError = document.querySelector(".box-error-register")
@@ -95,13 +94,13 @@ function registerUser(e){
             cpf.classList.remove("empty")
         }
 
-        idUserGenerator(firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
+        idUserGenerator(usersRegisterArray, firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
             cep, street, district, city, uf, number, complement)
     }
 }
   
 
-function idUserGenerator(firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
+function idUserGenerator(usersRegisterArray, firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
     cep, street, district, city, uf, number, complement){
 
     //box success
@@ -120,7 +119,7 @@ function idUserGenerator(firstName, lastName, email, emailConfirm, password, pas
         idRandomUser()
     }
 
-    users.push(
+    usersRegisterArray.push(
         {
             id: idRandomUser,
             email: email.value,
@@ -136,17 +135,15 @@ function idUserGenerator(firstName, lastName, email, emailConfirm, password, pas
                 district: district.value,
                 street: street.value,
                 number: number.value,
-                complement: complement.value
+                complement: complement.value,
             }
-        }
+        },
     )
 
     messageSuccess.innerHTML = "Successfully registered, now you can login"
     boxSuccess.style.display = "flex"
 
     setTimeout(()=>{
-
-        registerModal.hide()
 
         firstName.value = ""
         lastName.value = ""
@@ -162,10 +159,11 @@ function idUserGenerator(firstName, lastName, email, emailConfirm, password, pas
         city.value = ""
         uf.value = ""
         number.value = ""
-
+        complement.value = ""
         messageSuccess.innerHTML = ""
         boxSuccess.style.display = "none"
     },1000)
+    updateUsers(usersRegisterArray)
 }
 
 availableUsersRegister()
