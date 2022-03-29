@@ -54,9 +54,7 @@ function changeSubsPage(){
         </section>
     </main>
     `
-
-    fillSubscriptions(userVacancyApply.id)
-    fillSubscriptionsClosed(userVacancyApply.id)
+    callApplyeds()
     startProcessHomePage()
     profilePage()
 }

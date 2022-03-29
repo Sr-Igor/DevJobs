@@ -1,19 +1,21 @@
 function clickBtnCancel(){
+    
     let CollectiobbuttonCancelSub = document.querySelectorAll(".btn-cancel-sub")
     CollectiobbuttonCancelSub.forEach(item =>{
-        item.addEventListener("click", deleteSubs)
+        item.addEventListener("click", callUnsubiscrive)
     })
 }
 
-function deleteSubs(e){
-   let currentVacancyClicked = Number(e.currentTarget.parentNode.getAttribute("data-key"))
+function deleteSubs(applayedsArray){
+    
+   let currentVacancyClicked = Number(event.currentTarget.parentNode.getAttribute("data-key"))
 
-   for (let i in vacancyId){
-       if(vacancyId[i].idUser == userVacancyApply.id){
-        let currentItem = vacancyId[i].vacancysCode.indexOf(currentVacancyClicked)
-        vacancyId[i].vacancysCode.splice(currentItem, 1)
+   for (let i in applayedsArray){
+       if(applayedsArray[i].idUser == userVacancyApply.id){
+        let currentItem = applayedsArray[i].vacancysCode.indexOf(currentVacancyClicked)
+        applayedsArray[i].vacancysCode.splice(currentItem, 1)
         document.querySelector(".box-vagancys").innerHTML = ""
-        fillSubscriptions(userVacancyApply.id)
+        updateApplyeds(applayedsArray, true)
        }
    }
 }

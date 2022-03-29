@@ -1,7 +1,7 @@
-function fillSubscriptions(user){
-    for(let i in vacancyId){
-        if(vacancyId[i].idUser == user){
-            VerifyApplyedVacancys(vacancyId[i].vacancysCode)
+function fillSubscriptions(user, applayedsArray){
+    for(let i in applayedsArray){
+        if(applayedsArray[i].idUser == user){
+            VerifyApplyedVacancys(applayedsArray[i].vacancysCode)
         }
     }
     
@@ -9,7 +9,7 @@ function fillSubscriptions(user){
 
 function VerifyApplyedVacancys(vacancysCode){
     let empty = true
-    for(let i in vacancys){
+    for(let i in vacancys /*alterar*/){
         if(vacancysCode.includes(vacancys[i].id)){
             empty = false
             fillScreen(vacancys[i])  

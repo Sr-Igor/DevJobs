@@ -43,7 +43,7 @@ var applyModal = new bootstrap.Modal(document.getElementById('ApplyModal'))
 
 // Events 
 loginButton.addEventListener('click', callUsers)
-sendApplyButton.addEventListener("click", sendApplication)
+sendApplyButton.addEventListener("click", callSendApplyeds)
 
 // Function
 function verifyAccount(usersRegisterArray){
@@ -117,7 +117,7 @@ function updateApplyVacancy(currentUser){
     complement.setAttribute("value", currentUser.adress.complement)
 }
 
-function sendApplication(){
+function sendApplication(applayedsArray){
     let inputs = [firstName, lastName, email, confirmEmail, phone, cep, street, district, city, uf, number,]
     let inputsValue = [firstName.value, lastName.value, email.value, confirmEmail.value, phone.value, cep.value, street.value, district.value, city.value, uf.value, number.value,]
 
@@ -146,30 +146,47 @@ function sendApplication(){
             modalSuccess.style.display = "none"
         },3000)
 
-        getVacancy()
+        getVacancy(applayedsArray)
     }
 }
 
-function getVacancy(){
+function getVacancy(applayedsArray){
     let applyedVacancy = document.querySelector(".title-modal")
     let currentVacancy = applyedVacancy.getAttribute("data-key")
     let applyedUser = []
-
-    vacancyId.forEach(item =>{
-        applyedUser.push(item.idUser)
-    })
-    if(applyedUser.includes(userVacancyApply.id)){
-        for( let i in vacancyId){
-            if(vacancyId[i].idUser == userVacancyApply.id){
-                vacancyId[i].vacancysCode.push(currentVacancy)
-            }else{
-                console.log("error")
-            }
-        }
-    }else{
-        vacancyId.push({
-            idUser: userVacancyApply.id,
-            vacancysCode: [currentVacancy]
+    
+    if(applayedsArray !== null){
+        applayedsArray = applayedsArray
+        applayedsArray.forEach(item =>{
+            applyedUser.push(item.idUser)
         })
-    } 
+        if(applyedUser.includes(userVacancyApply.id)){
+            console.log("ususario existente")
+            
+            for( let i in applayedsArray){
+                if(applayedsArray[i].idUser == userVacancyApply.id){
+                    
+                    applayedsArray[i].vacancysCode.push(Number(currentVacancy))
+                    
+                }
+            }
+        }else{
+            console.log("ususario inexistente 1")
+            applayedsArray.push({
+                idUser: userVacancyApply.id,
+                vacancysCode: [Number(currentVacancy)]
+            })
+            
+        } 
+    }else{
+        console.log("ususario inexistente 2")
+        applayedsArray.push({
+            idUser: userVacancyApply.id,
+            vacancysCode: [Number(currentVacancy)]
+        })
+        
+    }
+    updateApplyeds(applayedsArray)
+    
+    
 }
