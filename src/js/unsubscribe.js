@@ -18,4 +18,5 @@ function deleteSubs(applayedsArray){
         updateApplyeds(applayedsArray, true)
        }
    }
+   updateLocalStorage()
 }

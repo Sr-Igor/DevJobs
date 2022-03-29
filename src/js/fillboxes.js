@@ -5,7 +5,7 @@ function fillboxes(vacanciesArray){
         vacancy += `
         <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${vacanciesArray[i].id}>
             <div class="box-header">
-                <img src="src/icons/company-icon.png" alt="bancoInter">
+                <img src="src/icons/01-11_86379.png" alt="bancoInter">
             </div>
             <div class="box-body">
                 <div class="post">
@@ -47,7 +47,7 @@ function fillApply(item, vacanciesArray){
     
     let jobModalHeader = document.querySelector(".modal-job-modal .modal-header")
     jobModalHeader.innerHTML = `
-        <img src="src/icons/company-icon.png" alt="logo-job">
+        <img src="src/icons/01-11_86379.png" alt="logo-job">
         <h5 class="title-modal" data-key="${currentVacancy.id}">${currentVacancy.vacancyName}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         `

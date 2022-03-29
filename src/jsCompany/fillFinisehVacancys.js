@@ -18,7 +18,7 @@ function writeBoxesFinised(vacancysCompany){
         boxesHTML += `
             <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key="${vacancysCompany[i].id}">
                 <div class="box-header">
-                    <img src="/src/icons/company-icon.png" alt="bancoInter">
+                    <img src="/src/icons/01-11_86379.png" alt="bancoInter">
                 </div>
                 <div class="box-body">
                     <div class="post">
@@ -53,9 +53,15 @@ function searchCorrectBoxFinished(vacanciesArray, applayedsArray, usersRegisterA
     let clickedItem = event.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
+<<<<<<< HEAD
     for (let i in vacanciesArrayFinished){
         if(vacanciesArrayFinished[i].id == idCard){
             fillBoxFinised(vacanciesArrayFinished[i], vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished)
+=======
+    for (let i in vacanciesFinishedArray){
+        if(vacanciesFinishedArray[i].id == idCard){
+            fillBoxFinised(vacanciesFinishedArray[i])
+>>>>>>> 3b748cfb47af4f4f6f73ee40de2ced86285e8999
         }
     }
 }
@@ -64,7 +70,7 @@ function fillBoxFinised(clickedVacancy, vacanciesArray, applayedsArray, usersReg
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
-    <img src="/src/images/bancoInter.png" alt="logo-job">
+    <img src="/src/icons/01-11_86379.png" alt="logo-job">
     <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>

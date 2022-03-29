@@ -164,6 +164,6 @@ function idUserGeneratorCompany(companyName, companyEmail, companyEmailConfirm, 
         boxSuccess.style.display = "none"
     },1000)
 
-    console.log(companys)
+    updateLocalStorage()
 }
 

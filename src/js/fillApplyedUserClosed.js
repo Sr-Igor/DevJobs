@@ -55,7 +55,7 @@ function searchInfoModalClosed(clickedItem, vacanciesArrayFinished){
 function fillInfoModalClosed(currentVacancy){
     document.querySelector(".modal-info").innerHTML = `
     <div class="modal-header">
-    <img src="/src/icons/company-icon.png" alt="logo-job">
+    <img src="src/icons/01-11_86379.png" alt="logo-job">
     <h5 class="title-modal">${currentVacancy.companyName}</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
