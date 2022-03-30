@@ -173,6 +173,7 @@ function callEditProfileCompany(){
 
 function updateCompanysArray(companysArray){
     localStorage.setItem("companysArray", JSON.stringify(companysArray))
+    console.log(companysArray)
 }
 
 // Verify account company 
@@ -184,4 +185,14 @@ function callVerifyAccountCompany(){
     verifyAccount(companysArray)
 }
 
+
+// Call create account company 
+
+function callCreateAccountCompany(){
+    let companysArray =  localStorage.getItem("companysArray") == null ? [] : JSON.parse(localStorage.getItem("companysArray"))
+    if(companysArray[0] == undefined){
+        companysArray.push(...companys)
+    }
+    verifyFields(companysArray)
+}
 

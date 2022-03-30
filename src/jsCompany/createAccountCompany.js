@@ -26,10 +26,10 @@ let messageErrorRegister = document.querySelector(".error-message-register")
 // Button register
 let buttonRegisterCompany = document.querySelector(".button-register-company")
 
-buttonRegisterCompany.addEventListener("click", verifyFields)
+buttonRegisterCompany.addEventListener("click", callCreateAccountCompany)
 
-function verifyFields(e){
-    e.preventDefault()
+function verifyFields(companysArray){
+    event.preventDefault()
     let ArrayInputs = [companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber,]
     let ArrayInputsValue = [companyName.value, companyEmail.value, companyEmailConfirm.value, companyPassword.value, companyPasswordConfirm.value, companyPhone.value, companyCnpj.value, companyCep.value, companyStreet.value, companyDistrict.value, companyCity.value, companyUf.value, companyNumber.value,]
 
@@ -69,8 +69,8 @@ function verifyFields(e){
         }
 
         let cnpjUsers = []
-        for(let i in companys){
-            cnpjUsers.push(companys[i].cnpj)
+        for(let i in companysArray){
+            cnpjUsers.push(companysArray[i].cnpj)
         }
 
         if(cnpjUsers.includes(companyCnpj.value)){
@@ -89,7 +89,7 @@ function verifyFields(e){
         if(checkboxRegister.checked == true){
             boxErrorMessage.style.display = "none"
             messageErrorRegister.innerHTML = ""
-            idUserGeneratorCompany(companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber, companyComplement,)
+            idUserGeneratorCompany(companysArray, companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber, companyComplement,)
         }else{
             boxErrorMessage.style.display = "flex"
             messageErrorRegister.innerHTML = "Privacy terms must be accepted"
@@ -100,7 +100,7 @@ function verifyFields(e){
 
 }
 
-function idUserGeneratorCompany(companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber, companyComplement,){
+function idUserGeneratorCompany(companysArray, companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber, companyComplement,){
 
     //box success
     let messageSuccess = document.querySelector(".success-message-register")
@@ -110,15 +110,15 @@ function idUserGeneratorCompany(companyName, companyEmail, companyEmailConfirm, 
     let idRandomUser = Math.floor(Math.random() * 10000)
 
     let idUsersCompanys = []
-    for (let i in companys){
-        idUsersCompanys.push(companys[i].id)
+    for (let i in companysArray){
+        idUsersCompanys.push(companysArray[i].id)
     }
     
     if(idUsersCompanys.includes(idRandomUser)){
         idRandomUserCompany()
     }
 
-    companys.push(
+    companysArray.push(
         {
             id: idRandomUser,
             companyName: companyName.value,
@@ -137,14 +137,12 @@ function idUserGeneratorCompany(companyName, companyEmail, companyEmailConfirm, 
             }
         }
     )
-
+    
+    updateCompanysArray(companysArray)
     messageSuccess.innerHTML = "Successfully registered, now you can login"
     boxSuccess.style.display = "flex"
 
     setTimeout(()=>{
-
-        
-
         companyName.value = ""
         companyEmail.value = ""
         companyEmailConfirm.value = ""
@@ -163,7 +161,5 @@ function idUserGeneratorCompany(companyName, companyEmail, companyEmailConfirm, 
         messageSuccess.innerHTML = ""
         boxSuccess.style.display = "none"
     },1000)
-
-    console.log(companys)
 }
 
