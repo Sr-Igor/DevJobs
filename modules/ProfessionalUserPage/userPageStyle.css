@@ -138,21 +138,29 @@ label{
     background-color: rgba(255, 0, 0, 0.288);
 }
 
-.error-create-job{
-    display: none;
+.box-create-job{
     opacity: 0;
-    color: rgba(255, 0, 0, 0.644);
-    background-color: rgba(255, 0, 0, 0.39);
-    width: 100%;
+    min-width: 70%;
+    max-width: 80%;
+    height: 40px;
     text-align: center;
+    font-weight: 600;
     padding: 10px;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);
     transition: all 0.5s ease;
 }
+.error-box{
+    color: rgba(255, 0, 0, 0.644);
+    background-color: rgba(238, 20, 20, 0.274);
+    box-shadow: 0 0 2px rgba(206, 15, 15, 0.384);
+}
 
+.success-box{
+    color: rgb(28, 139, 28);
+    background-color: rgba(63, 160, 63, 0.356);
+}
 /* Edit Profile */ 
 
 .box-edit-profile{

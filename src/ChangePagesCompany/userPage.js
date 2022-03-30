@@ -54,7 +54,7 @@ function fillUserPageCompany() {
             
             <div class="col-9 box-vacancy">
                 <span class="title-create-job">Create a new vacancy</span>
-                <span class="error-create-job"><i class="bi bi-x"></i> Please. Complete all fields correctly!</span>
+                <span class="box-create-job"></span>
                 <form>
                     <div class="row">
                         <div class="mb-3 col-5">
@@ -73,7 +73,7 @@ function fillUserPageCompany() {
                         <div class="mb-3 col-5">
                             <label for="exampleInputPassword1" class="form-label">Periody</label>
                             <select class="form-select periody" aria-label="Default select example">
-                                <option value="0" selected>Open this select menu</option>
+                                <option value="0" selected></option>
                                 <option value="1">Full Time</option>
                                 <option value="2">1/2 Periody</option>
                                 <option value="3">Night Time</option>

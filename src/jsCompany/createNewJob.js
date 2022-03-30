@@ -15,30 +15,51 @@ function createJob(vacanciesArray){
         let inputs = [vacancyName, type, payment, requirements, benefits, desirable, adicionais]
         let inputsValue = [vacancyName.value, type.value, payment.value, requirements.value, benefits.value, desirable.value, adicionais.value]
         let time = periody.options[periody.selectedIndex].innerText;
-    
-        if(inputsValue.includes("") || time == "Open this select menu"){
-    
-            let errorMessage = document.querySelector(".error-create-job")
+               
+        let boxMessage = document.querySelector(".box-create-job")
+
+        if(inputsValue.includes("") || time == ""){
     
             //Transition message error 
-            errorMessage.style.display = "block"
-            errorMessage.style.opacity = "1"
-            setTimeout(()=>{errorMessage.style.opacity = "0"},3000)
-            setTimeout(()=>{errorMessage.style.display = "none"},3300)
+            boxMessage .classList.add("error-box")
+            boxMessage .innerHTML = '<i class="bi bi-x"></i> Please. Complete all fields correctly!'
+            boxMessage .style.opacity = "1"
+            setTimeout(()=>{boxMessage .style.opacity = "0"},3000)
+            setTimeout(()=>{boxMessage .innerHTML = "", boxMessage .classList.remove("error-box")},3300)
             
             // Verify empty inputs 
             for (let i in inputs){
                 inputs[i].value == "" ? inputs[i].classList.add("empty") : inputs[i].classList.remove("empty")
             }
-            time == "Open this select menu" ? periody.classList.add("empty") : periody.classList.remove("empty")
+            time == "" ? periody.classList.add("empty") : periody.classList.remove("empty")
         
         }else{
+            for (let i in inputs){
+                inputs[i].classList.remove("empty")
+            }
+
+            periody.classList.remove("empty")
+
+            //Transition message success 
+            boxMessage .classList.add("success-box")
+            boxMessage .innerHTML = '<i class="bi bi-bookmark-check"></i> Job created successfully!'
+            boxMessage .style.opacity = "1"
+            setTimeout(()=>{boxMessage .style.opacity = "0"},3000)
+            setTimeout(()=>{boxMessage .innerHTML = "", boxMessage .classList.remove("success-box")},3300)
+
             let requirementsArray = requirements.value.split(",")
             let benefitsArray = benefits.value.split(",")
             let desirableArray = desirable.value.split(",")
     
             createVacancyId(vacanciesArray, vacancyName, type, payment, time, adicionais, requirementsArray, benefitsArray, desirableArray,)
             
+            vacancyName.value = ""
+            type.value = ""
+            payment.value = ""
+            requirements.value = ""
+            benefits.value = ""
+            desirable.value = ""
+            adicionais.value = ""
         }
     })
     

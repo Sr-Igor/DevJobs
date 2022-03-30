@@ -8,9 +8,11 @@ function fillSubscriptions(user, applayedsArray, vacanciesArray){
 }
 
 function VerifyApplyedVacancys(vacancysCode, vacanciesArray){
+    console.log("entrou1")
     let empty = true
-    for(let i in vacanciesArray /*alterar*/){
+    for(let i in vacanciesArray){
         if(vacancysCode.includes(vacanciesArray[i].id)){
+            console.log("entrou")
             empty = false
             fillScreen(vacanciesArray[i], vacanciesArray)  
         }

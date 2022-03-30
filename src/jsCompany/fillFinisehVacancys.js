@@ -18,7 +18,7 @@ function writeBoxesFinised(vacancysCompany){
         boxesHTML += `
             <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key="${vacancysCompany[i].id}">
                 <div class="box-header">
-                    <img src="/src/icons/company-icon.png" alt="bancoInter">
+                    <img src="/src/icons/company-icon.png"" alt="bancoInter">
                 </div>
                 <div class="box-body">
                     <div class="post">
@@ -49,22 +49,25 @@ function clickCardFinished(){
     })
 }
 
-function searchCorrectBoxFinished(vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished){
+function searchCorrectBoxFinished(parametrsArray){
+    let {vacanciesArrayFinished} = parametrsArray
+
     let clickedItem = event.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
     for (let i in vacanciesArrayFinished){
         if(vacanciesArrayFinished[i].id == idCard){
-            fillBoxFinised(vacanciesArrayFinished[i], vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished)
+            fillBoxFinised(vacanciesArrayFinished[i], parametrsArray)
         }
     }
 }
 
-function fillBoxFinised(clickedVacancy, vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished){
-    
+function fillBoxFinised(clickedVacancy, parametrsArray){
+    let {vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished} = parametrsArray
+
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
-    <img src="/src/images/bancoInter.png" alt="logo-job">
+    <img src="/src/icons/company-icon.png"" alt="logo-job">
     <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
@@ -175,7 +178,7 @@ function usersApplayedsFinished(clickedVacancy, applayedsArray, usersRegisterArr
     
         document.querySelector(".applayeds-modal-content").innerHTML = `
         <div class="modal-header">
-        <img src="/src/images/bancoInter.png" alt="logo-job">
+        <img src="/src/icons/company-icon.png"" alt="logo-job">
         <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>

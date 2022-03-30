@@ -9,7 +9,7 @@ function fillSubscriptionsClosed(user, applayedsArray, vacanciesArrayFinished){
 
 function VerifyApplyedVacancysClosed(vacancysCode, vacanciesArrayFinished){
     let empty = true
-    for(let i in vacanciesArrayFinished/*alterar*/){
+    for(let i in vacanciesArrayFinished){
         if(vacancysCode.includes(vacanciesArrayFinished[i].id)){
             empty = false
             fillScreenClosed(vacanciesArrayFinished[i], vacanciesArrayFinished) 
@@ -22,6 +22,7 @@ function VerifyApplyedVacancysClosed(vacancysCode, vacanciesArrayFinished){
 
 function fillScreenClosed(currentVacancy, vacanciesArrayFinished){
     let boxVacancy = document.querySelector(".box-vagancys-closed")
+    
     boxVacancy.innerHTML += `
     <div class="vacancy" data-key="${currentVacancy.id}">
         <div class="company-name"><strong>Company: </strong> ${currentVacancy.companyName}</div>

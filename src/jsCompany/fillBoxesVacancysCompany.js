@@ -49,19 +49,22 @@ function clickCard(){
     
 }
 
-function searchCorrectBox(vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished){
+function searchCorrectBox(parametrsArray){
+    let {vacanciesArray} = parametrsArray
+
     let clickedItem = event.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
     for (let i in vacanciesArray){
         if(vacanciesArray[i].id == idCard){
-            fillBox(vacanciesArray[i], applayedsArray, usersRegisterArray, vacanciesArrayFinished, vacanciesArray)
+            fillBox(vacanciesArray[i], parametrsArray)
         }
     }
 
 }
 
-function fillBox(clickedVacancy, applayedsArray, usersRegisterArray,vacanciesArrayFinished, vacanciesArray){
+function fillBox(clickedVacancy, parametrsArray){
+    let {vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished} = parametrsArray
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">

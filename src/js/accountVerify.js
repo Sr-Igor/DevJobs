@@ -55,7 +55,6 @@ function verifyAccount(usersRegisterArray){
 }
 
 function enterAccount(usersRegisterArray){
-    console.log(usersRegisterArray)
     for(let i=0; i<usersRegisterArray.length; i++){
         if(usersRegisterArray[i].email == userInput.value){
             let currentUser = usersRegisterArray[i]
@@ -179,8 +178,6 @@ function getVacancy(applayedsArray){
             applyedUser.push(item.idUser)
         })
         if(applyedUser.includes(userVacancyApply.id)){
-            console.log("ususario existente")
-            
             for( let i in applayedsArray){
                 if(applayedsArray[i].idUser == userVacancyApply.id){
                     
@@ -189,7 +186,6 @@ function getVacancy(applayedsArray){
                 }
             }
         }else{
-            console.log("ususario inexistente 1")
             applayedsArray.push({
                 idUser: userVacancyApply.id,
                 vacancysCode: [Number(currentVacancy)]
@@ -197,7 +193,6 @@ function getVacancy(applayedsArray){
             
         } 
     }else{
-        console.log("ususario inexistente 2")
         applayedsArray.push({
             idUser: userVacancyApply.id,
             vacancysCode: [Number(currentVacancy)]
