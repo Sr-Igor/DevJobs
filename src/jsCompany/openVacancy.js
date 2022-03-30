@@ -1,12 +1,13 @@
 function OpenVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished){
     document.querySelector(".btn-open-vacancy").addEventListener("click", (e)=>{
         e.preventDefault()
+        e.currentTarget.setAttribute("disabled", true)
         clickedVacancy.status = "In Process"
-        document.querySelector(".box-finised-vacancy").style.display = "flex"
+        document.querySelector(".box-finised-vacancy").style.opacity= "1"
         document.querySelector(".box-finised-vacancy").innerHTML = "This vacancy has been successfully reopened"
 
-        setInterval(()=>{
-            document.querySelector(".box-finised-vacancy").style.display = "none"
+        setTimeout(()=>{
+            document.querySelector(".box-finised-vacancy").style.opacity = "0"
             document.querySelector(".box-finised-vacancy").innerHTML = ""
         },3000)
 

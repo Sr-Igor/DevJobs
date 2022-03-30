@@ -126,7 +126,7 @@ function changeHomePage(){
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <img src="src/images/bancoInter.png" alt="logo-job">
+                    <img src="src/icons/company-icon.png" alt="logo-job">
                     <h5 class="title-modal">Senior Software Enginner</h5>
                     <button type="button" class="btn-close after-apply" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

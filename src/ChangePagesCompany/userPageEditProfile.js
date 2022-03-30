@@ -7,7 +7,7 @@ function changeMainPage(){
     document.querySelector("main").innerHTML = `
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                     <div class="box-info-company">
                         <img src="/src/images/DefaultProfileCompany.png" alt="">
                         <div class="company-title" data-key-company="${currentUserCompany.id}">${currentUserCompany.companyName}</div>
@@ -15,19 +15,12 @@ function changeMainPage(){
                     </div>
                 </div>
             
-                <div class=" col-9 box-edit-profile">
+                <div class=" col-10 box-edit-profile">
 
                     <span class="title-create-job">Edit Profile</span>
                     <form>
                         <div class="row">
-                            <div class="mb-3 col-12 box-error-edit-profile">
-                                <i class="bi bi-x-lg"></i>
-                                <span class="error-edit-message"></span>
-                            </div>
-                        <div class="mb-3 col-12 box-success-edit-profile">
-                            <i class="bi bi-bookmark-check"></i>
-                            <span class="success-edit-message"></span>
-                        </div>
+                            <div class="mb-3 col-12 box-message-edit-profile"></div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-12">

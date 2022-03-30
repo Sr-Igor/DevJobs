@@ -29,13 +29,8 @@ function verifyFieldsEdit(usersRegisterArray){
     let numberEdit  = document.querySelector(".number-profile")
     let complementEdit = document.querySelector(".complement-profile")
 
-    //Box error
-    let boxError = document.querySelector(".error-box-edit")
-    let messageError = document.querySelector(".error-message-edit")
-
-    //Box success
-    let boxSuccess = document.querySelector(".success-box-edit")
-    let messageSuccess = document.querySelector(".success-message-edit")
+    //Box MessageProfile
+    let boxMessageProfile = document.querySelector(".box-edit-user")
 
     let ArrayInputs = [phoneEdit, cepEdit, streetEdit, districtEdit, cityEdit, ufEdit, numberEdit, ]
     let ArrayInputsValue = [phoneEdit.value, cepEdit.value, streetEdit.value, districtEdit.value, cityEdit.value, ufEdit.value, numberEdit.value,]
@@ -51,50 +46,46 @@ function verifyFieldsEdit(usersRegisterArray){
     if(!ArrayInputsValue.includes("") && passwordEdit.value !== ""){
 
         if(userVacancyApply.password == currentPassword.value){
-            boxError.style.display = "none"
-            messageError.innerHTML = ""
+            boxMessageProfile.style.opacity = "0"
+            boxMessageProfile.innerHTML = ''
+            boxMessageProfile.classList.remove("error-edit-user")
             currentPassword.classList.remove("empty")
             passwordEdit.classList.remove("empty")
-            updateprofile(usersRegisterArray, boxSuccess, messageSuccess, passwordEdit.value, phoneEdit.value, cepEdit.value, streetEdit.value, districtEdit.value, cityEdit.value, ufEdit.value, numberEdit.value, complementEdit.value)
+            fillBoxMessageSuccess()
+            updateProfile(usersRegisterArray, ArrayInputsValue, complementEdit.value, passwordEdit.value)
         }else{
-            boxError.style.display = "flex"
-            messageError.innerHTML = "Current password incorrect"
+            boxMessageProfile.style.opacity = "1"
+            boxMessageProfile.innerHTML = '<i class="bi bi-x-lg"></i> Current password incorrect'
+            boxMessageProfile.classList.add("error-edit-user")
             currentPassword.classList.add("empty")
             passwordEdit.classList.add("empty")
             }
     }else if(!ArrayInputsValue.includes("") && passwordEdit.value == ""){
-        updateProfileNoPassword(usersRegisterArray, boxSuccess, messageSuccess, phoneEdit.value, cepEdit.value, streetEdit.value, districtEdit.value, cityEdit.value, ufEdit.value, numberEdit.value, complementEdit.value)
+
+        fillBoxMessageSuccess()
+
+        updateProfile(usersRegisterArray, ArrayInputsValue, complementEdit.value)
     }
+
+}
+function fillBoxMessageSuccess(){
+    //Box MessageProfile
+    let boxMessageProfile = document.querySelector(".box-edit-user")
+
+    boxMessageProfile.style.opacity = "1"
+    boxMessageProfile.innerHTML = '<i class="bi bi-bookmark-check"></i> Profile edited successfully'
+    boxMessageProfile.classList.add("success-edit-user")
+
+    setTimeout(()=>{
+        boxMessageProfile.style.opacity = "0"
+        boxMessageProfile.innerHTML = ''
+        boxMessageProfile.classList.remove("success-edit-user")
+    }, 3000)
 }
 
-function updateprofile(usersRegisterArray, boxSuccess, messageSuccess, newPassword, newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber, newComplement){
-
-    for (let i in usersRegisterArray){
-        if(usersRegisterArray[i].id == userVacancyApply.id){
-            usersRegisterArray[i].password = newPassword
-            usersRegisterArray[i].phone = newPhone
-            usersRegisterArray[i].adress.cep = newCep
-            usersRegisterArray[i].adress.uf = newUf
-            usersRegisterArray[i].adress.city = newCity
-            usersRegisterArray[i].adress.district = newDistrict
-            usersRegisterArray[i].adress.street = newStreet
-            usersRegisterArray[i].adress.number = newNumber
-            usersRegisterArray[i].adress.complement = newComplement
-
-            boxSuccess.style.display = "flex"
-            messageSuccess.innerHTML = "Profile edited successfully"
-        
-            setTimeout(()=>{
-                boxSuccess.style.display = "none"
-                messageSuccess.innerHTML = ""
-                updateUsers(usersRegisterArray)
-                fillProfilePage(usersRegisterArray[i])
-            }, 3000)
-        }
-    }
-}
-
-function updateProfileNoPassword(usersRegisterArray, boxSuccess, messageSuccess, newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber, newComplement){
+function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newPassword){
+    
+    let [newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber,] = ArrayInputsValue
     
     for (let i in usersRegisterArray){
         if(usersRegisterArray[i].id == userVacancyApply.id){
@@ -107,18 +98,17 @@ function updateProfileNoPassword(usersRegisterArray, boxSuccess, messageSuccess,
             usersRegisterArray[i].adress.number = newNumber
             usersRegisterArray[i].adress.complement = newComplement
 
-            boxSuccess.style.display = "flex"
-            messageSuccess.innerHTML = "Profile edited successfully"
-
+            if(newPassword !== undefined){
+                usersRegisterArray[i].password = newPassword
+            }
+            
             userVacancyApply = usersRegisterArray[i]
 
             setTimeout(()=>{
-                boxSuccess.style.display = "none"
-                messageSuccess.innerHTML = ""
                 updateUsers(usersRegisterArray)
                 fillProfilePage(usersRegisterArray[i])
             }, 3000)
         }
     }
-
 }
+

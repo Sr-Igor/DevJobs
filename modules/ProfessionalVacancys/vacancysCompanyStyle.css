@@ -223,12 +223,17 @@ span{
 }
 
 .box-finised-vacancy{
-    display: none;
-    background-color: rgba(66, 207, 66, 0.87);
-    color: rgba(8, 104, 8, 0.616);
+    opacity: 0;
+    border-radius: 5px;
+    background-color: rgba(206, 228, 107, 0.479);
+    color: rgb(67, 68, 27);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.658);
+    margin-bottom: 10px;
+    min-height: 35px;
     padding: 5px;
     width: 100%;
     text-align: center;
+    transition: all 0.2s ease-in;
 }
 
  /* Button Inicial Page */ 

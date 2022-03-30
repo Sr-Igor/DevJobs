@@ -386,6 +386,7 @@ span{
 }
 
 .login-error{
+    min-height: 35px ;
     color: rgba(255, 0, 0, 0.712);
     background-color: rgba(255, 0, 0, 0.24);
     padding: 5px;
@@ -416,17 +417,22 @@ span{
     font-size: 13px;
     font-weight: 600;
 }
-
-.box-error-register{
-    display: none;
-    color: rgba(255, 0, 0, 0.603);
-    background-color: rgba(255, 0, 0, 0.247);
-    padding: 5px;
+.box-register-message-user{
+    opacity: 0;
+    text-align: center;
+    min-height: 20px;
+    font-size: 18px;
+    transition: all 0.2s ease-in;
 }
 
-.box-success-register{
-    display: none;
-    color: rgba(0, 128, 0, 0.726);
+.error-register-user{
+    color: rgba(255, 0, 0, 0.603);
+    background-color: rgba(255, 0, 0, 0.199);
+    box-shadow: 0 0 4px rgba(255, 0, 0, 0.445);
+}
+
+.success-register-user{
+    color: rgba(8, 172, 8, 0.726);
     background-color: rgba(0, 128, 0, 0.226);
-    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.377);
 }

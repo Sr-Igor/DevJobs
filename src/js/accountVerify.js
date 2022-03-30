@@ -46,13 +46,16 @@ function verifyAccount(usersRegisterArray){
              password = passwordInput.value
              break
         }else{
+            errorMessage.innerHTML = '<i class="bi bi-x"></i>User or password are incorrect'
             errorMessage.style.opacity= "1"
-            setTimeout(()=>{
-                errorMessage.style.opacity= "0"
-            },2000)
+            setTimeout(()=>{errorMessage.style.opacity= "0"},2000)
+            setTimeout(()=>{errorMessage.innerHTML = ''},2300)
+            
         }
     }
 }
+
+
 
 function enterAccount(usersRegisterArray){
     for(let i=0; i<usersRegisterArray.length; i++){
@@ -158,9 +161,11 @@ function sendApplication(applayedsArray){
 
         let btnClose = document.querySelector(".after-apply")
         btnClose.addEventListener("click", ()=>{
-            applyModalBody.style.display = "flex"
-            applyModalFooter.style.display = "flex"
-            modalSuccess.style.display = "none"
+            setTimeout(()=>{
+                applyModalBody.style.display = "flex"
+                applyModalFooter.style.display = "flex"
+                modalSuccess.style.display = "none"
+            },150)
         })
 
         getVacancy(applayedsArray)

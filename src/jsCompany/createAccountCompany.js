@@ -19,8 +19,8 @@ let companyNumber = document.querySelector(".number-company")
 let companyComplement = document.querySelector(".complement")
 
 //Box messages 
-let boxErrorMessage = document.querySelector(".error-box-register")
-let messageErrorRegister = document.querySelector(".error-message-register")
+let boxMessage = document.querySelector(".box-register-company")
+
 
 
 // Button register
@@ -43,29 +43,33 @@ function verifyFields(companysArray){
 
     if(!ArrayInputsValue.includes("")){
         if(companyEmail.value !== companyEmailConfirm.value){
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation email is different from email'
+            boxMessage.classList.add("error-box-register")
+            boxMessage.style.opacity = "1"
             companyEmail.classList.add("empty")
             companyEmailConfirm.classList.add("empty")
-            boxErrorMessage.style.display = "flex"
-            messageErrorRegister.innerHTML = "Confirmation email is different from email"
             return
         }else{
             companyEmail.classList.remove("empty")
             companyEmailConfirm.classList.remove("empty")
-            boxErrorMessage.style.display = "none"
-            messageErrorRegister.innerHTML = ""
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-box-register")
+            boxMessage.style.opacity = "0"
         }
 
         if(companyPassword.value !== companyPasswordConfirm.value){
+            boxMessage.classList.add("error-box-register")
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation password is different from password'
+            boxMessage.style.opacity = "1"
             companyPassword.classList.add("empty")
             companyPasswordConfirm.classList.add("empty")
-            boxErrorMessage.style.display = "flex"
-            messageErrorRegister.innerHTML = "Confirmation password is different from password"
             return
         }else{
             companyPassword.classList.remove("empty")
             companyPasswordConfirm.classList.remove("empty")
-            boxErrorMessage.style.display = "none"
-            messageErrorRegister.innerHTML = ""
+            boxMessage.classList.remove("error-box-register")
+            boxMessage.innerHTML = ""
+            boxMessage.style.opacity = "0"
         }
 
         let cnpjUsers = []
@@ -74,38 +78,32 @@ function verifyFields(companysArray){
         }
 
         if(cnpjUsers.includes(companyCnpj.value)){
-            boxErrorMessage.style.display = "flex"
-            messageErrorRegister.innerHTML = "This CNPJ is already registered"
+            boxMessage.classList.add("error-box-register") 
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This CNPJ is already registered'
+            boxMessage.style.opacity = "1"
             companyCnpj.classList.add("empty")
             return
         }else{
-            boxErrorMessage.style.display = "none"
-            messageErrorRegister.innerHTML = ""
+            boxMessage.classList.remove("error-box-register")
+            boxMessage.innerHTML = ""
+            boxMessage.style.opacity = "0"
             companyCnpj.classList.remove("empty")
         }
 
-        console.log(checkboxRegister.checked)
-
         if(checkboxRegister.checked == true){
-            boxErrorMessage.style.display = "none"
-            messageErrorRegister.innerHTML = ""
+            boxMessage.classList.remove("error-box-register")
+            boxMessage.innerHTML = ""
+            boxMessage.style.opacity = "0"
             idUserGeneratorCompany(companysArray, companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber, companyComplement,)
         }else{
-            boxErrorMessage.style.display = "flex"
-            messageErrorRegister.innerHTML = "Privacy terms must be accepted"
+            boxMessage.classList.add("error-box-register")
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Privacy terms must be accepted' 
+            boxMessage.style.opacity = "1"
         }
-
-        
     }
-
 }
 
 function idUserGeneratorCompany(companysArray, companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber, companyComplement,){
-
-    //box success
-    let messageSuccess = document.querySelector(".success-message-register")
-    let boxSuccess = document.querySelector(".success-box-register")
-
 
     let idRandomUser = Math.floor(Math.random() * 10000)
 
@@ -139,8 +137,10 @@ function idUserGeneratorCompany(companysArray, companyName, companyEmail, compan
     )
     
     updateCompanysArray(companysArray)
-    messageSuccess.innerHTML = "Successfully registered, now you can login"
-    boxSuccess.style.display = "flex"
+    boxMessage.classList.add("success-box-register")
+    boxMessage.innerHTML = '<i class="bi bi-bookmark-check"></i> Successfully registered, now you can login'
+    boxMessage.style.opacity = "1"
+     
 
     setTimeout(()=>{
         companyName.value = ""
@@ -158,8 +158,10 @@ function idUserGeneratorCompany(companysArray, companyName, companyEmail, compan
         companyNumber.value = ""
         companyComplement.value = ""
 
-        messageSuccess.innerHTML = ""
-        boxSuccess.style.display = "none"
-    },1000)
+        boxMessage.classList.remove("success-box-register") 
+        boxMessage.innerHTML = ''
+        boxMessage.style.opacity = "0"
+
+    },3000)
 }
 

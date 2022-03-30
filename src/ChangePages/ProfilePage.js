@@ -35,28 +35,19 @@ function fillProfilePage(){
     <main class="mainProfile">
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                     <div class="box-info-company">
                         <img src="src//images/DefaultProfile.jpg" alt="">
                         <div class="company-title">${userVacancyApply.firstName} ${userVacancyApply.lastName}</div>
                     </div>
                 </div>
 
-                <div class=" col-9 box-edit-profile">
+                <div class=" col-10 box-edit-profile">
 
                     <span class="title-create-job">Edit Profile</span>
                     <form>
                         <div class="row">
-                            <div class="mb-3 col-12 error-box-edit">
-                                <i class="bi bi-x-lg"></i>
-                                <span class="error-message-edit"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="mb-3 col-12 success-box-edit">
-                                <i class="bi bi-bookmark-check"></i>
-                                <span class="success-message-edit">Profile edited successfully</span>
-                            </div>
+                            <div class="mb-3 col-12 box-edit-user"></div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-12">

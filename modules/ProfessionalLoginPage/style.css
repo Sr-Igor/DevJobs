@@ -147,20 +147,25 @@ main .row label{
 
 /* Form Register */
 
-.error-box-register{
-    display: none;
-    background-color: rgba(255, 0, 0, 0.363);
-    color: rgba(255, 0, 0, 0.521);
-    padding: 5px;
-    font-size: 23px;
+.box-register-company{
+    font-size: 20px;
     margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0px 30px;
+    min-height: 30px;
+    font-size: 20px;
+    transition:  all 0.1s ease;
 }
 
 .success-box-register{
-    display: none;
-    background-color: rgba(159, 221, 159, 0.589);
-    color: rgb(74, 235, 74);
-    padding: 5px;
-    font-size: 23px;
-    margin-bottom: 10px;
+    background-color: rgba(41, 177, 41, 0.192);
+    color: rgb(99, 168, 99);
+    box-shadow: 0 0 10px rgba(40, 141, 40, 0.288);
+}
+
+.error-box-register{
+    background-color: rgba(255, 0, 0, 0.199);
+    color: rgba(255, 0, 0, 0.61);
+    box-shadow: 0 0 5px rgba(209, 86, 86, 0.534);
 }

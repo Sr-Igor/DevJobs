@@ -6,9 +6,9 @@ function availableUsersRegister(){
 
 function registerUser(usersRegisterArray){
     event.preventDefault()
+
     //box error
-    let messageError = document.querySelector(".error-register-message")
-    let boxError = document.querySelector(".box-error-register")
+    let boxMessage = document.querySelector(".box-register-message-user")
 
     //User
     let firstName = document.querySelector(".first-name-register")
@@ -40,6 +40,11 @@ function registerUser(usersRegisterArray){
     ]
 
 
+    for(let i in infosRegister){
+        infosRegister[i].classList.remove("empty")
+    }
+
+
     if(infosRegisterValue.includes("")){
         for(let i in infosRegister){
             if(infosRegisterValue[i] == ""){
@@ -53,27 +58,31 @@ function registerUser(usersRegisterArray){
 
     if(!infosRegisterValue.includes("")){
         if(emailConfirm.value !== email.value){
-            boxError.style.display = "flex"
-            messageError.innerHTML = "Confirmation email is different from email"
+            boxMessage.style.opacity= "1"
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation email is different from email'
+            boxMessage.classList.add("error-register-user")
             emailConfirm.classList.add("empty")
             email.classList.add("empty")
             return
         }else{
-            boxError.style.display = "none"
-            messageError.innerHTML = ""
+            boxMessage.style.opacity= "0"
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-register-user")
             emailConfirm.classList.remove("empty")
             email.classList.remove("empty")
         }
 
         if(password.value !== passwordRegister.value){
-            boxError.style.display = "flex"
-            messageError.innerHTML = "Confirmation password is different from password"
+            boxMessage.style.opacity= "1"
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation password is different from password'
+            boxMessage.classList.add("error-register-user")
             passwordRegister.classList.add("empty")
             password.classList.add("empty")
             return
         }else{
-            boxError.style.display = "none"
-            messageError.innerHTML = ""
+            boxMessage.style.opacity= "0"
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-register-user")
             passwordRegister.classList.remove("empty")
             password.classList.remove("empty")
         }
@@ -84,29 +93,36 @@ function registerUser(usersRegisterArray){
         }
 
         if(cpfUsers.includes(cpf.value)){
-            boxError.style.display = "flex"
-            messageError.innerHTML = "This CPF is already registered"
+            boxMessage.style.opacity= "1"
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This CPF is already registered'
+            boxMessage.classList.add("error-register-user")
             cpf.classList.add("empty")
             return
         }else{
-            boxError.style.display = "none"
-            messageError.innerHTML = ""
+            boxMessage.style.opacity= "0"
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-register-user")
             cpf.classList.remove("empty")
         }
 
         idUserGenerator(usersRegisterArray, firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
             cep, street, district, city, uf, number, complement)
+
+            boxMessage.style.opacity= "1"
+            boxMessage.innerHTML = '<i class="bi bi-bookmark-star"></i> Successfully registered, now you can login'
+            boxMessage.classList.add("success-register-user")
+
+            setTimeout(()=>{
+                boxMessage.style.opacity= "0"
+                boxMessage.innerHTML = ''
+                boxMessage.classList.remove("success-register-user")
+            },3000) 
     }
 }
   
 
 function idUserGenerator(usersRegisterArray, firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
     cep, street, district, city, uf, number, complement){
-
-    //box success
-    let messageSuccess = document.querySelector(".success-register-message")
-    let boxSuccess = document.querySelector(".box-success-register")
-
 
     let idRandomUser = Math.floor(Math.random() * 10000)
 
@@ -140,9 +156,6 @@ function idUserGenerator(usersRegisterArray, firstName, lastName, email, emailCo
         },
     )
 
-    messageSuccess.innerHTML = "Successfully registered, now you can login"
-    boxSuccess.style.display = "flex"
-
     setTimeout(()=>{
 
         firstName.value = ""
@@ -161,7 +174,7 @@ function idUserGenerator(usersRegisterArray, firstName, lastName, email, emailCo
         number.value = ""
         complement.value = ""
         messageSuccess.innerHTML = ""
-        boxSuccess.style.display = "none"
+        boxSuccess.style.opacity= "0"
     },1000)
     updateUsers(usersRegisterArray)
 }

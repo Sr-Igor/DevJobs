@@ -1,12 +1,13 @@
 function finishVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished){
     document.querySelector(".btn-finish-vacancy").addEventListener("click", (e)=>{
         e.preventDefault()
+        e.currentTarget.setAttribute("disabled", true)
         clickedVacancy.status = "Finished"
-        document.querySelector(".box-finised-vacancy").style.display = "flex"
+        document.querySelector(".box-finised-vacancy").style.opacity = "1"
         document.querySelector(".box-finised-vacancy").innerHTML = "This vacancy has been successfully completed"
 
-        setInterval(()=>{
-            document.querySelector(".box-finised-vacancy").style.display = "none"
+        setTimeout(()=>{
+            document.querySelector(".box-finised-vacancy").style.opacity = "0"
             document.querySelector(".box-finised-vacancy").innerHTML = ""
         },3000)
 

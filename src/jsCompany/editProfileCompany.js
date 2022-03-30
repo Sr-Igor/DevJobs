@@ -27,13 +27,8 @@ function verifyFieldsEdit(companysArray){
     let companyNumberEdit  = document.querySelector(".number-edit")
     let companyComplementEdit = document.querySelector(".complement-edit")
 
-    //Box error
-    let boxError = document.querySelector(".box-error-edit-profile")
-    let messageError = document.querySelector(".error-edit-message")
-
-        //Box success
-        let boxSuccess = document.querySelector(".box-success-edit-profile")
-        let messageSuccess = document.querySelector(".success-edit-message")
+    //Box message
+    let boxMessage = document.querySelector(".box-message-edit-profile")
 
     event.preventDefault()
     let ArrayInputs = [companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit]
@@ -50,75 +45,53 @@ function verifyFieldsEdit(companysArray){
     if(!ArrayInputsValue.includes("") && companyPasswordEdit.value !== ""){
 
         if(currentUserCompany.password == currentPassword.value){
-            boxError.style.display = "none"
-            messageError.innerHTML = ""
+            boxMessage.classList.remove("box-error-edit-profile")
+            boxMessage.innerHTML = ""
+            boxMessage.style.opacity = "0"
             currentPassword.classList.remove("empty")
             companyPasswordEdit.classList.remove("empty")
-            updateprofile(companysArray, boxSuccess, messageSuccess, companyNameEdit, companyPasswordEdit,companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit )
+            updateprofile(companysArray, boxMessage, ArrayInputsValue, companyComplementEdit, companyPasswordEdit.value )
         }else{
-            boxError.style.display = "flex"
-            messageError.innerHTML = "Current password incorrect"
+            boxMessage.classList.add("box-error-edit-profile")
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Current password incorrect'
+            boxMessage.style.opacity = "1"
             currentPassword.classList.add("empty")
             companyPasswordEdit.classList.add("empty")
             }
     }else if(!ArrayInputsValue.includes("") && companyPasswordEdit.value == ""){
-        updateprofileNoPassword(companysArray, boxSuccess, messageSuccess, companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit )
+        updateprofile(companysArray, boxMessage, ArrayInputsValue, companyComplementEdit )
     }
 }
 
-function updateprofile(companysArray,boxSuccess, messageSuccess, companyNameEdit, companyPasswordEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit ){
+function updateprofile(companysArray, boxMessage, ArrayInputsValue, newComplement, newPassword){
     
+   let [newName, NewPhone, NewCnpj, NewCep, NewStreet, NewDistrict, NewCity, NewUf, NewNumber] = ArrayInputsValue
+
     for (let i in companysArray){
         if(companysArray[i].id == currentUserCompany.id){
-            companysArray[i].companyName = companyNameEdit.value
-            companysArray[i].password = companyPasswordEdit.value
-            companysArray[i].phone = companyPhoneEdit.value
-            companysArray[i].cnpj = companyCnpjEdit.value
-            companysArray[i].adress.cep = companyCepEdit.value
-            companysArray[i].adress.street = companyStreetEdit.value
-            companysArray[i].adress.city = companyCityEdit.value
-            companysArray[i].adress.uf = companyUfEdit.value
-            companysArray[i].adress.district = companyDistrictEdit.value
-            companysArray[i].adress.number = companyNumberEdit.value
-            companysArray[i].adress.complement =  companyComplementEdit.value
+            companysArray[i].companyName = newName
+            companysArray[i].phone = NewPhone
+            companysArray[i].cnpj = NewCnpj
+            companysArray[i].adress.cep = NewCep
+            companysArray[i].adress.street = NewStreet
+            companysArray[i].adress.city = NewCity
+            companysArray[i].adress.uf = NewUf.toUpperCase()
+            companysArray[i].adress.district = NewDistrict
+            companysArray[i].adress.number = NewNumber
+            companysArray[i].adress.complement =  newComplement
 
-            boxSuccess.style.display = "flex"
-            messageSuccess.innerHTML = "Profile edited successfully"
-        
+            if(newPassword !== undefined){
+                companysArray[i].password = newPassword
+            }
+
+            boxMessage.classList.add("box-success-edit-profile")
+            boxMessage.innerHTML = '<i class="bi bi-bookmark-check"></i> Profile edited successfully'
+            boxMessage.style.opacity = "1"
+            
             setTimeout(()=>{
-                boxSuccess.style.display = "none"
-                messageSuccess.innerHTML = ""
-                currentUserCompany = companysArray[i]
-                changeMainPage()
-                updateCompanysArray(companysArray)
-            }, 3000)
-        }
-    }
-
-
-}
-
-function updateprofileNoPassword(companysArray, boxSuccess, messageSuccess, companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit ){
-   
-    for (let i in companysArray){
-        if(companysArray[i].id == currentUserCompany.id){
-            companysArray[i].companyName = companyNameEdit.value
-            companysArray[i].phone = companyPhoneEdit.value
-            companysArray[i].cnpj = companyCnpjEdit.value
-            companysArray[i].adress.cep = companyCepEdit.value
-            companysArray[i].adress.street = companyStreetEdit.value
-            companysArray[i].adress.city = companyCityEdit.value
-            companysArray[i].adress.uf = companyUfEdit.value
-            companysArray[i].adress.district = companyDistrictEdit.value
-            companysArray[i].adress.number = companyNumberEdit.value
-            companysArray[i].adress.complement =  companyComplementEdit.value
-
-            boxSuccess.style.display = "flex"
-            messageSuccess.innerHTML = "Profile edited successfully"
-        
-            setTimeout(()=>{
-                boxSuccess.style.display = "none"
-                messageSuccess.innerHTML = ""
+                boxMessage.classList.remove("box-success-edit-profile")
+                boxMessage.innerHTML = ''
+                boxMessage.style.opacity = "0"
                 currentUserCompany = companysArray[i]
                 changeMainPage()
                 updateCompanysArray(companysArray)

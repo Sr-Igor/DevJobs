@@ -184,19 +184,24 @@ label{
     font-weight: 600;
 }
 
+.box-message-edit-profile{
+    opacity: 1;
+    min-height: 25px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
 .box-error-edit-profile{
-    display: none;
-    background-color: rgba(233, 33, 33, 0.459);
-    color: rgba(255, 0, 0, 0.705);
-    padding: 5px;
+    background-color: rgba(243, 70, 70, 0.466);
+    color: rgba(231, 14, 14, 0.705);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.466);
 }
 
 .box-success-edit-profile{
-    display: none;
     background-color: rgba(186, 216, 186, 0.589);
     color: rgb(11, 168, 11);
-    padding: 5px;
-
+    box-shadow: 0 0 5px rgba(15, 131, 15, 0.452);
 }
  /* Button Inicial Page */ 
 .inicial-page{

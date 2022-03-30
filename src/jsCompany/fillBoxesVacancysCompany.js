@@ -74,9 +74,7 @@ function fillBox(clickedVacancy, parametrsArray){
     </div>
     <div class="modal-body">
     <div class="row">
-    <div class="col-12 box-finised-vacancy">
-        This vacancy has been successfully completed
-    </div>
+    <div class="col-12 box-finised-vacancy"></div>
     </div>
     <div class="row">
         <div class="col-4">

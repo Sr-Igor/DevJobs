@@ -44,7 +44,7 @@ function fillUserPageCompany() {
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
                 <div class="box-info-company">
                     <img src="/src/images/DefaultProfileCompany.png" alt="">
                     <div class="company-title">${currentUserCompany.companyName}</div>
@@ -52,7 +52,7 @@ function fillUserPageCompany() {
                 </div>
             </div>
             
-            <div class="col-9 box-vacancy">
+            <div class="col-10 box-vacancy">
                 <span class="title-create-job">Create a new vacancy</span>
                 <span class="box-create-job"></span>
                 <form>

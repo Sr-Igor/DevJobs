@@ -132,7 +132,7 @@
         </section>
 
         <section class="Apply-Modal">
-            <div class="modal" tabindex="-1" id="ApplyModal">
+            <div class="modal fade" tabindex="-1" id="ApplyModal">
                 <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -265,7 +265,7 @@
                     <form action="#" class="form-apply">
                         <div class="row">
                             <div class="col-12">
-                                <div class="login-error"><i class="bi bi-x"></i>User or password are incorrect</div>
+                                <div class="login-error"></div>
                             </div>
                         </div>
                         <div class="row">
@@ -316,14 +316,7 @@
                     <div class="modal-body">
                     <form action="#" class="form-apply">
                         <div class="row">
-                            <div class="col-12 box-error-register">
-                                <i class="bi bi-x-lg"></i>
-                                <span class="error-register-message"></span> 
-                            </div>
-                            <div class="col-12 box-success-register">
-                                <i class="bi bi-bookmark-star"></i>
-                                <span class="success-register-message"></span> 
-                            </div>
+                            <div class="col-12 box-register-message-user"></div>
                         </div>
                         <div class="row">
                             <div class="fs-4 title-subsection">Register</div>
@@ -437,6 +430,7 @@
 
     <!--Dados-->
     <script src="BancoDeDados/Users.js"></script>
+    <script src="BancoDeDadosEmpresa/usersCompany.js"></script>
     <script src="BancoDeDadosEmpresa/vacancys.js"></script>
     <script src="./BancoDeDados/applayedVacancy.js"></script>
     <script src="./BancoDeDadosEmpresa/vacancysFinished.js"></script>
