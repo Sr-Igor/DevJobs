@@ -162,3 +162,26 @@ function callClickCardCloseVacancy(){
     searchCorrectBoxFinished(vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished)
 }
 
+//Edit profile Company
+function callEditProfileCompany(){
+    let companysArray =  localStorage.getItem("companysArray") == null ? [] : JSON.parse(localStorage.getItem("companysArray"))
+    if(companysArray[0] == undefined){
+        companysArray.push(...companys)
+    }
+    verifyFieldsEdit(companysArray)
+}
+
+function updateCompanysArray(companysArray){
+    localStorage.setItem("companysArray", JSON.stringify(companysArray))
+}
+
+// Verify account company 
+function callVerifyAccountCompany(){
+    let companysArray =  localStorage.getItem("companysArray") == null ? [] : JSON.parse(localStorage.getItem("companysArray"))
+    if(companysArray[0] == undefined){
+        companysArray.push(...companys)
+    }
+    verifyAccount(companysArray)
+}
+
+

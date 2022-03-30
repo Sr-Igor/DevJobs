@@ -21,7 +21,7 @@ function fillUserPageCompany() {
                             <div class="circle d-flex">
                                 <a class="hello-profile active"><i class="bi bi-person-circle"></i> Peril</a>
                                 <a href="#" class="my-applys open-applys-company"><i class="bi bi-window-plus"></i> Vagas</a>
-                                <a class="log-out"><i class="bi bi-box-arrow-right"></i> Exit</a>
+                                <a href="/modules/ProfessionalLoginPage/Professional.html"class="log-out"><i class="bi bi-box-arrow-right"></i> Exit</a>
                             </div>
                         </div>
                     </div>

@@ -12,17 +12,17 @@ let = currentUserCompany = ""
 
 let errorMessage = document.querySelector(".error-message-login")
 //Events 
-loginCompanys.addEventListener("click", verifyAccount)
+loginCompanys.addEventListener("click", callVerifyAccountCompany)
 
 
 //Functions
 
-function verifyAccount(e){
-    e.preventDefault()
+function verifyAccount(companysArray){
+    event.preventDefault()
 
 
-    for (let i in companys){
-        usersLogin.push([companys[i].email, companys[i].password])
+    for (let i in companysArray){
+        usersLogin.push([companysArray[i].email, companysArray[i].password])
     }
     
     for (let i = 0; i < usersLogin.length; i++){
@@ -34,9 +34,9 @@ function verifyAccount(e){
         }
     }
 
-    for (let i in companys){
-        if(companys[i].email == emailLogin.value){
-            currentUserCompany = companys[i]
+    for (let i in companysArray){
+        if(companysArray[i].email == emailLogin.value){
+            currentUserCompany = companysArray[i]
         }
     }
 

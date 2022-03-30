@@ -1,14 +1,14 @@
 function loadEditProfile(){
     //Events Edit
     let buttonSaveEdit = document.querySelector(".btn-save-edit")
-    buttonSaveEdit.addEventListener("click", verifyFieldsEdit)
+    buttonSaveEdit.addEventListener("click", callEditProfileCompany)
 
     //Events cancel
     let buttonCancelEdit = document.querySelector(".btn-cancel-edit")
     buttonCancelEdit.addEventListener("click", fillUserPageCompany)
 }
 
-function verifyFieldsEdit(e){
+function verifyFieldsEdit(companysArray){
     //Current Infos Company 
     let currentPassword = document.querySelector(".current-password")
 
@@ -35,7 +35,7 @@ function verifyFieldsEdit(e){
         let boxSuccess = document.querySelector(".box-success-edit-profile")
         let messageSuccess = document.querySelector(".success-edit-message")
 
-    e.preventDefault()
+    event.preventDefault()
     let ArrayInputs = [companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit]
     let ArrayInputsValue = [companyNameEdit.value, companyPhoneEdit.value, companyCnpjEdit.value, companyCepEdit.value, companyStreetEdit.value, companyDistrictEdit.value, companyCityEdit.value, companyUfEdit.value, companyNumberEdit.value]
 
@@ -54,7 +54,7 @@ function verifyFieldsEdit(e){
             messageError.innerHTML = ""
             currentPassword.classList.remove("empty")
             companyPasswordEdit.classList.remove("empty")
-            updateprofile(boxSuccess, messageSuccess, companyNameEdit, companyPasswordEdit,companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit )
+            updateprofile(companysArray, boxSuccess, messageSuccess, companyNameEdit, companyPasswordEdit,companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit )
         }else{
             boxError.style.display = "flex"
             messageError.innerHTML = "Current password incorrect"
@@ -62,53 +62,67 @@ function verifyFieldsEdit(e){
             companyPasswordEdit.classList.add("empty")
             }
     }else if(!ArrayInputsValue.includes("") && companyPasswordEdit.value == ""){
-        updateprofileNoPassword(boxSuccess, messageSuccess, companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit )
+        updateprofileNoPassword(companysArray, boxSuccess, messageSuccess, companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit )
     }
 }
 
-function updateprofile(boxSuccess, messageSuccess, companyNameEdit, companyPasswordEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit ){
-    console.log("e")
-    currentUserCompany.companyName = companyNameEdit.value
-    currentUserCompany.password = companyPasswordEdit.value
-    currentUserCompany.phone = companyPhoneEdit.value
-    currentUserCompany.cnpj = companyCnpjEdit.value
-    currentUserCompany.adress.cep = companyCepEdit.value
-    currentUserCompany.adress.street = companyStreetEdit.value
-    currentUserCompany.adress.city = companyCityEdit.value
-    currentUserCompany.adress.uf = companyUfEdit.value
-    currentUserCompany.adress.district = companyDistrictEdit.value
-    currentUserCompany.adress.number = companyNumberEdit.value
-    currentUserCompany.adress.complement =  companyComplementEdit.value
+function updateprofile(companysArray,boxSuccess, messageSuccess, companyNameEdit, companyPasswordEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit ){
+    
+    for (let i in companysArray){
+        if(companysArray[i].id == currentUserCompany.id){
+            companysArray[i].companyName = companyNameEdit.value
+            companysArray[i].password = companyPasswordEdit.value
+            companysArray[i].phone = companyPhoneEdit.value
+            companysArray[i].cnpj = companyCnpjEdit.value
+            companysArray[i].adress.cep = companyCepEdit.value
+            companysArray[i].adress.street = companyStreetEdit.value
+            companysArray[i].adress.city = companyCityEdit.value
+            companysArray[i].adress.uf = companyUfEdit.value
+            companysArray[i].adress.district = companyDistrictEdit.value
+            companysArray[i].adress.number = companyNumberEdit.value
+            companysArray[i].adress.complement =  companyComplementEdit.value
 
-    boxSuccess.style.display = "flex"
-    messageSuccess.innerHTML = "Profile edited successfully"
+            boxSuccess.style.display = "flex"
+            messageSuccess.innerHTML = "Profile edited successfully"
+        
+            setTimeout(()=>{
+                boxSuccess.style.display = "none"
+                messageSuccess.innerHTML = ""
+                currentUserCompany = companysArray[i]
+                changeMainPage()
+                updateCompanysArray(companysArray)
+            }, 3000)
+        }
+    }
 
-    setTimeout(()=>{
-        boxSuccess.style.display = "none"
-        messageSuccess.innerHTML = ""
-        changeMainPage()
-    }, 3000)
+
 }
 
-function updateprofileNoPassword(boxSuccess, messageSuccess, companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit ){
-    console.log("e")
-    currentUserCompany.companyName = companyNameEdit.value
-    currentUserCompany.phone = companyPhoneEdit.value
-    currentUserCompany.cnpj = companyCnpjEdit.value
-    currentUserCompany.adress.cep = companyCepEdit.value
-    currentUserCompany.adress.street = companyStreetEdit.value
-    currentUserCompany.adress.city = companyCityEdit.value
-    currentUserCompany.adress.uf = companyUfEdit.value
-    currentUserCompany.adress.district = companyDistrictEdit.value
-    currentUserCompany.adress.number = companyNumberEdit.value
-    currentUserCompany.adress.complement =  companyComplementEdit.value
+function updateprofileNoPassword(companysArray, boxSuccess, messageSuccess, companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit, companyComplementEdit ){
+   
+    for (let i in companysArray){
+        if(companysArray[i].id == currentUserCompany.id){
+            companysArray[i].companyName = companyNameEdit.value
+            companysArray[i].phone = companyPhoneEdit.value
+            companysArray[i].cnpj = companyCnpjEdit.value
+            companysArray[i].adress.cep = companyCepEdit.value
+            companysArray[i].adress.street = companyStreetEdit.value
+            companysArray[i].adress.city = companyCityEdit.value
+            companysArray[i].adress.uf = companyUfEdit.value
+            companysArray[i].adress.district = companyDistrictEdit.value
+            companysArray[i].adress.number = companyNumberEdit.value
+            companysArray[i].adress.complement =  companyComplementEdit.value
 
-    boxSuccess.style.display = "flex"
-    messageSuccess.innerHTML = "Profile edited successfully"
-
-    setTimeout(()=>{
-        boxSuccess.style.display = "none"
-        messageSuccess.innerHTML = ""
-        changeMainPage()
-    }, 3000)
+            boxSuccess.style.display = "flex"
+            messageSuccess.innerHTML = "Profile edited successfully"
+        
+            setTimeout(()=>{
+                boxSuccess.style.display = "none"
+                messageSuccess.innerHTML = ""
+                currentUserCompany = companysArray[i]
+                changeMainPage()
+                updateCompanysArray(companysArray)
+            }, 3000)
+        }
+    }
 }
