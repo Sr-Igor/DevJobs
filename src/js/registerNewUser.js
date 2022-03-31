@@ -6,7 +6,6 @@
 })()
 
 function registerUser(usersRegisterArray){
-    Event.prototype.preventDefault // Prevent recharge page on submit
 
     //User info inputs
     let firstName = document.querySelector(".first-name-register")

@@ -1,37 +1,48 @@
-
-//Infos Company
-let companyName = document.querySelector(".company-name")
-let companyEmail = document.querySelector(".email-company")
-let companyEmailConfirm = document.querySelector(".confirm-email-company")
-let companyPassword = document.querySelector(".password-company")
-let companyPasswordConfirm= document.querySelector(".password-confirm-company")
-let companyPhone = document.querySelector(".phone-company")
-let companyCnpj = document.querySelector(".cpnj")
-let checkboxRegister = document.querySelector(".check-terms")
-
-//Adress Company
-let companyCep = document.querySelector(".cep-company")
-let companyStreet = document.querySelector(".street-company")
-let companyDistrict = document.querySelector(".district-company")
-let companyCity= document.querySelector(".city-company")
-let companyUf = document.querySelector(".uf-company")
-let companyNumber = document.querySelector(".number-company")
-let companyComplement = document.querySelector(".complement")
-
-//Box messages 
-let boxMessage = document.querySelector(".box-register-company")
-
-
-
-// Button register
-let buttonRegisterCompany = document.querySelector(".button-register-company")
-
-buttonRegisterCompany.addEventListener("click", callCreateAccountCompany)
+(function availableButtonRegister(){
+    // This function provides the click on the registration button
+    let buttonRegisterCompany = document.querySelector(".button-register-company")
+    buttonRegisterCompany.addEventListener("click", callCreateAccountCompany)
+})()
 
 function verifyFields(companysArray){
     event.preventDefault()
-    let ArrayInputs = [companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber,]
-    let ArrayInputsValue = [companyName.value, companyEmail.value, companyEmailConfirm.value, companyPassword.value, companyPasswordConfirm.value, companyPhone.value, companyCnpj.value, companyCep.value, companyStreet.value, companyDistrict.value, companyCity.value, companyUf.value, companyNumber.value,]
+
+    //Infos Company
+    let companyName = document.querySelector(".company-name")
+    let companyEmail = document.querySelector(".email-company")
+    let companyEmailConfirm = document.querySelector(".confirm-email-company")
+    let companyPassword = document.querySelector(".password-company")
+    let companyPasswordConfirm= document.querySelector(".password-confirm-company")
+    let companyPhone = document.querySelector(".phone-company")
+    let companyCnpj = document.querySelector(".cpnj")
+    let checkboxRegister = document.querySelector(".check-terms")
+
+    //Adress Company 
+    let companyCep = document.querySelector(".cep-company")
+    let companyStreet = document.querySelector(".street-company")
+    let companyDistrict = document.querySelector(".district-company")
+    let companyCity= document.querySelector(".city-company")
+    let companyUf = document.querySelector(".uf-company")
+    let companyNumber = document.querySelector(".number-company")
+    let companyComplement = document.querySelector(".complement")
+    
+    // Inputs element array (except InputComplement)
+    let arrayInputs = {
+        companyName, companyEmail, companyEmailConfirm, 
+        companyPassword, companyPasswordConfirm, companyPhone, 
+        companyCnpj, companyCep, companyStreet, companyDistrict, 
+        companyCity, companyUf, companyNumber,
+    }
+
+    // Inputs valus array (except InputComplement)
+    let arrayInputsValue = [
+        companyName.value, companyEmail.value, 
+        companyEmailConfirm.value, companyPassword.value, 
+        companyPasswordConfirm.value, companyPhone.value, 
+        companyCnpj.value, companyCep.value, companyStreet.value,
+        companyDistrict.value, companyCity.value, companyUf.value, 
+        companyNumber.value,
+    ]
     
     // CNPJ array for verify register
     let cnpjUsers = []
@@ -49,178 +60,157 @@ function verifyFields(companysArray){
     let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
     let passwordTest = passwordRegex.test(companyPassword.value)
 
-    for(let i in ArrayInputsValue){
-        if(ArrayInputsValue[i] == ""){
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Fill all required fields'
-            boxMessage.classList.add("error-box-register")
-            boxMessage.style.opacity = "1"
-            ArrayInputs[i].classList.add("empty")
-        }else{
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-box-register")
-            boxMessage.style.opacity = "0"
-            ArrayInputs[i].classList.remove("empty")
+    if(arrayInputsValue.includes("")){ // Checks for empty spaces 
+        for(let i in arrayInputs){
+            if(arrayInputs[i].value == ""){
+                let inputEl = arrayInputs[i]
+                let message = 'Fill all required fields'
+                // Calls the function that fills the error box, 
+                // sending the message and the element by parameter
+                fillMessageBox(message, inputEl)
+            }
         }
+        return
     }
-
-    if(!ArrayInputsValue.includes("")){
-
+    if(!arrayInputsValue.includes("")){
+        // Verification of form items: email, password and cnpj
         if(!emailTest){
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This email is not valid'
-            boxMessage.classList.add("error-box-register")
-            boxMessage.style.opacity = "1"
-            companyEmail.classList.add("empty")
+            let inputEl = companyEmail
+            let message = 'This email is not valid'
+            fillMessageBox(message, inputEl)
             return
-        }else{
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-box-register")
-            boxMessage.style.opacity = "0"
-            companyEmail.classList.remove("empty")
         }
 
         if(emailCompanyUsers.includes(companyEmail.value)){
-            boxMessage.classList.add("error-box-register") 
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This Email is already registered'
-            boxMessage.style.opacity = "1"
-            companyEmail.classList.add("empty")
+            let inputEl = companyEmail
+            let message = 'This Email is already registered'
+            fillMessageBox(message, inputEl)
             return
-        }else{
-            boxMessage.classList.remove("error-box-register")
-            boxMessage.innerHTML = ""
-            boxMessage.style.opacity = "0"
-            companyEmail.classList.remove("empty")
         }
 
         if(companyEmail.value !== companyEmailConfirm.value){
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation email is different from email'
-            boxMessage.classList.add("error-box-register")
-            boxMessage.style.opacity = "1"
-            companyEmail.classList.add("empty")
-            companyEmailConfirm.classList.add("empty")
+            let inputEl = companyEmail
+            let inputConfirm = companyEmailConfirm
+            let message = 'Confirmation email is different from email'
+            fillMessageBox(message, inputEl, inputConfirm)
             return
-        }else{
-            companyEmail.classList.remove("empty")
-            companyEmailConfirm.classList.remove("empty")
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-box-register")
-            boxMessage.style.opacity = "0"
         }
 
-
         if(!passwordTest){
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This password is not valid'
-            boxMessage.classList.add("error-box-register")
-            companyPassword.classList.add("empty")
-            boxMessage.style.opacity = "1"
+            let inputEl = companyPassword
+            let message = 'This password is not valid'
+            fillMessageBox(message, inputEl)
             return
-        }else{
-            boxMessage.innerHTML = ''
-            boxMessage.classList.remove("error-box-register")
-            companyPassword.classList.remove("empty")
-            boxMessage.style.opacity = "0"
         }
 
 
         if(companyPassword.value !== companyPasswordConfirm.value){
-            boxMessage.classList.add("error-box-register")
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation password is different from password'
-            boxMessage.style.opacity = "1"
-            companyPassword.classList.add("empty")
-            companyPasswordConfirm.classList.add("empty")
+            let inputEl = companyPassword
+            let inputConfirm = companyPasswordConfirm
+            let message = 'Confirmation password is different from password'
+            fillMessageBox(message, inputEl, inputConfirm)
             return
-        }else{
-            companyPassword.classList.remove("empty")
-            companyPasswordConfirm.classList.remove("empty")
-            boxMessage.classList.remove("error-box-register")
-            boxMessage.innerHTML = ""
-            boxMessage.style.opacity = "0"
         }
 
         if(cnpjUsers.includes(companyCnpj.value) || companyCnpj.value.length !== 14){
-            boxMessage.classList.add("error-box-register") 
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This CNPJ is already registered or invalid!'
-            boxMessage.style.opacity = "1"
-            companyCnpj.classList.add("empty")
+            let inputEl = companyCnpj
+            let message = 'This CNPJ is already registered or invalid!'
+            fillMessageBox(message, inputEl)
             return
-        }else{
-            boxMessage.classList.remove("error-box-register")
-            boxMessage.innerHTML = ""
-            boxMessage.style.opacity = "0"
-            companyCnpj.classList.remove("empty")
         }
 
-        if(checkboxRegister.checked == true){
-            boxMessage.classList.remove("error-box-register")
-            boxMessage.innerHTML = ""
-            boxMessage.style.opacity = "0"
-            idUserGeneratorCompany(companysArray, companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber, companyComplement,)
-        }else{
-            boxMessage.classList.add("error-box-register")
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Privacy terms must be accepted' 
-            boxMessage.style.opacity = "1"
+        if(checkboxRegister.checked !== true){
+            let inputEl = checkboxRegister
+            let message = 'Privacy terms must be accepted'
+            fillMessageBox(message, inputEl)
+            return
         }
+        /* If the items are all correct, call the function that performs the registration 
+         and the success message */
+        fillMessageBox()
+        idUserGeneratorCompany(companysArray, arrayInputs, companyComplement,)
     }
 }
 
-function idUserGeneratorCompany(companysArray, companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber, companyComplement,){
+function fillMessageBox(message, inputEl, inputConfirm = inputEl,){
 
-    let idRandomUser = Math.floor(Math.random() * 10000)
+    // Disable register button to control click loop
+    let btnRegister = document.querySelector(".button-register-company")
+    btnRegister.setAttribute("disabled", true)
 
-    let idUsersCompanys = []
-    for (let i in companysArray){
-        idUsersCompanys.push(companysArray[i].id)
+    //Box messages 
+    let boxMessage = document.querySelector(".box-register-company")
+
+    if(!inputEl){ // Message success 
+        boxMessage.style.opacity= "1"
+        boxMessage.innerHTML = '<i class="bi bi-bookmark-star"></i> Successfully registered, now you can login'
+        boxMessage.classList.add("success-box-register")
+    }else{ // Message error 
+        boxMessage.style.opacity= "1"
+        boxMessage.innerHTML = `<i class="bi bi-x-lg"></i> ${message}`
+        boxMessage.classList.add("error-box-register")
+        inputEl.classList.add("empty")
+        inputConfirm.classList.add("empty")
     }
+
+    setTimeout(()=>{ // Clean the box 
+        boxMessage.style.opacity= "0"
+        boxMessage.innerHTML = ""
+        boxMessage.classList.remove("error-box-register")
+        btnRegister.removeAttribute("disabled", true)
+        if(inputEl){
+            inputEl.classList.remove("empty")
+            inputConfirm.classList.remove("empty")
+        }else{
+            boxMessage.classList.remove("success-box-register")
+        }
+    }, 3500)
     
-    if(idUsersCompanys.includes(idRandomUser)){
-        idRandomUserCompany()
-    }
+}
 
+function idUserGeneratorCompany(companysArray, arrayInputs, companyComplement,){
+
+    // Array with existents companies id
+    let idUsersCompanys = []
+    for (let i in companysArray){idUsersCompanys.push(companysArray[i].id)}
+    
+    // This function generates an id
+    let idRandomUser = ""
+    let randomUser = () => idRandomUser = Math.floor(Math.random() * 10000)    
+    randomUser()
+    // If id is existent, recursion is used to generate another id
+    if(idUsersCompanys.includes(idRandomUser)){randomUser()}
+
+    // Adding the new company to the simulated database
     companysArray.push(
         {
             id: idRandomUser,
-            companyName: companyName.value,
-            email: companyEmail.value,
-            password: companyPassword.value,
-            phone: companyPhone.value,
-            cnpj: companyCnpj.value,
+            companyName: arrayInputs.companyName.value,
+            email: arrayInputs.companyEmail.value,
+            password: arrayInputs.companyPassword.value,
+            phone: arrayInputs.companyPhone.value,
+            cnpj: arrayInputs.companyCnpj.value,
             adress: {
-                cep: companyCep.value,
-                city: companyCity.value,
-                street: companyStreet.value,
-                uf: companyUf.value.toUpperCase(),
-                district: companyDistrict.value,
-                number: companyNumber.value,
+                cep: arrayInputs.companyCep.value,
+                city: arrayInputs.companyCity.value,
+                street: arrayInputs.companyStreet.value,
+                uf: arrayInputs.companyUf.value.toUpperCase(),
+                district: arrayInputs.companyDistrict.value,
+                number: arrayInputs.companyNumber.value,
                 complement: companyComplement.value
             }
         }
     )
     
-    updateCompanysArray(companysArray)
-    boxMessage.classList.add("success-box-register")
-    boxMessage.innerHTML = '<i class="bi bi-bookmark-check"></i> Successfully registered, now you can login'
-    boxMessage.style.opacity = "1"
-     
-
+    // Cleaning the fields
     setTimeout(()=>{
-        companyName.value = ""
-        companyEmail.value = ""
-        companyEmailConfirm.value = ""
-        companyPassword.value = ""
-        companyPasswordConfirm.value = ""
-        companyPhone.value = ""
-        companyCnpj.value = ""
-        companyCep.value = ""
-        companyStreet.value = ""
-        companyDistrict.value = ""
-        companyCity.value = ""
-        companyUf.value = ""
-        companyNumber.value = ""
+        for(let i in arrayInputs){
+            arrayInputs[i].value = ""
+        }
         companyComplement.value = ""
-
-        boxMessage.classList.remove("success-box-register") 
-        boxMessage.innerHTML = ''
-        boxMessage.style.opacity = "0"
-
     },3000)
+
+    //Saving the new user in localStorage
+    updateCompanysArray(companysArray)
 }
 
