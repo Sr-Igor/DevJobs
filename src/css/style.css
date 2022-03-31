@@ -121,7 +121,7 @@ button{
 }
 
 .none{
-    display: none[];
+    display: none;
 }
 
 .cssbuttons-io-button {
@@ -347,6 +347,7 @@ span{
 
 .empty{
     background-color: rgba(255, 0, 0, 0.267);
+    border: 2px solid red;
 }
 
 .error-send-menssage{

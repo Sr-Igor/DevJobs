@@ -41,8 +41,12 @@ function verifyAccount(companysArray){
     }
 
     if(loginValid == false){
-        errorMessage.style.display = "flex"
-        setTimeout(()=> errorMessage.style.display = "none", 3000)
+        errorMessage.innerHTML = "Email or Password are incorrect"
+        errorMessage.style.opacity = "1"
+        setTimeout(()=> {
+            errorMessage.innerHTML = ""
+            errorMessage.style.opacity = "0"
+        }, 3000)
     }else{
 
         fillUserPageCompany() 

@@ -81,7 +81,7 @@
                     <div class="mb-3 col-6">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control password-company">
-                        <div id="emailHelp" class="form-text">Only letters and numbers</div>
+                        <div id="emailHelp" class="form-text">Min 8 chars / [a-z], [0-9] special char </div>
                     </div>
     
                     <div class="mb-3 col-6">
@@ -93,13 +93,13 @@
                 <div class="row">
                     <div class="mb-3 col-6">
                         <label for="exampleInputEmail1" class="form-label">Phone</label>
-                        <input type="email" class="form-control phone-company"  aria-describedby="emailHelp" placeholder="xx x xxx-xxxx">
+                        <input type="number" class="form-control phone-company"  aria-describedby="emailHelp" placeholder="xx x xxx-xxxx">
                         <div id="emailHelp" class="form-text">Only Numbers</div>
                     </div>
     
                     <div class="mb-3 col-6">
                         <label for="exampleInputEmail1" class="form-label">CNPJ</label>
-                        <input type="email" class="form-control cpnj" aria-describedby="emailHelp">
+                        <input type="number" class="form-control cpnj" aria-describedby="emailHelp" min="14">
                         <div id="emailHelp" class="form-text">Only Numbers</div>
                     </div>
                 </div>
