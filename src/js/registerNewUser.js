@@ -1,16 +1,14 @@
 
-function availableUsersRegister(){
+(function availableUsersRegister(){
+    // This function provides the click on the registration button
     let registerButton = document.querySelector(".register-button")
     registerButton.addEventListener('click', callNewUsers)
-}
+})()
 
 function registerUser(usersRegisterArray){
-    event.preventDefault()
+    Event.prototype.preventDefault // Prevent recharge page on submit
 
-    //box Messgage
-    let boxMessage = document.querySelector(".box-register-message-user")
-
-    //User
+    //User info inputs
     let firstName = document.querySelector(".first-name-register")
     let lastName = document.querySelector(".last-name-register")
     let email = document.querySelector(".email-register")
@@ -20,7 +18,7 @@ function registerUser(usersRegisterArray){
     let phone = document.querySelector(".phone-register")
     let cpf = document.querySelector(".cpf-register")
 
-    //Adress
+    //Adress Inputs 
     let cep = document.querySelector(".cep-register")
     let street = document.querySelector(".street-register")
     let district = document.querySelector(".district-register")
@@ -30,12 +28,12 @@ function registerUser(usersRegisterArray){
     let complement = document.querySelector(".complement-register")
 
     // Inputs element array (except InputComplement)
-    let infosRegister = [
+    let infosRegister = {
         firstName, lastName, email,
         emailConfirm, password, passwordRegister, 
         phone, cpf, cep, street, 
         district, city, uf, number,
-    ]
+    }
 
     // Inputs valus array (except InputComplement)
     let infosRegisterValue = [
@@ -63,186 +61,150 @@ function registerUser(usersRegisterArray){
     let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
     let passwordTest = passwordRegex.test(password.value)
 
-
-    for(let i in infosRegister){
-        infosRegister[i].classList.remove("empty")
-    }
-
-
-    if(infosRegisterValue.includes("")){
+    if(infosRegisterValue.includes("")){ // Checks for empty spaces 
         for(let i in infosRegister){
-            if(infosRegisterValue[i] == ""){
-                infosRegister[i].classList.add("empty")
-                boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Fill all required fields'
-                boxMessage.classList.add("error-register-user")
-                boxMessage.style.opacity = "1"
-            }else{
-                infosRegister[i].classList.remove("empty")
+            if(infosRegister[i].value == ""){
+                let inputEl = infosRegister[i]
+                let message = 'Fill all required fields'
+                // Calls the function that fills the error box, 
+                // sending the message and the element by parameter
+                fillMessageBox(message, inputEl)
             }
         }
         return
     }
 
     if(!infosRegisterValue.includes("")){
-
-        boxMessage.innerHTML = ''
-        boxMessage.classList.remove("error-register-user")
-        boxMessage.style.opacity = "0"
-
+        // Verification of form items: email, password and cpf
         if(!emailTest){
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This email is not valid'
-            boxMessage.classList.add("error-register-user")
-            boxMessage.style.opacity = "1"
-            email.classList.add("empty")
+            let inputEl = email
+            let message = 'This email is not valid'
+            fillMessageBox(message, inputEl)
             return
-        }else{
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-register-user")
-            boxMessage.style.opacity = "0"
-            email.classList.remove("empty")
         }
-
 
         if(emailUsers.includes(email.value)){
-            boxMessage.style.opacity= "1"
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This email is already registered'
-            boxMessage.classList.add("error-register-user")
-            email.classList.add("empty")
+            let inputEl = email
+            let message = 'This email is already registered'
+            fillMessageBox(message, inputEl)
             return
-        }else{
-            boxMessage.style.opacity= "0"
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-register-user")
-            email.classList.remove("empty")
         }
 
-
         if(emailConfirm.value !== email.value){
-            boxMessage.style.opacity= "1"
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation email is different from email'
-            boxMessage.classList.add("error-register-user")
-            emailConfirm.classList.add("empty")
-            email.classList.add("empty")
+            let inputEl = email
+            let inputConfirm = emailConfirm
+            let message = 'Confirmation email is different from email'
+            fillMessageBox(message, inputEl, inputConfirm)
             return
-        }else{
-            boxMessage.style.opacity= "0"
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-register-user")
-            emailConfirm.classList.remove("empty")
-            email.classList.remove("empty")
         }
 
         if(cpfUsers.includes(cpf.value) || cpf.value.length !== 11){
-            boxMessage.style.opacity= "1"
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This CPF is already registered or invalid'
-            boxMessage.classList.add("error-register-user")
-            cpf.classList.add("empty")
+            let inputEl = cpf
+            let message = 'This CPF is already registered or invalid'
+            fillMessageBox(message, inputEl)
             return
-        }else{
-            boxMessage.style.opacity= "0"
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-register-user")
-            cpf.classList.remove("empty")
         }
 
         if(!passwordTest){
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This password is not valid'
-            boxMessage.classList.add("error-register-user")         
-            boxMessage.style.opacity = "1"
-            password.classList.add("empty")
+            let inputEl = password
+            let message = 'This password is not valid'
+            fillMessageBox(message, inputEl)
             return
-        }else{
-            boxMessage.innerHTML = ''
-            boxMessage.classList.remove("error-register-user")       
-            boxMessage.style.opacity = "0"
-            password.classList.remove("empty")
         }
 
         if(password.value !== passwordRegister.value){
-            boxMessage.style.opacity= "1"
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation password is different from password'
-            boxMessage.classList.add("error-register-user")
-            passwordRegister.classList.add("empty")
-            password.classList.add("empty")
+            let inputEl = password
+            let inputConfirm = passwordRegister
+            let message = 'Confirmation password is different from password'
+            fillMessageBox(message, inputEl, inputConfirm)
             return
-        }else{
-            boxMessage.style.opacity= "0"
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-register-user")
-            passwordRegister.classList.remove("empty")
-            password.classList.remove("empty")
         }
 
-        idUserGenerator(usersRegisterArray, firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
-            cep, street, district, city, uf, number, complement)
+        /* If the items are all correct, call the function that performs the registration 
+         and the success message */
+        userGenerator(usersRegisterArray, complement, infosRegister)
+        fillMessageBox()
+    }
+}
 
+function fillMessageBox(message, inputEl, inputConfirm = inputEl,){
+
+        // Disable register button to control click loop
+        let btnRegister = document.querySelector(".register-button")
+        btnRegister.setAttribute("disabled", true)
+
+        //box Messgage
+        let boxMessage = document.querySelector(".box-register-message-user")
+
+        if(!inputEl){ // Message success 
             boxMessage.style.opacity= "1"
             boxMessage.innerHTML = '<i class="bi bi-bookmark-star"></i> Successfully registered, now you can login'
             boxMessage.classList.add("success-register-user")
+        }else{ // Message error 
+            boxMessage.style.opacity= "1"
+            boxMessage.innerHTML = `<i class="bi bi-x-lg"></i> ${message}`
+            boxMessage.classList.add("error-register-user")
+            inputEl.classList.add("empty")
+            inputConfirm.classList.add("empty")
+        }
 
-            setTimeout(()=>{
-                boxMessage.style.opacity= "0"
-                boxMessage.innerHTML = ''
+        setTimeout(()=>{ // Clean the box 
+            boxMessage.style.opacity= "0"
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-register-user")
+            btnRegister.removeAttribute("disabled", true)
+            if(inputEl){
+                inputEl.classList.remove("empty")
+                inputConfirm.classList.remove("empty")
+            }else{
                 boxMessage.classList.remove("success-register-user")
-            },3000) 
-    }
+            }
+        }, 3500)
+        
 }
-  
 
-function idUserGenerator(usersRegisterArray, firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
-    cep, street, district, city, uf, number, complement){
+function userGenerator(usersRegisterArray, complement, infosRegister){
 
-    let idRandomUser = Math.floor(Math.random() * 10000)
-
+    // Array with existents users id
     let idUsers = []
-    for (let i in users){
-        idUsers.push(users[i].id)
-    }
+    for (let i in usersRegisterArray){idUsers.push(usersRegisterArray[i].id)}
     
-    if(idUsers.includes(idRandomUser)){
-        idRandomUser()
-    }
+    // This function generates an id
+    let idRandomUser = ""
+    let randomUser = () => idRandomUser = Math.floor(Math.random() * 10000)    
+    randomUser()
+    // If id is existent, recursion is used to generate another id
+    if(idUsers.includes(idRandomUser)){randomUser()}
 
+
+    // Adding the new user to the simulated database
     usersRegisterArray.push(
         {
             id: idRandomUser,
-            email: email.value,
-            firstName:firstName.value,
-            lastName: lastName.value,
-            password: password.value,
-            phone: phone.value,
-            cpf: cpf.value,
+            email: infosRegister.email.value,
+            firstName: infosRegister.firstName.value,
+            lastName: infosRegister.lastName.value,
+            password: infosRegister.password.value,
+            phone: infosRegister.phone.value,
+            cpf: infosRegister.cpf.value,
             adress: {
-                cep:cep.value,
-                uf: uf.value.toUpperCase(),
-                city: city.value,
-                district: district.value,
-                street: street.value,
-                number: number.value,
+                cep: infosRegister.cep.value,
+                uf: infosRegister.uf.value.toUpperCase(),
+                city: infosRegister.city.value,
+                district: infosRegister.district.value,
+                street: infosRegister.street.value,
+                number: infosRegister.number.value,
                 complement: complement.value,
             }
         },
     )
-
+    
+    // Cleaning the fields
     setTimeout(()=>{
-
-        firstName.value = ""
-        lastName.value = ""
-        email.value = ""
-        emailConfirm.value = ""
-        password.value = ""
-        passwordRegister.value = ""
-        phone.value = ""
-        cpf.value = ""
-        cep.value = ""
-        street.value = ""
-        district.value = ""
-        city.value = ""
-        uf.value = ""
-        number.value = ""
+        for( let i in infosRegister){infosRegister[i].value = ""}
         complement.value = ""
-    },1000)
+    },3500)
+
+    //Saving the new user in localStorage
     updateUsers(usersRegisterArray)
 }
-
-availableUsersRegister()
