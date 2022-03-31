@@ -7,7 +7,7 @@ function availableUsersRegister(){
 function registerUser(usersRegisterArray){
     event.preventDefault()
 
-    //box error
+    //box Messgage
     let boxMessage = document.querySelector(".box-register-message-user")
 
     //User
@@ -29,15 +29,39 @@ function registerUser(usersRegisterArray){
     let number = document.querySelector(".number-register")
     let complement = document.querySelector(".complement-register")
 
+    // Inputs element array (except InputComplement)
     let infosRegister = [
-        firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
-        cep, street, district, city, uf, number,
+        firstName, lastName, email,
+        emailConfirm, password, passwordRegister, 
+        phone, cpf, cep, street, 
+        district, city, uf, number,
     ]
 
+    // Inputs valus array (except InputComplement)
     let infosRegisterValue = [
-        firstName.value, lastName.value, email.value, emailConfirm.value, password.value, passwordRegister.value, phone.value, cpf.value,
-        cep.value, street.value, district.value, city.value, uf.value, number.value,
+        firstName.value, lastName.value, 
+        email.value, emailConfirm.value, 
+        password.value, passwordRegister.value, 
+        phone.value, cpf.value,cep.value, 
+        street.value, district.value, city.value,
+        uf.value, number.value,
     ]
+
+    // CPF array for verify register
+    let cpfUsers = []
+    for(let i in usersRegisterArray){cpfUsers.push(usersRegisterArray[i].cpf)}
+
+    // Email array for verify register
+    let emailUsers = []
+    for(let i in usersRegisterArray){emailUsers.push(usersRegisterArray[i].email)}
+
+    //Regex Email
+    let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ 
+    let emailTest = emailRegex.test(email.value)
+
+    //Regex Password
+    let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
+    let passwordTest = passwordRegex.test(password.value)
 
 
     for(let i in infosRegister){
@@ -49,6 +73,9 @@ function registerUser(usersRegisterArray){
         for(let i in infosRegister){
             if(infosRegisterValue[i] == ""){
                 infosRegister[i].classList.add("empty")
+                boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Fill all required fields'
+                boxMessage.classList.add("error-register-user")
+                boxMessage.style.opacity = "1"
             }else{
                 infosRegister[i].classList.remove("empty")
             }
@@ -57,6 +84,39 @@ function registerUser(usersRegisterArray){
     }
 
     if(!infosRegisterValue.includes("")){
+
+        boxMessage.innerHTML = ''
+        boxMessage.classList.remove("error-register-user")
+        boxMessage.style.opacity = "0"
+
+        if(!emailTest){
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This email is not valid'
+            boxMessage.classList.add("error-register-user")
+            boxMessage.style.opacity = "1"
+            email.classList.add("empty")
+            return
+        }else{
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-register-user")
+            boxMessage.style.opacity = "0"
+            email.classList.remove("empty")
+        }
+
+
+        if(emailUsers.includes(email.value)){
+            boxMessage.style.opacity= "1"
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This email is already registered'
+            boxMessage.classList.add("error-register-user")
+            email.classList.add("empty")
+            return
+        }else{
+            boxMessage.style.opacity= "0"
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-register-user")
+            email.classList.remove("empty")
+        }
+
+
         if(emailConfirm.value !== email.value){
             boxMessage.style.opacity= "1"
             boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation email is different from email'
@@ -72,6 +132,32 @@ function registerUser(usersRegisterArray){
             email.classList.remove("empty")
         }
 
+        if(cpfUsers.includes(cpf.value) || cpf.value.length !== 11){
+            boxMessage.style.opacity= "1"
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This CPF is already registered or invalid'
+            boxMessage.classList.add("error-register-user")
+            cpf.classList.add("empty")
+            return
+        }else{
+            boxMessage.style.opacity= "0"
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-register-user")
+            cpf.classList.remove("empty")
+        }
+
+        if(!passwordTest){
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This password is not valid'
+            boxMessage.classList.add("error-register-user")         
+            boxMessage.style.opacity = "1"
+            password.classList.add("empty")
+            return
+        }else{
+            boxMessage.innerHTML = ''
+            boxMessage.classList.remove("error-register-user")       
+            boxMessage.style.opacity = "0"
+            password.classList.remove("empty")
+        }
+
         if(password.value !== passwordRegister.value){
             boxMessage.style.opacity= "1"
             boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation password is different from password'
@@ -85,24 +171,6 @@ function registerUser(usersRegisterArray){
             boxMessage.classList.remove("error-register-user")
             passwordRegister.classList.remove("empty")
             password.classList.remove("empty")
-        }
-
-        let cpfUsers = []
-        for(let i in users){
-            cpfUsers.push(users[i].cpf)
-        }
-
-        if(cpfUsers.includes(cpf.value)){
-            boxMessage.style.opacity= "1"
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This CPF is already registered'
-            boxMessage.classList.add("error-register-user")
-            cpf.classList.add("empty")
-            return
-        }else{
-            boxMessage.style.opacity= "0"
-            boxMessage.innerHTML = ""
-            boxMessage.classList.remove("error-register-user")
-            cpf.classList.remove("empty")
         }
 
         idUserGenerator(usersRegisterArray, firstName, lastName, email, emailConfirm, password, passwordRegister, phone, cpf,
@@ -173,8 +241,6 @@ function idUserGenerator(usersRegisterArray, firstName, lastName, email, emailCo
         uf.value = ""
         number.value = ""
         complement.value = ""
-        messageSuccess.innerHTML = ""
-        boxSuccess.style.opacity= "0"
     },1000)
     updateUsers(usersRegisterArray)
 }

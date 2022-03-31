@@ -318,51 +318,59 @@
                         <div class="row">
                             <div class="col-12 box-register-message-user"></div>
                         </div>
-                        <div class="row">
+                        <div class="row infos-row">
                             <div class="fs-4 title-subsection">Register</div>
                             <div class="col-6">
-                                <input type="text" name="firstName" placeholder="Frist Name" class="first-name-register">
+                                <label  class="label-firstName-register" for="first-register">First Name</label>
+                                <input type="text" name="firstName" class="first-name-register">
                             </div>
                             <div class="col-6">
-                                <input type="text" name="lastName" placeholder="Last Name" class="last-name-register">
+                                <label  class="label-lastName-register" for="last-register">Last Name</label>
+                                <input type="text" name="lastName" class="last-name-register">
                             </div>
                         </div> 
 
-                        <div class="row">
+                        <div class="row  infos-row">
                             <div class="col-6">
-                                <input type="email" name="email" placeholder="Email" class="email-register">
+                                <label  class="label-email-register" for="email-register">Email</label>
+                                <input type="email" name="email"class="email-register">
                             </div>
                             <div class="col-6">
-                                <input type="email" name="confirmEmail" placeholder="Confirm your email" class="email-confirm-register">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
-                            <input type="password" name="password" placeholder="Password" class="password-register">
-                            </div>
-                            <div class="col-6">
-                            <input type="password" name="confirmPassword" placeholder="Confirm Password" class="password-confirm-register">
+                                <label  class="label-emailConfirm-register" for="confirmEmail-register">Confirm Email</label>
+                                <input type="email" name="confirmEmail" class="email-confirm-register">
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row  infos-row">
                             <div class="col-6">
-                                <input type="number" placeholder="Phone" class="phone-register">
+                                <label  class="label-phone-register" for="phone-register">Phone</label>
+                                <input type="number" class="phone-register">
                             </div>
                             <div class="col-6">
-                                <input type="number" placeholder="CPF" class="cpf-register">
+                                <label  class="label-cpf-register" for="cpf-register">CPF</label>
+                                <input type="number"class="cpf-register">
                             </div>
                             
                         </div>
+                        
+                        <div class="row  infos-row">
+                            <div class="col-6">
+                                <label  class="label-passowrd-register" for="password-register">Password</label>
+                                <input type="password" name="password"class="password-register">
+                                <span class="label-passowrd-require">Min 8 chars <br>Includes [a-z] <br>Includes [0-9] <br>Includes special char</span>
+                            </div>
+                            <div class="col-6">
+                                <label  class="label-passowrdConfirm-register" for="passwordConfirm-register">Confirm Password</label>
+                            <input type="password" name="confirmPassword" class="password-confirm-register">
+                            </div>
+                        </div>
 
-                            <div class="row">
+                            <div class="row adress-row">
                             <div class="fs-4  title-subsection">Adress</div>
                                 <div class="col-6">
                                     <label for="#">
                                         CEP
-                                        <input type="Number" name="Cep" placeholder="00000-000" class="cep-register">
-                                        
+                                        <input type="Number" name="Cep" placeholder="00000000" class="cep-register">
                                     </label>
                                 </div>
                                 <div class="col-6">
@@ -374,7 +382,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row adress-row">
                                 <div class="col-6">
                                     <label for="#">
                                         Bairro
@@ -390,7 +398,7 @@
                                 </div>
                             </div>
                                 
-                            <div class="row">
+                            <div class="row adress-row">
                                 <div class="col-6">
                                     <label for="#">
                                         UF
@@ -407,7 +415,7 @@
 
                             </div>
 
-                            <div class="row">
+                            <div class="row adress-row">
                                 <div class="col-12">
                                     <label for="#">
                                         Complemento

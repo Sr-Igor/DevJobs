@@ -32,6 +32,15 @@ function verifyFields(companysArray){
     event.preventDefault()
     let ArrayInputs = [companyName, companyEmail, companyEmailConfirm, companyPassword, companyPasswordConfirm, companyPhone, companyCnpj, companyCep, companyStreet, companyDistrict, companyCity, companyUf, companyNumber,]
     let ArrayInputsValue = [companyName.value, companyEmail.value, companyEmailConfirm.value, companyPassword.value, companyPasswordConfirm.value, companyPhone.value, companyCnpj.value, companyCep.value, companyStreet.value, companyDistrict.value, companyCity.value, companyUf.value, companyNumber.value,]
+    
+    // CNPJ array for verify register
+    let cnpjUsers = []
+    for(let i in companysArray){cnpjUsers.push(companysArray[i].cnpj)}
+
+    // Email array for verify register
+    let emailCompanyUsers = []
+    for(let i in companysArray){emailCompanyUsers.push(companysArray[i].email)}
+
     //Regex Email
     let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ 
     let emailTest = emailRegex.test(companyEmail.value)
@@ -56,19 +65,31 @@ function verifyFields(companysArray){
 
     if(!ArrayInputsValue.includes("")){
 
-        // if(!emailTest){
-        //     boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This email is not valid'
-        //     boxMessage.classList.add("error-box-register")
-        //     companyEmail.classList.add("empty")
-        //     boxMessage.style.opacity = "1"
-        //     return
-        // }else{
-        //     boxMessage.innerHTML = ""
-        //     boxMessage.classList.remove("error-box-register")
-        //     companyEmail.classList.remove("empty")
-        //     boxMessage.style.opacity = "0"
-            
-        // }
+        if(!emailTest){
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This email is not valid'
+            boxMessage.classList.add("error-box-register")
+            boxMessage.style.opacity = "1"
+            companyEmail.classList.add("empty")
+            return
+        }else{
+            boxMessage.innerHTML = ""
+            boxMessage.classList.remove("error-box-register")
+            boxMessage.style.opacity = "0"
+            companyEmail.classList.remove("empty")
+        }
+
+        if(emailCompanyUsers.includes(companyEmail.value)){
+            boxMessage.classList.add("error-box-register") 
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This Email is already registered'
+            boxMessage.style.opacity = "1"
+            companyEmail.classList.add("empty")
+            return
+        }else{
+            boxMessage.classList.remove("error-box-register")
+            boxMessage.innerHTML = ""
+            boxMessage.style.opacity = "0"
+            companyEmail.classList.remove("empty")
+        }
 
         if(companyEmail.value !== companyEmailConfirm.value){
             boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Confirmation email is different from email'
@@ -86,18 +107,18 @@ function verifyFields(companysArray){
         }
 
 
-        // if(!passwordTest){
-        //     boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This password is not valid'
-        //     boxMessage.classList.add("error-box-register")
-        //     companyPassword.classList.add("empty")
-        //     boxMessage.style.opacity = "1"
-        //     return
-        // }else{
-        //     boxMessage.innerHTML = ''
-        //     boxMessage.classList.remove("error-box-register")
-        //     companyPassword.classList.remove("empty")
-        //     boxMessage.style.opacity = "0"
-        // }
+        if(!passwordTest){
+            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> This password is not valid'
+            boxMessage.classList.add("error-box-register")
+            companyPassword.classList.add("empty")
+            boxMessage.style.opacity = "1"
+            return
+        }else{
+            boxMessage.innerHTML = ''
+            boxMessage.classList.remove("error-box-register")
+            companyPassword.classList.remove("empty")
+            boxMessage.style.opacity = "0"
+        }
 
 
         if(companyPassword.value !== companyPasswordConfirm.value){
@@ -113,11 +134,6 @@ function verifyFields(companysArray){
             boxMessage.classList.remove("error-box-register")
             boxMessage.innerHTML = ""
             boxMessage.style.opacity = "0"
-        }
-
-        let cnpjUsers = []
-        for(let i in companysArray){
-            cnpjUsers.push(companysArray[i].cnpj)
         }
 
         if(cnpjUsers.includes(companyCnpj.value) || companyCnpj.value.length !== 14){

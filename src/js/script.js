@@ -31,6 +31,7 @@
 //Upadate LocalStorage Functions 
 function updateUsers(usersRegisterArray){ // This function save registered Users
     localStorage.setItem("usersArray", JSON.stringify(usersRegisterArray))
+    console.log(usersRegisterArray)
 };
 
 function updateCompanysArray(companysArray){ // This function save registered Companies

@@ -405,19 +405,47 @@ span{
 
 }
 
-.Register-Modal input{
+.infos-row input{
     border: 1px solid rgba(0, 0, 0, 0.219);
     border-radius: 5px;
     padding: 3px 10px;
-    margin: 0 5px 5px 5px;
+    margin: 0 5px 15px 5px;
 }
 
-.Register-Modal label{
+.infos-row label{
+    display: flex;
+    justify-content: start;
+    margin-left: 5px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.571);
+}
+
+.label-passowrd-require{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    margin: -12px 0px 10px 10px;
+    text-align: left;
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.adress-row label{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     font-size: 13px;
     font-weight: 600;
+    margin-bottom: 10px;
 }
+
+.adress-row input{
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+
 .box-register-message-user{
     opacity: 0;
     text-align: center;
