@@ -1,11 +1,9 @@
-
-    //Adress
-    let cepRegister = document.querySelector(".cep-register")
-    let streetRegister = document.querySelector(".street-register")
-    let districtrRegister = document.querySelector(".district-register")
-    let cityRegister = document.querySelector(".city-register")
-    let ufRgeister = document.querySelector(".uf-register")
-
+//Adress fields
+let cepRegister = document.querySelector(".cep-register")
+let streetRegister = document.querySelector(".street-register")
+let districtrRegister = document.querySelector(".district-register")
+let cityRegister = document.querySelector(".city-register")
+let ufRgeister = document.querySelector(".uf-register")
 
 cepRegister.addEventListener('blur', ()=>{
     let correctCep = cepRegister.value
@@ -31,10 +29,6 @@ cepRegister.addEventListener('blur', ()=>{
             ufRgeister.setAttribute('disabled', true)
         })
     )
-    .catch( err =>{
-        err = console.log('CEP INVALIDO!')
-    }
-
+    .catch(()=>{console.log('Fecth Error')}
     )
-
 })

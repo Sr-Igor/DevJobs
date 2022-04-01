@@ -1,9 +1,9 @@
 function loadEditProfile(){
-    //Events Edit
+    // Button events save edit profile
     let buttonSaveEdit = document.querySelector(".save-edit-profile")
     buttonSaveEdit.addEventListener("click", callEditProfile)
 
-    //Events cancel
+    // Button event cancel
     let buttonCancelEdit = document.querySelector(".cancel-edit-profile")
     buttonCancelEdit.addEventListener("click", callHome)
 }
@@ -13,10 +13,8 @@ function verifyFieldsEdit(usersRegisterArray){
     
     //Current Infos Profile
     let currentPassword = document.querySelector(".password-profile")
-
     //Infos Profile
     let passwordEdit = document.querySelector(".new-password")
-
     let phoneEdit  = document.querySelector(".phone-profile")
 
 
@@ -32,9 +30,17 @@ function verifyFieldsEdit(usersRegisterArray){
     //Box MessageProfile
     let boxMessageProfile = document.querySelector(".box-edit-user")
 
-    let ArrayInputs = [phoneEdit, cepEdit, streetEdit, districtEdit, cityEdit, ufEdit, numberEdit, ]
-    let ArrayInputsValue = [phoneEdit.value, cepEdit.value, streetEdit.value, districtEdit.value, cityEdit.value, ufEdit.value, numberEdit.value,]
+    // Array inputs
+    let ArrayInputs = [phoneEdit, cepEdit, streetEdit, districtEdit, cityEdit, ufEdit, numberEdit]
 
+    // Array Inputs value
+    let ArrayInputsValue = [
+        phoneEdit.value, cepEdit.value, streetEdit.value, 
+        districtEdit.value, cityEdit.value, ufEdit.value, 
+        numberEdit.value
+    ]
+
+    // Verify empty fields
     for(let i in ArrayInputsValue){
         if(ArrayInputsValue[i] == ""){
             ArrayInputs[i].classList.add("empty")
@@ -42,32 +48,25 @@ function verifyFieldsEdit(usersRegisterArray){
             ArrayInputs[i].classList.remove("empty")
         }
     }
-
-    if(!ArrayInputsValue.includes("") && passwordEdit.value !== ""){
-
-        if(userVacancyApply.password == currentPassword.value){
-            boxMessageProfile.style.opacity = "0"
-            boxMessageProfile.innerHTML = ''
-            boxMessageProfile.classList.remove("error-edit-user")
-            currentPassword.classList.remove("empty")
-            passwordEdit.classList.remove("empty")
-            fillBoxMessageSuccess()
-            updateProfile(usersRegisterArray, ArrayInputsValue, complementEdit.value, passwordEdit.value)
-        }else{
-            boxMessageProfile.style.opacity = "1"
-            boxMessageProfile.innerHTML = '<i class="bi bi-x-lg"></i> Current password incorrect'
-            boxMessageProfile.classList.add("error-edit-user")
-            currentPassword.classList.add("empty")
-            passwordEdit.classList.add("empty")
-            }
-    }else if(!ArrayInputsValue.includes("") && passwordEdit.value == ""){
-
+  
+    // Check passwords the same
+    if(userVacancyApply.password == currentPassword.value){ 
+        // Success message
+        boxMessageProfile.style.opacity = "0"
+        boxMessageProfile.innerHTML = ''
+        boxMessageProfile.classList.remove("error-edit-user")
+        currentPassword.classList.remove("empty")
+        // Calls save user and fill box functions
         fillBoxMessageSuccess()
-
-        updateProfile(usersRegisterArray, ArrayInputsValue, complementEdit.value)
+        updateProfile(usersRegisterArray, ArrayInputsValue, complementEdit.value, passwordEdit.value)
+    }else{
+        boxMessageProfile.style.opacity = "1"
+        boxMessageProfile.innerHTML = '<i class="bi bi-x-lg"></i> Current password incorrect'
+        boxMessageProfile.classList.add("error-edit-user")
+        currentPassword.classList.add("empty")
     }
-
 }
+
 function fillBoxMessageSuccess(){
     //Box MessageProfile
     let boxMessageProfile = document.querySelector(".box-edit-user")
@@ -84,7 +83,8 @@ function fillBoxMessageSuccess(){
 }
 
 function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newPassword){
-    
+    // Update user information, save to localStorage and refresh the page
+
     let [newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber,] = ArrayInputsValue
     
     for (let i in usersRegisterArray){
@@ -97,13 +97,13 @@ function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newP
             usersRegisterArray[i].adress.street = newStreet
             usersRegisterArray[i].adress.number = newNumber
             usersRegisterArray[i].adress.complement = newComplement
-
-            if(newPassword !== undefined){
-                usersRegisterArray[i].password = newPassword
-            }
+            
+            //Checks if a new password has been added
+            newPassword !== "" ? usersRegisterArray[i].password = newPassword : null
             
             userVacancyApply = usersRegisterArray[i]
 
+            //Clean fields
             setTimeout(()=>{
                 updateUsers(usersRegisterArray)
                 fillProfilePage(usersRegisterArray[i])

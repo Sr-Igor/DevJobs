@@ -4,27 +4,32 @@ function fillSubscriptions(user, applayedsArray, vacanciesArray){
             VerifyApplyedVacancys(applayedsArray[i].vacancysCode, vacanciesArray)
         }
     }
-    
 }
 
 function VerifyApplyedVacancys(vacancysCode, vacanciesArray){
-    console.log("entrou1")
+    //Box
+    let boxVacancy = document.querySelector(".box-vagancys")
+
+    // Variable for verify empty box
     let empty = true
+
+    // Checks the user's open vacancies and calls the function to fill the screen
     for(let i in vacanciesArray){
         if(vacancysCode.includes(vacanciesArray[i].id)){
-            console.log("entrou")
             empty = false
             fillScreen(vacanciesArray[i], vacanciesArray)  
         }
     }
-    if(empty === true){
-        document.querySelector(".box-vagancys").innerHTML = "You are not applying for any open vacancy"
-    }
+
+    //If the users isn´t applicable in any vacancy 
+    empty === true ? boxVacancy.innerHTML = "You are not applying for any open vacancy" : null
 }
 
 function fillScreen(currentVacancy, vacanciesArray){
+    //Box
     let boxVacancy = document.querySelector(".box-vagancys")
     
+    //
     boxVacancy.innerHTML += `
     <div class="vacancy" data-key="${currentVacancy.id}">
         <div class="company-name"><strong>Company: </strong> ${currentVacancy.companyName}</div>
