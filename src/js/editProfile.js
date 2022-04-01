@@ -17,7 +17,6 @@ function verifyFieldsEdit(usersRegisterArray){
     let passwordEdit = document.querySelector(".new-password")
     let phoneEdit  = document.querySelector(".phone-profile")
 
-
     //Adress Profile
     let cepEdit  = document.querySelector(".cep-profile")
     let streetEdit  = document.querySelector(".street-profile")
@@ -101,7 +100,7 @@ function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newP
             //Checks if a new password has been added
             newPassword !== "" ? usersRegisterArray[i].password = newPassword : null
             
-            userVacancyApply = usersRegisterArray[i]
+            userVacancyApply = usersRegisterArray[i] // VERIFICAR NECESSIDADE
 
             //Clean fields
             setTimeout(()=>{
