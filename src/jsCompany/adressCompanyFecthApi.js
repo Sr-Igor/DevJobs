@@ -1,10 +1,11 @@
+//This function fills in the address fields during registration
 
-    //Adress
-    let cepRegister = document.querySelector(".cep-company")
-    let streetRegister = document.querySelector(".street-company")
-    let districtrRegister = document.querySelector(".district-company")
-    let cityRegister = document.querySelector(".city-company")
-    let ufRgeister = document.querySelector(".uf-company")
+//Adress
+let cepRegister = document.querySelector(".cep-company")
+let streetRegister = document.querySelector(".street-company")
+let districtrRegister = document.querySelector(".district-company")
+let cityRegister = document.querySelector(".city-company")
+let ufRgeister = document.querySelector(".uf-company")
 
 
 cepRegister.addEventListener('blur', ()=>{
@@ -31,10 +32,6 @@ cepRegister.addEventListener('blur', ()=>{
             companyUf.setAttribute('disabled', true)
         })
     )
-    .catch( err =>{
-        err = console.log('CEP INVALIDO!')
-    }
-
+    .catch(()=>console.log('Fetch Error')
     )
-
 })

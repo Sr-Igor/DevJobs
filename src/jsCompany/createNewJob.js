@@ -1,8 +1,10 @@
 function createJob(vacanciesArray){
+    //Select the create vacancy button
     let public = document.querySelector(".public-vacancy")
     public.addEventListener('click', (e)=>{
         e.preventDefault()
-    
+        
+        // Element fields
         let vacancyName = document.querySelector(".vacancy-name")
         let type = document.querySelector(".type")
         let periody = document.querySelector(".periody");
@@ -11,13 +13,28 @@ function createJob(vacanciesArray){
         let benefits = document.querySelector(".benefits-area")
         let desirable = document.querySelector('.desirable-area')
         let adicionais = document.querySelector(".aditional-area")
-    
-        let inputs = [vacancyName, type, payment, requirements, benefits, desirable, adicionais]
-        let inputsValue = [vacancyName.value, type.value, payment.value, requirements.value, benefits.value, desirable.value, adicionais.value]
+        
+        // Array with the elements 
+        let inputs = {
+            vacancyName, type, payment, 
+            requirements, benefits, desirable, 
+            adicionais
+        }
+
+        // Object with the value of the elements
+        let inputsValue = [
+            vacancyName.value, type.value, payment.value, 
+            requirements.value, benefits.value, desirable.value, 
+            adicionais.value
+        ]
+        
+        //Field value with working time
         let time = periody.options[periody.selectedIndex].innerText;
-               
+        
+        //Box message
         let boxMessage = document.querySelector(".box-create-job")
 
+        // Verify fields
         if(inputsValue.includes("") || time == ""){
     
             //Transition message error 
@@ -34,10 +51,8 @@ function createJob(vacanciesArray){
             time == "" ? periody.classList.add("empty") : periody.classList.remove("empty")
         
         }else{
-            for (let i in inputs){
-                inputs[i].classList.remove("empty")
-            }
-
+            // Remove error class
+            for (let i in inputs){inputs[i].classList.remove("empty")}
             periody.classList.remove("empty")
 
             //Transition message success 
@@ -47,51 +62,47 @@ function createJob(vacanciesArray){
             setTimeout(()=>{boxMessage .style.opacity = "0"},3000)
             setTimeout(()=>{boxMessage .innerHTML = "", boxMessage .classList.remove("success-box")},3300)
 
+            // Separating elements from lists
             let requirementsArray = requirements.value.split(",")
             let benefitsArray = benefits.value.split(",")
             let desirableArray = desirable.value.split(",")
+            let listJob = {requirementsArray, benefitsArray, desirableArray}
     
-            createVacancyId(vacanciesArray, vacancyName, type, payment, time, adicionais, requirementsArray, benefitsArray, desirableArray,)
+            createVacancyId(vacanciesArray, inputs, listJob, time)
             
-            vacancyName.value = ""
-            type.value = ""
-            payment.value = ""
-            requirements.value = ""
-            benefits.value = ""
-            desirable.value = ""
-            adicionais.value = ""
+            for (let i in inputs){inputs[i].value = ""}
         }
     })
-    
-    function createVacancyId(vacanciesArray, vacancyName, type, payment, time, adicionais, requirementsArray, benefitsArray, desirableArray,){
+}
+function createVacancyId(vacanciesArray, inputs, listJob, time){
         
-        let randomIdVacancy = Math.floor(Math.random() * 1000)
-        let vacanciesId = []
-    
-        for (let i in vacanciesArray){
-            vacanciesId.push(vacanciesArray[i].id)
+    let vacanciesId = []
+    for (let i in vacanciesArray){vacanciesId.push(vacanciesArray[i].id)}
+
+    // This function generates an id
+    let idRandomVacancy = ""
+    let randomUser = () => idRandomVacancy = Math.floor(Math.random() * 10000)    
+    randomUser()
+    // If id is existent, recursion is used to generate another id
+    if(vacanciesId.includes(idRandomVacancy)){randomUser()}
+
+    // Adding the new vacancie to the simulated database
+    vacanciesArray.push(
+        {   
+            idCreator: currentUserCompany.id,
+            id: idRandomVacancy,
+            companyName: currentUserCompany.companyName,
+            vacancyName: inputs.vacancyName.value,
+            status: "In Process",
+            type: inputs.type.value,
+            time: time,
+            payment: inputs.payment.value,
+            requirements: listJob.requirementsArray,
+            desirable: listJob.desirableArray,
+            benefits: listJob.benefitsArray,
+            additional: inputs.adicionais.value
         }
-    
-        if(vacanciesId.includes(randomIdVacancy)){
-            createVacancyId()
-        }
-    
-        vacanciesArray.push(
-            {   
-                idCreator: currentUserCompany.id,
-                id: randomIdVacancy,
-                companyName: currentUserCompany.companyName,
-                vacancyName: vacancyName.value,
-                status: "In Process",
-                type: type.value,
-                time: time,
-                payment: payment.value,
-                requirements: requirementsArray,
-                desirable: desirableArray,
-                benefits: benefitsArray,
-                additional: adicionais.value
-            }
-        )
-        updateVacancies(vacanciesArray)
-    }
+    )
+    //Saving the new vacancy in localStorage
+    updateVacancies(vacanciesArray)
 }

@@ -29,15 +29,13 @@ function writeBoxes(vacancysCompany){
                     <div class="language">${vacancysCompany[i].companyName}</div>
                     <div class="box-footer" style="color: #006600;">Status: ${vacancysCompany[i].status}</div>
                 </div>
-            </div>
-        `
+            </div>`
     }
     squareBoxes.innerHTML = boxesHTML
 
     if(vacancysCompany.length == 0){
         squareBoxes.innerHTML = "You don't have open vacancies"
     }
-
     clickCard()
 }
 
@@ -46,12 +44,10 @@ function clickCard(){
     allBoxes.forEach(item =>{
         item.addEventListener("click", callClickCardOpenVacancy)
     })
-    
 }
 
 function searchCorrectBox(parametrsArray){
     let {vacanciesArray} = parametrsArray
-
     let clickedItem = event.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
@@ -60,7 +56,6 @@ function searchCorrectBox(parametrsArray){
             fillBox(vacanciesArray[i], parametrsArray)
         }
     }
-
 }
 
 function fillBox(clickedVacancy, parametrsArray){
@@ -68,26 +63,22 @@ function fillBox(clickedVacancy, parametrsArray){
     
     document.querySelector(".job-modal-content").innerHTML = `
     <div class="modal-header">
-    <img src="/src/icons/company-icon.png" alt="logo-job">
-    <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-    <div class="row">
-    <div class="col-12 box-finised-vacancy"></div>
+        <img src="/src/icons/company-icon.png" alt="logo-job">
+        <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+        <div class="col-12 box-finised-vacancy"></div>
     </div>
     <div class="row">
         <div class="col-4">
             <p class="title-info">Requisitos:</p>
-            <ul class="company-requirements">
-
-            </ul>
+            <ul class="company-requirements"></ul>
         </div>
         <div class="col-4">
             <p class="title-info">Desejavel:</p>
-            <ul class="company-desirable">
-
-            </ul>
+            <ul class="company-desirable"></ul>
         </div>
         <div class="col-4">
             <div class="row">
@@ -102,13 +93,10 @@ function fillBox(clickedVacancy, parametrsArray){
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-6">
             <p class="title-info">Beneficios:</p>
-            <ul class="company-benefits">
-
-            </ul>
+            <ul class="company-benefits"></ul>
         </div>
         <div class="col-6">
             <div class="row">
@@ -117,11 +105,9 @@ function fillBox(clickedVacancy, parametrsArray){
             </div>
         </div>
     </div>
-
-    </div>
     <div class="modal-footer">
-    <button type="button" class="btn btn-danger btn-finish-vacancy">Finish Vacancy</button>
-    <button type="button" class="btn btn-primary see-applyeds" data-bs-toggle="modal" data-bs-target="#ApplyedsModal">See Apllayeds</button>
+        <button type="button" class="btn btn-danger btn-finish-vacancy">Finish Vacancy</button>
+        <button type="button" class="btn btn-primary see-applyeds" data-bs-toggle="modal" data-bs-target="#ApplyedsModal">See Apllayeds</button>
     </div>
     `
     //Fill Boxes
@@ -170,23 +156,19 @@ function usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray){
         }
 
         let usersApplyedHtml = ""
-    
         for(let i in usersApplayedVacancy){
             usersApplyedHtml += `<li>${usersApplayedVacancy[i]}</li>`
         }
     
         document.querySelector(".applayeds-modal-content").innerHTML = `
         <div class="modal-header">
-        <img src="/src/icons/company-icon.png" alt="logo-job">
-        <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <img src="/src/icons/company-icon.png" alt="logo-job">
+            <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-        <span class="title-applyeds-vacancys">Enrolled in the vacancies</span>
-        <ul class="usersApllayed">
-        ${usersApplyedHtml}
-        </ul>
-        </div>
-        `
+            <span class="title-applyeds-vacancys">Enrolled in the vacancies</span>
+            <ul class="usersApllayed">${usersApplyedHtml}</ul>
+        </div>`
     })
 }

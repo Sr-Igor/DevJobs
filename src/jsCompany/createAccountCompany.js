@@ -103,7 +103,6 @@ function verifyFields(companysArray){
             return
         }
 
-
         if(companyPassword.value !== companyPasswordConfirm.value){
             let inputEl = companyPassword
             let inputConfirm = companyPasswordConfirm
