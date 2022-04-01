@@ -1,4 +1,3 @@
-
 (function availableUsersRegister(){
     // This function provides the click on the registration button
     let registerButton = document.querySelector(".register-button")

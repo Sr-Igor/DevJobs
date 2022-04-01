@@ -38,7 +38,7 @@ function fillProfilePage(){
                 <div class="col-2">
                     <div class="box-info-company">
                         <img src="src//images/DefaultProfile.jpg" alt="">
-                        <div class="company-title">${userVacancyApply.firstName} ${userVacancyApply.lastName}</div>
+                        <div class="company-title">${currentUser.firstName} ${currentUser.lastName}</div>
                     </div>
                 </div>
 
@@ -51,20 +51,20 @@ function fillProfilePage(){
                         </div>
                         <div class="row">
                             <div class="mb-3 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Complet Name</label>
-                                <input type="text" class="form-control completName-profile" aria-describedby="emailHelp" readonly>
+                                <label class="form-label">Complet Name</label>
+                                <input type="text" class="form-control completName-profile" value="${currentUser.firstName} ${currentUser.lastName}" aria-describedby="emailHelp" readonly>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="mb-3 col-6">
-                                <label for="exampleInputPassword1" class="form-label"> Current Password</label>
+                                <label class="form-label"> Current Password</label>
                                 <input type="password" class="form-control password-profile">
                                 <div class="form-text">Only letters and numbers</div>
                             </div>
             
                             <div class="mb-3 col-6">
-                                <label for="exampleInputPassword1" class="form-label">New Password</label>
+                                <label class="form-label">New Password</label>
                                 <input type="password" class="form-control new-password" id="exampleInputPassword1">
                             </div>
                         </div>
@@ -72,13 +72,13 @@ function fillProfilePage(){
                         <div class="row">
                             <div class="mb-3 col-6">
                                 <label for="exampleInputEmail1" class="form-label">Phone</label>
-                                <input type="text" class="form-control phone-profile" aria-describedby="emailHelp" placeholder="(xx) x xxx-xxxx">
+                                <input type="text" class="form-control phone-profile" aria-describedby="emailHelp" value="${currentUser.phone}" placeholder="(xx) x xxx-xxxx">
                                 <div  class="form-text">Only Numbers</div>
                             </div>
             
                             <div class="mb-3 col-6">
                                 <label for="exampleInputEmail1" class="form-label">CPF</label>
-                                <input type="text" class="form-control cpf-profile" aria-describedby="emailHelp" readonly>
+                                <input type="text" class="form-control cpf-profile" aria-describedby="emailHelp" value="${currentUser.cpf}" readonly>
                                 <div class="form-text">Only Numbers</div>
                             </div>
                         </div>
@@ -88,14 +88,14 @@ function fillProfilePage(){
                             <div class="col-6">
                                 <label for="#">
                                     CEP
-                                    <input type="Number" name="Cep" placeholder="00000-000" class="cep-profile">
+                                    <input type="Number" name="Cep" placeholder="00000-000" class="cep-profile" value="${currentUser.adress.cep}">
                                     
                                 </label>
                             </div>
                             <div class="col-6">
                                 <label for="#">
                                     Rua
-                                    <input type="text" name="Street" class="street-profile">
+                                    <input type="text" name="Street" class="street-profile" value="${currentUser.adress.street}">
                                     
                                 </label>
                             </div>
@@ -105,14 +105,14 @@ function fillProfilePage(){
                             <div class="col-6">
                                 <label for="#">
                                     Bairro
-                                    <input type="text" name="Bairro" class="district-profile">
+                                    <input type="text" name="Bairro" class="district-profile" value="${currentUser.adress.district}">
                                 </label>
                             </div>
             
                             <div class="col-6">
                                 <label for="#">
                                     Cidade
-                                    <input type="text" name="City" class="city-profile">
+                                    <input type="text" name="City" class="city-profile" value="${currentUser.adress.city}">
                                 </label>
                             </div>
                         </div>
@@ -121,14 +121,14 @@ function fillProfilePage(){
                             <div class="col-6">
                                 <label for="#">
                                     UF
-                                    <input type="text" name="Uf" class="uf-profile">
+                                    <input type="text" name="Uf" class="uf-profile" value="${currentUser.adress.uf}">
                                 </label>
                             </div>
             
                             <div class="col-6">
                                 <label for="#">
                                     Número
-                                    <input type="Number" name="number" class="number-profile">
+                                    <input type="Number" name="number" class="number-profile" value="${currentUser.adress.number}">
                                 </label>
                             </div>
             
@@ -138,7 +138,7 @@ function fillProfilePage(){
                             <div class="col-12">
                                 <label for="#">
                                     Complemento
-                                    <input type="text" name="Complemento" class="complement-profile">
+                                    <input type="text" name="Complemento" class="complement-profile" value="${currentUser.adress.complement}">
                                 </label>
                             </div>
                         </div>
@@ -152,7 +152,6 @@ function fillProfilePage(){
             </div>
     </main>`
 
-    fillInputsProfile()
     profileCallHome()
     clickEventReloadHome()
     loadEditProfile()

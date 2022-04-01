@@ -8,10 +8,12 @@
 var myModal = new bootstrap.Modal(document.getElementById('LoginModal'))
 
 //Variables login 
-// let loginValid = false REMOVE
-let userVacancyApply = ""
 let login = ""
 let password = ""
+
+/* This variable saves the information of the 
+current user to be used in other functions*/
+let currentUser = ""
 
 // Functions
 function verifyAccount(usersRegisterArray){
@@ -65,8 +67,7 @@ function enterAccount(usersRegisterArray, login){
         if(usersRegisterArray[i].email == login){
             /*Get the information of the current user and 
             call the functions that update the page options*/
-            let currentUser = usersRegisterArray[i]
-            userVacancyApply = currentUser //REMOVER ESSE ITEM 
+            currentUser = usersRegisterArray[i]
             updateHeader()
             updateBodyFunctions()
             updateApplyVacancy(currentUser)
@@ -211,15 +212,15 @@ function getVacancy(applayedsArray){
 
     /* Checks the options for: user with any vacancy
     registered or user without any vacancy registered */
-    if(applyedUser.includes(userVacancyApply.id)){
+    if(applyedUser.includes(currentUser.id)){
         for( let i in applayedsArray){
-            if(applayedsArray[i].idUser == userVacancyApply.id){
+            if(applayedsArray[i].idUser == currentUser.id){
                 applayedsArray[i].vacancysCode.push(Number(currentVacancy))
             }
         }
     }else{
         applayedsArray.push({
-            idUser: userVacancyApply.id,
+            idUser: currentUser.id,
             vacancysCode: [Number(currentVacancy)]
         })
     } 

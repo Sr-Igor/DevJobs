@@ -4,27 +4,21 @@
 (function additionalUsers(){
     let localStorageNull = localStorage.getItem("usersArray")
     let usersRegisterArray = localStorageNull == null ? [] : JSON.parse(localStorage.getItem("usersArray"))
-    if(usersRegisterArray[0] == undefined){
-        usersRegisterArray.push(...users)
-    }
+    if(usersRegisterArray[0] == undefined){usersRegisterArray.push(...users)}
     updateUsers(usersRegisterArray)
 })();
 
 (function additionalVacancies(){ // This function adds manually created vacancies to simulate a database
     let localStorageNull = localStorage.getItem("vacanciesArray") 
     let vacanciesArray =  localStorageNull == null ? [] : JSON.parse(localStorage.getItem("vacanciesArray"))
-    if(vacanciesArray[0] == undefined){ // 
-        vacanciesArray.push(...vacancys)
-    }
+    if(vacanciesArray[0] == undefined){vacanciesArray.push(...vacancys)}
     updateVacancies(vacanciesArray)
 })();
 
 (function additionalCompanies(){
     let localStorageNull = localStorage.getItem("companysArray")
     let companysArray =  localStorageNull == null ? [] : JSON.parse(localStorage.getItem("companysArray"))
-    if(companysArray[0] == undefined){
-        companysArray.push(...companys)
-    }
+    if(companysArray[0] == undefined){companysArray.push(...companys)}
     updateCompanysArray(companysArray)
 })()
 
@@ -35,7 +29,6 @@ function updateCurrentUser(cacheUserInfo){
 }
 function updateUsers(usersRegisterArray){ // This function save registered Users
     localStorage.setItem("usersArray", JSON.stringify(usersRegisterArray))
-    console.log(usersRegisterArray)
 };
 
 function updateCompanysArray(companysArray){ // This function save registered Companies
@@ -52,7 +45,6 @@ function updateFinishedVacancies(vacanciesFinishedArray){ // This function save 
 
 function updateApplyeds(applayedsArray, unsubscrive = false){ // This function saves user ids and applied vacancies
     localStorage.setItem("usersApplayedsArray", JSON.stringify(applayedsArray)) 
-
     if(unsubscrive == true){ // Used when called on the vacancies page to unsubscribe and refresh the page immediately
         callApplyeds()
     };
@@ -90,8 +82,8 @@ function callApplyeds(){ // This function is called when clicking on "subscripti
     
     // these functions are called upon to fill vacancies on the application page. 
     // Receiving by parameter the id of the current user, the array of applied open and closed vacancies
-    fillSubscriptions(userVacancyApply.id, applayedsArray, vacanciesArray)
-    fillSubscriptionsClosed(userVacancyApply.id, applayedsArray, vacanciesArrayFinished)
+    fillSubscriptions(currentUser.id, applayedsArray, vacanciesArray)
+    fillSubscriptionsClosed(currentUser.id, applayedsArray, vacanciesArrayFinished)
 };
 
 function callSendApplyeds(){ // This function is called when executing the function of applying for a vacancy

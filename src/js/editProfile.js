@@ -49,7 +49,7 @@ function verifyFieldsEdit(usersRegisterArray){
     }
   
     // Check passwords the same
-    if(userVacancyApply.password == currentPassword.value){ 
+    if(currentUser.password == currentPassword.value){ 
         // Success message
         boxMessageProfile.style.opacity = "0"
         boxMessageProfile.innerHTML = ''
@@ -87,7 +87,7 @@ function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newP
     let [newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber,] = ArrayInputsValue
     
     for (let i in usersRegisterArray){
-        if(usersRegisterArray[i].id == userVacancyApply.id){
+        if(usersRegisterArray[i].id == currentUser.id){
             usersRegisterArray[i].phone = newPhone
             usersRegisterArray[i].adress.cep = newCep
             usersRegisterArray[i].adress.uf = newUf
@@ -100,12 +100,12 @@ function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newP
             //Checks if a new password has been added
             newPassword !== "" ? usersRegisterArray[i].password = newPassword : null
             
-            userVacancyApply = usersRegisterArray[i] // VERIFICAR NECESSIDADE
+            currentUser = usersRegisterArray[i] // VERIFICAR NECESSIDADE
 
             //Clean fields
             setTimeout(()=>{
                 updateUsers(usersRegisterArray)
-                fillProfilePage(usersRegisterArray[i])
+                fillProfilePage()
             }, 3000)
         }
     }
