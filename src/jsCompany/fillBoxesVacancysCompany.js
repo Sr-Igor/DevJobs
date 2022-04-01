@@ -1,15 +1,18 @@
 function fillBoxesVacancyCreator(vacanciesArray){
+    // Checks the vacancies that were created by the current company
     let vacancysCreatedCompany =[]
     for(let i in vacanciesArray){
         if(vacanciesArray[i].idCreator == currentUserCompany.id){
             vacancysCreatedCompany.push(vacanciesArray[i])
         }
     }
+    //calls the function that writes open vacancies in HTML
     writeBoxes(vacancysCreatedCompany)
 }
 
 function writeBoxes(vacancysCompany){
 
+    //stores the vacancies in the variable and writes the items in the HTML
     let squareBoxes = document.querySelector(".box-jobs")
     squareBoxes.innerHTML = ""
     let boxesHTML = ""
@@ -33,13 +36,16 @@ function writeBoxes(vacancysCompany){
     }
     squareBoxes.innerHTML = boxesHTML
 
-    if(vacancysCompany.length == 0){
-        squareBoxes.innerHTML = "You don't have open vacancies"
-    }
+    // check if the HTML is empty
+    if(vacancysCompany.length == 0){squareBoxes.innerHTML = "You don't have open vacancies"}
+
+    //calls the function that allows clicking on the vacancy
     clickCard()
 }
 
 function clickCard(){
+
+    //Identifies the item clicked
     let allBoxes = document.querySelectorAll(".box")
     allBoxes.forEach(item =>{
         item.addEventListener("click", callClickCardOpenVacancy)
@@ -47,18 +53,21 @@ function clickCard(){
 }
 
 function searchCorrectBox(parametrsArray){
+    // Finds the vacancy corresponding to the clicked item
     let {vacanciesArray} = parametrsArray
     let clickedItem = event.currentTarget
     let idCard = clickedItem.getAttribute("data-key")
 
     for (let i in vacanciesArray){
         if(vacanciesArray[i].id == idCard){
+            //Call the function that fills the modal
             fillBox(vacanciesArray[i], parametrsArray)
         }
     }
 }
 
 function fillBox(clickedVacancy, parametrsArray){
+    //modal fill
     let {vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished} = parametrsArray
     
     document.querySelector(".job-modal-content").innerHTML = `
@@ -66,23 +75,24 @@ function fillBox(clickedVacancy, parametrsArray){
         <img src="/src/icons/company-icon.png" alt="logo-job">
         <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-        <div class="row">
-        <div class="col-12 box-finised-vacancy"></div>
     </div>
-    <div class="row">
-        <div class="col-4">
-            <p class="title-info">Requisitos:</p>
-            <ul class="company-requirements"></ul>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12 box-finised-vacancy"></div>
         </div>
-        <div class="col-4">
-            <p class="title-info">Desejavel:</p>
-            <ul class="company-desirable"></ul>
-        </div>
-        <div class="col-4">
-            <div class="row">
-                <p class="title-info">Tipo: <strong>${clickedVacancy.type}</strong></p>
+        <div class="row">
+            <div class="col-4">
+                <p class="title-info">Requisitos:</p>
+                <ul class="company-requirements"></ul>
+            </div>
+            <div class="col-4">
+                <p class="title-info">Desejavel:</p>
+                <ul class="company-desirable"></ul>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <p class="title-info">Tipo: <strong>${clickedVacancy.type}</strong></p>
+                </div>
             </div>
             <div class="row">
                 <p class="title-info">Periodo: <strong>${clickedVacancy.time}</strong></p>
@@ -92,13 +102,12 @@ function fillBox(clickedVacancy, parametrsArray){
                 <strong class="fs-4">R$ ${clickedVacancy.payment}</strong>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <p class="title-info">Beneficios:</p>
-            <ul class="company-benefits"></ul>
-        </div>
-        <div class="col-6">
+        <div class="row">
+            <div class="col-6">
+                <p class="title-info">Beneficios:</p>
+                <ul class="company-benefits"></ul>
+            </div>
+            <div class="col-6">
             <div class="row">
                 <p class="title-info">Informações Adicionais:</p>
                 <span>${clickedVacancy.additional}</span>
@@ -108,9 +117,10 @@ function fillBox(clickedVacancy, parametrsArray){
     <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-finish-vacancy">Finish Vacancy</button>
         <button type="button" class="btn btn-primary see-applyeds" data-bs-toggle="modal" data-bs-target="#ApplyedsModal">See Apllayeds</button>
-    </div>
-    `
-    //Fill Boxes
+    </div>`
+
+
+    //Filling modal lists
     let requirements = document.querySelector(".company-requirements")
     let desirable = document.querySelector(".company-desirable")
     let benefits = document.querySelector(".company-benefits")
@@ -135,12 +145,18 @@ function fillBox(clickedVacancy, parametrsArray){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 
+    //Calls the function that generates the list of applied users
     usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray)
+
+    //Call the function that ends the vacancy
     finishVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished)
 }
 
 function usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray){
+    //Filling the modal with the list of registered users
+
     document.querySelector(".see-applyeds").addEventListener("click", ()=>{
+        // Capture of users registered in the respective vacancy
         let idUsers = []
         for (let i in applayedsArray){
            if(applayedsArray[i].vacancysCode.includes(clickedVacancy.id)){
@@ -148,6 +164,7 @@ function usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray){
            }
         }
         
+        //capture user name
         let usersApplayedVacancy = []
         for (let i in usersRegisterArray){
             if(idUsers.includes(usersRegisterArray[i].id)){
@@ -155,11 +172,18 @@ function usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray){
             }
         }
 
+        //writing list in modal
         let usersApplyedHtml = ""
         for(let i in usersApplayedVacancy){
             usersApplyedHtml += `<li>${usersApplayedVacancy[i]}</li>`
         }
+
+        // Check if there are registered users
+        if(usersApplayedVacancy.length == 0){
+            usersApplyedHtml = "There are no applications for this vacancy yet."
+        }
     
+        //writing list in modal in HTML
         document.querySelector(".applayeds-modal-content").innerHTML = `
         <div class="modal-header">
             <img src="/src/icons/company-icon.png" alt="logo-job">

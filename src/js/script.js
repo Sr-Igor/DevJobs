@@ -33,6 +33,7 @@ function updateUsers(usersRegisterArray){ // This function save registered Users
 
 function updateCompanysArray(companysArray){ // This function save registered Companies
     localStorage.setItem("companysArray", JSON.stringify(companysArray))
+    console.log(companysArray)
 };
 
 function updateVacancies(vacanciesArray){ // This function save availables vacancies (opened)

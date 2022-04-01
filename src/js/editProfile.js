@@ -84,6 +84,7 @@ function fillBoxMessageSuccess(){
 function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newPassword){
     // Update user information, save to localStorage and refresh the page
 
+    //Deconstructing the array of elements
     let [newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber,] = ArrayInputsValue
     
     for (let i in usersRegisterArray){
@@ -100,7 +101,8 @@ function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newP
             //Checks if a new password has been added
             newPassword !== "" ? usersRegisterArray[i].password = newPassword : null
             
-            currentUser = usersRegisterArray[i] // VERIFICAR NECESSIDADE
+            // Update variable
+            currentUser = usersRegisterArray[i]
 
             //Clean fields
             setTimeout(()=>{

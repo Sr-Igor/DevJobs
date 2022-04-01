@@ -31,9 +31,24 @@ function verifyFieldsEdit(companysArray){
     let boxMessage = document.querySelector(".box-message-edit-profile")
 
     event.preventDefault()
-    let ArrayInputs = [companyNameEdit, companyPhoneEdit, companyCnpjEdit, companyCepEdit, companyStreetEdit, companyDistrictEdit, companyCityEdit, companyUfEdit, companyNumberEdit]
-    let ArrayInputsValue = [companyNameEdit.value, companyPhoneEdit.value, companyCnpjEdit.value, companyCepEdit.value, companyStreetEdit.value, companyDistrictEdit.value, companyCityEdit.value, companyUfEdit.value, companyNumberEdit.value]
 
+    // Array inputs
+    let ArrayInputs = [
+        companyNameEdit, companyPhoneEdit, companyCnpjEdit, 
+        companyCepEdit, companyStreetEdit, companyDistrictEdit, 
+        companyCityEdit, companyUfEdit, companyNumberEdit
+    ]
+
+    // Array Inputs value
+    let ArrayInputsValue = [
+        companyNameEdit.value, companyPhoneEdit.value, 
+        companyCnpjEdit.value, companyCepEdit.value, 
+        companyStreetEdit.value, companyDistrictEdit.value, 
+        companyCityEdit.value, companyUfEdit.value, 
+        companyNumberEdit.value
+    ]
+
+    // Verify empty fields
     for(let i in ArrayInputsValue){
         if(ArrayInputsValue[i] == ""){
             ArrayInputs[i].classList.add("empty")
@@ -42,30 +57,30 @@ function verifyFieldsEdit(companysArray){
         }
     }
 
-    if(!ArrayInputsValue.includes("") && companyPasswordEdit.value !== ""){
-
-        if(currentUserCompany.password == currentPassword.value){
-            boxMessage.classList.remove("box-error-edit-profile")
-            boxMessage.innerHTML = ""
-            boxMessage.style.opacity = "0"
-            currentPassword.classList.remove("empty")
-            companyPasswordEdit.classList.remove("empty")
-            updateprofile(companysArray, boxMessage, ArrayInputsValue, companyComplementEdit, companyPasswordEdit.value )
-        }else{
-            boxMessage.classList.add("box-error-edit-profile")
-            boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Current password incorrect'
-            boxMessage.style.opacity = "1"
-            currentPassword.classList.add("empty")
-            companyPasswordEdit.classList.add("empty")
-            }
-    }else if(!ArrayInputsValue.includes("") && companyPasswordEdit.value == ""){
-        updateprofile(companysArray, boxMessage, ArrayInputsValue, companyComplementEdit )
+   
+    // Check passwords the same
+    if(currentUserCompany.password == currentPassword.value){
+        boxMessage.classList.remove("box-error-edit-profile")
+        boxMessage.innerHTML = ""
+        boxMessage.style.opacity = "0"
+        currentPassword.classList.remove("empty")
+        updateprofile(companysArray,  ArrayInputsValue, companyComplementEdit, companyPasswordEdit.value )
+    }else{
+        boxMessage.classList.add("box-error-edit-profile")
+        boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Current password incorrect'
+        boxMessage.style.opacity = "1"
+        currentPassword.classList.add("empty")
     }
 }
 
-function updateprofile(companysArray, boxMessage, ArrayInputsValue, newComplement, newPassword){
-    
+function updateprofile(companysArray, ArrayInputsValue, newComplement, newPassword){
+    // Update company information, save to localStorage and refresh the page
+
+    //Deconstructing the array of elements
    let [newName, NewPhone, NewCnpj, NewCep, NewStreet, NewDistrict, NewCity, NewUf, NewNumber] = ArrayInputsValue
+
+    //Box message
+    let boxMessage = document.querySelector(".box-message-edit-profile")
 
     for (let i in companysArray){
         if(companysArray[i].id == currentUserCompany.id){
@@ -80,14 +95,15 @@ function updateprofile(companysArray, boxMessage, ArrayInputsValue, newComplemen
             companysArray[i].adress.number = NewNumber
             companysArray[i].adress.complement =  newComplement
 
-            if(newPassword !== undefined){
-                companysArray[i].password = newPassword
-            }
+            //Checks if a new password has been added
+            if(newPassword !== ""){companysArray[i].password = newPassword}
 
+            //Show success message
             boxMessage.classList.add("box-success-edit-profile")
             boxMessage.innerHTML = '<i class="bi bi-bookmark-check"></i> Profile edited successfully'
             boxMessage.style.opacity = "1"
             
+            // Hide success message and update page 
             setTimeout(()=>{
                 boxMessage.classList.remove("box-success-edit-profile")
                 boxMessage.innerHTML = ''
