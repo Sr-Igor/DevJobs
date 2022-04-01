@@ -36,13 +36,13 @@ function changeSubsPage(){
         <div class="container">
             <div class="h1">Your Subscriptions</div>
             <div class="box-vagancys">
-                
+             You are not applying for any open vacancy
             </div>
         </div>
         <div class="container">
         <div class="h1">Your Vacancies closed</div>
             <div class="box-vagancys-closed">
-                
+             You are not applying for any closed vacancy
             </div>
     </div>
         <section class="Job-Modal">
