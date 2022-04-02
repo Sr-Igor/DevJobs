@@ -149,12 +149,6 @@ function sendApplication(applayedsArray){ // Send the form to the company
     let uf = document.querySelector(".uf")
     let number = document.querySelector(".number")
 
-    //Variables Send Application 
-    let errorSendMenssage = document.querySelector(".error-send-menssage")
-    let applyModalBody = document.querySelector(".Apply-Modal .modal-body")
-    let applyModalFooter = document.querySelector(".Apply-Modal .modal-footer")
-    let modalSuccess = document.querySelector(".modal-success")
-
     // Application form elements
     let inputs = [firstName, lastName, email, confirmEmail, phone, cep, street, district, city, uf, number,]
 
@@ -173,25 +167,8 @@ function sendApplication(applayedsArray){ // Send the form to the company
     }
 
     if(inputsValue.includes("")){
-        // Error message
-        errorSendMenssage.style.opacity = "1"
-        setTimeout(()=> errorSendMenssage.style.opacity= "0" ,2000)
+        messageBox(1)
     }else{
-        // Remove form and add success message
-        applyModalBody.style.display = "none"
-        applyModalFooter.style.display = "none"
-        modalSuccess.style.display = "flex"
-
-        // Close the modal, reload the form and hide the success message
-        let btnClose = document.querySelector(".after-apply")
-        btnClose.addEventListener("click", ()=>{
-            setTimeout(()=>{
-                applyModalBody.style.display = "flex"
-                applyModalFooter.style.display = "flex"
-                modalSuccess.style.display = "none"
-            },150)
-        })
-
         //Function that adds the correct user and vacancy to the simulated database
         getVacancy(applayedsArray)
     }
@@ -215,7 +192,15 @@ function getVacancy(applayedsArray){
     if(applyedUser.includes(currentUser.id)){
         for( let i in applayedsArray){
             if(applayedsArray[i].idUser == currentUser.id){
-                applayedsArray[i].vacancysCode.push(Number(currentVacancy))
+                //Checks if the user is already registered in the vacancy
+                if(applayedsArray[i].vacancysCode.includes(Number(currentVacancy))){
+                    messageBox(2)
+                }else{
+                    applayedsArray[i].vacancysCode.push(Number(currentVacancy))
+                    messageBox(3)
+                    //Simulated database update
+                    updateApplyeds(applayedsArray)
+                }
             }
         }
     }else{
@@ -223,8 +208,64 @@ function getVacancy(applayedsArray){
             idUser: currentUser.id,
             vacancysCode: [Number(currentVacancy)]
         })
+
+        //Simulated database update
+        updateApplyeds(applayedsArray)
     } 
-    
-    //Simulated database update
-    updateApplyeds(applayedsArray)
+}
+
+
+function messageBox(path){
+    //This function displays all error and success messages during application
+
+    //Variables Send Application 
+    let errorSendMenssage = document.querySelector(".error-send-menssage")
+    let applyModalBody = document.querySelector(".Apply-Modal .modal-body")
+    let applyModalFooter = document.querySelector(".Apply-Modal .modal-footer")
+    let modalSuccess = document.querySelector(".modal-success")
+    let sendApplyButton = document.querySelector(".sendApplyButton")
+
+    //Control the click on the send button
+    sendApplyButton.setAttribute("disabled", true)
+    setTimeout(()=>{
+        sendApplyButton.removeAttribute("disabled", true)
+    }, 3000)
+
+    switch(path){
+        case 1:
+            // Error message
+            errorSendMenssage.innerHTML = '<i class="bi bi-x"></i> Please complete all the fields correctly'
+            errorSendMenssage.style.opacity = "1"
+            setTimeout(()=> {
+                errorSendMenssage.style.opacity= "0" 
+                errorSendMenssage.innerHTML = ""
+            },3000)
+            break;
+
+        case 2: 
+            // Error message
+            errorSendMenssage.innerHTML = '<i class="bi bi-x"></i> You are already a candidate for this vacancy'
+            errorSendMenssage.style.opacity = "1"
+            setTimeout(()=> {
+                errorSendMenssage.style.opacity= "0" 
+                errorSendMenssage.innerHTML = ""
+            },3000)
+            break;
+        case 3: 
+            // Remove form and add success message
+            applyModalBody.style.display = "none"
+            applyModalFooter.style.display = "none"
+            modalSuccess.style.display = "flex"
+
+            // Close the modal, reload the form and hide the success message
+            let btnClose = document.querySelector(".after-apply")
+            btnClose.addEventListener("click", ()=>{
+                setTimeout(()=>{
+                    applyModalBody.style.display = "flex"
+                    applyModalFooter.style.display = "flex"
+                    modalSuccess.style.display = "none"
+                },150)
+            })
+            break;
+    }
 }

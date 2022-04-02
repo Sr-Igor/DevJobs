@@ -32,13 +32,12 @@ function VerifyApplyedVacancys(vacancysCode, vacanciesArray){
 function fillScreen(userOpenVacancys, vacanciesArray){
     //Box
     let boxVacancy = document.querySelector(".box-vagancys")
-
     //Writing vacancies in the variable
     let boxVacancyHTML = ""
     for (let i in userOpenVacancys){
         boxVacancyHTML += `
         <div class="vacancy" data-key="${userOpenVacancys[i].id}">
-            <div class="company-name"><strong>Company: </strong> ${userOpenVacancys[i].companyName}</div>
+            <div class="company-name-applayed"><strong>Company: </strong> ${userOpenVacancys[i].companyName}</div>
             <div class="vacancy-title"><strong>Vacancy: </strong> ${userOpenVacancys[i].vacancyName}</div>
             <div class="status" style="color: #006600;"><strong>Stauts: </strong> ${userOpenVacancys[i].status}</div>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">See Details</button>

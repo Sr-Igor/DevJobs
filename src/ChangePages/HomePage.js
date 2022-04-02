@@ -17,15 +17,13 @@ function changeHomePage(){
                 <div class="top-header">
                     <h1>DevJobs</h1>
                     <div class="user">
-                            <div class="box-login" style="display: none;">
-                                <button class="cssbuttons-io-button"  data-bs-toggle="modal" data-bs-target="#LoginModal"> Login or Register
-                                    <div class="icon">
-                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-                                    </div>
-                                </button>
-                            </div>
-
-
+                        <div class="box-login" style="display: none;">
+                            <button class="cssbuttons-io-button"  data-bs-toggle="modal" data-bs-target="#LoginModal"> Login or Register
+                                <div class="icon">
+                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                                </div>
+                            </button>
+                        </div>
                         <div class="box-logout" style="display: flex; opacity: 1;">
                             <div class="circle">
                                 <a  href="#" class="hello-profile"><i class="bi bi-person-circle"></i> Peril</a>
@@ -34,7 +32,6 @@ function changeHomePage(){
                             </div>
                         </div>
                     </div>
-                    
                     <div class="box-clean-dark">
                         <div class="clean-mode"><i class="bi bi-brightness-high"></i></div>
                         <div class="light-switch">
@@ -133,8 +130,7 @@ function changeHomePage(){
                 <div class="modal-body">
                 <form action="#" class="form-apply">
                     <div class="row">
-                        <div class="col-12 error-send-menssage"><i class="bi bi-x"></i> Please, 
-                            Complete all the fields correctly</div>
+                        <div class="col-12 error-send-menssage"></div>
                     </div>
                     <div class="row">
                         <div class="fs-4 title-subsection">Profile Info</div>
