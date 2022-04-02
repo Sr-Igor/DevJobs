@@ -9,6 +9,8 @@ function loadEditProfile(){
 }
 
 function verifyFieldsEdit(companysArray){
+    event.preventDefault()
+
     //Current Infos Company 
     let currentPassword = document.querySelector(".current-password")
 
@@ -27,11 +29,10 @@ function verifyFieldsEdit(companysArray){
     let companyNumberEdit  = document.querySelector(".number-edit")
     let companyComplementEdit = document.querySelector(".complement-edit")
 
-    //Box message
-    let boxMessage = document.querySelector(".box-message-edit-profile")
-
-    event.preventDefault()
-
+    //Regex Password
+    let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
+    let passwordTest = passwordRegex.test(companyPasswordEdit.value)
+    
     // Array inputs
     let ArrayInputs = [
         companyNameEdit, companyPhoneEdit, companyCnpjEdit, 
@@ -57,27 +58,58 @@ function verifyFieldsEdit(companysArray){
         }
     }
 
-   
+    // New password validation
+    if(companyPasswordEdit.value !=="" && !passwordTest){
+        let message = "The new password is not valid"
+        let element = companyPasswordEdit
+        errorMessageEditProfile(message, element)
+        return  
+    }
+
     // Check passwords the same
     if(currentUserCompany.password == currentPassword.value){
+        updateprofile(companysArray,  ArrayInputsValue, companyComplementEdit, companyPasswordEdit.value )
+    }else{
+        let message = "Current password incorrect"
+        let element = currentPassword
+        errorMessageEditProfile(message, element)
+    }
+}
+
+function errorMessageEditProfile(message, element){
+
+    //Box message
+    let boxMessage = document.querySelector(".box-message-edit-profile")
+
+    //Control the click on the button
+    let buttonSaveEdit = document.querySelector(".btn-save-edit")
+    buttonSaveEdit.setAttribute("disabled", true)
+    setTimeout(()=>buttonSaveEdit.removeAttribute("disabled", true),3100)
+
+    //Filling in the error message and fields
+    boxMessage.classList.add("box-error-edit-profile")
+    boxMessage.innerHTML = `<i class="bi bi-x-lg"></i> ${message}`
+    boxMessage.style.opacity = "1"
+    element.classList.add("empty")
+
+    setTimeout(()=>{
         boxMessage.classList.remove("box-error-edit-profile")
         boxMessage.innerHTML = ""
         boxMessage.style.opacity = "0"
-        currentPassword.classList.remove("empty")
-        updateprofile(companysArray,  ArrayInputsValue, companyComplementEdit, companyPasswordEdit.value )
-    }else{
-        boxMessage.classList.add("box-error-edit-profile")
-        boxMessage.innerHTML = '<i class="bi bi-x-lg"></i> Current password incorrect'
-        boxMessage.style.opacity = "1"
-        currentPassword.classList.add("empty")
-    }
+        element.classList.remove("empty")
+    }, 3000)
 }
 
 function updateprofile(companysArray, ArrayInputsValue, newComplement, newPassword){
     // Update company information, save to localStorage and refresh the page
 
     //Deconstructing the array of elements
-   let [newName, NewPhone, NewCnpj, NewCep, NewStreet, NewDistrict, NewCity, NewUf, NewNumber] = ArrayInputsValue
+    let [newName, NewPhone, NewCnpj, NewCep, NewStreet, NewDistrict, NewCity, NewUf, NewNumber] = ArrayInputsValue
+
+    //Control the click on the button
+    let buttonSaveEdit = document.querySelector(".btn-save-edit")
+    buttonSaveEdit.setAttribute("disabled", true)
+    setTimeout(()=>buttonSaveEdit.removeAttribute("disabled", true),3100)
 
     //Box message
     let boxMessage = document.querySelector(".box-message-edit-profile")

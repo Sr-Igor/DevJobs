@@ -26,8 +26,9 @@ function verifyFieldsEdit(usersRegisterArray){
     let numberEdit  = document.querySelector(".number-profile")
     let complementEdit = document.querySelector(".complement-profile")
 
-    //Box MessageProfile
-    let boxMessageProfile = document.querySelector(".box-edit-user")
+    //Regex Password
+    let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
+    let passwordTest = passwordRegex.test(passwordEdit.value)
 
     // Array inputs
     let ArrayInputs = [phoneEdit, cepEdit, streetEdit, districtEdit, cityEdit, ufEdit, numberEdit]
@@ -38,7 +39,7 @@ function verifyFieldsEdit(usersRegisterArray){
         districtEdit.value, cityEdit.value, ufEdit.value, 
         numberEdit.value
     ]
-
+    
     // Verify empty fields
     for(let i in ArrayInputsValue){
         if(ArrayInputsValue[i] == ""){
@@ -47,38 +48,61 @@ function verifyFieldsEdit(usersRegisterArray){
             ArrayInputs[i].classList.remove("empty")
         }
     }
-  
+
+    // New password validation
+    if(passwordEdit.value !=="" && !passwordTest){
+        let message = "The new password is not valid"
+        let element = passwordEdit
+        fillBoxMessage(message, element)
+        return  
+    }
+
     // Check passwords the same
     if(currentUser.password == currentPassword.value){ 
-        // Success message
-        boxMessageProfile.style.opacity = "0"
-        boxMessageProfile.innerHTML = ''
-        boxMessageProfile.classList.remove("error-edit-user")
-        currentPassword.classList.remove("empty")
         // Calls save user and fill box functions
-        fillBoxMessageSuccess()
+        fillBoxMessage()
         updateProfile(usersRegisterArray, ArrayInputsValue, complementEdit.value, passwordEdit.value)
     }else{
-        boxMessageProfile.style.opacity = "1"
-        boxMessageProfile.innerHTML = '<i class="bi bi-x-lg"></i> Current password incorrect'
-        boxMessageProfile.classList.add("error-edit-user")
-        currentPassword.classList.add("empty")
+        let message = "Current password incorrect"
+        let element = currentPassword
+        fillBoxMessage(message, element)
     }
 }
 
-function fillBoxMessageSuccess(){
+function fillBoxMessage(message, element){
     //Box MessageProfile
     let boxMessageProfile = document.querySelector(".box-edit-user")
 
-    boxMessageProfile.style.opacity = "1"
-    boxMessageProfile.innerHTML = '<i class="bi bi-bookmark-check"></i> Profile edited successfully'
-    boxMessageProfile.classList.add("success-edit-user")
+    //Control the click on the button
+    let buttonSaveEdit = document.querySelector(".save-edit-profile")
+    buttonSaveEdit.setAttribute("disabled", true)
+    setTimeout(()=>buttonSaveEdit.removeAttribute("disabled", true),3100)
 
-    setTimeout(()=>{
-        boxMessageProfile.style.opacity = "0"
-        boxMessageProfile.innerHTML = ''
-        boxMessageProfile.classList.remove("success-edit-user")
-    }, 3000)
+    //Filling in the message and fields
+    if(message){
+        boxMessageProfile.style.opacity = "1"
+        boxMessageProfile.innerHTML = `<i class="bi bi-x-lg"></i> ${message}`
+        boxMessageProfile.classList.add("error-edit-user")
+        element.classList.add("empty")
+    
+        setTimeout(()=>{
+            boxMessageProfile.style.opacity = "0"
+            boxMessageProfile.innerHTML = ``
+            boxMessageProfile.classList.remove("error-edit-user")
+            element.classList.remove("empty")
+        },3000)
+    }else{
+        boxMessageProfile.style.opacity = "1"
+        boxMessageProfile.innerHTML = '<i class="bi bi-bookmark-check"></i> Profile edited successfully'
+        boxMessageProfile.classList.add("success-edit-user")
+    
+        setTimeout(()=>{
+            boxMessageProfile.style.opacity = "0"
+            boxMessageProfile.innerHTML = ''
+            boxMessageProfile.classList.remove("success-edit-user")
+        }, 3000)
+    }
+
 }
 
 function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newPassword){

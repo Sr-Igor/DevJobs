@@ -60,12 +60,12 @@ function fillProfilePage(){
                             <div class="mb-3 col-6">
                                 <label class="form-label"> Current Password</label>
                                 <input type="password" class="form-control password-profile">
-                                <div class="form-text">Only letters and numbers</div>
                             </div>
             
                             <div class="mb-3 col-6">
                                 <label class="form-label">New Password</label>
                                 <input type="password" class="form-control new-password" id="exampleInputPassword1">
+                                <div class="form-text">Min 8 chars: [a-z] [0-9] special char</div>
                             </div>
                         </div>
             
