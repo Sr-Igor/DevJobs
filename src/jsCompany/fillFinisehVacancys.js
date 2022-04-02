@@ -1,15 +1,18 @@
 function fillBoxesVacancyFinised(vacanciesArrayFinished){
+    // Checks the vacancies that were created by the current company
     let vacancysFinisedCompany =[]
     for(let i in vacanciesArrayFinished){
         if(vacanciesArrayFinished[i].idCreator == currentUserCompany.id){
             vacancysFinisedCompany.push(vacanciesArrayFinished[i])
         }
     }
+    //calls the function that writes open vacancies in HTML
     writeBoxesFinised(vacancysFinisedCompany)
 }
 
 function writeBoxesFinised(vacancysCompany){
 
+    //stores the vacancies in the variable and writes the items in the HTML
     let squareBoxes = document.querySelector(".box-jobs-finished")
     squareBoxes.innerHTML = ""
     let boxesHTML = ""
@@ -26,7 +29,7 @@ function writeBoxesFinised(vacancysCompany){
                         <div class="time-course">${vacancysCompany[i].time}</div>
                     </div>
                     <div class="title-job">${vacancysCompany[i].vacancyName}</div>
-                    <div class="language">${vacancysCompany[i].companyName}</div>
+                    <div class="company-name">${vacancysCompany[i].companyName}</div>
                     <div class="box-footer" style="color: #d60000;">Status: ${vacancysCompany[i].status}</div>
                 </div>
             </div>
@@ -34,142 +37,17 @@ function writeBoxesFinised(vacancysCompany){
     }
     squareBoxes.innerHTML = boxesHTML
 
+    // check if the HTML is empty
     if(vacancysCompany.length == 0){squareBoxes.innerHTML = "You have no vacancies completed"}
+    //calls the function that allows clicking on the vacancy
     clickCardFinished()
 }
 
 function clickCardFinished(){
+    //Identifies the item clicked
     let allBoxes = document.querySelectorAll(".box")
     allBoxes.forEach(item =>{
-        item.addEventListener("click", callClickCardCloseVacancy)
+        item.addEventListener("click", callClickCardOpenInfoVacancy)
     })
 }
 
-function searchCorrectBoxFinished(parametrsArray){
-    let {vacanciesArrayFinished} = parametrsArray
-    let clickedItem = event.currentTarget
-    let idCard = clickedItem.getAttribute("data-key")
-
-    for (let i in vacanciesArrayFinished){
-        if(vacanciesArrayFinished[i].id == idCard){
-            fillBoxFinised(vacanciesArrayFinished[i], parametrsArray)
-        }
-    }
-}
-
-function fillBoxFinised(clickedVacancy, parametrsArray){
-    let {vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished} = parametrsArray
-
-    document.querySelector(".job-modal-content").innerHTML = `
-    <div class="modal-header">
-        <img src="/src/icons/company-icon.png"" alt="logo-job">
-        <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-        <div class="row">
-        <div class="col-12 box-finised-vacancy"></div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <p class="title-info">Requisitos:</p>
-            <ul class="company-requirements"></ul>
-        </div>
-        <div class="col-4">
-            <p class="title-info">Desejavel:</p>
-            <ul class="company-desirable"></ul>
-        </div>
-        <div class="col-4">
-            <div class="row">
-                <p class="title-info">Tipo: <strong>${clickedVacancy.type}</strong></p>
-            </div>
-            <div class="row">
-                <p class="title-info">Periodo: <strong>${clickedVacancy.time}</strong></p>
-            </div>
-            <div class="row">
-                <p class="title-info">Salario:</p>
-                <strong class="fs-4">R$ ${clickedVacancy.payment}</strong>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-6">
-            <p class="title-info">Beneficios:</p>
-            <ul class="company-benefits"></ul>
-        </div>
-        <div class="col-6">
-            <div class="row">
-                <p class="title-info">Informações Adicionais:</p>
-                <span>${clickedVacancy.additional}</span>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-open-vacancy">Open Vacancy</button>
-        <button type="button" class="btn btn-primary see-applyeds" data-bs-toggle="modal" data-bs-target="#ApplyedsModal">See Apllayeds</button>
-    </div>`
-
-    //Fill Boxes
-    let requirements = document.querySelector(".company-requirements")
-    let desirable = document.querySelector(".company-desirable")
-    let benefits = document.querySelector(".company-benefits")
-
-    let requirementsHTML = ""
-    let desirableHTML = ""
-    let benefitsHTML = ""
-
-    for(let i = 0; i < clickedVacancy.requirements.length; i++){
-        requirementsHTML += `<li>${clickedVacancy.requirements[i]}</li>`
-    }
-
-    for(let i = 0; i < clickedVacancy.desirable.length; i++){
-        desirableHTML += `<li>${clickedVacancy.desirable[i]}</li>`
-    }
-
-    for(let i = 0; i < clickedVacancy.benefits.length; i++){
-        benefitsHTML += `<li>${clickedVacancy.benefits[i]}</li>`
-    }
-
-    requirements.innerHTML = requirementsHTML
-    desirable.innerHTML = desirableHTML
-    benefits.innerHTML = benefitsHTML
-
-    usersApplayedsFinished(clickedVacancy, applayedsArray, usersRegisterArray)
-    OpenVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished)
-}
-
-function usersApplayedsFinished(clickedVacancy, applayedsArray, usersRegisterArray){
-    document.querySelector(".see-applyeds").addEventListener("click", ()=>{
-        let idUsers = []
-        for (let i in applayedsArray){
-           if(applayedsArray[i].vacancysCode.includes(clickedVacancy.id)){
-               idUsers.push(applayedsArray[i].idUser)
-           }
-        }
-        
-        let usersApplayedVacancy = []
-        for (let i in usersRegisterArray){
-            if(idUsers.includes(usersRegisterArray[i].id)){
-                usersApplayedVacancy.push(`${usersRegisterArray[i].firstName} ${usersRegisterArray[i].lastName}`)
-            }
-        }
-
-        let usersApplyedHtml = ""
-    
-        for(let i in usersApplayedVacancy){
-            usersApplyedHtml += `<li>${usersApplayedVacancy[i]}</li>`
-        }
-    
-        document.querySelector(".applayeds-modal-content").innerHTML = `
-        <div class="modal-header">
-            <img src="/src/icons/company-icon.png"" alt="logo-job">
-            <h5 class="title-modal">${clickedVacancy.vacancyName}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <span class="title-applyeds-vacancys">Enrolled in the vacancies</span>
-            <ul class="usersApllayed">${usersApplyedHtml}</ul>
-        </div>`
-    })
-}

@@ -145,7 +145,7 @@ function callFinishedVacancies(){ // This vacancy is called to fill the closed v
     let vacanciesArrayFinished = localStorageNull == null ? [] : JSON.parse(localStorage.getItem("vacanciesFinishedArray"))
     fillBoxesVacancyFinised(vacanciesArrayFinished)
 };
-function callClickCardOpenVacancy(){ // Fill in the information of open positions (when clicked)
+function callClickCardOpenInfoVacancy(){ // Fill in the information of open positions (when clicked)
     let vacanciesArray =  JSON.parse(localStorage.getItem("vacanciesArray"))
     let usersRegisterArray = JSON.parse(localStorage.getItem("usersArray"))
 
@@ -160,20 +160,6 @@ function callClickCardOpenVacancy(){ // Fill in the information of open position
     searchCorrectBox(parametrsArray)
 };
 
-function callClickCardCloseVacancy(){ // Fill in the information of closed positions (when clicked)
-    let vacanciesArray =  JSON.parse(localStorage.getItem("vacanciesArray"))
-    let usersRegisterArray = JSON.parse(localStorage.getItem("usersArray"))
-
-    let usersApplayedsArrayNull = localStorage.getItem("usersApplayedsArray")
-    let applayedsArray = usersApplayedsArrayNull == null ? [] : JSON.parse(localStorage.getItem("usersApplayedsArray"))
-
-    let vacanciesFinishedArray = localStorage.getItem("vacanciesFinishedArray")
-    let vacanciesArrayFinished =  vacanciesFinishedArray == null ? [] : JSON.parse(localStorage.getItem("vacanciesFinishedArray"))
-    
-    let parametrsArray = {vacanciesArray, applayedsArray, usersRegisterArray, vacanciesArrayFinished}
-
-    searchCorrectBoxFinished(parametrsArray)
-}
 
 
 
