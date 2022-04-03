@@ -155,6 +155,7 @@ function fillProfilePage(){
     profileCallHome()
     clickEventReloadHome()
     loadEditProfile()
+    availableExit()
 }
 
 profilePage()

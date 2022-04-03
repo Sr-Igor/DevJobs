@@ -6,6 +6,7 @@
  
 //Varibles for close login modal
 var myModal = new bootstrap.Modal(document.getElementById('LoginModal'))
+var applyModal = ""
 
 //Variables login 
 let login = ""
@@ -15,15 +16,36 @@ let password = ""
 current user to be used in other functions*/
 let currentUser = ""
 
+//Fildes of Login 
+let userInput =  document.getElementById("userInput")
+let passwordInput = document.getElementById("passwordInput")
+
+//This element does the varification to keep the user logged in when reloading the page
+/*it is not being used for the item back to the home page because, 
+the page already has user specific elements*/
+if(userInput.value == "" && passwordInput.value == ""){
+
+    // Get registered users
+    let localStorageNull = localStorage.getItem("usersArray")
+    let usersRegisterArray = localStorageNull == null ? [] : JSON.parse(localStorage.getItem("usersArray"))
+
+    // Get the current user data
+    let cacheUsersNull = localStorage.getItem("cacheUserInfo")
+    let cacheUserInfo =  cacheUsersNull == null ? [] : JSON.parse(localStorage.getItem("cacheUserInfo"))
+    login = cacheUserInfo[0]
+    password = cacheUserInfo[1]
+
+    // Calls the function that modifies the home items
+    enterAccount(usersRegisterArray, login)
+}
+
+
+
 // Functions
 function verifyAccount(usersRegisterArray){
     //Fildes of Login 
     let userInput =  document.getElementById("userInput")
     let passwordInput = document.getElementById("passwordInput")
-
-    // Available click in ApplyModal for send infos 
-    let sendApplyButton = document.querySelector(".sendApplyButton")
-    sendApplyButton.addEventListener("click", callSendApplyeds)
 
     // Array with email and password 
     let usersArray = []
@@ -35,12 +57,8 @@ function verifyAccount(usersRegisterArray){
     if(userInput.value !== "" && passwordInput.value !== ""){
         login = userInput.value
         password = passwordInput.value
-    }else{
-        let cacheUsersNull = localStorage.getItem("cacheUserInfo")
-        let cacheUserInfo =  cacheUsersNull == null ? [] : JSON.parse(localStorage.getItem("cacheUserInfo"))
-        login = cacheUserInfo[0]
-        password = cacheUserInfo[1]
     }
+
 
     /* Saving the user information in a variable, stored in localStorage 
     and calling the function that updates the page items*/
@@ -50,8 +68,6 @@ function verifyAccount(usersRegisterArray){
             updateCurrentUser(cacheUserInfo)
             enterAccount(usersRegisterArray, login)
             break
-            //  loginValid = true REMOVE
-
         }else{ // Login error message
             let errorMessage = document.querySelector(".login-error")
             errorMessage.innerHTML = '<i class="bi bi-x"></i>User or password are incorrect'
@@ -95,15 +111,21 @@ function updateBodyFunctions(){
     let buttonLoged = document.querySelector(".button-loged")
     let TextNotLoged = document.querySelector(".text-not-loged")
     let btnOpenModal = document.querySelector(".btn-open-modal")
+    let sendApplyButton = document.querySelector(".sendApplyButton")
 
     //Available button for apply in vacancies 
     TextNotLoged ? TextNotLoged.style.display = "none" : null
     buttonLoged.style.display = "flex"
     btnOpenModal.setAttribute("data-bs-target", "#ApplyModal")
     btnOpenModal.removeAttribute("disabled", "true") 
+    sendApplyButton.addEventListener("click", callSendApplyeds)
 }
 
 function updateApplyVacancy(currentUser){ // Fill modal on click to aplly 
+
+    applyModal = new bootstrap.Modal(document.getElementById('ApplyModal'), {
+        keyboard: false
+      })
 
     // Application modal fields
     let firstName = document.querySelector(".first-name")
@@ -208,7 +230,7 @@ function getVacancy(applayedsArray){
             idUser: currentUser.id,
             vacancysCode: [Number(currentVacancy)]
         })
-
+        messageBox(3)
         //Simulated database update
         updateApplyeds(applayedsArray)
     } 
@@ -224,12 +246,14 @@ function messageBox(path){
     let applyModalFooter = document.querySelector(".Apply-Modal .modal-footer")
     let modalSuccess = document.querySelector(".modal-success")
     let sendApplyButton = document.querySelector(".sendApplyButton")
-
+    let btnClose = document.querySelector(".after-apply")
     //Control the click on the send button
     sendApplyButton.setAttribute("disabled", true)
     setTimeout(()=>{
         sendApplyButton.removeAttribute("disabled", true)
     }, 3000)
+
+    
 
     switch(path){
         case 1:
@@ -240,6 +264,12 @@ function messageBox(path){
                 errorSendMenssage.style.opacity= "0" 
                 errorSendMenssage.innerHTML = ""
             },3000)
+            btnClose.addEventListener("click", ()=>{
+                setTimeout(()=>{
+                    errorSendMenssage.style.opacity= "0" 
+                    errorSendMenssage.innerHTML = ""
+                },150)
+            })
             break;
 
         case 2: 
@@ -250,15 +280,19 @@ function messageBox(path){
                 errorSendMenssage.style.opacity= "0" 
                 errorSendMenssage.innerHTML = ""
             },3000)
+            btnClose.addEventListener("click", ()=>{
+                setTimeout(()=>{
+                    errorSendMenssage.style.opacity= "0" 
+                    errorSendMenssage.innerHTML = ""
+                },150)
+            })
             break;
         case 3: 
             // Remove form and add success message
             applyModalBody.style.display = "none"
             applyModalFooter.style.display = "none"
             modalSuccess.style.display = "flex"
-
             // Close the modal, reload the form and hide the success message
-            let btnClose = document.querySelector(".after-apply")
             btnClose.addEventListener("click", ()=>{
                 setTimeout(()=>{
                     applyModalBody.style.display = "flex"
@@ -266,6 +300,13 @@ function messageBox(path){
                     modalSuccess.style.display = "none"
                 },150)
             })
+
+            setTimeout(()=>applyModal.hide(), 2800)
+            setTimeout(()=>{
+                modalSuccess.style.display = "none"
+                applyModalBody.style.display = "flex"
+                applyModalFooter.style.display = "flex"
+            },3000)
             break;
     }
 }

@@ -32,10 +32,10 @@ function identifyApply(vacanciesArray){
     document.querySelectorAll(".box").forEach(item =>{
         item.addEventListener("click", (e)=>{
             let currentItem = e.currentTarget
-            let item = currentItem.getAttribute("data-key")
+            let itemClicked = currentItem.getAttribute("data-key")
             /*Calling the function that fills the modal with the 
             information of the clicked vacancy*/
-            fillApply(item, vacanciesArray)
+            fillApply(itemClicked, vacanciesArray)
         })
     })
 }

@@ -59,6 +59,7 @@ function changeSubsPage(){
     callApplyeds()
     startProcessHomePage()
     profilePage()
+    availableExit()
 }
 clickEventReloadHome()
 
