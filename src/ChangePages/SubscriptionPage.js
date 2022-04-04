@@ -60,6 +60,8 @@ function changeSubsPage(){
     startProcessHomePage()
     profilePage()
     availableExit()
+    callDarkSubs()
+    changeModeSubs()
 }
 clickEventReloadHome()
 

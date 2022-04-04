@@ -155,6 +155,8 @@ function fillProfilePage(){
     clickEventReloadHome()
     loadEditProfile()
     availableExit()
+    callDarkProfile()
+    changeModeProfile()
 }
 
 profilePage()

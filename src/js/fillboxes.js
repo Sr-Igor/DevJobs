@@ -23,6 +23,8 @@ function fillboxes(vacanciesArray, numberPages){
     //Writing in HTML
     boxContainer.innerHTML = vacancy
 
+    changeModeHome()
+
     //Calling the function that identifies the clicked vacancy
     identifyApply(vacanciesArray)
 }

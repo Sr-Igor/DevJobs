@@ -54,10 +54,15 @@ function updateApplyeds(applayedsArray, unsubscrive = false){ // This function s
 //Inicial page 
 function callVacancies(noReloadNumber){ // this function is called to fill the home page with available vacancies
     let vacanciesArray = JSON.parse(localStorage.getItem("vacanciesArray"))
-    let inicialNumberVacancies = 6
+    let inicialNumberVacancies = ""
+    if (vacanciesArray.length < 6){
+        inicialNumberVacancies = vacanciesArray.length
+    }else{
+        inicialNumberVacancies = 6
+    }
+    
     if(noReloadNumber){
-        let updatePageJobs = noReloadNumber
-        fillboxes(vacanciesArray, updatePageJobs)
+        fillboxes(vacanciesArray, noReloadNumber)
     }else{
         fillboxes(vacanciesArray, inicialNumberVacancies)
     }

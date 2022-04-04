@@ -264,3 +264,23 @@ ul li img{
     font-size: 12px;
     margin-top: -30px;
 }
+
+/* Dark Mode */ 
+
+.dark-body{
+    background-color: #131722;
+    transition: all 0.5s ease;
+}
+
+.dark-boxes{
+    background-color: #18202d;
+    transition: all 0.5s ease;
+}
+
+.dark-titles{
+    color: white;
+}
+
+.dark-title-subs{
+    color: white;
+}

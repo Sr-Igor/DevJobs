@@ -47,7 +47,7 @@ function fillUserPageCompany() {
             <div class="col-2">
                 <div class="box-info-company">
                     <img src="/src/images/DefaultProfileCompany.png" alt="">
-                    <div class="company-title">${currentUserCompany.companyName}</div>
+                    <div class="company-title color-ct">${currentUserCompany.companyName}</div>
                     <button class="btn btn-primary btn-edit-profile">Edit Profile</button>
                 </div>
             </div>
@@ -130,4 +130,6 @@ function fillUserPageCompany() {
         callCreateJob()
         availableEditProfile()
         OpenVacancysCompany()
+        callDarkProfileCompany()
+        changeModeProfileCompany()
 }

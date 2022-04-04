@@ -10,7 +10,7 @@ function changeMainPage(){
                 <div class="col-2">
                     <div class="box-info-company">
                         <img src="/src/images/DefaultProfileCompany.png" alt="">
-                        <div class="company-title" data-key-company="${currentUserCompany.id}">${currentUserCompany.companyName}</div>
+                        <div class="company-title color-ct" data-key-company="${currentUserCompany.id}">${currentUserCompany.companyName}</div>
                         <button class="btn btn-primary btn-create-vacancy">Create Vacancy</button>
                     </div>
                 </div>
@@ -126,4 +126,5 @@ function changeMainPage(){
 
     callCreateVacancy()
     loadEditProfile()
+    changeModeProfileCompany()
 }

@@ -21,7 +21,6 @@ function loadMoreJobs(){
         currentPage = noReloadNumber
         callVacancies(noReloadNumber)
     }
-
 }
 
 availableSeeMore()

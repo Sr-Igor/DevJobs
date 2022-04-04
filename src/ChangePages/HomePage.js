@@ -90,7 +90,7 @@ function changeHomePage(){
         </div>
     </header>
 
-    <main>
+    <main class="homeMain">
         <div class="container">
             <div class="box-jobs">
             </div>
@@ -412,4 +412,5 @@ function changeHomePage(){
     profilePage()
     availableSeeMore()
     availableExit()
+    callDarkHome()
 }

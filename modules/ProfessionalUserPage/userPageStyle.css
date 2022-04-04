@@ -102,11 +102,15 @@ main{
 .box-info-company img{
     border-radius: 500px;
     max-width: 100%;
+    background-color: white;
 }
 
 .company-title{
     font-size: 40px;
     font-weight: 600;
+}
+
+.color-ct{
     color: rgba(0, 0, 0, 0.603);
 }
 

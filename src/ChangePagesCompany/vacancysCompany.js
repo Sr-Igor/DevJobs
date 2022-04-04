@@ -67,4 +67,6 @@ function fillApplysCompany(){
     callOpenVacancies()
     callFinishedVacancies()
     backProfileUser()
+    callDarkSubsCompany()
+    changeModeSubsCompany()
 }
