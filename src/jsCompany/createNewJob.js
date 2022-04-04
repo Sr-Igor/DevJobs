@@ -87,7 +87,7 @@ function createVacancyId(vacanciesArray, inputs, listJob, time){
     if(vacanciesId.includes(idRandomVacancy)){randomUser()}
 
     // Adding the new vacancie to the simulated database
-    vacanciesArray.push(
+    vacanciesArray.unshift(
         {   
             idCreator: currentUserCompany.id,
             id: idRandomVacancy,

@@ -72,7 +72,7 @@ function fillProfilePage(){
                         <div class="row">
                             <div class="mb-3 col-6">
                                 <label for="exampleInputEmail1" class="form-label">Phone</label>
-                                <input type="text" class="form-control phone-profile" aria-describedby="emailHelp" value="${currentUser.phone}" placeholder="(xx) x xxx-xxxx">
+                                <input type="number" class="form-control phone-profile" aria-describedby="emailHelp" value="${currentUser.phone}" placeholder="(xx) x xxx-xxxx">
                                 <div  class="form-text">Only Numbers</div>
                             </div>
             

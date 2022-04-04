@@ -22,7 +22,7 @@ function finishVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished){
         //Change the vacancy between arrays
         let indexEl = vacanciesArray.indexOf(clickedVacancy)
         vacanciesArray.splice(indexEl, 1)
-        vacanciesArrayFinished.push(clickedVacancy)
+        vacanciesArrayFinished.unshift(clickedVacancy)
 
         //Update LocalStorage
         updateFinishedVacancies(vacanciesArrayFinished)

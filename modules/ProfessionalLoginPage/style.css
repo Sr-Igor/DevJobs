@@ -163,6 +163,15 @@ main .row label{
     transition:  all 0.1s ease;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .success-box-register{
     background-color: rgba(41, 177, 41, 0.192);
     color: rgb(99, 168, 99);

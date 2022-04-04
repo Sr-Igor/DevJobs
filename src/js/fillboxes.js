@@ -1,8 +1,8 @@
-function fillboxes(vacanciesArray){
+function fillboxes(vacanciesArray, numberPages){
     //Filling vacancies on the home screen
     let boxContainer = document.querySelector(".box-jobs")
     let vacancy = ""
-    for(let i = 0; i < vacanciesArray.length; i++){
+    for(let i = 0; i < numberPages; i++){
         vacancy += `
         <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${vacanciesArray[i].id}>
             <div class="box-header">

@@ -205,6 +205,11 @@ button{
 
 
 /* Main (box) */ 
+
+.homeMain{
+min-height: 84vh;
+}
+
 main{
     padding-top: 150px;
 }
@@ -280,12 +285,20 @@ span{
     justify-content: center;
 }
 
-.more-jobs button{
+.btn-see-more-jobs{
     margin: 20px;
 }
 
-.more-jobs button:hover{
+.btn-see-more-jobs:hover{
     opacity: 0.8;
+}
+
+.disabled{
+    background-color: rgb(174, 168, 168);
+}
+
+.disabled:hover{
+    opacity: 1;
 }
 
 /* Modal JOBS*/
@@ -416,9 +429,10 @@ span{
 .infos-row label{
     display: flex;
     justify-content: start;
+    font-weight: 600;
     margin-left: 5px;
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.571);
+    color: rgb(0, 0, 0);
 }
 
 .label-passowrd-require{
@@ -447,6 +461,15 @@ span{
     padding: 3px 10px;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .box-register-message-user{
     opacity: 0;
     text-align: center;
@@ -473,8 +496,10 @@ footer{
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     font-size: 15px;
+    margin-top: 20px;
     background-color: #5964e0;
-    position: absolute;
+    position: relative;
+    z-index: -1;
     width: 100%;
     height: auto;
     overflow: hidden;

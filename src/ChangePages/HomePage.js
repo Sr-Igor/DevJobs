@@ -96,7 +96,7 @@ function changeHomePage(){
             </div>
         </div>
         <div class="more-jobs">
-            <button>See More Jobs</button>
+            <button class="btn-see-more-jobs" >See More Jobs</button>
         </div>
     </main>
 
@@ -410,5 +410,6 @@ function changeHomePage(){
     clickEventReloadHome()
     AvailableSearchItens()
     profilePage()
+    availableSeeMore()
     availableExit()
 }

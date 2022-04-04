@@ -22,7 +22,7 @@ function OpenVacancy(clickedVacancy, vacanciesArray, vacanciesArrayFinished){
         //Change the vacancy between arrays
         let indexEl = vacanciesArray.indexOf(clickedVacancy)
         vacanciesArrayFinished.splice(indexEl, 1)
-        vacanciesArray.push(clickedVacancy)
+        vacanciesArray.unshift(clickedVacancy)
 
         //Update LocalStorage
         updateFinishedVacancies(vacanciesArrayFinished)

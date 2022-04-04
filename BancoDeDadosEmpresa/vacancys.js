@@ -130,5 +130,501 @@ let vacancys = [
             "Cargo Escalavel"
         ],
         additional: "Plantão 1 vez por semana"
-    }
+    },
+
+    {    
+        idCreator: 100,
+        id:6,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:7,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:8,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:9,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:10,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:11,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:12,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:13,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:14,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:15,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:16,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:17,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:18,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:19,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+    {    
+        idCreator: 100,
+        id:20,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "AL",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
+
+        {    
+        idCreator: 100,
+        id:21,
+        companyName: "Banco Inter",
+        vacancyName: "Pedreiro",
+        status: "In process",
+        type: "Pleno",
+        time: "1/2 time",
+        payment: "5.450,00",
+        uf: "RJ",
+        requirements: [
+            "Porte de arma",
+            "Força bruta",
+            "Css",
+
+        ],
+        desirable: [
+            "Artes",
+            "Portugues",
+            "Movie",
+            "Sal",
+
+        ],
+        benefits: [
+            "Vale Transoporte",
+            "Vale Refeição",
+            "Cargo Escalavel"
+        ],
+        additional: "Plantão 1 vez por semana"
+    },
 ]

@@ -29,7 +29,7 @@ function changeSubsPage(){
                 </div>
             </div>
         </div>
-        <a href="#" class="inicial-page"><i class="bi bi-house"></i></a>
+        <a href="/index.html" class="inicial-page"><i class="bi bi-house"></i></a>
     </header>
 
     <main class="vacancies-screen">

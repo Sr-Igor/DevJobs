@@ -21,7 +21,7 @@ function searchJobs(vacanciesArray){
     // Search conditions
     if(findJobInput.value == "" && state == 0 && checkboxFullTime == false){
         //This is a default condition with all search items empty
-        fillboxes(vacanciesArray)
+        fillboxes(vacanciesArray, 6)
         
     }else if(findJobInput.value == "" && state !== 0 || findJobInput.value == "" && checkboxFullTime == true){
         //If the text box is empty
@@ -92,7 +92,7 @@ function fillboxesSearch(resultsArray){
         return
     }else{
         //Calls the function that fills the main page, passing the result array as a parameter
-        fillboxes(resultsArray)
+        fillboxes(resultsArray, resultsArray.length)
     }
 }
 AvailableSearchItens()

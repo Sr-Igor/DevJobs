@@ -52,9 +52,15 @@ function updateApplyeds(applayedsArray, unsubscrive = false){ // This function s
 
 //USER PAGE 
 //Inicial page 
-function callVacancies(){ // this function is called to fill the home page with available vacancies
+function callVacancies(noReloadNumber){ // this function is called to fill the home page with available vacancies
     let vacanciesArray = JSON.parse(localStorage.getItem("vacanciesArray"))
-    fillboxes(vacanciesArray)
+    let inicialNumberVacancies = 6
+    if(noReloadNumber){
+        let updatePageJobs = noReloadNumber
+        fillboxes(vacanciesArray, updatePageJobs)
+    }else{
+        fillboxes(vacanciesArray, inicialNumberVacancies)
+    }
 };
  
 function callSearchBoxes(){ // This function is called to make the job search available
