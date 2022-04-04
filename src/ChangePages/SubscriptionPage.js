@@ -32,7 +32,7 @@ function changeSubsPage(){
         <a href="#" class="inicial-page"><i class="bi bi-house"></i></a>
     </header>
 
-    <main>
+    <main class="vacancies-screen">
         <div class="container">
             <div class="h1">Your Subscriptions</div>
             <div class="box-vagancys">
@@ -44,7 +44,7 @@ function changeSubsPage(){
             <div class="box-vagancys-closed">
              You are not applying for any closed vacancy
             </div>
-    </div>
+        </div>
         <section class="Job-Modal">
             <div class="modal fade" tabindex="-1" id="infoModal">
                 <div class="modal-dialog modal-dialog-centered modal-lg">

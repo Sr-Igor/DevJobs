@@ -130,6 +130,13 @@ button{
 
 /* main / box subscriptions */ 
 
+.vacancies-screen{
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .h1{
     width: 100%;
     text-align: center;

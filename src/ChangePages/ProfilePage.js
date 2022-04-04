@@ -44,7 +44,7 @@ function fillProfilePage(){
 
                 <div class=" col-10 box-edit-profile">
 
-                    <span class="title-create-job">Edit Profile</span>
+                    <span class="title-edit-profile">Edit Profile</span>
                     <form>
                         <div class="row">
                             <div class="mb-3 col-12 box-edit-user"></div>
@@ -142,7 +142,6 @@ function fillProfilePage(){
                                 </label>
                             </div>
                         </div>
-            
                         <button type="submit" class="btn btn-primary save-edit-profile">Save as Edit</button>
                         <button type="submit" class="btn btn-danger cancel-edit-profile">Cancel</button>
                     </form>

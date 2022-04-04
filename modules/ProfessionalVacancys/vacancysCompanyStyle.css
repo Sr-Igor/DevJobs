@@ -90,12 +90,21 @@ body{
 
 /* main */ 
 
+.vacancies-screen{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
 .h3{
+    text-align: center;
     padding-top: 20px;
     font-size: 40px;
 }
 .box-jobs{
-    margin-top: 50px;
+    margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -103,7 +112,7 @@ body{
 }
 
 .box-jobs-finished{
-    margin-top: 50px;
+    margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -182,7 +191,6 @@ span{
 }
 
 /* Modal JOBS*/
-
 .modal-header img{
     max-width: 50px;
     height: auto;
@@ -240,6 +248,8 @@ span{
  .inicial-page{
     text-decoration: none;
     cursor: pointer;
+    position: absolute;
+    z-index: 999;
     font-size: 50px;
     width: 60px;
     height: 60px;
@@ -252,7 +262,7 @@ span{
     margin-right: 20px;
     position: fixed;
     color: white;
-    background-color: #5964e0;
+    background-color: #7d759d;
     border-radius: 30px;
     transition: width 0.5s ease;
 }
