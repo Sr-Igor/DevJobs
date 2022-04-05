@@ -279,3 +279,304 @@ span{
     text-align: center;
     width: 100%;
 }
+
+/* Responsive Layout */ 
+/* Inicial page (no login) */
+@media (min-width:426px) and (max-width: 1199px){
+    /*Header elements */ 
+    .box-clean-dark{
+        margin-top: -35px;
+    }
+
+    .top-header h1{
+        margin-top: -35px;
+        text-align: center;
+    }
+
+    /*Box Login*/
+    .login-company-form{
+        width: 320px;
+        margin-top: -35px;
+    }
+
+    .login-companys{
+        margin-left: -120px;
+    }
+
+
+    /* Footer */ 
+    .title-social-media{
+        font-size: 9px;
+    }
+
+    .box-1, .box-2, .box-3{
+        font-size: 9px;
+        padding: 0px 10px;
+    }
+
+    .bottom-footer{
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 426px){
+
+    /* Header */ 
+
+    .top-header{
+        font-size: 8px;
+        margin-top: -5px;
+    }
+
+    .top-header h1{
+        width: 90px;
+        font-size: 14px;
+    }
+
+    .login-companys{
+        width: 50px;
+        height: 20px;
+        font-size: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-company-form{
+        margin-top: 10px;
+        margin-left: -10px;
+        width: 100px;
+
+    }
+
+    .error-message-login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+        width: 130px;
+        text-align: center;
+        max-height: 10px;
+        margin-top: -10px;
+    }
+
+    .login-company-form input{
+        margin-top: -80px;
+    }
+
+    .login-companys{
+        width: 20px;
+        margin-left: -8px;
+        margin-bottom: 10px;
+    }
+
+    /*Footer */ 
+    .title-social-media{
+        font-size: 9px;
+    }
+
+    .box-1, .box-3{
+        margin-top: 110px;
+    }
+
+    .box-2{
+        margin-top: -120px;
+    }
+
+    .bottom-footer{
+        margin-top: 5px;
+        font-size: 9px;
+    }
+    
+    .top-footer{
+        justify-content: center;
+    }
+
+    /* Main */
+    .title-register{
+        font-size: 20px;
+    }
+
+    .register-company-form{
+        margin-top: -20px;
+        padding: 20px;
+    }
+
+    .register-company-form .row label{
+        font-size: 10px;
+    }
+
+    .register-company-form .row input{
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+    .form-check-label{
+        font-size: 10px;
+    }
+
+    .box-register-company{
+        margin-top: -30px;
+    }
+
+    /* Job Modal */ 
+
+    .Job-Modal{
+        font-size: 10px;
+    }
+
+    .Job-Modal ul {
+        min-width: 100%;
+        list-style: none;
+        margin-top: -10px;
+    }
+
+    .Job-Modal li{
+        min-width: 74px;
+       margin-left: -30px;
+    }
+
+    .payment{
+        margin-top: -15px;
+        margin-bottom: 10px;
+    }
+
+    .text-not-loged{
+        font-size: 12px;
+    }
+
+    .Job-Modal .modal-footer button{
+        max-width: 100px;
+        font-size: 11px;
+    }
+
+    .title-applyeds-vacancys{
+        font-size: 20px;
+    }
+
+    .box-finised-vacancy{
+        min-height: 25px;
+    }
+}
+
+/* PROFILE PAGE */ 
+
+@media (max-width: 426px){
+    /*Header*/ 
+    .header{
+        max-height: 80px;
+    }
+
+    .user{
+        margin-top: 0;
+    }
+    .top-header{
+        margin-top: 10px;
+    }
+
+    .box-login{
+        max-width: 100px;
+    }
+
+    .circle{
+        font-size: 12px;
+    }
+
+    /*Main*/ 
+    .mobile-row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box-info-company{
+        width: 100%;
+    }
+
+    .box-info-company img{
+        max-width: 150px;
+    }
+
+    .company-title{
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .title-create-job{
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    
+    /*Form Create-Jobs */
+
+    .creat-job-form .row label{
+        font-size: 10px;
+    }
+
+    .creat-job-form .row input, textarea{
+        font-size: 12px;
+    }
+
+    .form-text{
+        font-size: 10px;
+    }
+
+    .box-create-job{
+        font-size: 10px;
+        min-width: 210px;
+        height: 35px;
+        margin-top: -40px;
+    }
+
+    /* Form Edit Profile */ 
+
+    .edit-profile-form{
+        margin-top: -40px;
+    }
+
+    .edit-profile-form .row label{
+        font-size: 10px;
+    }
+
+    .edit-profile-form .row input, textarea{
+        font-size: 12px;
+    }
+
+}
+
+/*VACANCIES PAGE */ 
+@media (max-width: 426px){
+    /*Header*/ 
+    .header{
+        max-height: 80px;
+    }
+
+    .user{
+        margin-top: 0;
+    }
+    .top-header{
+        margin-top: 10px;
+    }
+
+    .box-login{
+        max-width: 100px;
+    }
+
+    .circle{
+        font-size: 12px;
+    }
+
+    /* main */ 
+
+    .h3{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .box{
+        margin-right: 0;
+    }
+
+}
+

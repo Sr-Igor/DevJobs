@@ -47,14 +47,14 @@ function fillBox(clickedVacancy, parametrsArray){
                 <div class="row">
                     <p class="title-info">Tipo: <strong>${clickedVacancy.type}</strong></p>
                 </div>
-            </div>
-            <div class="row">
-                <p class="title-info">Periodo: <strong>${clickedVacancy.time}</strong></p>
-            </div>
-            <div class="row">
-                <p class="title-info">Salario:</p>
-                <strong class="fs-4">R$ ${clickedVacancy.payment}</strong>
-            </div>
+                <div class="row">
+                    <p class="title-info">Periodo: <strong>${clickedVacancy.time}</strong></p>
+                </div>
+                <div class="row">
+                    <p class="title-info">Salario:</p>
+                    <strong class="payment">R$ ${clickedVacancy.payment}</strong>
+                </div>
+                </div>
         </div>
         <div class="row">
             <div class="col-6">

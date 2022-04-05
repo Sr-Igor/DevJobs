@@ -42,6 +42,7 @@ function identifyApply(vacanciesArray){
     })
 }
 
+//TORNAR ESSA FUNÇÃO INDEPENDENTE 
 function fillApply(item, vacanciesArray){
     //Looking for the right job
     let currentVacancy = ""
@@ -79,7 +80,7 @@ function fillApply(item, vacanciesArray){
                 </div>
                 <div class="row">
                     <p class="title-info">Salario:</p>
-                    <strong class="fs-4">R$ ${currentVacancy.payment}</strong>
+                    <strong class="payment">R$ ${currentVacancy.payment}</strong>
                 </div>
             </div>
             <div class="row">

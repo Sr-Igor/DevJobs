@@ -6,8 +6,8 @@ function availableEditProfile(){
 function changeMainPage(){
     document.querySelector("main").innerHTML = `
         <div class="container">
-            <div class="row">
-                <div class="col-2">
+            <div class="row mobile-row">
+                <div class="col-md-2 col-12">
                     <div class="box-info-company">
                         <img src="/src/images/DefaultProfileCompany.png" alt="">
                         <div class="company-title color-ct" data-key-company="${currentUserCompany.id}">${currentUserCompany.companyName}</div>
@@ -18,7 +18,7 @@ function changeMainPage(){
                 <div class=" col-10 box-edit-profile">
 
                     <span class="title-create-job">Edit Profile</span>
-                    <form>
+                    <form class="edit-profile-form">
                         <div class="row">
                             <div class="mb-3 col-12 box-message-edit-profile"></div>
                         </div>
@@ -59,13 +59,13 @@ function changeMainPage(){
 
                         <div class="row">
                             <div class="fs-4  title-subsection">Adress</div>
-                            <div class="col-6">
+                            <div class="col-md-6 col-12">
                                 <label for="#">
                                     CEP
                                     <input class="cep-edit" type="Number" name="Cep" placeholder="00000-000"  value="${currentUserCompany.adress.cep}">
                                 </label>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6 col-12">
                                 <label for="#">
                                     Rua
                                     <input class="street-edit" type="text" name="Street" value="${currentUserCompany.adress.street}">
@@ -74,14 +74,14 @@ function changeMainPage(){
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6 col-12">
                                 <label for="#">
                                     Bairro
                                     <input class="district-edit" type="text" name="Bairro"  value="${currentUserCompany.adress.district}">
                                 </label>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-md-6 col-12">
                                 <label for="#">
                                     Cidade
                                     <input class="city-edit" type="text" name="City"  value="${currentUserCompany.adress.city}">
@@ -90,14 +90,14 @@ function changeMainPage(){
                         </div>
                             
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6 col-12">
                                 <label for="#">
                                     UF
                                     <input class="uf-edit" type="text" name="Uf"  value="${currentUserCompany.adress.uf}">
                                 </label>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-md-6 col-12">
                                 <label for="#">
                                     Número
                                     <input class="number-edit" type="Number" name="number"  value="${currentUserCompany.adress.number}">

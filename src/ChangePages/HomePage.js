@@ -119,125 +119,125 @@ function changeHomePage(){
     </section>
 
     <section class="Apply-Modal">
-        <div class="modal fade" tabindex="-1" id="ApplyModal" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <img src="src/icons/company-icon.png" alt="logo-job">
-                    <h5 class="title-modal">Senior Software Enginner</h5>
-                    <button type="button" class="btn-close after-apply" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <form action="#" class="form-apply">
-                    <div class="row">
-                        <div class="col-12 error-send-menssage"></div>
-                    </div>
-                    <div class="row">
-                        <div class="fs-4 title-subsection">Profile Info</div>
-                        <div class="col-6">
-                            <input type="text" name="firstName" placeholder="Frist Name" class="first-name">
-                        </div>
-                        <div class="col-6">
-                            <input type="text" name="lastName" placeholder="Last Name" class="last-name">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="email" name="email" placeholder="Email" class="email">
-                        </div>
-                        <div class="col-6">
-                            <input type="email" name="confirmEmail" placeholder="Confirm your email" class="confirm-email">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="number" placeholder="Phone" class="phone">
-                        </div>
-                        
-                    </div>
-
-                        <div class="row">
-                        <div class="fs-4  title-subsection">Adress</div>
-                            <div class="col-6">
-                                <label for="#">
-                                    CEP
-                                    <input type="Number" name="Cep" placeholder="00000-000" class="cep">
-                                    
-                                </label>
-                            </div>
-                            <div class="col-6">
-                                <label for="#">
-                                    Rua
-                                    <input type="text" name="Street" class="street">
-                                    
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="#">
-                                    Bairro
-                                    <input type="text" name="Bairro" class="district">
-                                </label>
-                            </div>
-
-                            <div class="col-6">
-                                <label for="#">
-                                    Cidade
-                                    <input type="text" name="City" class="city">
-                                </label>
-                            </div>
-                        </div>
-                            
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="#">
-                                    UF
-                                    <input type="text" name="Uf" class="uf">
-                                </label>
-                            </div>
-
-                            <div class="col-6">
-                                <label for="#">
-                                    Número
-                                    <input type="Number" name="number" class="number">
-                                </label>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <label for="#">
-                                    Complemento
-                                    <input type="text" name="Complemento" class="complement">
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="fs-4  title-subsection">Send your CV</div>                             
-                            <input type="file" class="file">
-                        </div>
-                    
-                </form>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success sendApplyButton">Send Application</button>
-                </div>
-                <div class="modal-success">
-                    <img src="src/icons/conc.gif" alt="">
-                    <span>Send whit success</span>
-                    <span>Good Luck</span>
-                </div>
+    <div class="modal fade" tabindex="-1" id="ApplyModal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="src/icons/company-icon.png" alt="logo-job">
+                <h5 class="title-modal">Senior Software Enginner</h5>
+                <button type="button" class="btn-close after-apply"" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+            <form action="#" class="form-apply">
+                <div class="row">
+                    <div class="col-12 error-send-menssage"></div>
+                </div>
+                <div class="row">
+                    <div class="fs-4 title-subsection">Profile Info</div>
+                    <div class="col-12 col-md-6">
+                        <input type="text" name="firstName" placeholder="Frist Name" class="first-name">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input type="text" name="lastName" placeholder="Last Name" class="last-name">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <input type="email" name="email" placeholder="Email" class="email">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input type="email" name="confirmEmail" placeholder="Confirm your email" class="confirm-email">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <input type="number" placeholder="Phone" class="phone">
+                    </div>
+                    
+                </div>
+
+                    <div class="row">
+                    <div class="fs-4  title-subsection">Adress</div>
+                        <div class="col-12 col-md-6">
+                            <label for="#">
+                                CEP
+                                <input type="Number" name="Cep" placeholder="00000-000" class="cep">
+                                
+                            </label>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="#">
+                                Rua
+                                <input type="text" name="Street" class="street">
+                                
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <label for="#">
+                                Bairro
+                                <input type="text" name="Bairro" class="district">
+                            </label>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="#">
+                                Cidade
+                                <input type="text" name="City" class="city">
+                            </label>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <label for="#">
+                                UF
+                                <input type="text" name="Uf" class="uf">
+                            </label>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="#">
+                                Número
+                                <input type="Number" name="number" class="number">
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <label for="#">
+                                Complemento
+                                <input type="text" name="Complemento" class="complement">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    <div class="fs-4  title-subsection">Send your CV</div>                             
+                        <input type="file" class="file">
+                    </div>
+                
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-success sendApplyButton">Send Application</button>
+            </div>
+            <div class="modal-success">
+                <img src="src/icons/conc.gif" alt="">
+                <span>Send whit success</span>
+                <span>Good Luck</span>
             </div>
         </div>
-    </section>
+        </div>
+    </div>
+</section>
 
     <section class="Login-Modal">
         <div class="modal fade" tabindex="-1" id="LoginModal">

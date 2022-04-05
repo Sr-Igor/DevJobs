@@ -46,14 +46,15 @@ function changeSubsPage(){
             </div>
         </div>
         <section class="Job-Modal">
-            <div class="modal fade" tabindex="-1" id="infoModal">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content modal-info">
-
-                </div>
+        <div class="modal fade" tabindex="-1" id="infoModal" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content modal-job-modal">
+                    <div class="modal-header"></div> 
+                    <div class="modal-body"></div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     </main>
     `
     callApplyeds()

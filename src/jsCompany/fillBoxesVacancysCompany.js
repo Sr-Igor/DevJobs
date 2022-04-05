@@ -39,6 +39,8 @@ function writeBoxes(vacancysCompany){
     // check if the HTML is empty
     if(vacancysCompany.length == 0){squareBoxes.innerHTML = "You don't have open vacancies"}
 
+    changeModeSubsCompany()
+
     //calls the function that allows clicking on the vacancy
     clickCard()
 }

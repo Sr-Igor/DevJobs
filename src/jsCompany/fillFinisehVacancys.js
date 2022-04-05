@@ -39,6 +39,9 @@ function writeBoxesFinised(vacancysCompany){
 
     // check if the HTML is empty
     if(vacancysCompany.length == 0){squareBoxes.innerHTML = "You have no vacancies completed"}
+
+    changeModeSubsCompany()
+
     //calls the function that allows clicking on the vacancy
     clickCardFinished()
 }

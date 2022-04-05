@@ -43,8 +43,8 @@ function fillUserPageCompany() {
 
 <main>
     <div class="container">
-        <div class="row">
-            <div class="col-2">
+        <div class="row mobile-row">
+            <div class="col-md-2 col-12">
                 <div class="box-info-company">
                     <img src="/src/images/DefaultProfileCompany.png" alt="">
                     <div class="company-title color-ct">${currentUserCompany.companyName}</div>
@@ -55,14 +55,14 @@ function fillUserPageCompany() {
             <div class="col-10 box-vacancy">
                 <span class="title-create-job">Create a new vacancy</span>
                 <span class="box-create-job"></span>
-                <form>
+                <form class="creat-job-form">
                     <div class="row">
-                        <div class="mb-3 col-5">
+                        <div class="mb-3 col-md-5 col-6">
                             <label for="exampleInputEmail1" class="form-label">Vacancy Name</label>
                             <input type="text" class="form-control vacancy-name" aria-describedby="emailHelp">
                         </div>
         
-                        <div class="mb-3 col-5">
+                        <div class="mb-3 col-md-5 col-6">
                             <label for="exampleInputEmail1" class="form-label">Type</label>
                             <input type="text" class="form-control type" aria-describedby="emailHelp">
                             <div  class="form-text">Estagiary Junior  Senior  Pleno Other</div>
@@ -70,7 +70,7 @@ function fillUserPageCompany() {
                     </div>
         
                     <div class="row">
-                        <div class="mb-3 col-5">
+                        <div class="mb-3 col-md-5 col-6">
                             <label for="exampleInputPassword1" class="form-label">Periody</label>
                             <select class="form-select periody" aria-label="Default select example">
                                 <option value="0" selected></option>
@@ -80,7 +80,7 @@ function fillUserPageCompany() {
                               </select>
                         </div>
         
-                        <div class="mb-3 col-5">
+                        <div class="mb-3 col-md-5 col-6">
                             <label for="exampleInputPassword1" class="form-label">Wage</label>
                             <input type="text" class="form-control payment">
                             <div class="form-text">Only Numbers</div>
@@ -88,13 +88,13 @@ function fillUserPageCompany() {
                     </div>
         
                     <div class="row">
-                        <div class="mb-3 col-5">
+                        <div class="mb-3 col-md-5 col-12">
                             <label for="exampleInputEmail1" class="form-label">Requirements:</label>
                             <textarea class="requirements-area"></textarea>
                             <div class="form-text">Separate items by comma ","</div>
                         </div>
         
-                        <div class="mb-3 col-5">
+                        <div class="mb-3 col-md-5 col-12">
                             <label for="exampleInputEmail1" class="form-label">Benefits:</label>
                             <textarea class="benefits-area"></textarea>
                             <div class="form-text">Separate items by comma ","</div>
@@ -102,13 +102,13 @@ function fillUserPageCompany() {
                     </div>
 
                     <div class="row">
-                        <div class="mb-3 col-5">
+                        <div class="mb-3 col-md-5 col-12">
                             <label for="exampleInputEmail1" class="form-label">Desirable Knowledge:</label>
                             <textarea class="desirable-area"></textarea>
                             <div class="form-text">Separate items by comma ","</div>
                         </div>
         
-                        <div class="mb-3 col-5">
+                        <div class="mb-3 col-md-5 col-12">
                             <label for="exampleInputEmail1" class="form-label">Additional Information:</label>
                             <textarea class="aditional-area"></textarea>
                             <div class="form-text">Separate items by comma ","</div>
@@ -116,7 +116,7 @@ function fillUserPageCompany() {
                     </div>
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-5 col-12">
                             <button class="btn btn-primary public-vacancy">Public a vacancy</button>
                         </div>
                     </div>

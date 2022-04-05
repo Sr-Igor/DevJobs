@@ -6,3 +6,212 @@
 .user.none{
     opacity: 0;
 }
+
+/* Responsive Layout */ 
+/* Inicial page (no login) */ 
+@media (min-width:426px) and (max-width: 768px){
+
+    /*search box */
+    .form-search{
+        font-size: 15px;
+    }
+
+    .checkbox{
+        font-size: 10px;
+    }
+
+    /* Footer */ 
+    .title-social-media{
+        font-size: 9px;
+    }
+
+    .box-1, .box-2, .box-3{
+        font-size: 9px;
+        padding: 0px 10px;
+    }
+
+    .bottom-footer{
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 500px){
+
+    /* Header */ 
+
+    .header{
+        max-height: 80px;
+    }
+
+    .top-header{
+        font-size: 8px;
+    }
+
+    .top-header h1{
+        font-size: 16px;
+    }
+
+    .down-header{
+        margin-top: -10px;
+    }
+
+    .down-header.scrolled{
+        max-width: 700px;
+        margin-top: -60px;
+    }
+
+    .cssbuttons-io-button{
+        width: 120px;
+        font-size: 9px;
+        font-weight: 500;
+    }
+
+    .form-search{
+        font-size: 8px;
+    }
+
+    .form-search label{
+        max-width: 85px;
+    }
+
+    .checkbox{
+        font-size: 8px;
+        
+    }
+
+    .down-header{
+        max-width: 90%;
+        height: 40px;
+    }
+
+    .box-jobs{
+        margin-top: -10px;
+    }
+
+    /* user itens*/ 
+    .circle{
+        font-size: 10px;
+        text-align: center;
+    }
+
+    /*Footer */ 
+    .title-social-media{
+        font-size: 9px;
+    }
+
+    .box-1, .box-3{
+        margin-top: 110px;
+    }
+
+    .box-2{
+        margin-top: -120px;
+    }
+
+    .bottom-footer{
+        margin-top: 5px;
+        font-size: 9px;
+    }
+    
+    .top-footer{
+        justify-content: center;
+    }
+
+    /* Main */
+
+    .box{
+        margin-right: 0;
+    }
+
+
+    /* Job Modal */ 
+
+    .Job-Modal{
+        font-size: 10px;
+    }
+
+    .Job-Modal ul {
+        min-width: 100%;
+        list-style: none;
+        margin-top: -10px;
+    }
+
+    .Job-Modal li{
+        min-width: 74px;
+       margin-left: -30px;
+    }
+
+    .payment{
+        margin-top: -15px;
+        margin-bottom: 10px;
+    }
+
+    .text-not-loged{
+        font-size: 12px;
+    }
+    
+    .modal-success span{
+        font-size: 15px;
+    }
+
+    .modal-success img{
+        width: 100px;
+    }
+
+    .error-send-menssage{
+        font-size: 13px;
+    }
+
+    .form-apply input{
+        font-size: 10px;
+    }
+
+    .form-apply label{
+        font-size: 10px;
+    }
+}
+
+/*Profile Page */
+
+@media (max-width: 500px){
+    .mobile-row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box-info-company img{
+        max-width: 90px;
+    }
+
+    .infos-row div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .adress-row{
+        margin-right: 40px;
+    }
+    .adress-row div{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+/* APPLY PAGE */ 
+
+@media (max-width: 500px){
+    .vacancy button{
+        width: 100px;
+        font-size: 15px;
+    }
+
+    .box-vagancys-closed, .box-vagancys{
+        font-size: 12px;
+    }
+
+    .h1{
+        font-weight: 700;
+    }
+}

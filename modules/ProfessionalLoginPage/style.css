@@ -129,6 +129,7 @@ button{
 
 /* main */ 
 
+
 main{
     display: flex;
     flex-direction: column;
@@ -148,6 +149,10 @@ main .row label{
     justify-content: flex-end;
     font-size: 13px;
     font-weight: 600;
+}
+
+.title-register{
+    font-size: 35px;
 }
 
 /* Form Register */
@@ -191,8 +196,8 @@ footer{
     color: white;
     font-size: 15px;
     margin-top: 20px;
+    bottom: 0;
     background-color: #5964e0;
-    position: absolute;
     width: 100%;
     height: auto;
     overflow: hidden;
