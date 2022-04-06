@@ -4,7 +4,7 @@ function loadEditProfile(){
     buttonSaveEdit.addEventListener("click", callEditProfileCompany)
 }
 
-function verifyFieldsEdit(companysArray){
+function verifyFieldsEdit(companiesArray){
     event.preventDefault()
 
     //Current Infos Company 
@@ -16,7 +16,7 @@ function verifyFieldsEdit(companysArray){
     let companyPhoneEdit  = document.querySelector(".phone-edit")
     let companyCnpjEdit  = document.querySelector(".cnpj-edit")
 
-    //Adress Company
+    //address Company
     let companyCepEdit  = document.querySelector(".cep-edit")
     let companyStreetEdit  = document.querySelector(".street-edit")
     let companyDistrictEdit  = document.querySelector(".district-edit")
@@ -64,7 +64,7 @@ function verifyFieldsEdit(companysArray){
 
     // Check passwords the same
     if(currentCompany.password == currentPassword.value){
-        updateprofile(companysArray,  ArrayInputsValue, companyComplementEdit, companyPasswordEdit.value )
+        updateprofile(companiesArray,  ArrayInputsValue, companyComplementEdit.value, companyPasswordEdit.value )
     }else{
         let message = "Current password incorrect"
         let element = currentPassword
@@ -96,7 +96,7 @@ function errorMessageEditProfile(message, element){
     }, 3000)
 }
 
-function updateprofile(companysArray, ArrayInputsValue, newComplement, newPassword){
+function updateprofile(companiesArray, ArrayInputsValue, newComplement, newPassword){
     // Update company information, save to localStorage and refresh the page
 
     //Deconstructing the array of elements
@@ -110,21 +110,21 @@ function updateprofile(companysArray, ArrayInputsValue, newComplement, newPasswo
     //Box message
     let boxMessage = document.querySelector(".box-message-edit-profile")
 
-    for (let i in companysArray){
-        if(companysArray[i].id == currentCompany.id){
-            companysArray[i].companyName = newName
-            companysArray[i].phone = NewPhone
-            companysArray[i].cnpj = NewCnpj
-            companysArray[i].adress.cep = NewCep
-            companysArray[i].adress.street = NewStreet
-            companysArray[i].adress.city = NewCity
-            companysArray[i].adress.uf = NewUf.toUpperCase()
-            companysArray[i].adress.district = NewDistrict
-            companysArray[i].adress.number = NewNumber
-            companysArray[i].adress.complement =  newComplement
+    for (let i in companiesArray){
+        if(companiesArray[i].id == currentCompany.id){
+            companiesArray[i].companyName = newName
+            companiesArray[i].phone = NewPhone
+            companiesArray[i].cnpj = NewCnpj
+            companiesArray[i].address.cep = NewCep
+            companiesArray[i].address.street = NewStreet
+            companiesArray[i].address.city = NewCity
+            companiesArray[i].address.uf = NewUf.toUpperCase()
+            companiesArray[i].address.district = NewDistrict
+            companiesArray[i].address.number = NewNumber
+            companiesArray[i].address.complement =  newComplement
 
             //Checks if a new password has been added
-            if(newPassword !== ""){companysArray[i].password = newPassword}
+            if(newPassword !== ""){companiesArray[i].password = newPassword}
 
             //Show success message
             boxMessage.classList.add("box-success-edit-profile")
@@ -136,9 +136,9 @@ function updateprofile(companysArray, ArrayInputsValue, newComplement, newPasswo
                 boxMessage.classList.remove("box-success-edit-profile")
                 boxMessage.innerHTML = ''
                 boxMessage.style.opacity = "0"
-                currentCompany = companysArray[i]
-                changeMainPage()
-                updateCompanysArray(companysArray)
+                currentCompany = companiesArray[i]
+                updatecompaniesArray(companiesArray)
+                fillProfilePage()
             }, 3000)
         }
     }

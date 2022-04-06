@@ -11,17 +11,15 @@
 (function additionalVacancies(){ // This function adds manually created vacancies to simulate a database
     let localStorageNull = localStorage.getItem("vacanciesArray") 
     let vacanciesArray =  localStorageNull == null ? [] : JSON.parse(localStorage.getItem("vacanciesArray"))
-    if(vacanciesArray[0] == undefined){vacanciesArray.push(...vacancys)}
+    if(vacanciesArray[0] == undefined){vacanciesArray.push(...vacancies)}
     updateVacancies(vacanciesArray)
-    console.log(vacanciesArray)
 })();
 
 (function additionalCompanies(){
-    let localStorageNull = localStorage.getItem("companysArray")
-    let companysArray =  localStorageNull == null ? [] : JSON.parse(localStorage.getItem("companysArray"))
-    if(companysArray[0] == undefined){companysArray.push(...companys)}
-    updateCompanysArray(companysArray)
-    console.log(companysArray)
+    let localStorageNull = localStorage.getItem("companiesArray")
+    let companiesArray =  localStorageNull == null ? [] : JSON.parse(localStorage.getItem("companiesArray"))
+    if(companiesArray[0] == undefined){companiesArray.push(...companies)}
+    updatecompaniesArray(companiesArray)
 })()
 
 //Upadate LocalStorage Functions 
@@ -35,11 +33,10 @@ function updateUsers(usersRegisterArray){ // This function save registered Users
 
 function updateCurrentCompanyUser(currentCompany){
     localStorage.setItem("currentCompany", JSON.stringify(currentCompany))
-    console.log(currentCompany)
 }
 
-function updateCompanysArray(companysArray){ // This function save registered Companies
-    localStorage.setItem("companysArray", JSON.stringify(companysArray))
+function updatecompaniesArray(companiesArray){ // This function save registered Companies
+    localStorage.setItem("companiesArray", JSON.stringify(companiesArray))
 };
 
 function updateVacancies(vacanciesArray){ // This function save availables vacancies (opened)
@@ -111,7 +108,6 @@ function callSendApplyeds(){ // This function is called when executing the funct
 };
 
 function callUnsubiscrive(){ // This function is called to cancel a user subscription
-    console.log("entrou")
     let localStorageNull = localStorage.getItem("usersApplayedsArray")
     let applayedsArray = localStorageNull == null ? [] : JSON.parse(localStorage.getItem("usersApplayedsArray"))
     let cacheUserInfo =  JSON.parse(localStorage.getItem("cacheUserInfo"))
@@ -124,23 +120,16 @@ function callEditProfile(){ //This function is called to edit the user profile
     verifyFieldsEdit(usersRegisterArray, cacheUserInfo[2])
 }
 
-function callHome(){ // this function is called to reload the homepage with the user logged in
-    changeHomePage()
-    callUsers()
-    callVacancies()
-};
-
-
 //COMPANY PAGE 
 // login & Inicial Company Page
 function callVerifyAccountCompany(){ // This function is called to verify the login of companies
-    let companysArray = JSON.parse(localStorage.getItem("companysArray"))
-    verifyAccount(companysArray)
+    let companiesArray = JSON.parse(localStorage.getItem("companiesArray"))
+    verifyAccount(companiesArray)
 };
 
 function callCreateAccountCompany(){ // This function is called to include include the new users in localSotrage
-    let companysArray =  localStorage.getItem("companysArray") == null ? [] : JSON.parse(localStorage.getItem("companysArray"))
-    verifyFields(companysArray)
+    let companiesArray =  localStorage.getItem("companiesArray") == null ? [] : JSON.parse(localStorage.getItem("companiesArray"))
+    verifyFields(companiesArray)
 };
 
 function callCreateJob(){ // This function is called when adding a vacancy, to include the new job in localStorage
@@ -149,8 +138,8 @@ function callCreateJob(){ // This function is called when adding a vacancy, to i
 };
 
 function callEditProfileCompany(){ // This function is called to edit profile and change new information in local storage
-    let companysArray = JSON.parse(localStorage.getItem("companysArray"))
-    verifyFieldsEdit(companysArray)
+    let companiesArray = JSON.parse(localStorage.getItem("companiesArray"))
+    verifyFieldsEdit(companiesArray)
 };
 
 // Vacancies Company Page 

@@ -36,34 +36,34 @@ function fillBox(clickedVacancy, parametrsArray){
         </div>
         <div class="row">
             <div class="col-4">
-                <p class="title-info">Requisitos:</p>
+                <p class="title-info">Requirements:</p>
                 <ul class="company-requirements"></ul>
             </div>
             <div class="col-4">
-                <p class="title-info">Desejavel:</p>
+                <p class="title-info">Desirable:</p>
                 <ul class="company-desirable"></ul>
             </div>
             <div class="col-4">
                 <div class="row">
-                    <p class="title-info">Tipo: <strong>${clickedVacancy.type}</strong></p>
+                    <p class="title-info">TYPE: <strong>${clickedVacancy.type}</strong></p>
                 </div>
                 <div class="row">
-                    <p class="title-info">Periodo: <strong>${clickedVacancy.time}</strong></p>
+                    <p class="title-info">Period: <strong>${clickedVacancy.time}</strong></p>
                 </div>
                 <div class="row">
-                    <p class="title-info">Salario:</p>
+                    <p class="title-info">Payment:</p>
                     <strong class="payment">R$ ${clickedVacancy.payment}</strong>
                 </div>
                 </div>
         </div>
         <div class="row">
             <div class="col-6">
-                <p class="title-info">Beneficios:</p>
+                <p class="title-info">Benefits:</p>
                 <ul class="company-benefits"></ul>
             </div>
             <div class="col-6">
             <div class="row">
-                <p class="title-info">Informações Adicionais:</p>
+                <p class="title-info">Additional Information:</p>
                 <span>${clickedVacancy.additional}</span>
             </div>
         </div>
@@ -97,7 +97,6 @@ function fillBox(clickedVacancy, parametrsArray){
     desirable.innerHTML = desirableHTML
     benefits.innerHTML = benefitsHTML
 
-    console.log(clickedVacancy.status)
     let modalFooter = document.querySelector(".modal-footer")
     if(clickedVacancy.status == "Finished"){
         modalFooter.innerHTML = `
@@ -124,7 +123,7 @@ function usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray){
         // Capture of users registered in the respective vacancy
         let idUsers = []
         for (let i in applayedsArray){
-           if(applayedsArray[i].vacancysCode.includes(clickedVacancy.id)){
+           if(applayedsArray[i].vacanciesCode.includes(clickedVacancy.id)){
                idUsers.push(applayedsArray[i].idUser)
            }
         }
@@ -156,7 +155,7 @@ function usersApplayeds(clickedVacancy, applayedsArray, usersRegisterArray){
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <span class="title-applyeds-vacancys">Enrolled in the vacancies</span>
+            <span class="title-applyeds-vacancies">Enrolled in the vacancies</span>
             <ul class="usersApllayed">${usersApplyedHtml}</ul>
         </div>`
     })

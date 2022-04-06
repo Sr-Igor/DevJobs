@@ -63,11 +63,9 @@ function trueDarkCompany(call){
         case 3: 
             if(lightSwitch.classList.contains("dark")){
                 activedDarkCompany = false
-                console.log(activedDarkCompanyCompany)
                 changeModeProfileCompany(false)
             }else{
                 activedDarkCompany = true
-                console.log(activedDarkCompanyCompany)
                 changeModeProfileCompany(true)
             }
             break;
@@ -133,7 +131,6 @@ function changeModeSubsCompany(dark){
 }
 
 function changeModeProfileCompany(dark){
-    console.log("entrou")
     let lightSwitch = document.querySelector(".light-switch")
     let body = document.querySelector("body")
     let titleCreatJob = document.querySelector(".title-create-job")
@@ -141,7 +138,6 @@ function changeModeProfileCompany(dark){
     let label = document.querySelectorAll("label")
 
     if(dark == true || activedDarkCompany == true){
-        console.log("true")
         lightSwitch.classList.add("dark")
         body.classList.add("dark-body")
         titleCreatJob.classList.add("dark-titles")
@@ -150,7 +146,6 @@ function changeModeProfileCompany(dark){
         label.forEach(item => item.classList.add("dark-titles"))
         setTimeout(()=>body.classList.remove("transition-dark"),1000)
     }else{
-        console.log("false")
         lightSwitch.classList.remove("dark")
         body.classList.remove("dark-body")
         titleCreatJob.classList.remove("dark-titles")

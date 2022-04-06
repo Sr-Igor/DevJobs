@@ -6,7 +6,6 @@ body{
     font-family: 'Fredoka', sans-serif;
     background-color: #f5f6f8;
     margin: 0;
-    transition: all 1.0s ease;
 }
 /* Header */
 .header{
@@ -24,7 +23,7 @@ body{
 }
 
 .top-header{
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -132,7 +131,7 @@ button{
     margin-top: 20px;
 }
 
-.box-vagancys, .box-vagancys-closed{
+.box-vacancies, .box-vacancies-closed{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -338,7 +337,7 @@ ul li img{
         font-size: 15px;
     }
 
-    .box-vagancys-closed, .box-vagancys{
+    .box-vacancies-closed, .box-vacancies{
         font-size: 12px;
     }
 

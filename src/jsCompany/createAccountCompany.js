@@ -4,7 +4,7 @@
     buttonRegisterCompany.addEventListener("click", callCreateAccountCompany)
 })()
 
-function verifyFields(companysArray){
+function verifyFields(companiesArray){
     event.preventDefault()
 
     //Infos Company
@@ -17,7 +17,7 @@ function verifyFields(companysArray){
     let companyCnpj = document.querySelector(".cpnj")
     let checkboxRegister = document.querySelector(".check-terms")
 
-    //Adress Company 
+    //address Company 
     let companyCep = document.querySelector(".cep-company")
     let companyStreet = document.querySelector(".street-company")
     let companyDistrict = document.querySelector(".district-company")
@@ -46,11 +46,11 @@ function verifyFields(companysArray){
     
     // CNPJ array for verify register
     let cnpjUsers = []
-    for(let i in companysArray){cnpjUsers.push(companysArray[i].cnpj)}
+    for(let i in companiesArray){cnpjUsers.push(companiesArray[i].cnpj)}
 
     // Email array for verify register
     let emailCompanyUsers = []
-    for(let i in companysArray){emailCompanyUsers.push(companysArray[i].email)}
+    for(let i in companiesArray){emailCompanyUsers.push(companiesArray[i].email)}
 
     //Regex Email
     let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ 
@@ -127,7 +127,7 @@ function verifyFields(companysArray){
         /* If the items are all correct, call the function that performs the registration 
          and the success message */
         fillMessageBox()
-        idUserGeneratorCompany(companysArray, arrayInputs, companyComplement,)
+        idUserGeneratorCompany(companiesArray, arrayInputs, companyComplement,)
     }
 }
 
@@ -167,21 +167,21 @@ function fillMessageBox(message, inputEl, inputConfirm = inputEl,){
     
 }
 
-function idUserGeneratorCompany(companysArray, arrayInputs, companyComplement,){
+function idUserGeneratorCompany(companiesArray, arrayInputs, companyComplement,){
 
     // Array with existents companies id
-    let idUsersCompanys = []
-    for (let i in companysArray){idUsersCompanys.push(companysArray[i].id)}
+    let idUsersCompanies = []
+    for (let i in companiesArray){idUsersCompanies.push(companiesArray[i].id)}
     
     // This function generates an id
     let idRandomUser = ""
     let randomUser = () => idRandomUser = Math.floor(Math.random() * 10000)    
     randomUser()
     // If id is existent, recursion is used to generate another id
-    if(idUsersCompanys.includes(idRandomUser)){randomUser()}
+    if(idUsersCompanies.includes(idRandomUser)){randomUser()}
 
     // Adding the new company to the simulated database
-    companysArray.push(
+    companiesArray.push(
         {
             id: idRandomUser,
             companyName: arrayInputs.companyName.value,
@@ -189,7 +189,7 @@ function idUserGeneratorCompany(companysArray, arrayInputs, companyComplement,){
             password: arrayInputs.companyPassword.value,
             phone: arrayInputs.companyPhone.value,
             cnpj: arrayInputs.companyCnpj.value,
-            adress: {
+            address: {
                 cep: arrayInputs.companyCep.value,
                 city: arrayInputs.companyCity.value,
                 street: arrayInputs.companyStreet.value,
@@ -210,6 +210,6 @@ function idUserGeneratorCompany(companysArray, arrayInputs, companyComplement,){
     },3000)
 
     //Saving the new user in localStorage
-    updateCompanysArray(companysArray)
+    updatecompaniesArray(companiesArray)
 }
 

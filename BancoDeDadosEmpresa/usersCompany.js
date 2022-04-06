@@ -1,4 +1,4 @@
-let companys = [
+let companies = [
     {
         id:100,
         companyName: "Banco Inter",
@@ -6,7 +6,7 @@ let companys = [
         password: "1",
         phone: "40028922",
         cnpj: "16526000101",
-        adress: {
+        address: {
             cep: "35500155",
             city: "sao paulo",
             street: "Av Paulista",
@@ -24,7 +24,7 @@ let companys = [
         password: "2",
         phone: "4002-8922",
         cnpj: "16526000101",
-        adress: {
+        address: {
             cep: "35500155",
             city: "sao paulo",
             street: "Av Paulista",
@@ -42,7 +42,7 @@ let companys = [
         password: "3",
         phone: "4002-8922",
         cnpj: "16526000101",
-        adress: {
+        address: {
             cep: "35500155",
             city: "sao paulo",
             street: "Av Paulista",

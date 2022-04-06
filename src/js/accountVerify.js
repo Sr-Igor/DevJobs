@@ -147,13 +147,13 @@ function updateApplyVacancy(currentUser){ // Fill modal on click to aplly
     email.setAttribute("value", currentUser.email)
     confirmEmail.setAttribute("value", currentUser.email)
     phone.setAttribute("value", currentUser.phone)
-    cep.setAttribute("value", currentUser.adress.cep)
-    street.setAttribute("value", currentUser.adress.street)
-    district.setAttribute("value", currentUser.adress.district)
-    city.setAttribute("value", currentUser.adress.city)
-    uf.setAttribute("value", currentUser.adress.uf)
-    number.setAttribute("value", currentUser.adress.number)
-    complement.setAttribute("value", currentUser.adress.complement)
+    cep.setAttribute("value", currentUser.address.cep)
+    street.setAttribute("value", currentUser.address.street)
+    district.setAttribute("value", currentUser.address.district)
+    city.setAttribute("value", currentUser.address.city)
+    uf.setAttribute("value", currentUser.address.uf)
+    number.setAttribute("value", currentUser.address.number)
+    complement.setAttribute("value", currentUser.address.complement)
 }
 
 function sendApplication(applayedsArray){ // Send the form to the company
@@ -215,10 +215,10 @@ function getVacancy(applayedsArray){
         for( let i in applayedsArray){
             if(applayedsArray[i].idUser == currentUser.id){
                 //Checks if the user is already registered in the vacancy
-                if(applayedsArray[i].vacancysCode.includes(Number(currentVacancy))){
+                if(applayedsArray[i].vacanciesCode.includes(Number(currentVacancy))){
                     messageBox(2)
                 }else{
-                    applayedsArray[i].vacancysCode.push(Number(currentVacancy))
+                    applayedsArray[i].vacanciesCode.push(Number(currentVacancy))
                     messageBox(3)
                     //Simulated database update
                     updateApplyeds(applayedsArray)
@@ -228,7 +228,7 @@ function getVacancy(applayedsArray){
     }else{
         applayedsArray.push({
             idUser: currentUser.id,
-            vacancysCode: [Number(currentVacancy)]
+            vacanciesCode: [Number(currentVacancy)]
         })
         messageBox(3)
         //Simulated database update

@@ -1,4 +1,13 @@
+// This function automatically fills the fields on the company profile page
 function fillProfilePage(){
+    let userCompany = ""
+    let companiesArray = JSON.parse(localStorage.getItem("companiesArray"))
+    for (let i in companiesArray){
+       if(companiesArray[i].id == currentCompany.id){
+            userCompany = companiesArray[i]
+       }
+    }
+
     let companyTitle = document.querySelector(".company-title")
     let companyName = document.querySelector(".edit-company-name")
     let currrentPassword = document.querySelector(".current-password")
@@ -13,17 +22,17 @@ function fillProfilePage(){
     let number= document.querySelector(".number-edit")
     let complement = document.querySelector(".complement-edit")
     
-    companyTitle.innerHTML = currentCompany.companyName
-    companyName.value = currentCompany.companyName
+    companyTitle.innerHTML = userCompany.companyName
+    companyName.value = userCompany.companyName
     currrentPassword.value = ""
     newPassword.value = ""
-    phone.value = currentCompany. phone
-    cnpj.value = currentCompany.cnpj
-    cep.value = currentCompany.adress.cep
-    street.value = currentCompany.adress.street
-    district.value = currentCompany.adress.district
-    city.value = currentCompany.adress.city
-    uf.value = currentCompany.adress.uf
-    number.value = currentCompany.adress.number
-    complement.value = currentCompany.adress.complement
+    phone.value = userCompany.phone
+    cnpj.value = userCompany.cnpj
+    cep.value = userCompany.address.cep
+    street.value = userCompany.address.street
+    district.value = userCompany.address.district
+    city.value = userCompany.address.city
+    uf.value = userCompany.address.uf
+    number.value = userCompany.address.number
+    complement.value = userCompany.address.complement
 }

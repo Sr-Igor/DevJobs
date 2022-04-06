@@ -1,21 +1,21 @@
 function fillSubscriptionsClosed(user, applayedsArray, vacanciesArrayFinished){
     for(let i in applayedsArray){
         if(applayedsArray[i].idUser == user){
-            VerifyApplyedVacancysClosed(applayedsArray[i].vacancysCode, vacanciesArrayFinished)
+            VerifyApplyedVacanciesClosed(applayedsArray[i].vacanciesCode, vacanciesArrayFinished)
         }
     }
 }
 
-function VerifyApplyedVacancysClosed(vacancysCode, vacanciesArrayFinished){
+function VerifyApplyedVacanciesClosed(vacanciesCode, vacanciesArrayFinished){
     //Box
-    let boxVacancy = document.querySelector(".box-vagancys-closed")
+    let boxVacancy = document.querySelector(".box-vacancies-closed")
 
     // Applied closed vacancies
     let userClosedVacancies = []
 
      // Checks the user's close vacancies and calls the function to fill the screen
     for(let i in vacanciesArrayFinished){
-        if(vacancysCode.includes(vacanciesArrayFinished[i].id)){
+        if(vacanciesCode.includes(vacanciesArrayFinished[i].id)){
             userClosedVacancies.push(vacanciesArrayFinished[i])
         }
     }
@@ -30,7 +30,7 @@ function VerifyApplyedVacancysClosed(vacancysCode, vacanciesArrayFinished){
 
 function fillScreenClosed(userClosedVacancies, vacanciesArrayFinished){
     //Box
-    let boxVacancy = document.querySelector(".box-vagancys-closed")
+    let boxVacancy = document.querySelector(".box-vacancies-closed")
     
     //Writing vacancies in the variable
     let boxVacancyHTML = ""

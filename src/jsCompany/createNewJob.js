@@ -95,7 +95,7 @@ function createVacancyId(vacanciesArray, inputs, listJob, time){
             vacancyName: inputs.vacancyName.value,
             status: "In Process",
             type: inputs.type.value,
-            uf: currentCompany.adress.uf,
+            uf: currentCompany.address.uf,
             time: time,
             payment: inputs.payment.value,
             requirements: listJob.requirementsArray,

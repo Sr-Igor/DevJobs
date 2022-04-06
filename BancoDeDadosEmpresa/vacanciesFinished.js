@@ -1,4 +1,4 @@
-let vacancysFinished = [
+let vacanciesFinished = [
     {   
         idCreator: 102, 
         id:2,

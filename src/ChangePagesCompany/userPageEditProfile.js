@@ -57,7 +57,7 @@ function changeMainPage(){
                 </div>
 
                 <div class="row">
-                    <div class="fs-4  title-subsection">Adress</div>
+                    <div class="fs-4  title-subsection">Address</div>
                     <div class="col-md-6 col-12">
                         <label for="#">
                             CEP
@@ -66,7 +66,7 @@ function changeMainPage(){
                     </div>
                     <div class="col-md-6 col-12">
                         <label for="#">
-                            Rua
+                            Street
                             <input class="street-edit" type="text" name="Street" >
                         </label>
                     </div>
@@ -75,14 +75,14 @@ function changeMainPage(){
                 <div class="row">
                     <div class="col-md-6 col-12">
                         <label for="#">
-                            Bairro
+                            District
                             <input class="district-edit" type="text" name="Bairro">
                         </label>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="#">
-                            Cidade
+                            City
                             <input class="city-edit" type="text" name="City">
                         </label>
                     </div>
@@ -98,7 +98,7 @@ function changeMainPage(){
 
                     <div class="col-md-6 col-12">
                         <label for="#">
-                            Número
+                            Number
                             <input class="number-edit" type="Number" name="number">
                         </label>
                     </div>
@@ -107,7 +107,7 @@ function changeMainPage(){
                 <div class="row">
                     <div class="col-12">
                         <label for="#">
-                            Complemento
+                            Complement
                             <input class="complement-edit" type="text" name="Complemento" class="complement">
                         </label>
                     </div>

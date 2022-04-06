@@ -1,4 +1,4 @@
-//Adress fields
+//Address fields
 let cepRegister = document.querySelector(".cep-register")
 let streetRegister = document.querySelector(".street-register")
 let districtrRegister = document.querySelector(".district-register")

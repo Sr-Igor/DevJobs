@@ -103,7 +103,7 @@ button{
 }
 
 /* button login */ 
-.login-companys{
+.login-companies{
     background-color: white;
     color: #5964e0;
     border-radius: 5px;
@@ -340,7 +340,7 @@ ul li img{
         margin-top: -35px;
     }
 
-    .login-companys{
+    .login-companies{
         margin-left: -120px;
     }
 
@@ -368,7 +368,7 @@ ul li img{
     }
     .top-header{
         font-size: 8px;
-        margin-top: 0px;
+        margin-top: -5px;
     }
 
     .top-header h1{
@@ -377,7 +377,7 @@ ul li img{
         font-size: 14px;
     }
 
-    .login-companys{
+    .login-companies{
         width: 50px;
         height: 20px;
         font-size: 10px;
@@ -400,15 +400,17 @@ ul li img{
         font-size: 8px;
         width: 130px;
         text-align: center;
-        max-height: 10px;
-        margin-top: -10px;
+        height: 10px;
+        margin-top: -5px;
+        padding: 0;
+        box-shadow: none;
     }
 
     .login-company-form input{
         margin-top: -80px;
     }
 
-    .login-companys{
+    .login-companies{
         width: 20px;
         margin-left: -8px;
         margin-bottom: 10px;

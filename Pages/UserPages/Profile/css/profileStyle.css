@@ -373,10 +373,10 @@ ul li img{
         align-items: center;
     }
 
-    .adress-row{
+    .address-row{
         margin-right: 40px;
     }
-    .adress-row div{
+    .address-row div{
         display: flex;
         flex-direction: column;
         align-items: flex-end;

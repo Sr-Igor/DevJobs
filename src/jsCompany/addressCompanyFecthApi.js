@@ -1,6 +1,6 @@
 //This function fills in the address fields during registration
 
-//Adress
+//Address
 let cepRegister = document.querySelector(".cep-company")
 let streetRegister = document.querySelector(".street-company")
 let districtrRegister = document.querySelector(".district-company")

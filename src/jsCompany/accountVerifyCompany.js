@@ -1,13 +1,13 @@
 (function AvailableCompanyLogin(){
-    let loginCompanys = document.querySelector('.login-companys')
-    loginCompanys.addEventListener("click", callVerifyAccountCompany)
+    let logincompanies = document.querySelector('.login-companies')
+    logincompanies.addEventListener("click", callVerifyAccountCompany)
 })()
 
 // Variable that stores the data of the current company
 let = currentUserCompany = ""
 
 //Functions
-function verifyAccount(companysArray){
+function verifyAccount(companiesArray){
     event.preventDefault()
 
     // Login fields
@@ -17,8 +17,8 @@ function verifyAccount(companysArray){
     // Login Infos
     let loginValid = false
     let usersLogin = []
-    for (let i in companysArray){
-        usersLogin.push([companysArray[i].email, companysArray[i].password])
+    for (let i in companiesArray){
+        usersLogin.push([companiesArray[i].email, companiesArray[i].password])
     }
     
     //Field verification
@@ -43,11 +43,11 @@ function verifyAccount(companysArray){
     }else{
 
         //Saving data in global variable
-        for (let i in companysArray){
-            if(companysArray[i].email == emailLogin.value){
-                currentCompany = companysArray[i]
+        for (let i in companiesArray){
+            if(companiesArray[i].email == emailLogin.value){
+                currentCompany = companiesArray[i]
                 updateCurrentCompanyUser(currentCompany)
-                currentUserCompany = companysArray[i]
+                currentUserCompany = companiesArray[i]
             }
         }
 

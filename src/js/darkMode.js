@@ -111,8 +111,8 @@ function changeModeSubs(dark){
     let lightSwitch = document.querySelector(".light-switch")
     let body = document.querySelector("body")
     let titlesJobs = document.querySelectorAll(".container .h1")
-    let boxVacancy = document.querySelector(".box-vagancys")
-    let boxVacancyClosed = document.querySelector(".box-vagancys-closed")
+    let boxVacancy = document.querySelector(".box-vacancies")
+    let boxVacancyClosed = document.querySelector(".box-vacancies-closed")
     let vacancies = document.querySelectorAll(".vacancy")
     if(dark == true || activedDark == true){
         lightSwitch.classList.add("dark")

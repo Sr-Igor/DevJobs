@@ -2,10 +2,6 @@ function loadEditProfile(){
     // Button events save edit profile
     let buttonSaveEdit = document.querySelector(".save-edit-profile")
     buttonSaveEdit.addEventListener("click", callEditProfile)
-
-    // Button event cancel
-    let buttonCancelEdit = document.querySelector(".cancel-edit-profile")
-    buttonCancelEdit.addEventListener("click", callHome)
 }
 
 function verifyFieldsEdit(usersRegisterArray, user){
@@ -17,7 +13,7 @@ function verifyFieldsEdit(usersRegisterArray, user){
     let passwordEdit = document.querySelector(".new-password")
     let phoneEdit  = document.querySelector(".phone-profile")
 
-    //Adress Profile
+    //address Profile
     let cepEdit  = document.querySelector(".cep-profile")
     let streetEdit  = document.querySelector(".street-profile")
     let districtEdit  = document.querySelector(".district-profile")
@@ -107,20 +103,19 @@ function fillBoxMessage(message, element){
 
 function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newPassword, user){
     // Update user information, save to localStorage and refresh the page
-    console.log("entrou update profile")
     //Deconstructing the array of elements
     let [newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber,] = ArrayInputsValue
     
     for (let i in usersRegisterArray){
         if(usersRegisterArray[i].id == user.id){
             usersRegisterArray[i].phone = newPhone
-            usersRegisterArray[i].adress.cep = newCep
-            usersRegisterArray[i].adress.uf = newUf
-            usersRegisterArray[i].adress.city = newCity
-            usersRegisterArray[i].adress.district = newDistrict
-            usersRegisterArray[i].adress.street = newStreet
-            usersRegisterArray[i].adress.number = newNumber
-            usersRegisterArray[i].adress.complement = newComplement
+            usersRegisterArray[i].address.cep = newCep
+            usersRegisterArray[i].address.uf = newUf
+            usersRegisterArray[i].address.city = newCity
+            usersRegisterArray[i].address.district = newDistrict
+            usersRegisterArray[i].address.street = newStreet
+            usersRegisterArray[i].address.number = newNumber
+            usersRegisterArray[i].address.complement = newComplement
             
             //Checks if a new password has been added
             newPassword !== "" ? usersRegisterArray[i].password = newPassword : null

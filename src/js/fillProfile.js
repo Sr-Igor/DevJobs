@@ -1,3 +1,4 @@
+// This function automatically fills the fields on the user profile page
 function fillFieldsProfilePage(){
     let usersRegisterArray = JSON.parse(localStorage.getItem("usersArray"))
     let cacheUserInfo =  JSON.parse(localStorage.getItem("cacheUserInfo"))
@@ -31,13 +32,13 @@ function fillFieldsProfilePage(){
     completName.value =`${user.firstName} ${user.lastName}`
     phone.value = user.phone
     cpf.value = user.cpf
-    cep.value = user.adress.cep
-    street.value = user.adress.street
-    district.value = user.adress.district
-    city.value = user.adress.city
-    uf.value = user.adress.uf
-    number.value = user.adress.number
-    complement.value = user.adress.complement
+    cep.value = user.address.cep
+    street.value = user.address.street
+    district.value = user.address.district
+    city.value = user.address.city
+    uf.value = user.address.uf
+    number.value = user.address.number
+    complement.value = user.address.complement
     currentPassword.value = ""
     newPassword.value = ""
 }

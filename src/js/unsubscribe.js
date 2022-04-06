@@ -11,10 +11,9 @@ function deleteSubs(applayedsArray, user){
    let currentVacancyClicked = Number(event.currentTarget.parentNode.getAttribute("data-key"))
    for (let i in applayedsArray){
        if(applayedsArray[i].idUser == user.id){
-        console.log("ok")
-        let currentItem = applayedsArray[i].vacancysCode.indexOf(currentVacancyClicked)
-        applayedsArray[i].vacancysCode.splice(currentItem, 1)
-        document.querySelector(".box-vagancys").innerHTML = ""
+        let currentItem = applayedsArray[i].vacanciesCode.indexOf(currentVacancyClicked)
+        applayedsArray[i].vacanciesCode.splice(currentItem, 1)
+        document.querySelector(".box-vacancies").innerHTML = ""
         updateApplyeds(applayedsArray)
         window.location.href = "/Pages/UserPages/Applycations/applycationUser.html";
        }

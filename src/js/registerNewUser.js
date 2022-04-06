@@ -16,7 +16,7 @@ function registerUser(usersRegisterArray){
     let phone = document.querySelector(".phone-register")
     let cpf = document.querySelector(".cpf-register")
 
-    //Adress Inputs 
+    //Address Inputs 
     let cep = document.querySelector(".cep-register")
     let street = document.querySelector(".street-register")
     let district = document.querySelector(".district-register")
@@ -185,7 +185,7 @@ function userGenerator(usersRegisterArray, complement, infosRegister){
             password: infosRegister.password.value,
             phone: infosRegister.phone.value,
             cpf: infosRegister.cpf.value,
-            adress: {
+            address: {
                 cep: infosRegister.cep.value,
                 uf: infosRegister.uf.value.toUpperCase(),
                 city: infosRegister.city.value,

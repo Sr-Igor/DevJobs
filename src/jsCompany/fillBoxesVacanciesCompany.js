@@ -1,24 +1,24 @@
 function fillBoxesVacancyCreator(vacanciesArray, currentCompany){
     // Checks the vacancies that were created by the current company
-    let vacancysCreatedCompany =[]
+    let vacanciesCreatedCompany =[]
     for(let i in vacanciesArray){
         if(vacanciesArray[i].idCreator == currentCompany.id){
-            vacancysCreatedCompany.push(vacanciesArray[i])
+            vacanciesCreatedCompany.push(vacanciesArray[i])
         }
     }
     //calls the function that writes open vacancies in HTML
-    writeBoxes(vacancysCreatedCompany)
+    writeBoxes(vacanciesCreatedCompany)
 }
 
-function writeBoxes(vacancysCompany){
+function writeBoxes(vacanciesCompany){
 
     //stores the vacancies in the variable and writes the items in the HTML
     let squareBoxes = document.querySelector(".box-jobs")
     squareBoxes.innerHTML = ""
     let boxesHTML = ""
-    for (let i in vacancysCompany){
+    for (let i in vacanciesCompany){
         boxesHTML += `
-            <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key="${vacancysCompany[i].id}">
+            <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key="${vacanciesCompany[i].id}">
                 <div class="box-header">
                     <img src="/src/icons/company-icon.png" alt="bancoInter">
                 </div>
@@ -26,18 +26,18 @@ function writeBoxes(vacancysCompany){
                     <div class="post">
                         <div class="days">14 days</div>
                         <span>*</span>
-                        <div class="time-course">${vacancysCompany[i].time}</div>
+                        <div class="time-course">${vacanciesCompany[i].time}</div>
                     </div>
-                    <div class="title-job">${vacancysCompany[i].vacancyName}</div>
-                    <div class="company-name">${vacancysCompany[i].companyName}</div>
-                    <div class="box-footer" style="color: #006600;">Status: ${vacancysCompany[i].status}</div>
+                    <div class="title-job">${vacanciesCompany[i].vacancyName}</div>
+                    <div class="company-name">${vacanciesCompany[i].companyName}</div>
+                    <div class="box-footer" style="color: #006600;">Status: ${vacanciesCompany[i].status}</div>
                 </div>
             </div>`
     }
     squareBoxes.innerHTML = boxesHTML
 
     // check if the HTML is empty
-    if(vacancysCompany.length == 0){squareBoxes.innerHTML = "You don't have open vacancies"}
+    if(vacanciesCompany.length == 0){squareBoxes.innerHTML = "You don't have open vacancies"}
 
     changeModeSubsCompany()
 

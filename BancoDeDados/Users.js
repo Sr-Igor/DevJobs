@@ -7,7 +7,7 @@ let users = [
         password: "1",
         phone: "37999862366",
         cpf: "12042907685",
-        adress: {
+        address: {
             cep:"35502646",
             uf: "MG",
             city: "Divinopolis",
@@ -26,7 +26,7 @@ let users = [
         password: "2",
         phone: "31999845623",
         cpf: "45215687458",
-        adress: {
+        address: {
             cep:"45201001",
             uf: "SP",
             city: "São Paulo",
@@ -45,7 +45,7 @@ let users = [
         password: "3",
         phone: "78999852145",
         cpf: "85674232185",
-        adress: {
+        address: {
             cep:"78555100",
             uf: "RJ",
             city: "Uberada",
