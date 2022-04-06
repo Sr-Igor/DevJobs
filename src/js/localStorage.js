@@ -13,6 +13,7 @@
     let vacanciesArray =  localStorageNull == null ? [] : JSON.parse(localStorage.getItem("vacanciesArray"))
     if(vacanciesArray[0] == undefined){vacanciesArray.push(...vacancys)}
     updateVacancies(vacanciesArray)
+    console.log(vacanciesArray)
 })();
 
 (function additionalCompanies(){
@@ -20,6 +21,7 @@
     let companysArray =  localStorageNull == null ? [] : JSON.parse(localStorage.getItem("companysArray"))
     if(companysArray[0] == undefined){companysArray.push(...companys)}
     updateCompanysArray(companysArray)
+    console.log(companysArray)
 })()
 
 //Upadate LocalStorage Functions 
@@ -30,6 +32,11 @@ function updateCurrentUser(cacheUserInfo){
 function updateUsers(usersRegisterArray){ // This function save registered Users
     localStorage.setItem("usersArray", JSON.stringify(usersRegisterArray))
 };
+
+function updateCurrentCompanyUser(currentCompany){
+    localStorage.setItem("currentCompany", JSON.stringify(currentCompany))
+    console.log(currentCompany)
+}
 
 function updateCompanysArray(companysArray){ // This function save registered Companies
     localStorage.setItem("companysArray", JSON.stringify(companysArray))
@@ -90,11 +97,11 @@ function callApplyeds(){ // This function is called when clicking on "subscripti
     let usersApplayedsArrayNull = localStorage.getItem("usersApplayedsArray")
     let applayedsArray = usersApplayedsArrayNull == null ? [] : JSON.parse(localStorage.getItem("usersApplayedsArray"))
     let vacanciesArray =  JSON.parse(localStorage.getItem("vacanciesArray"))
-    
+    let cacheUserInfo =  JSON.parse(localStorage.getItem("cacheUserInfo"))
     // these functions are called upon to fill vacancies on the application page. 
     // Receiving by parameter the id of the current user, the array of applied open and closed vacancies
-    fillSubscriptions(currentUser.id, applayedsArray, vacanciesArray)
-    fillSubscriptionsClosed(currentUser.id, applayedsArray, vacanciesArrayFinished)
+    fillSubscriptions(cacheUserInfo[2].id, applayedsArray, vacanciesArray)
+    fillSubscriptionsClosed(cacheUserInfo[2].id, applayedsArray, vacanciesArrayFinished)
 };
 
 function callSendApplyeds(){ // This function is called when executing the function of applying for a vacancy
@@ -104,14 +111,17 @@ function callSendApplyeds(){ // This function is called when executing the funct
 };
 
 function callUnsubiscrive(){ // This function is called to cancel a user subscription
+    console.log("entrou")
     let localStorageNull = localStorage.getItem("usersApplayedsArray")
     let applayedsArray = localStorageNull == null ? [] : JSON.parse(localStorage.getItem("usersApplayedsArray"))
-    deleteSubs(applayedsArray) // In the end of execution delete the item to "applyedsArray"
+    let cacheUserInfo =  JSON.parse(localStorage.getItem("cacheUserInfo"))
+    deleteSubs(applayedsArray, cacheUserInfo[2]) // In the end of execution delete the item to "applyedsArray"
 };
 
 function callEditProfile(){ //This function is called to edit the user profile
     let usersRegisterArray = JSON.parse(localStorage.getItem("usersArray"))
-    verifyFieldsEdit(usersRegisterArray)
+    let cacheUserInfo =  JSON.parse(localStorage.getItem("cacheUserInfo"))
+    verifyFieldsEdit(usersRegisterArray, cacheUserInfo[2])
 }
 
 function callHome(){ // this function is called to reload the homepage with the user logged in
@@ -146,14 +156,17 @@ function callEditProfileCompany(){ // This function is called to edit profile an
 // Vacancies Company Page 
 function callOpenVacancies(){ // This function is called to fill open vacancies on the vacancies page
     let vacanciesArray = JSON.parse(localStorage.getItem("vacanciesArray"))
-    fillBoxesVacancyCreator(vacanciesArray)
+    let currentCompany = JSON.parse(localStorage.getItem("currentCompany"))
+    fillBoxesVacancyCreator(vacanciesArray, currentCompany)
 };
 
 function callFinishedVacancies(){ // This vacancy is called to fill the closed vacancies on the vacancies page
     let localStorageNull = localStorage.getItem("vacanciesFinishedArray")
     let vacanciesArrayFinished = localStorageNull == null ? [] : JSON.parse(localStorage.getItem("vacanciesFinishedArray"))
-    fillBoxesVacancyFinised(vacanciesArrayFinished)
+    let currentCompany = JSON.parse(localStorage.getItem("currentCompany"))
+    fillBoxesVacancyFinised(vacanciesArrayFinished, currentCompany)
 };
+
 function callClickCardOpenInfoVacancy(){ // Fill in the information of open positions (when clicked)
     let vacanciesArray =  JSON.parse(localStorage.getItem("vacanciesArray"))
     let usersRegisterArray = JSON.parse(localStorage.getItem("usersArray"))

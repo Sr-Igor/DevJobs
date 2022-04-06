@@ -2,10 +2,6 @@ function loadEditProfile(){
     //Events Edit
     let buttonSaveEdit = document.querySelector(".btn-save-edit")
     buttonSaveEdit.addEventListener("click", callEditProfileCompany)
-
-    //Events cancel
-    let buttonCancelEdit = document.querySelector(".btn-cancel-edit")
-    buttonCancelEdit.addEventListener("click", fillUserPageCompany)
 }
 
 function verifyFieldsEdit(companysArray){
@@ -67,7 +63,7 @@ function verifyFieldsEdit(companysArray){
     }
 
     // Check passwords the same
-    if(currentUserCompany.password == currentPassword.value){
+    if(currentCompany.password == currentPassword.value){
         updateprofile(companysArray,  ArrayInputsValue, companyComplementEdit, companyPasswordEdit.value )
     }else{
         let message = "Current password incorrect"
@@ -115,7 +111,7 @@ function updateprofile(companysArray, ArrayInputsValue, newComplement, newPasswo
     let boxMessage = document.querySelector(".box-message-edit-profile")
 
     for (let i in companysArray){
-        if(companysArray[i].id == currentUserCompany.id){
+        if(companysArray[i].id == currentCompany.id){
             companysArray[i].companyName = newName
             companysArray[i].phone = NewPhone
             companysArray[i].cnpj = NewCnpj
@@ -140,7 +136,7 @@ function updateprofile(companysArray, ArrayInputsValue, newComplement, newPasswo
                 boxMessage.classList.remove("box-success-edit-profile")
                 boxMessage.innerHTML = ''
                 boxMessage.style.opacity = "0"
-                currentUserCompany = companysArray[i]
+                currentCompany = companysArray[i]
                 changeMainPage()
                 updateCompanysArray(companysArray)
             }, 3000)

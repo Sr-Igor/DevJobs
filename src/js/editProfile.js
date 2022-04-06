@@ -8,7 +8,7 @@ function loadEditProfile(){
     buttonCancelEdit.addEventListener("click", callHome)
 }
 
-function verifyFieldsEdit(usersRegisterArray){
+function verifyFieldsEdit(usersRegisterArray, user){
     event.preventDefault()
     
     //Current Infos Profile
@@ -58,10 +58,10 @@ function verifyFieldsEdit(usersRegisterArray){
     }
 
     // Check passwords the same
-    if(currentUser.password == currentPassword.value){ 
+    if(user.password == currentPassword.value){ 
         // Calls save user and fill box functions
         fillBoxMessage()
-        updateProfile(usersRegisterArray, ArrayInputsValue, complementEdit.value, passwordEdit.value)
+        updateProfile(usersRegisterArray, ArrayInputsValue, complementEdit.value, passwordEdit.value, user)
     }else{
         let message = "Current password incorrect"
         let element = currentPassword
@@ -105,14 +105,14 @@ function fillBoxMessage(message, element){
 
 }
 
-function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newPassword){
+function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newPassword, user){
     // Update user information, save to localStorage and refresh the page
-
+    console.log("entrou update profile")
     //Deconstructing the array of elements
     let [newPhone, newCep, newStreet, newDistrict, newCity, newUf, newNumber,] = ArrayInputsValue
     
     for (let i in usersRegisterArray){
-        if(usersRegisterArray[i].id == currentUser.id){
+        if(usersRegisterArray[i].id == user.id){
             usersRegisterArray[i].phone = newPhone
             usersRegisterArray[i].adress.cep = newCep
             usersRegisterArray[i].adress.uf = newUf
@@ -125,13 +125,13 @@ function updateProfile(usersRegisterArray, ArrayInputsValue, newComplement, newP
             //Checks if a new password has been added
             newPassword !== "" ? usersRegisterArray[i].password = newPassword : null
             
-            // Update variable
-            currentUser = usersRegisterArray[i]
+            // Update localStorage
+            updateUsers(usersRegisterArray)
 
             //Clean fields
             setTimeout(()=>{
-                updateUsers(usersRegisterArray)
-                fillProfilePage()
+                
+                fillFieldsProfilePage()
             }, 3000)
         }
     }

@@ -64,8 +64,6 @@ function verifyAccount(usersRegisterArray){
     and calling the function that updates the page items*/
     for (let i = 0; i < usersArray.length; i++){
         if(usersArray[i][0] == login && usersArray[i][1] == password){
-            cacheUserInfo = [login, password]
-            updateCurrentUser(cacheUserInfo)
             enterAccount(usersRegisterArray, login)
             break
         }else{ // Login error message
@@ -84,6 +82,8 @@ function enterAccount(usersRegisterArray, login){
             /*Get the information of the current user and 
             call the functions that update the page options*/
             currentUser = usersRegisterArray[i]
+            cacheUserInfo = [login, password, currentUser]
+            updateCurrentUser(cacheUserInfo)
             updateHeader()
             updateBodyFunctions()
             updateApplyVacancy(currentUser)

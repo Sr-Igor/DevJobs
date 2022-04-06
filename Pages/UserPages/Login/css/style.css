@@ -6,6 +6,7 @@ body{
     font-family: 'Fredoka', sans-serif;
     background-color: #f5f6f8;
     margin: 0;
+    transition: all 1.0s ease;
 }
 /* Header */
 .home-header{
@@ -70,6 +71,7 @@ body{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
     border-radius: 5px;
     transition: all 0.5s 0s ease;
+    background-color: white;
 }
 
 .form-search{
@@ -93,12 +95,14 @@ label{
     width: 100%;
     border: none;
     outline: none;
+    transition: all 0.5s ease;
 }
 
 input{
     outline: none;
     border: none;
     margin-left: 5px;
+    transition: all 0.5s ease;
 }
 
 button{
@@ -121,6 +125,12 @@ button{
 
 
 /* Login Button */ 
+
+.box-login{
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
 .user{
     transition: all 0.3s 0s ease;
 }
@@ -582,7 +592,7 @@ ul li img{
 
 .dark-body{
     background-color: #131722;
-    transition: all 0.5s ease;
+    transition: all 1.0s ease;
 }
 
 .dark-boxes{
@@ -596,4 +606,166 @@ ul li img{
 
 .dark-title-subs{
     color: white;
+}
+
+/* Responsive Layout */ 
+/* Inicial page (no login) */ 
+@media (min-width:426px) and (max-width: 768px){
+
+    /*search box */
+    .form-search{
+        font-size: 15px;
+    }
+
+    .checkbox{
+        font-size: 10px;
+    }
+
+    /* Footer */ 
+    .title-social-media{
+        font-size: 9px;
+    }
+
+    .box-1, .box-2, .box-3{
+        font-size: 9px;
+        padding: 0px 10px;
+    }
+
+    .bottom-footer{
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 500px){
+
+    /* Header */ 
+    .header{
+        max-height: 80px;
+    }
+
+    .top-header{
+        font-size: 8px;
+    }
+
+    .top-header h1{
+        font-size: 16px;
+    }
+
+    .down-header{
+        margin-top: -10px;
+    }
+
+    .down-header.scrolled{
+        max-width: 700px;
+        margin-top: -60px;
+    }
+
+    .cssbuttons-io-button{
+        width: 120px;
+        font-size: 9px;
+        font-weight: 500;
+    }
+
+    .form-search{
+        font-size: 8px;
+    }
+
+    .form-search label{
+        max-width: 85px;
+    }
+
+    .checkbox{
+        font-size: 8px;
+        
+    }
+
+    .down-header{
+        max-width: 90%;
+        height: 40px;
+    }
+
+    .box-jobs{
+        margin-top: -10px;
+    }
+
+    /* user itens*/ 
+    .circle{
+        display: flex;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    /*Footer */ 
+    .title-social-media{
+        font-size: 9px;
+    }
+
+    .box-1, .box-3{
+        margin-top: 110px;
+    }
+
+    .box-2{
+        margin-top: -120px;
+    }
+
+    .bottom-footer{
+        margin-top: 5px;
+        font-size: 9px;
+    }
+    
+    .top-footer{
+        justify-content: center;
+    }
+
+    /* Main */
+    .box{
+        margin-right: 0;
+    }
+
+
+    /* Job Modal */ 
+
+    .Job-Modal{
+        font-size: 10px;
+    }
+
+    .Job-Modal ul {
+        min-width: 100%;
+        list-style: none;
+        margin-top: -10px;
+    }
+
+    .Job-Modal li{
+        min-width: 74px;
+       margin-left: -30px;
+    }
+
+    .payment{
+        margin-top: -15px;
+        margin-bottom: 10px;
+    }
+
+    .text-not-loged{
+        font-size: 12px;
+    }
+    
+    .modal-success span{
+        font-size: 15px;
+    }
+
+    .modal-success img{
+        width: 100px;
+    }
+
+    .error-send-menssage{
+        font-size: 13px;
+    }
+
+    .form-apply input{
+        font-size: 10px;
+    }
+
+    .form-apply label{
+        font-size: 10px;
+    }
 }

@@ -89,12 +89,13 @@ function createVacancyId(vacanciesArray, inputs, listJob, time){
     // Adding the new vacancie to the simulated database
     vacanciesArray.unshift(
         {   
-            idCreator: currentUserCompany.id,
+            idCreator: currentCompany.id,
             id: idRandomVacancy,
-            companyName: currentUserCompany.companyName,
+            companyName: currentCompany.companyName,
             vacancyName: inputs.vacancyName.value,
             status: "In Process",
             type: inputs.type.value,
+            uf: currentCompany.adress.uf,
             time: time,
             payment: inputs.payment.value,
             requirements: listJob.requirementsArray,

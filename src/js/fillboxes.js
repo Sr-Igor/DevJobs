@@ -6,7 +6,7 @@ function fillboxes(vacanciesArray, numberPages){
         vacancy += `
         <div class="box" data-bs-toggle="modal" data-bs-target="#myModal" data-key=${vacanciesArray[i].id}>
             <div class="box-header">
-                <img src="src/icons/company-icon.png" alt="bancoInter">
+                <img src="/src/icons/company-icon.png" alt="bancoInter">
             </div>
             <div class="box-body">
                 <div class="post">
@@ -22,6 +22,15 @@ function fillboxes(vacanciesArray, numberPages){
     }
     //Writing in HTML
     boxContainer.innerHTML = vacancy
+
+    if(vacanciesArray.length <= 0){
+        let btnSeeMore = document.querySelector(".btn-see-more-jobs")
+        btnSeeMore.style.display = "none"
+        boxContainer.innerHTML = "No vacancies available at the moment"
+    }else{
+        let btnSeeMore = document.querySelector(".btn-see-more-jobs")
+        btnSeeMore.style.display = "block"
+    }
 
     changeModeHome()
 
@@ -55,7 +64,7 @@ function fillApply(item, vacanciesArray){
     //Filling the modal header
     let jobModalHeader = document.querySelector(".modal-job-modal .modal-header")
     jobModalHeader.innerHTML = `
-        <img src="src/icons/company-icon.png" alt="logo-job">
+        <img src="/src/icons/company-icon.png" alt="logo-job">
         <h5 class="title-modal" data-key="${currentVacancy.id}">${currentVacancy.vacancyName}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>`
 
@@ -123,6 +132,4 @@ function fillApply(item, vacanciesArray){
     benefits.innerHTML = benefitsHTML
 }
 
-/*call to the function that generates the 
-simulated database and fills the page*/
-callVacancies()
+

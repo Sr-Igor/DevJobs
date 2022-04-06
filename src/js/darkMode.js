@@ -1,3 +1,7 @@
+/* These functions control dark mode, saving to localStorage 
+so it can be applied to other pages,
+adding and removing classes with dark colors*/
+
 let lightSwitch = document.querySelector(".light-switch")
 let activedDark = ""
 
@@ -17,6 +21,10 @@ function callDarkSubs(){
     lightSwitch.addEventListener("click", ()=>{
         trueDark(2)
     })
+
+    let localStorageNull = localStorage.getItem("activedDark")
+    activedDark =  localStorageNull == null ? false : JSON.parse(localStorage.getItem("activedDark"))
+    activedDark == true ? changeModeSubs(true) : null
 }
 
 function callDarkProfile(){
@@ -24,6 +32,10 @@ function callDarkProfile(){
     lightSwitch.addEventListener("click", ()=>{
         trueDark(3)
     })
+
+    let localStorageNull = localStorage.getItem("activedDark")
+    activedDark =  localStorageNull == null ? false : JSON.parse(localStorage.getItem("activedDark"))
+    activedDark == true ? changeModeProfile(true) : null
 }
 
 function trueDark(call){
@@ -68,7 +80,7 @@ function changeModeHome(dark){
     let downHeader = document.querySelector(".down-header")
     let searchInput = document.querySelector(".form-search input")
     let states = document.querySelector(".form-search .states")
-
+    let boxJobs = document.querySelector(".box-jobs")
     if(dark == true || activedDark == true){
         
         lightSwitch.classList.add("dark")
@@ -80,6 +92,7 @@ function changeModeHome(dark){
         searchInput.classList.add("dark-boxes")
         states.classList.add("dark-boxes")
         states.classList.add("dark-titles")
+        boxJobs.classList.add("dark-titles")
     }else{
         lightSwitch.classList.remove("dark")
         body.classList.remove("dark-body")
@@ -90,6 +103,7 @@ function changeModeHome(dark){
         searchInput.classList.remove("dark-boxes")
         states.classList.remove("dark-boxes")
         states.classList.remove("dark-titles")
+        boxJobs.classList.remove("dark-titles")
     }
 }
 
@@ -100,7 +114,6 @@ function changeModeSubs(dark){
     let boxVacancy = document.querySelector(".box-vagancys")
     let boxVacancyClosed = document.querySelector(".box-vagancys-closed")
     let vacancies = document.querySelectorAll(".vacancy")
-
     if(dark == true || activedDark == true){
         lightSwitch.classList.add("dark")
         body.classList.add("dark-body")
@@ -116,7 +129,6 @@ function changeModeSubs(dark){
         boxVacancyClosed.classList.remove("dark-title-subs")
         vacancies.forEach(item =>item.classList.remove("dark-boxes"))
     }
-
 }
 
 function changeModeProfile(dark){
@@ -143,4 +155,3 @@ function changeModeProfile(dark){
         titleSubsection.classList.remove("dark-titles")
     }
 }
-callDarkHome()

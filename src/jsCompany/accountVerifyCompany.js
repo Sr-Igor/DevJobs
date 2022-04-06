@@ -7,7 +7,6 @@
 let = currentUserCompany = ""
 
 //Functions
-
 function verifyAccount(companysArray){
     event.preventDefault()
 
@@ -46,12 +45,14 @@ function verifyAccount(companysArray){
         //Saving data in global variable
         for (let i in companysArray){
             if(companysArray[i].email == emailLogin.value){
+                currentCompany = companysArray[i]
+                updateCurrentCompanyUser(currentCompany)
                 currentUserCompany = companysArray[i]
             }
         }
 
         //if the login form is valid calls the function that changes the page
-        fillUserPageCompany() 
+        window.location.href = "/Pages/CompanyPages/UserPage/ProfessionalUser.html";
     }
 }
 

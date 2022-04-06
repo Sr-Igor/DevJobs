@@ -7,7 +7,6 @@ let districtrRegister = document.querySelector(".district-company")
 let cityRegister = document.querySelector(".city-company")
 let ufRgeister = document.querySelector(".uf-company")
 
-
 cepRegister.addEventListener('blur', ()=>{
     let correctCep = cepRegister.value
     options ={

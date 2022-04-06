@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/userPageStyle.css">
+    <title>User Company</title>
+</head>
+<body>
+    <!-- Header Page -->
+    <header>
+        <div class="header">
+            <div class="container">
+                <div class="top-header">
+                    <h1>DevJobs Companys</h1>
+                    <div class="user">
+                        <div class="box-login">
+                            <div class="box-logout">
+                                <div class="circle d-flex">
+                                    <a href="/Pages/CompanyPages/UserPage/ProfessionalUser.html" class="hello-profile active"><i class="bi bi-person-circle"></i> Peril</a>
+                                    <a href="/Pages/CompanyPages/VacancysPage/ProfessionalVacancys.html" class="my-applys open-applys-company"><i class="bi bi-window-plus"></i> Vagas</a>
+                                    <a href="/Pages/CompanyPages/LoginPage/Professional.html"class="log-out"><i class="bi bi-box-arrow-right"></i> Exit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-clean-dark">
+                        <div class="clean-mode"><i class="bi bi-brightness-high"></i></div>
+                        <div class="light-switch">
+                            <div class="pointer"></div>
+                        </div>
+                        <div class="dark-mode"><i class="bi bi-moon"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/Pages/UserPages/Login/index.html" class="inicial-page"><i class="bi bi-house"></i></a>
+    </header>
+    
+    <!-- New vacancies creation area -->
+    <main>
+        <div class="container">
+            <div class="row mobile-row">
+                <div class="col-md-2 col-12">
+                    <div class="box-info-company">
+                        <img src="/src/images/DefaultProfileCompany.png" alt="">
+                        <div class="company-title color-ct"></div>
+                        <button class="btn btn-primary btn-edit-profile">Edit Profile</button>
+                    </div>
+                </div>
+                <div class="col-10 box-vacancy">
+                    <span class="title-create-job">Create a new vacancy</span>
+                    <span class="box-create-job"></span>
+                    <form class="creat-job-form">
+                        <div class="row">
+                            <div class="mb-3 col-md-5 col-6">
+                                <label for="exampleInputEmail1" class="form-label">Vacancy Name</label>
+                                <input type="text" class="form-control vacancy-name" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3 col-md-5 col-6">
+                                <label for="exampleInputEmail1" class="form-label">Type</label>
+                                <input type="text" class="form-control type" aria-describedby="emailHelp">
+                                <div  class="form-text">Estagiary Junior  Senior  Pleno Other</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-5 col-6">
+                                <label for="exampleInputPassword1" class="form-label">Periody</label>
+                                <select class="form-select periody" aria-label="Default select example">
+                                    <option value="0" selected></option>
+                                    <option value="1">Full Time</option>
+                                    <option value="2">1/2 Periody</option>
+                                    <option value="3">Night Time</option>
+                                  </select>
+                            </div>
+                            <div class="mb-3 col-md-5 col-6">
+                                <label for="exampleInputPassword1" class="form-label">Wage</label>
+                                <input type="number" class="form-control payment">
+                                <div class="form-text">Only Numbers</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-5 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Requirements:</label>
+                                <textarea class="requirements-area"></textarea>
+                                <div class="form-text">Separate items by comma ","</div>
+                            </div>
+            
+                            <div class="mb-3 col-md-5 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Benefits:</label>
+                                <textarea class="benefits-area"></textarea>
+                                <div class="form-text">Separate items by comma ","</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-5 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Desirable Knowledge:</label>
+                                <textarea class="desirable-area"></textarea>
+                                <div class="form-text">Separate items by comma ","</div>
+                            </div>
+            
+                            <div class="mb-3 col-md-5 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Additional Information:</label>
+                                <textarea class="aditional-area"></textarea>
+                                <div class="form-text">Separate items by comma ","</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-12">
+                                <button class="btn btn-primary public-vacancy">Public a vacancy</button>
+                            </div>
+                        </div> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="top-footer">
+            <div class="box-1">This is a portfolio project created by Igor de Sousa that has no commercial purposes</div>
+            <div class="box-2">
+                <span class="title-social-media">My Social Media </span>
+                <ul>
+                    <li class="linkedin"><img src="/src/icons/linkedin.png" alt="Linkedin"><a href="" target="_blank"> IgorSousa</a></li>
+                    <li class="twitter"><img src="/src/icons/twitter (1).png" alt="Twitter"><a href="https://twitter.com/Dev_igorsr" target="_blank"> Dev_igorsr</a></li>
+                    <li class="gitHub"><img src="/src/icons/github.png" alt="GitHub"><a href="https://github.com/Sr-Igor" target="_blank"> Sr-Igor</a></li>
+                    <li class="Instagram"><img src="/src/icons/instagram (1).png" alt="Instagram"><a href="https://www.instagram.com/igorsousas_/" target="_blank"> Igorsousas_</a></li>
+                </ul>
+            </div>
+            <div class="box-3">This project is public to be used as a means of learning and should not be commercialized</div>
+        </div>
+        <div class="bottom-footer">&COPY; Igor de Sousa Rezende</div>
+    </footer>
+
+    <!-- LocalStorage -->
+    <script src="/src/js/localStorage.js"></script>
+
+    <!-- Change Main -->
+    <script src="/src/ChangePagesCompany/userPageEditProfile.js"></script>
+
+    <!-- Functions -->
+    <script src="/src/jsCompany/darkModeCompany.js"></script>
+    <script src="/src/jsCompany/fillProfileSection.js"></script>
+    <script src="/src/jsCompany/createNewJob.js"></script>
+    <script src="/src/jsCompany/editProfileCompany.js"></script>
+
+    <!-- Script -->
+    <script src="./js/script.js"></script>
+</body>
+</html>

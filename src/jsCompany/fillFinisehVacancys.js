@@ -1,8 +1,8 @@
-function fillBoxesVacancyFinised(vacanciesArrayFinished){
+function fillBoxesVacancyFinised(vacanciesArrayFinished, currentCompany){
     // Checks the vacancies that were created by the current company
     let vacancysFinisedCompany =[]
     for(let i in vacanciesArrayFinished){
-        if(vacanciesArrayFinished[i].idCreator == currentUserCompany.id){
+        if(vacanciesArrayFinished[i].idCreator == currentCompany.id){
             vacancysFinisedCompany.push(vacanciesArrayFinished[i])
         }
     }

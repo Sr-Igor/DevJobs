@@ -4,7 +4,6 @@ function fillSubscriptions(user, applayedsArray, vacanciesArray){
             VerifyApplyedVacancys(applayedsArray[i].vacancysCode, vacanciesArray)
         }
     }
-    
 }
 
 function VerifyApplyedVacancys(vacancysCode, vacanciesArray){

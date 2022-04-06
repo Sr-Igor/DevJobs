@@ -6,15 +6,17 @@ function clickBtnCancel(){
     })
 }
 
-function deleteSubs(applayedsArray){
+function deleteSubs(applayedsArray, user){
     //this function removes the clicked item from the user's enrolled vacancies array
    let currentVacancyClicked = Number(event.currentTarget.parentNode.getAttribute("data-key"))
    for (let i in applayedsArray){
-       if(applayedsArray[i].idUser == currentUser.id){
+       if(applayedsArray[i].idUser == user.id){
+        console.log("ok")
         let currentItem = applayedsArray[i].vacancysCode.indexOf(currentVacancyClicked)
         applayedsArray[i].vacancysCode.splice(currentItem, 1)
         document.querySelector(".box-vagancys").innerHTML = ""
-        updateApplyeds(applayedsArray, true)
+        updateApplyeds(applayedsArray)
+        window.location.href = "/Pages/UserPages/Applycations/applycationUser.html";
        }
    }
 }
