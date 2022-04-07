@@ -44,6 +44,9 @@ function writeBoxesFinised(vacanciesCompany){
 
     //calls the function that allows clicking on the vacancy
     clickCardFinished()
+
+    //Fill Date box
+    selectBox(vacanciesCompany)
 }
 
 function clickCardFinished(){

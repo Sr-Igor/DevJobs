@@ -43,6 +43,9 @@ function writeBoxes(vacanciesCompany){
 
     //calls the function that allows clicking on the vacancy
     clickCard()
+
+    //Fill Date box
+    selectBox(vacanciesCompany)
 }
 
 function clickCard(){

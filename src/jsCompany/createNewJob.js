@@ -86,6 +86,12 @@ function createVacancyId(vacanciesArray, inputs, listJob, time){
     // If id is existent, recursion is used to generate another id
     if(vacanciesId.includes(idRandomVacancy)){randomUser()}
 
+    // Date generation
+    let todayDate = new Date()
+    let year = todayDate.getFullYear()
+    let month = todayDate.getMonth()
+    let day = todayDate.getDay()
+
     // Adding the new vacancie to the simulated database
     vacanciesArray.unshift(
         {   
@@ -101,7 +107,12 @@ function createVacancyId(vacanciesArray, inputs, listJob, time){
             requirements: listJob.requirementsArray,
             desirable: listJob.desirableArray,
             benefits: listJob.benefitsArray,
-            additional: inputs.adicionais.value
+            additional: inputs.adicionais.value,
+            date: {
+                year: year,
+                month: month,
+                day: day,
+            }
         }
     )
     //Saving the new vacancy in localStorage
