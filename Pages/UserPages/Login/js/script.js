@@ -1,17 +1,3 @@
-// function startProcessHomePage(){
-//     let inicialPage = document.querySelector(".inicial-page")
-//     inicialPage.addEventListener('click', callHome)
-// }
-
-// function profileCallHome(){
-//     let homebutton = document.querySelector(".hello-profile")
-//     homebutton.addEventListener("click", callHome)
-// }
-
-// clickEventReloadHome()
-// AvailableSearchItens()
-// profilePage()
-// availableSeeMore()
 availableExit()
 callDarkHome()
 

@@ -112,6 +112,10 @@ function updateBodyFunctions(){
     let TextNotLoged = document.querySelector(".text-not-loged")
     let btnOpenModal = document.querySelector(".btn-open-modal")
     let sendApplyButton = document.querySelector(".sendApplyButton")
+    //Event clean modal messages
+    btnOpenModal.addEventListener("click", ()=>{
+        messageBox(4)
+    })
 
     //Available button for apply in vacancies 
     TextNotLoged ? TextNotLoged.style.display = "none" : null
@@ -119,6 +123,7 @@ function updateBodyFunctions(){
     btnOpenModal.setAttribute("data-bs-target", "#ApplyModal")
     btnOpenModal.removeAttribute("disabled", "true") 
     sendApplyButton.addEventListener("click", callSendApplyeds)
+
 }
 
 function updateApplyVacancy(currentUser){ // Fill modal on click to aplly 
@@ -197,7 +202,6 @@ function sendApplication(applayedsArray){ // Send the form to the company
 }
 
 function getVacancy(applayedsArray){
-
     // Select the element and get the "data-key" attribute (vacancy id)
     let applyedVacancy = document.querySelector(".title-modal")
     let currentVacancy = applyedVacancy.getAttribute("data-key")
@@ -248,26 +252,24 @@ function messageBox(path){
     let sendApplyButton = document.querySelector(".sendApplyButton")
     let btnClose = document.querySelector(".after-apply")
     //Control the click on the send button
-    sendApplyButton.setAttribute("disabled", true)
-    setTimeout(()=>{
-        sendApplyButton.removeAttribute("disabled", true)
-    }, 3000)
-
-    
+    sendApplyButton.removeAttribute("disabled", true)
 
     switch(path){
         case 1:
             // Error message
             errorSendMenssage.innerHTML = '<i class="bi bi-x"></i> Please complete all the fields correctly'
             errorSendMenssage.style.opacity = "1"
+            sendApplyButton.setAttribute("disabled", true)
             setTimeout(()=> {
                 errorSendMenssage.style.opacity= "0" 
                 errorSendMenssage.innerHTML = ""
+                sendApplyButton.removeAttribute("disabled", true)
             },3000)
             btnClose.addEventListener("click", ()=>{
                 setTimeout(()=>{
                     errorSendMenssage.style.opacity= "0" 
                     errorSendMenssage.innerHTML = ""
+                    sendApplyButton.removeAttribute("disabled", true)
                 },150)
             })
             break;
@@ -276,10 +278,7 @@ function messageBox(path){
             // Error message
             errorSendMenssage.innerHTML = '<i class="bi bi-x"></i> You are already a candidate for this vacancy'
             errorSendMenssage.style.opacity = "1"
-            setTimeout(()=> {
-                errorSendMenssage.style.opacity= "0" 
-                errorSendMenssage.innerHTML = ""
-            },3000)
+            sendApplyButton.setAttribute("disabled", true)
             btnClose.addEventListener("click", ()=>{
                 setTimeout(()=>{
                     errorSendMenssage.style.opacity= "0" 
@@ -307,6 +306,13 @@ function messageBox(path){
                 applyModalBody.style.display = "flex"
                 applyModalFooter.style.display = "flex"
             },3000)
+            break;
+        case 4: 
+            errorSendMenssage.style.opacity= "0" 
+            errorSendMenssage.innerHTML = ""
+            modalSuccess.style.display = "none"
+            applyModalBody.style.display = "flex"
+            applyModalFooter.style.display = "flex"
             break;
     }
 }
