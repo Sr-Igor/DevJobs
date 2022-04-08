@@ -57,7 +57,7 @@ let companies = [
         id:103,
         companyName: "Apple",
         email: "apple@gmail.com",
-        password: "3",
+        password: "4",
         phone: "9998652145",
         cnpj: "16213654785213",
         address: {

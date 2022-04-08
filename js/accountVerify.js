@@ -81,6 +81,7 @@ function enterAccount(usersRegisterArray, login){
         if(usersRegisterArray[i].email == login){
             /*Get the information of the current user and 
             call the functions that update the page options*/
+            
             currentUser = usersRegisterArray[i]
             cacheUserInfo = [login, password, currentUser]
             updateCurrentUser(cacheUserInfo)

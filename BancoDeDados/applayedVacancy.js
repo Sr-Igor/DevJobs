@@ -1,6 +1,4 @@
 let vacancyId = [
-
-
     { 
     idUser: 2,
     vacanciesCode: [1, 3]
