@@ -6,6 +6,11 @@ function AvailableSearchItens(){
 function searchJobs(vacanciesArray){
     event.preventDefault()
 
+    //Available button seeMoreJob
+    let btnSeeMore = document.querySelector(".btn-see-more-jobs")
+    btnSeeMore.removeAttribute("disabled", true)
+    btnSeeMore.classList.remove("disabled")
+
     //Field of elements
     let findJobInput = document.querySelector(".find-job")
     let states = document.querySelector(".states");
@@ -46,6 +51,11 @@ function searchJobs(vacanciesArray){
 }
  
 function verifyFields(filtersArray, state, checkboxFullTime){
+
+    //Disable button seeMoreJob
+    let btnSeeMore = document.querySelector(".btn-see-more-jobs")
+    btnSeeMore.setAttribute("disabled", true)
+    btnSeeMore.classList.add("disabled")
 
     /*Checks if state and checkbox are selected
      and calls the function that fills the screen
